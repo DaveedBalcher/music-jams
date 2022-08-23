@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MultiSelectorView<Selectable: Identifiable & Hashable>: View {
+struct SelectorView<Selectable: Identifiable & Hashable>: View {
     var typeString: String = ""
     let options: [Selectable]
     let optionToString: (Selectable) -> String
@@ -62,7 +62,7 @@ struct MultiSelector_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             Form {
-                MultiSelectorView<IdentifiableString>(
+                SelectorView<IdentifiableString>(
                     options: ["A", "B", "C", "D"].map { IdentifiableString(string: $0) },
                     optionToString: { $0.string },
                     selected: $selected

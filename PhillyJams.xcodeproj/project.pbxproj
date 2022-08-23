@@ -24,7 +24,7 @@
 		1755E64328A5705200164552 /* DefaultVenueStore.json in Resources */ = {isa = PBXBuildFile; fileRef = 174D45E9289C6AE8001AAC96 /* DefaultVenueStore.json */; };
 		1755E64428A5705200164552 /* DefaultVenueLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174D45E4289C689B001AAC96 /* DefaultVenueLoader.swift */; };
 		1755E64728A58D9500164552 /* DefaultVenueStore.json in Resources */ = {isa = PBXBuildFile; fileRef = 174D45E9289C6AE8001AAC96 /* DefaultVenueStore.json */; };
-		1755E64928AAF1A300164552 /* MultiSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E64828AAF1A300164552 /* MultiSelectorView.swift */; };
+		1755E64928AAF1A300164552 /* SelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E64828AAF1A300164552 /* SelectorView.swift */; };
 		1755E64B28ABCA2600164552 /* MultiSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E64A28ABCA2600164552 /* MultiSelectionView.swift */; };
 		1755E64E28B3128900164552 /* FilterProcesser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E64D28B3128900164552 /* FilterProcesser.swift */; };
 		1755E65128B3C65B00164552 /* NeighborhoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E65028B3C65B00164552 /* NeighborhoodItem.swift */; };
@@ -90,7 +90,7 @@
 		1755E61F28A4419C00164552 /* MusicVenues.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicVenues.h; sourceTree = "<group>"; };
 		1755E62628A4419C00164552 /* MusicVenuesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicVenuesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1755E63D28A44EB800164552 /* FilterModelVenueFilteringUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModelVenueFilteringUseCaseTests.swift; sourceTree = "<group>"; };
-		1755E64828AAF1A300164552 /* MultiSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectorView.swift; sourceTree = "<group>"; };
+		1755E64828AAF1A300164552 /* SelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorView.swift; sourceTree = "<group>"; };
 		1755E64A28ABCA2600164552 /* MultiSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionView.swift; sourceTree = "<group>"; };
 		1755E64D28B3128900164552 /* FilterProcesser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterProcesser.swift; sourceTree = "<group>"; };
 		1755E65028B3C65B00164552 /* NeighborhoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeighborhoodItem.swift; sourceTree = "<group>"; };
@@ -223,7 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				1755E5C0289DAEBD00164552 /* ToggleView.swift */,
-				1755E64828AAF1A300164552 /* MultiSelectorView.swift */,
+				1755E64828AAF1A300164552 /* SelectorView.swift */,
 				1755E64A28ABCA2600164552 /* MultiSelectionView.swift */,
 			);
 			path = Components;
@@ -374,7 +374,7 @@
 			files = (
 				1755E604289DB7F400164552 /* VenueMarker.swift in Sources */,
 				1755E605289DB7F400164552 /* VenueBottomView.swift in Sources */,
-				1755E64928AAF1A300164552 /* MultiSelectorView.swift in Sources */,
+				1755E64928AAF1A300164552 /* SelectorView.swift in Sources */,
 				1755E603289DB7F400164552 /* PhillyJamsApp.swift in Sources */,
 				1755E609289DB8C500164552 /* Color-HexString.swift in Sources */,
 				1755E64B28ABCA2600164552 /* MultiSelectionView.swift in Sources */,

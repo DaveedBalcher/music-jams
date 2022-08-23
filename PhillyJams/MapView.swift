@@ -20,9 +20,9 @@ struct MapView: View {
                 HStack {
                     ToggleView(options: vm.neighborhoods, optionToString: { $0.name }, selected: $vm.selectedNeighborhood)
                     
-                    MultiSelectorView(typeString: GenreType.description, options: vm.genres, optionToString: { $0.name }, selected: $vm.selectedGenres)
+                    SelectorView(typeString: GenreType.description, options: vm.genres, optionToString: { $0.name }, selected: $vm.selectedGenres)
                     
-                    MultiSelectorView(typeString: VibeType.description, options: vm.vibes, optionToString: { $0.rawValue }, selected: $vm.selectedVibes)
+                    SelectorView(typeString: VibeType.description, options: vm.vibes, optionToString: { $0.rawValue }, selected: $vm.selectedVibes)
                     
                     Spacer()
                 }
