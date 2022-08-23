@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class FilterProcesser {
+public struct FilterProcesser {
     
     public static func filter(_ venues: [VenueItem], with filters: [FilterParameter]) -> [VenueItem] {
         if filters.isEmpty { return venues }
