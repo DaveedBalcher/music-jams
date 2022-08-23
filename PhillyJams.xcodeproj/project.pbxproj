@@ -1,0 +1,760 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1755E601289DB7DF00164552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1755E600289DB7DF00164552 /* Assets.xcassets */; };
+		1755E603289DB7F400164552 /* PhillyJamsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */; };
+		1755E604289DB7F400164552 /* VenueMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E5BF289DAEBD00164552 /* VenueMarker.swift */; };
+		1755E605289DB7F400164552 /* VenueBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E5C2289DAEBD00164552 /* VenueBottomView.swift */; };
+		1755E606289DB7F400164552 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E5C1289DAEBD00164552 /* MapView.swift */; };
+		1755E607289DB7F400164552 /* ToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E5C0289DAEBD00164552 /* ToggleView.swift */; };
+		1755E609289DB8C500164552 /* Color-HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E608289DB8C500164552 /* Color-HexString.swift */; };
+		1755E60F28A1A34200164552 /* MapView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E60E28A1A34200164552 /* MapView-ViewModel.swift */; };
+		1755E62728A4419C00164552 /* MusicVenues.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1755E61D28A4419C00164552 /* MusicVenues.framework */; };
+		1755E62F28A4419C00164552 /* MusicVenues.h in Headers */ = {isa = PBXBuildFile; fileRef = 1755E61F28A4419C00164552 /* MusicVenues.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1755E63E28A44EB800164552 /* FilterModelVenueFilteringUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E63D28A44EB800164552 /* FilterModelVenueFilteringUseCaseTests.swift */; };
+		1755E64028A5704E00164552 /* VenueLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174D45E0289C5F42001AAC96 /* VenueLoader.swift */; };
+		1755E64128A5704E00164552 /* VenueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174D45E2289C6099001AAC96 /* VenueItem.swift */; };
+		1755E64228A5705200164552 /* DefaultVenueMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174D45F2289D9C2C001AAC96 /* DefaultVenueMapper.swift */; };
+		1755E64328A5705200164552 /* DefaultVenueStore.json in Resources */ = {isa = PBXBuildFile; fileRef = 174D45E9289C6AE8001AAC96 /* DefaultVenueStore.json */; };
+		1755E64428A5705200164552 /* DefaultVenueLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174D45E4289C689B001AAC96 /* DefaultVenueLoader.swift */; };
+		1755E64728A58D9500164552 /* DefaultVenueStore.json in Resources */ = {isa = PBXBuildFile; fileRef = 174D45E9289C6AE8001AAC96 /* DefaultVenueStore.json */; };
+		1755E64928AAF1A300164552 /* MultiSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E64828AAF1A300164552 /* MultiSelectorView.swift */; };
+		1755E64B28ABCA2600164552 /* MultiSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E64A28ABCA2600164552 /* MultiSelectionView.swift */; };
+		1755E64E28B3128900164552 /* FilterProcesser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E64D28B3128900164552 /* FilterProcesser.swift */; };
+		1755E65128B3C65B00164552 /* NeighborhoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E65028B3C65B00164552 /* NeighborhoodItem.swift */; };
+		1755E65328B3C67F00164552 /* GenreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E65228B3C67F00164552 /* GenreType.swift */; };
+		1755E65528B3C69F00164552 /* VibeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E65428B3C69F00164552 /* VibeType.swift */; };
+		1755E65728B3C8FE00164552 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E65628B3C8FE00164552 /* Coordinates.swift */; };
+		1755E65828B3D54B00164552 /* MusicVenues.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1755E61D28A4419C00164552 /* MusicVenues.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1755E62828A4419C00164552 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 174D45A6289C5C35001AAC96 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1755E61C28A4419C00164552;
+			remoteInfo = MusicVenues;
+		};
+		1755E62A28A4419C00164552 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 174D45A6289C5C35001AAC96 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1755E5DD289DB4E000164552;
+			remoteInfo = PhillyJams;
+		};
+		1755E63028A4419C00164552 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 174D45A6289C5C35001AAC96 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1755E61C28A4419C00164552;
+			remoteInfo = MusicVenues;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1755E63428A4419D00164552 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhillyJamsApp.swift; sourceTree = "<group>"; };
+		174D45E0289C5F42001AAC96 /* VenueLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueLoader.swift; sourceTree = "<group>"; };
+		174D45E2289C6099001AAC96 /* VenueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueItem.swift; sourceTree = "<group>"; };
+		174D45E4289C689B001AAC96 /* DefaultVenueLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVenueLoader.swift; sourceTree = "<group>"; };
+		174D45E9289C6AE8001AAC96 /* DefaultVenueStore.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = DefaultVenueStore.json; sourceTree = "<group>"; };
+		174D45F2289D9C2C001AAC96 /* DefaultVenueMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVenueMapper.swift; sourceTree = "<group>"; };
+		1755E5BF289DAEBD00164552 /* VenueMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueMarker.swift; sourceTree = "<group>"; };
+		1755E5C0289DAEBD00164552 /* ToggleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleView.swift; sourceTree = "<group>"; };
+		1755E5C1289DAEBD00164552 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		1755E5C2289DAEBD00164552 /* VenueBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueBottomView.swift; sourceTree = "<group>"; };
+		1755E5DE289DB4E000164552 /* PhillyJams.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhillyJams.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1755E600289DB7DF00164552 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1755E608289DB8C500164552 /* Color-HexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color-HexString.swift"; sourceTree = "<group>"; };
+		1755E60E28A1A34200164552 /* MapView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView-ViewModel.swift"; sourceTree = "<group>"; };
+		1755E61D28A4419C00164552 /* MusicVenues.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MusicVenues.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1755E61F28A4419C00164552 /* MusicVenues.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicVenues.h; sourceTree = "<group>"; };
+		1755E62628A4419C00164552 /* MusicVenuesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicVenuesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1755E63D28A44EB800164552 /* FilterModelVenueFilteringUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModelVenueFilteringUseCaseTests.swift; sourceTree = "<group>"; };
+		1755E64828AAF1A300164552 /* MultiSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectorView.swift; sourceTree = "<group>"; };
+		1755E64A28ABCA2600164552 /* MultiSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionView.swift; sourceTree = "<group>"; };
+		1755E64D28B3128900164552 /* FilterProcesser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterProcesser.swift; sourceTree = "<group>"; };
+		1755E65028B3C65B00164552 /* NeighborhoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeighborhoodItem.swift; sourceTree = "<group>"; };
+		1755E65228B3C67F00164552 /* GenreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreType.swift; sourceTree = "<group>"; };
+		1755E65428B3C69F00164552 /* VibeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibeType.swift; sourceTree = "<group>"; };
+		1755E65628B3C8FE00164552 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1755E5DB289DB4E000164552 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1755E65828B3D54B00164552 /* MusicVenues.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1755E61A28A4419C00164552 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1755E62328A4419C00164552 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1755E62728A4419C00164552 /* MusicVenues.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		174D45A5289C5C35001AAC96 = {
+			isa = PBXGroup;
+			children = (
+				1755E5CD289DB4A400164552 /* PhillyJams */,
+				1755E61E28A4419C00164552 /* MusicVenues */,
+				1755E62C28A4419C00164552 /* MusicVenuesTests */,
+				174D45AF289C5C35001AAC96 /* Products */,
+				1755E61528A43DC300164552 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		174D45AF289C5C35001AAC96 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1755E5DE289DB4E000164552 /* PhillyJams.app */,
+				1755E61D28A4419C00164552 /* MusicVenues.framework */,
+				1755E62628A4419C00164552 /* MusicVenuesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		174D45DC289C5CD3001AAC96 /* Venue Feature */ = {
+			isa = PBXGroup;
+			children = (
+				174D45E0289C5F42001AAC96 /* VenueLoader.swift */,
+				1755E64D28B3128900164552 /* FilterProcesser.swift */,
+				174D45E2289C6099001AAC96 /* VenueItem.swift */,
+				1755E65628B3C8FE00164552 /* Coordinates.swift */,
+				1755E65028B3C65B00164552 /* NeighborhoodItem.swift */,
+				1755E65228B3C67F00164552 /* GenreType.swift */,
+				1755E65428B3C69F00164552 /* VibeType.swift */,
+			);
+			path = "Venue Feature";
+			sourceTree = "<group>";
+		};
+		174D45DD289C5CDA001AAC96 /* VenueAPI */ = {
+			isa = PBXGroup;
+			children = (
+				174D45E4289C689B001AAC96 /* DefaultVenueLoader.swift */,
+				174D45F2289D9C2C001AAC96 /* DefaultVenueMapper.swift */,
+				174D45E9289C6AE8001AAC96 /* DefaultVenueStore.json */,
+			);
+			path = VenueAPI;
+			sourceTree = "<group>";
+		};
+		174D45E6289C68B9001AAC96 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1755E608289DB8C500164552 /* Color-HexString.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		1755E5CD289DB4A400164552 /* PhillyJams */ = {
+			isa = PBXGroup;
+			children = (
+				174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */,
+				1755E5C1289DAEBD00164552 /* MapView.swift */,
+				1755E60E28A1A34200164552 /* MapView-ViewModel.swift */,
+				1755E5C2289DAEBD00164552 /* VenueBottomView.swift */,
+				1755E5BF289DAEBD00164552 /* VenueMarker.swift */,
+				1755E64C28B2CFC500164552 /* Components */,
+				174D45E6289C68B9001AAC96 /* Helper */,
+				1755E600289DB7DF00164552 /* Assets.xcassets */,
+			);
+			path = PhillyJams;
+			sourceTree = "<group>";
+		};
+		1755E61528A43DC300164552 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1755E61E28A4419C00164552 /* MusicVenues */ = {
+			isa = PBXGroup;
+			children = (
+				174D45DC289C5CD3001AAC96 /* Venue Feature */,
+				174D45DD289C5CDA001AAC96 /* VenueAPI */,
+				1755E61F28A4419C00164552 /* MusicVenues.h */,
+			);
+			path = MusicVenues;
+			sourceTree = "<group>";
+		};
+		1755E62C28A4419C00164552 /* MusicVenuesTests */ = {
+			isa = PBXGroup;
+			children = (
+				1755E63D28A44EB800164552 /* FilterModelVenueFilteringUseCaseTests.swift */,
+			);
+			path = MusicVenuesTests;
+			sourceTree = "<group>";
+		};
+		1755E64C28B2CFC500164552 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1755E5C0289DAEBD00164552 /* ToggleView.swift */,
+				1755E64828AAF1A300164552 /* MultiSelectorView.swift */,
+				1755E64A28ABCA2600164552 /* MultiSelectionView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1755E61828A4419C00164552 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1755E62F28A4419C00164552 /* MusicVenues.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1755E5DD289DB4E000164552 /* PhillyJams */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1755E5E9289DB4E100164552 /* Build configuration list for PBXNativeTarget "PhillyJams" */;
+			buildPhases = (
+				1755E5DA289DB4E000164552 /* Sources */,
+				1755E5DB289DB4E000164552 /* Frameworks */,
+				1755E5DC289DB4E000164552 /* Resources */,
+				1755E63428A4419D00164552 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1755E63128A4419C00164552 /* PBXTargetDependency */,
+			);
+			name = PhillyJams;
+			productName = PhillyJamsIOS;
+			productReference = 1755E5DE289DB4E000164552 /* PhillyJams.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1755E61C28A4419C00164552 /* MusicVenues */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1755E63928A4419D00164552 /* Build configuration list for PBXNativeTarget "MusicVenues" */;
+			buildPhases = (
+				1755E61828A4419C00164552 /* Headers */,
+				1755E61928A4419C00164552 /* Sources */,
+				1755E61A28A4419C00164552 /* Frameworks */,
+				1755E61B28A4419C00164552 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MusicVenues;
+			productName = MusicVenues;
+			productReference = 1755E61D28A4419C00164552 /* MusicVenues.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1755E62528A4419C00164552 /* MusicVenuesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1755E63A28A4419D00164552 /* Build configuration list for PBXNativeTarget "MusicVenuesTests" */;
+			buildPhases = (
+				1755E62228A4419C00164552 /* Sources */,
+				1755E62328A4419C00164552 /* Frameworks */,
+				1755E62428A4419C00164552 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1755E62928A4419C00164552 /* PBXTargetDependency */,
+				1755E62B28A4419C00164552 /* PBXTargetDependency */,
+			);
+			name = MusicVenuesTests;
+			productName = MusicVenuesTests;
+			productReference = 1755E62628A4419C00164552 /* MusicVenuesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		174D45A6289C5C35001AAC96 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					1755E5DD289DB4E000164552 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					1755E61C28A4419C00164552 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					1755E62528A4419C00164552 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 174D45A9289C5C35001AAC96 /* Build configuration list for PBXProject "PhillyJams" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 174D45A5289C5C35001AAC96;
+			productRefGroup = 174D45AF289C5C35001AAC96 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1755E5DD289DB4E000164552 /* PhillyJams */,
+				1755E61C28A4419C00164552 /* MusicVenues */,
+				1755E62528A4419C00164552 /* MusicVenuesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1755E5DC289DB4E000164552 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1755E601289DB7DF00164552 /* Assets.xcassets in Resources */,
+				1755E64728A58D9500164552 /* DefaultVenueStore.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1755E61B28A4419C00164552 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1755E64328A5705200164552 /* DefaultVenueStore.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1755E62428A4419C00164552 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1755E5DA289DB4E000164552 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1755E604289DB7F400164552 /* VenueMarker.swift in Sources */,
+				1755E605289DB7F400164552 /* VenueBottomView.swift in Sources */,
+				1755E64928AAF1A300164552 /* MultiSelectorView.swift in Sources */,
+				1755E603289DB7F400164552 /* PhillyJamsApp.swift in Sources */,
+				1755E609289DB8C500164552 /* Color-HexString.swift in Sources */,
+				1755E64B28ABCA2600164552 /* MultiSelectionView.swift in Sources */,
+				1755E606289DB7F400164552 /* MapView.swift in Sources */,
+				1755E60F28A1A34200164552 /* MapView-ViewModel.swift in Sources */,
+				1755E607289DB7F400164552 /* ToggleView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1755E61928A4419C00164552 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1755E65128B3C65B00164552 /* NeighborhoodItem.swift in Sources */,
+				1755E64128A5704E00164552 /* VenueItem.swift in Sources */,
+				1755E64228A5705200164552 /* DefaultVenueMapper.swift in Sources */,
+				1755E64428A5705200164552 /* DefaultVenueLoader.swift in Sources */,
+				1755E65328B3C67F00164552 /* GenreType.swift in Sources */,
+				1755E64E28B3128900164552 /* FilterProcesser.swift in Sources */,
+				1755E64028A5704E00164552 /* VenueLoader.swift in Sources */,
+				1755E65528B3C69F00164552 /* VibeType.swift in Sources */,
+				1755E65728B3C8FE00164552 /* Coordinates.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1755E62228A4419C00164552 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1755E63E28A44EB800164552 /* FilterModelVenueFilteringUseCaseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1755E62928A4419C00164552 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1755E61C28A4419C00164552 /* MusicVenues */;
+			targetProxy = 1755E62828A4419C00164552 /* PBXContainerItemProxy */;
+		};
+		1755E62B28A4419C00164552 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1755E5DD289DB4E000164552 /* PhillyJams */;
+			targetProxy = 1755E62A28A4419C00164552 /* PBXContainerItemProxy */;
+		};
+		1755E63128A4419C00164552 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1755E61C28A4419C00164552 /* MusicVenues */;
+			targetProxy = 1755E63028A4419C00164552 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		174D45D1289C5C36001AAC96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		174D45D2289C5C36001AAC96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		1755E5EA289DB4E100164552 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = L4NZ727S2F;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Xpressive.PhillyJamsIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1755E5EB289DB4E100164552 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = L4NZ727S2F;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Xpressive.PhillyJamsIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1755E63528A4419D00164552 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = L4NZ727S2F;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Xpressive.MusicVenues;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1755E63628A4419D00164552 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = L4NZ727S2F;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Xpressive.MusicVenues;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1755E63728A4419D00164552 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L4NZ727S2F;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Xpressive.MusicVenuesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1755E63828A4419D00164552 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L4NZ727S2F;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Xpressive.MusicVenuesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		174D45A9289C5C35001AAC96 /* Build configuration list for PBXProject "PhillyJams" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				174D45D1289C5C36001AAC96 /* Debug */,
+				174D45D2289C5C36001AAC96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1755E5E9289DB4E100164552 /* Build configuration list for PBXNativeTarget "PhillyJams" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1755E5EA289DB4E100164552 /* Debug */,
+				1755E5EB289DB4E100164552 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1755E63928A4419D00164552 /* Build configuration list for PBXNativeTarget "MusicVenues" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1755E63528A4419D00164552 /* Debug */,
+				1755E63628A4419D00164552 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1755E63A28A4419D00164552 /* Build configuration list for PBXNativeTarget "MusicVenuesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1755E63728A4419D00164552 /* Debug */,
+				1755E63828A4419D00164552 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 174D45A6289C5C35001AAC96 /* Project object */;
+}

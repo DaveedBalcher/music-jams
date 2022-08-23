@@ -1,0 +1,357 @@
+{
+    "venues": [
+        {
+            "name": "Ortlieb's",
+            "neighborhood": "Northern Liberties",
+            "coordinates": [
+                -75.142369,
+                39.9645332
+            ]
+        },
+        {
+            "name": "The Fire",
+            "neighborhood": "Northern Liberties",
+            "coordinates": [
+                -75.1435606,
+                39.9698626
+            ]
+        },
+        {
+            "name": "Bourbon & Branch",
+            "neighborhood": "Northern Liberties",
+            "coordinates": [
+                -75.140773,
+                39.9620411
+            ],
+            "vibe_index": 2,
+            "genres": [
+                "Indie",
+                "Rock",
+                "Hip hop",
+                "Jazz"
+            ]
+        },
+        {
+            "name": "Heritage",
+            "neighborhood": "Northern Liberties",
+            "coordinates": [
+                -75.140773,
+                39.9620411
+            ],
+            "vibe_index": 3,
+            "genres": [
+                "Jazz",
+                "Bluegrass"
+            ]
+        },
+        {
+            "name": "SOUTH",
+            "neighborhood": "North Broad",
+            "coordinates": [
+                -75.1612244,
+                39.9643921
+            ],
+            "vibe_index": 2,
+            "genres": [
+                "Jazz",
+                "Soul",
+                "Funk"
+            ]
+        },
+        {
+            "name": "Parkside Beef & Ale",
+            "coordinates": [
+                -75.1646344,
+                39.9546959
+            ],
+            "neighborhood": "North Broad"
+        },
+        {
+            "name": "Warehouse on Watts | W.O.W.",
+            "neighborhood": "North Broad",
+            "coordinates": [
+                -75.158515,
+                39.970709
+            ],
+            "vibe_index": 3,
+            "genres": [
+                "Electronic",
+                "Jazz"
+            ]
+        },
+        {
+            "name": "J.C. Dobbs",
+            "neighborhood": "South Philly",
+            "coordinates": [
+                -75.147857,
+                39.9413076
+            ],
+            "vibe_index": 0,
+            "genres": [
+                "Rock"
+            ]
+        },
+        {
+            "name": "The Twisted Tail",
+            "neighborhood": "South Philly",
+            "coordinates": [
+                -75.1451777,
+                39.9418511
+            ]
+        },
+        {
+            "name": "MilkBoy Philadelphia",
+            "neighborhood": "Center City East",
+            "coordinates": [
+                -75.1587791,
+                39.9500946
+            ]
+        },
+        {
+            "name": "Time",
+            "neighborhood": "Center City East",
+            "coordinates": [
+                -75.162516,
+                39.9500362
+            ],
+            "vibe_index": 2,
+            "genres": [
+                "Jazz",
+                "Funk",
+                "Fusion"
+            ]
+        },
+        {
+            "name": "McGillin's Olde Ale House",
+            "neighborhood": "Center City East",
+            "coordinates": [
+                -75.1626132,
+                39.950176
+            ]
+        },
+        {
+            "name": "Fergie's Pub",
+            "neighborhood": "Center City East",
+            "coordinates": [
+                -75.1611827,
+                39.9496403
+            ]
+        },
+        {
+            "name": "Manayunk Brewing Company",
+            "neighborhood": "Manayunk",
+            "coordinates": [
+                -75.2192508,
+                40.022673
+            ],
+            "vibe_index": 2,
+            "genres": [
+                "Jazz"
+            ]
+        },
+        {
+            "name": "Grape Room",
+            "neighborhood": "Manayunk",
+            "coordinates": [
+                -75.2230934,
+                40.0256935
+            ]
+        },
+        {
+            "name": "Dawson Street Pub",
+            "neighborhood": "Manayunk",
+            "coordinates": [
+                -75.212808,
+                40.018596
+            ]
+        },
+        {
+            "name": "Dock Street Brewery South",
+            "neighborhood": "Point Breeze",
+            "coordinates": [
+                -75.1796596,
+                39.9392658
+            ]
+        },
+        {
+            "name": "Chris' Jazz Cafe",
+            "neighborhood": "Center City West",
+            "coordinates": [
+                -75.165171,
+                39.9503269
+            ],
+            "vibe_index": 4,
+            "genres": [
+                "Jazz"
+            ]
+        },
+        {
+            "name": "Raven Lounge",
+            "neighborhood": "Center City West",
+            "coordinates": [
+                -75.1696208,
+                39.9507154
+            ]
+        },
+        {
+            "name": "World Cafe Live",
+            "neighborhood": "U City",
+            "coordinates": [
+                -75.1851726,
+                39.9520673
+            ]
+        },
+        {
+            "name": "El Bar",
+            "neighborhood": "Fishtown",
+            "coordinates": [
+                -75.1354739,
+                39.9718144
+            ],
+            "vibe_index": 0,
+            "genres": [
+                "Jazz",
+                "Folk"
+            ]
+        },
+        {
+            "name": "Kung Fu Necktie",
+            "neighborhood": "Fishtown",
+            "coordinates": [
+                -75.1359294,
+                39.9702502
+            ]
+        },
+        {
+            "name": "Front Street Cafe",
+            "neighborhood": "Fishtown",
+            "coordinates": [
+                -75.1356904,
+                39.9702616
+            ],
+            "vibe_index": 1,
+            "genres": [
+                "Electronic"
+            ]
+        },
+        {
+            "name": "Johnny Brenda's",
+            "neighborhood": "Fishtown",
+            "coordinates": [
+                -75.134323,
+                39.9690372
+            ],
+            "vibe_index": 2,
+            "genres": [
+                "Indie",
+                "Rock"
+            ]
+        },
+        {
+            "name": "Meyers Brewing Company",
+            "neighborhood": "Fishtown",
+            "coordinates": [
+                -75.1291121,
+                39.9703808
+            ]
+        },
+        {
+            "name": "The Barbary",
+            "neighborhood": "Fishtown",
+            "coordinates": [
+                -75.1341858,
+                39.9655724
+            ]
+        }
+    ],
+    "neighborhoods": [
+        {
+            "name": "Kensington",
+            "coordinates": [
+                -75.13069152832031,
+                39.98442041689492
+            ],
+            "color": "32304c"
+        },
+        {
+            "name": "Fishtown",
+            "coordinates": [
+                -75.13077735900879,
+                39.96857740683574
+            ],
+            "color": "3ba716"
+        },
+        {
+            "name": "Northern Liberties",
+            "coordinates": [
+                -75.14167785644531,
+                39.965477436645415
+            ],
+            "color": "f693f0"
+        },
+        {
+            "name": "Old City",
+            "coordinates": [
+                -75.14777183532715,
+                39.95126675597663
+            ],
+            "color": "0a3466"
+        },
+        {
+            "name": "North Broad",
+            "coordinates": [
+                -75.16124725341797,
+                39.963865725517344
+            ],
+            "color": "45699f"
+        },
+        {
+            "name": "Fairmount",
+            "coordinates": [
+                -75.1748514175415,
+                39.97004922675408
+            ],
+            "color": "a3bcd0"
+        },
+        {
+            "name": "Center City East",
+            "coordinates": [
+                -75.15755653381348,
+                39.95113516180186
+            ],
+            "color": "32304c"
+        },
+        {
+            "name": "Center City West",
+            "coordinates": [
+                -75.1722764968872,
+                39.951529943566634
+            ],
+            "color": "3ba716"
+        },
+        {
+            "name": "U City",
+            "coordinates": [
+                -75.19506454467773,
+                39.953964380766394
+            ],
+            "color": "f693f0"
+        },
+        {
+            "name": "Point Breeze",
+            "coordinates": [
+                -75.17841339111328,
+                39.934223203947056
+            ],
+            "color": "0a3466"
+        },
+        {
+            "name": "South Philly",
+            "coordinates": [
+                -75.16983032226562,
+                39.926127675060044
+            ],
+            "color": "45699f"
+        }
+    ]
+}
