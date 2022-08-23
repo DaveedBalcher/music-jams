@@ -21,7 +21,7 @@ extension MapView {
         @Published var selectedVenue: VenueItem?
         
         @Published var neighborhoods: [NeighborhoodItem] = []
-        @Published var selectedNeighborhood: NeighborhoodItem = NeighborhoodItem(name: "Philadelphia", center: Coordinates.defaultValue, color: nil) {
+        @Published var selectedNeighborhood: NeighborhoodItem = NeighborhoodItem(name: "Philadelphia", color: nil) {
             didSet {
                 selectFirstVenueForNeighborhood()
                 setMapRegion()

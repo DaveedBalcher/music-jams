@@ -25,7 +25,8 @@ public final class DefaultVenueMapper {
             venues.map { venue in
                 
                 let coordinatesItem = Coordinates(latitude: venue.coordinates[1], longitude: venue.coordinates[0])
-                let neighborhoodItem = neighborhoods.first { $0.name == venue.neighborhood }?.item
+                var neighborhoodItem = neighborhoods.first { $0.name == venue.neighborhood }?.item
+                neighborhoodItem?.coordinates.append(coordinatesItem)
                 let vibeType = VibeType.allCases[venue.vibeIndex ?? 2]
                 
                 let item = VenueItem(id: UUID(),
@@ -62,9 +63,8 @@ public final class DefaultVenueMapper {
         
         var item: NeighborhoodItem {
             
-            let coordinatesItem = Coordinates(latitude: coordinates[1], longitude: coordinates[0])
+//            let coordinatesItem = Coordinates(latitude: coordinates[1], longitude: coordinates[0])
             return NeighborhoodItem(name: name,
-                                    center: coordinatesItem,
                                     color: color)
         }
     }

@@ -10,12 +10,16 @@ import Foundation
 
 public struct NeighborhoodItem: Equatable, Hashable {
     public let name: String
-    public let center: Coordinates
+//    public let center: Coordinates
     public let color: String?
     
-    public init(name: String, center: Coordinates, color: String?) {
+    public var coordinates = [Coordinates]()
+    public var center: Coordinates {
+        coordinates.average
+    }
+    
+    public init(name: String, color: String?) {
         self.name = name
-        self.center = center
         self.color = color
     }
     
