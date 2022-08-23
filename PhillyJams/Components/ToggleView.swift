@@ -7,23 +7,19 @@
 
 import SwiftUI
 
-struct ToggleView<T: Hashable>: View {
-    @Binding var selected: T
-    @Binding var options: [T]
-    var name: (_ option: T)->(String)
-    var didChange: ()->Void
+struct ToggleView<Selectable: Hashable>: View {
+    let options: [Selectable]
+    let optionToString: (Selectable) -> String
+    
+    @Binding var selected: Selectable
     
     var body: some View {
-        
         HStack {
             Picker("", selection: $selected) {
                 ForEach(options, id: \.self) { option in
-                    Text(name(option))
+                    Text(optionToString(option))
                         .tag(option)
                 }
-            }
-            .onChange(of: selected) { _ in
-                didChange()
             }
         }
         .padding([.leading, .trailing], 12)
@@ -32,8 +28,23 @@ struct ToggleView<T: Hashable>: View {
     }
 }
 
-//struct ToggleView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ToggleView()
-//    }
-//}
+struct ToggleView_Previews: PreviewProvider {
+    struct IdentifiableString: Hashable {
+        let string: String
+        var id: String { string }
+    }
+    
+    @State static var selected = IdentifiableString(string: "A")
+    
+    static var previews: some View {
+        NavigationView {
+            Form {
+                ToggleView<IdentifiableString>(
+                    options:  ["A", "B", "C", "D"].map { IdentifiableString(string: $0) },
+                    optionToString: { $0.string },
+                    selected: $selected
+                )
+            }.navigationTitle("Title")
+        }
+    }
+}

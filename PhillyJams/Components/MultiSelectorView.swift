@@ -12,18 +12,18 @@ struct MultiSelectorView<Selectable: Identifiable & Hashable>: View {
     let options: [Selectable]
     let optionToString: (Selectable) -> String
     
-    var selected: Binding<Set<Selectable>>
+    @Binding var selected: Set<Selectable>
     
     private var formattedSelectedListString: String {
         
-        let count = selected.wrappedValue.count
+        let count = $selected.wrappedValue.count
         switch count {
         case 0, options.count:
             return "All \(typeString)"
         case 1:
-            return selected.wrappedValue.map { optionToString($0) }.sorted().first!
+            return $selected.wrappedValue.map { optionToString($0) }.sorted().first!
         default:
-            let first = selected.wrappedValue.map { optionToString($0) }.sorted().first!
+            let first = $selected.wrappedValue.map { optionToString($0) }.sorted().first!
             return first + " +\(count-1)"
         }
     }
@@ -46,7 +46,7 @@ struct MultiSelectorView<Selectable: Identifiable & Hashable>: View {
             title: typeString,
             options: options,
             optionToString: optionToString,
-            selected: selected
+            selected: $selected
         )
     }
 }

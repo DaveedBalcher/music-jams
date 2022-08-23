@@ -18,12 +18,7 @@ struct MapView: View {
             VStack {
                 
                 HStack {
-                    ToggleView(selected: $vm.selectedNeighborhood, options: $vm.neighborhoods) { option in
-                        return option.name
-                    } didChange: {
-                        vm.selectFirstVenueForNeighborhood()
-                        vm.setMapRegion()
-                    }
+                    ToggleView(options: vm.neighborhoods, optionToString: { $0.name }, selected: $vm.selectedNeighborhood)
                     
                     MultiSelectorView(typeString: GenreType.description, options: vm.genres, optionToString: { $0.name }, selected: $vm.selectedGenres)
                     
@@ -52,7 +47,7 @@ struct MapView: View {
                     }
                 }
             }
-            .navigationTitle("Philly's Jammin")
+            .navigationTitle("Philly Music Jams")
             .navigationBarTitleDisplayMode(.inline)
         }
     }
