@@ -55,12 +55,14 @@ struct VenueBottomView: View {
         .frame(maxWidth: .infinity, maxHeight: 96)
         .background(
             RoundedRectangle(cornerRadius: 8).foregroundColor(.white))
-        .padding()
+        .padding([.leading,.trailing], 12)
     }
 }
 
-//struct VenueBottomView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        VenueBottomView(venue: Venue)
-//    }
-//}
+struct VenueBottomView_Previews: PreviewProvider {
+    static var previews: some View {
+        Form {
+            VenueBottomView(venue: VenueItem.defaultItem)
+        }
+    }
+}

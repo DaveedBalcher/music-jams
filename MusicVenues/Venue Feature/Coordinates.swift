@@ -13,5 +13,7 @@ public struct Coordinates {
 }
 
 public extension Coordinates {
-    static var defaultValue = Coordinates(latitude: 39.9509, longitude: -75.1575)
+    static var defaultValue: Coordinates {
+        Coordinates(latitude: 39.9509, longitude: -75.1575)
+    }
 }

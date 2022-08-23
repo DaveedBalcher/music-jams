@@ -27,6 +27,19 @@ public struct VenueItem: Identifiable, Equatable {
     }
 }
 
+public extension VenueItem {
+    
+    static var defaultItem: VenueItem {
+        VenueItem(id: UUID(),
+                  name: "Venue",
+                  imageURL: nil,
+                  coordinates: Coordinates.defaultValue,
+                  neighborhood: nil,
+                  genres: [],
+                  vibe: .vibe3)
+    }
+}
+
 public enum FilterType: String {
     case genres, vibes
 }
