@@ -31,7 +31,6 @@ extension MapView {
         
         private var parameters = [FilterParameter]()
         @Published var genreOptions: [GenreType] = []
-//        @Published var activeGenres: [GenreType] = []
         @Published var selectedGenres = Set<GenreType>() {
             didSet {
                 filterGenres()
@@ -39,7 +38,6 @@ extension MapView {
         }
 
         @Published var vibeOptions: [VibeType] = VibeType.allCases
-//        @Published var activeVibes: [VibeType] = VibeType.allCases
         @Published var selectedVibes = Set<VibeType>() {
             didSet {
                 filterVibes()
@@ -57,12 +55,12 @@ extension MapView {
             self.neighborhoods = [selectedNeighborhood]
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.retrieveVenues()
+                self.retrieveVenuesData()
             }
         }
         
-        func retrieveVenues() {
-            let (venues, neighborhoods, genres, vibes) = venueLoader.retrieveFiltered(filters: [])
+        func retrieveVenuesData() {
+            let (venues, neighborhoods, genres, vibes) = venueLoader.retrieveVenueData()
             
             self.venues = venues
             self.neighborhoods = neighborhoods
@@ -87,30 +85,14 @@ extension MapView {
         
         func filterGenres() {
             let genreParameter = FilterParameter(type: .genres, values: selectedGenres.rawValues)
-            parameters.append(genreParameter)
-
-            let (venues, neighborhoods, genres, vibes) = venueLoader.retrieveFiltered(filters: [])
-
-            self.venues = venues
-            self.neighborhoods = neighborhoods
-            self.genreOptions = genres
-            self.vibeOptions = vibes
-
-            setInitialNeighborhood()
-            setInitialVenueForInitialNeighborhood()
+            
+            self.venues = FilterProcesser.filter(venues, with: [genreParameter])
         }
 
         func filterVibes() {
             let vibeParameter = FilterParameter(type: .vibes, values: selectedVibes.rawValues)
-            parameters.append(vibeParameter)
-
-            let (reloadedVenues, _, _, _) = venueLoader.retrieveFiltered(filters: parameters)
-            venues = reloadedVenues
-            self.genreOptions = genreOptions
-            self.vibeOptions = vibeOptions
-
-            self.neighborhoods = venues.neighborhoods
-            setInitialVenueForInitialNeighborhood()
+            
+            self.venues = FilterProcesser.filter(venues, with: [vibeParameter])
         }
     }
 }

@@ -26,8 +26,8 @@ public final class DefaultVenueMapper {
                 
                 let coordinatesItem = Coordinates(latitude: venue.coordinates[1], longitude: venue.coordinates[0])
                 let neighborhoodItem = neighborhoods.first { $0.name == venue.neighborhood }?.item
-                let vibeType = VibeType.allCases[venue.vibeIndex ?? 5]
                 let genres = venue.genreTypes.isEmpty ? [GenreType.defaultValue] : venue.genreTypes
+                let vibeType = VibeType.allCases[venue.vibeIndex ?? 5]
                 
                 let item = VenueItem(id: UUID(),
                                      name: venue.name,
