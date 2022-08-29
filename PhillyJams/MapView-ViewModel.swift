@@ -33,14 +33,16 @@ extension MapView {
         @Published var genreOptions: [GenreType] = []
         @Published var selectedGenres = Set<GenreType>() {
             didSet {
-                filterGenres()
+                let genreParameter = FilterParameter(type: .genres, values: selectedGenres.rawValues)
+                filterVenues(with: genreParameter)
             }
         }
 
         @Published var vibeOptions: [VibeType] = VibeType.allCases
         @Published var selectedVibes = Set<VibeType>() {
             didSet {
-                filterVibes()
+                let vibeParameter = FilterParameter(type: .vibes, values: selectedVibes.rawValues)
+                filterVenues(with: vibeParameter)
             }
         }
 
@@ -60,7 +62,7 @@ extension MapView {
         }
         
         func retrieveVenuesData() {
-            let (venues, neighborhoods, genres, vibes) = venueLoader.retrieveVenueData()
+            let (venues, neighborhoods, genres, vibes) = venueLoader.retrieveFiltered()
             
             self.venues = venues
             self.neighborhoods = neighborhoods
@@ -83,16 +85,15 @@ extension MapView {
             self.mapRegion = MKCoordinateRegion(center: selectedNeighborhood.center.mapCoordinates, span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.02))
         }
         
-        func filterGenres() {
-            let genreParameter = FilterParameter(type: .genres, values: selectedGenres.rawValues)
+        func filterVenues(with filter: FilterParameter) {
+            (venues, neighborhoods, _, _) = venueLoader.retrieveFiltered(filters: [filter])
+            self.venues = venues
+            self.neighborhoods = neighborhoods
             
-            self.venues = FilterProcesser.filter(venues, with: [genreParameter])
-        }
-
-        func filterVibes() {
-            let vibeParameter = FilterParameter(type: .vibes, values: selectedVibes.rawValues)
-            
-            self.venues = FilterProcesser.filter(venues, with: [vibeParameter])
+            if !neighborhoods.contains(selectedNeighborhood) {
+                setInitialNeighborhood()
+                setInitialVenueForInitialNeighborhood()
+            }
         }
     }
 }
