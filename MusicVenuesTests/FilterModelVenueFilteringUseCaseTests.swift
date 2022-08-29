@@ -9,11 +9,9 @@ import XCTest
 @testable import MusicVenues
 
 class MockedVenueLoader: VenueLoader {
-    private var loadedVenues: [VenueItem] = []
-    private var loadedNeighborhoods: [NeighborhoodItem] = []
-    
-    func load() {
-        loadedNeighborhoods = [
+
+    private var loadedVenues: [VenueItem] {
+        let loadedNeighborhoods = [
             NeighborhoodItem(name: "neighborhood1", center: Coordinates(latitude: 1, longitude: 1), color: nil),
             NeighborhoodItem(name: "neighborhood2", center: Coordinates(latitude: 1, longitude: 1), color: nil)
         ]
@@ -21,16 +19,22 @@ class MockedVenueLoader: VenueLoader {
         let genre1 = GenreType(name: "genre1")
         let genre2 = GenreType(name: "genre2")
         
-        loadedVenues = [
+        return [
             VenueItem(id: UUID(), name: "venue1", imageURL: nil, coordinates: Coordinates(latitude: 1, longitude: 1), neighborhood: loadedNeighborhoods[0], genres: [genre1], vibe: .vibe1),
             VenueItem(id: UUID(), name: "venue2", imageURL: nil, coordinates: Coordinates(latitude: 1, longitude: 1), neighborhood: loadedNeighborhoods[0], genres: [genre1, genre2], vibe: .vibe1),
             VenueItem(id: UUID(), name: "venue3", imageURL: nil, coordinates: Coordinates(latitude: 1, longitude: 1), neighborhood: loadedNeighborhoods[1], genres: [genre2], vibe: .vibe2)
         ]
     }
+
     
-    func retrieve() -> (venues: [VenueItem], neighborhoods: [NeighborhoodItem]) {
-        return (loadedVenues, loadedNeighborhoods)
+    func retrieveVenues() -> [VenueItem] {
+        loadedVenues
     }
+    
+    func retrieveFilters() -> FilterOptions {
+        (genreOptions: loadedVenues.getGenreOptions(), vibeOptions: loadedVenues.getVibeOptions())
+    }
+    
 }
 
 private extension Array where Element: Equatable {
@@ -46,60 +50,56 @@ private extension Array where Element: Equatable {
 
 class FilterModelVenueFilteringUseCaseTests: XCTestCase {
 
-    func test_retrieve_whenNoFiltersAddedReturnAllVenues() {
+    func test_retrieveVenues_whenNoFiltersAddedReturnAllVenues() {
         let sut = MockedVenueLoader()
         
-        sut.load()
-        let (prefilterVenues, _) = sut.retrieve()
-        let (postfilterVenues, _) = sut.retrieveFiltered(filters: [])
+        let prefilterVenues = sut.retrieveVenues()
+        let (postfilterVenues, _, _, _) = sut.retrieveFiltered(filters: [])
         
         XCTAssertEqual(prefilterVenues, postfilterVenues)
     }
     
-    func test_load_whenOneGenreFilterIsAddedReturnCorrectFilteredVenues() {
+    func test_retrieveVenues_whenOneGenreFilterIsAddedReturnCorrectFilteredVenues() {
         let sut = MockedVenueLoader()
         
-        sut.load()
         let parameter = FilterParameter(type: .genres, values: ["genre1"])
-        let (prefilterVenues, _) = sut.retrieve()
+        let prefilterVenues = sut.retrieveVenues()
         
 
         let filteredVenues = FilterProcesser.filter(prefilterVenues, with: [parameter])
         
-        let (retrievedFilteredVenues, _) =  sut.retrieveFiltered(filters: [parameter])
+        let (retrievedFilteredVenues, _, _, _) =  sut.retrieveFiltered(filters: [parameter])
         
         XCTAssertEqual(filteredVenues.count, retrievedFilteredVenues.count)
         
         XCTAssertEqual(2, retrievedFilteredVenues.count)
     }
     
-    func test_load_whenTwoGenreFiltersAreAddedReturnCorrectFilteredVenues() {
+    func test_retrieveVenues_whenTwoGenreFiltersAreAddedReturnCorrectFilteredVenues() {
         let sut = MockedVenueLoader()
         
-        sut.load()
-        let (prefilterVenues, _) = sut.retrieve()
+        let prefilterVenues = sut.retrieveVenues()
         
         let parameter1 = FilterParameter(type: .genres, values: ["genre1", "genre2"])
         let filteredVenues = FilterProcesser.filter(prefilterVenues, with: [parameter1])
         
-        let (retrievedFilteredVenues, _) =  sut.retrieveFiltered(filters: [parameter1])
+        let (retrievedFilteredVenues, _, _, _) =  sut.retrieveFiltered(filters: [parameter1])
         
         XCTAssertEqual(filteredVenues.count, retrievedFilteredVenues.count)
         
         XCTAssertEqual(3, retrievedFilteredVenues.count)
     }
     
-    func test_load_whenTwoDifferentTypeFiltersAreAddedReturnCorrectFilteredVenues() {
+    func test_retrieveVenues_whenTwoDifferentTypeFiltersAreAddedReturnCorrectFilteredVenues() {
         let sut = MockedVenueLoader()
 
-        sut.load()
-        let (prefilterVenues, _) = sut.retrieve()
+        let prefilterVenues = sut.retrieveVenues()
 
         let parameter1 = FilterParameter(type: .genres, values: ["genre1"])
         let parameter2 = FilterParameter(type: .vibes, values: ["vibe2"])
         let filteredVenues = FilterProcesser.filter(prefilterVenues, with: [parameter1, parameter2])
 
-        let (retrievedFilteredVenues, _) =  sut.retrieveFiltered(filters: [parameter1, parameter2])
+        let (retrievedFilteredVenues, _, _, _) =  sut.retrieveFiltered(filters: [parameter1, parameter2])
 
         XCTAssertEqual(filteredVenues.count, retrievedFilteredVenues.count)
         

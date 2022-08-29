@@ -7,8 +7,8 @@
 
 import Foundation
 
-
 public struct GenreType: Identifiable {
+    
     public var id: Int {
         name.hashValue
     }
@@ -18,8 +18,16 @@ public struct GenreType: Identifiable {
         name
     }
     
+    public static var defaultValue: GenreType {
+        GenreType(name: "Unspecified")
+    }
+    
     public static var description: String {
         "Genres"
+    }
+    
+    public init(name: String) {
+        self.name = name
     }
 }
 

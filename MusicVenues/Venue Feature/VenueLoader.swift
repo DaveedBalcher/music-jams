@@ -8,16 +8,27 @@
 import Foundation
 
 public protocol VenueLoader {
-    func load()
-    func retrieve() -> (venues: [VenueItem], neighborhoods: [NeighborhoodItem])
+    
+    typealias FilterOptions = (genreOptions: [String], vibeOptions: [String])
+    
+    func retrieveVenues() -> [VenueItem]
+    func retrieveFilters() -> FilterOptions
 }
 
 public extension VenueLoader {
     
-    func retrieveFiltered(filters: [FilterParameter]) -> (venues: [VenueItem], neighborhoods: [NeighborhoodItem]) {
-        let (loadedVenues, loadedNeighborhoods) = retrieve()
+    func retrieveFiltered(filters: [FilterParameter]? = nil) -> (venues: [VenueItem], neighborhoods: [NeighborhoodItem], genreOptions: [GenreType], vibeOptions: [VibeType]) {
+        let loadedVenues = retrieveVenues()
+        
+        let filters = filters ?? [
+            FilterParameter(type: .genres, values: loadedVenues.getGenres().rawValues),
+            FilterParameter(type: .vibes, values: loadedVenues.getVibes().rawValues)
+        ]
         
         let filteredVenues = FilterProcesser.filter(loadedVenues, with: filters)
-        return (filteredVenues, loadedNeighborhoods)
+        let filteredNeighborhoods = filteredVenues.neighborhoods
+        let filteredGenres = filteredVenues.getGenres()
+        let filteredVibes = filteredVenues.getVibes()
+        return (filteredVenues, filteredNeighborhoods, filteredGenres, filteredVibes)
     }
 }

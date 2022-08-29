@@ -37,4 +37,8 @@ public struct FilterParameter: Equatable {
         self.type = type
         self.values = values
     }
+    
+    public static func == (lhs: FilterParameter, rhs: FilterParameter) -> Bool {
+        lhs.type == rhs.type
+    }
 }

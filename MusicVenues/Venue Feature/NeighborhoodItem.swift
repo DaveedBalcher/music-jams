@@ -27,3 +27,9 @@ public struct NeighborhoodItem: Equatable, Hashable {
         hasher.combine(name)
     }
 }
+
+extension NeighborhoodItem: Comparable {
+    public static func < (lhs: NeighborhoodItem, rhs: NeighborhoodItem) -> Bool {
+        lhs.center.latitude > rhs.center.latitude
+    }
+}

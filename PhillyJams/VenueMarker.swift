@@ -18,9 +18,9 @@ struct VenueMarker: View {
             let primaryColor = isSelected ? .white : neightborhoodTint
             let secondaryColor = isSelected ? neightborhoodTint : .white
             Circle()
-                .strokeBorder(secondaryColor, lineWidth: 2)
+                .strokeBorder(secondaryColor, lineWidth: 1)
                 .background(Circle().fill(primaryColor))
-                .frame(width: 28, height: 28)
+                .frame(width: 24, height: 24)
             
             Image(systemName: "music.note")
                 .resizable()

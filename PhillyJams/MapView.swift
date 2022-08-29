@@ -20,9 +20,9 @@ struct MapView: View {
                 HStack {
                     ToggleView(options: vm.neighborhoods, optionToString: { $0.name }, selected: $vm.selectedNeighborhood)
                     
-                    SelectorView(typeString: GenreType.description, options: vm.genres, optionToString: { $0.name }, selected: $vm.selectedGenres)
+                    SelectorView(typeString: GenreType.description, options: vm.genreOptions, optionToString: { $0.rawValue }, selected: $vm.selectedGenres)
                     
-                    SelectorView(typeString: VibeType.description, options: vm.vibes, optionToString: { $0.rawValue }, selected: $vm.selectedVibes)
+                    SelectorView(typeString: VibeType.description, options: vm.vibeOptions, optionToString: { $0.rawValue }, selected: $vm.selectedVibes)
                     
                     Spacer()
                 }
@@ -41,13 +41,14 @@ struct MapView: View {
                     }
                     .animation(.default, value: vm.mapRegion)
                     .ignoresSafeArea()
+                    .edgesIgnoringSafeArea(.all)
                     
                     if let venue = vm.selectedVenue {
                         VenueBottomView(venue: venue)
                     }
                 }
             }
-            .navigationTitle("Philly Music Jams")
+            .navigationTitle("Philly Jams")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

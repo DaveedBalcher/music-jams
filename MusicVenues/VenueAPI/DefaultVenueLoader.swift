@@ -8,31 +8,30 @@
 import Foundation
 
 public final class DefaultVenueLoader: VenueLoader {
-    
-    private var loadedVenues = [VenueItem]()
-    private var loadedNeighborhoods = [NeighborhoodItem]()
-    
+
     public init() {}
     
     private var fileLocation: String {
         "DefaultVenueStore.json"
     }
     
-    public func load() {
+    var venues: [VenueItem] {
         if let path = Bundle.main.path(forResource: fileLocation, ofType: nil) {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                (loadedVenues, loadedNeighborhoods) = DefaultVenueMapper.map(data)
-                return
+                return DefaultVenueMapper.map(data)
             } catch {
-                // handle error
+                print("Failed to decode \(fileLocation) from bundle. Error: ", error)
             }
         }
-        
-        fatalError("Failed to decode \(fileLocation) from bundle.")
+        return []
     }
     
-    public func retrieve() -> (venues: [VenueItem], neighborhoods: [NeighborhoodItem]) {
-        return (loadedVenues, loadedNeighborhoods)
+    public func retrieveVenues() -> [VenueItem] {
+        venues
+    }
+    
+    public func retrieveFilters() -> FilterOptions {
+        (genreOptions: venues.getGenreOptions(), vibeOptions: venues.getVibeOptions())
     }
 }

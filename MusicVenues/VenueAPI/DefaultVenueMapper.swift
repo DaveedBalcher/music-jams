@@ -26,14 +26,15 @@ public final class DefaultVenueMapper {
                 
                 let coordinatesItem = Coordinates(latitude: venue.coordinates[1], longitude: venue.coordinates[0])
                 let neighborhoodItem = neighborhoods.first { $0.name == venue.neighborhood }?.item
-                let vibeType = VibeType.allCases[venue.vibeIndex ?? 2]
+                let vibeType = VibeType.allCases[venue.vibeIndex ?? 5]
+                let genres = venue.genreTypes.isEmpty ? [GenreType.defaultValue] : venue.genreTypes
                 
                 let item = VenueItem(id: UUID(),
                                      name: venue.name,
                                      imageURL: venue.image,
                                      coordinates: coordinatesItem,
                                      neighborhood: neighborhoodItem,
-                                     genres: venue.genreTypes,
+                                     genres: genres,
                                      vibe: vibeType)
                 
                 return item
@@ -69,13 +70,13 @@ public final class DefaultVenueMapper {
         }
     }
     
-    internal static func map(_ data: Data) -> (venues: [VenueItem], neighborhoods: [NeighborhoodItem])  {
+    internal static func map(_ data: Data) -> [VenueItem]  {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         
         do {
             let loaded = try decoder.decode(Root.self, from: data)
-            return (venues: loaded.venueItems, neighborhoods: loaded.neightborhoodItems)
+            return loaded.venueItems
             
         } catch let DecodingError.dataCorrupted(context) {
             print(context)
@@ -92,6 +93,6 @@ public final class DefaultVenueMapper {
             
         }
         
-        return ([],[])
+        return []
     }
 }

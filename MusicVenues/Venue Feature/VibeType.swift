@@ -17,11 +17,19 @@ public enum VibeType: String, CaseIterable, Identifiable {
         vibe2 = "Chill",
         vibe3 = "Moderate",
         vibe4 = "Serious",
-        vibe5 = "Whiplash"
-    
+        vibe5 = "Whiplash",
+        defaultValue = "Unspecified"
     
     public static var description: String {
         "Vibes"
+    }
+}
+
+extension VibeType: Comparable {
+    public static func < (lhs: VibeType, rhs: VibeType) -> Bool {
+        let lIndex = VibeType.allCases.firstIndex(of: lhs) ?? 0
+        let rIndex = VibeType.allCases.firstIndex(of: rhs) ?? 0
+        return lIndex < rIndex
     }
 }
 
