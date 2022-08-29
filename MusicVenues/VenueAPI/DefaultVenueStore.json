@@ -64,7 +64,7 @@
                 -75.1646344,
                 39.9546959
             ],
-            "neighborhood": "North Broad"
+            "neighborhood": "Center City"
         },
         {
             "name": "Warehouse on Watts | W.O.W.",
@@ -81,7 +81,7 @@
         },
         {
             "name": "J.C. Dobbs",
-            "neighborhood": "South Philly",
+            "neighborhood": "South St",
             "coordinates": [
                 -75.147857,
                 39.9413076
@@ -93,7 +93,7 @@
         },
         {
             "name": "The Twisted Tail",
-            "neighborhood": "South Philly",
+            "neighborhood": "South St",
             "coordinates": [
                 -75.1451777,
                 39.9418511
@@ -101,7 +101,7 @@
         },
         {
             "name": "MilkBoy Philadelphia",
-            "neighborhood": "Center City East",
+            "neighborhood": "Center City",
             "coordinates": [
                 -75.1587791,
                 39.9500946
@@ -109,10 +109,10 @@
         },
         {
             "name": "Time",
-            "neighborhood": "Center City East",
+            "neighborhood": "Center City",
             "coordinates": [
                 -75.162516,
-                39.9500362
+                39.9497362
             ],
             "vibe_index": 2,
             "genres": [
@@ -123,15 +123,15 @@
         },
         {
             "name": "McGillin's Olde Ale House",
-            "neighborhood": "Center City East",
+            "neighborhood": "Center City",
             "coordinates": [
                 -75.1626132,
-                39.950176
+                39.950476
             ]
         },
         {
             "name": "Fergie's Pub",
-            "neighborhood": "Center City East",
+            "neighborhood": "Center City",
             "coordinates": [
                 -75.1611827,
                 39.9496403
@@ -175,7 +175,7 @@
         },
         {
             "name": "Chris' Jazz Cafe",
-            "neighborhood": "Center City West",
+            "neighborhood": "Center City",
             "coordinates": [
                 -75.165171,
                 39.9503269
@@ -187,7 +187,7 @@
         },
         {
             "name": "Raven Lounge",
-            "neighborhood": "Center City West",
+            "neighborhood": "Center City",
             "coordinates": [
                 -75.1696208,
                 39.9507154
@@ -218,7 +218,7 @@
             "name": "Kung Fu Necktie",
             "neighborhood": "Fishtown",
             "coordinates": [
-                -75.1359294,
+                -75.1363294,
                 39.9702502
             ]
         },
@@ -226,7 +226,7 @@
             "name": "Front Street Cafe",
             "neighborhood": "Fishtown",
             "coordinates": [
-                -75.1356904,
+                -75.1352904,
                 39.9702616
             ],
             "vibe_index": 1,
@@ -314,26 +314,18 @@
             "color": "a3bcd0"
         },
         {
-            "name": "Center City East",
+            "name": "Center City",
             "coordinates": [
-                -75.15755653381348,
-                39.95113516180186
+                -75.165171,
+                39.9503269
             ],
             "color": "32304c"
         },
         {
-            "name": "Center City West",
-            "coordinates": [
-                -75.1722764968872,
-                39.951529943566634
-            ],
-            "color": "3ba716"
-        },
-        {
             "name": "U City",
             "coordinates": [
-                -75.19506454467773,
-                39.953964380766394
+                -75.1851726,
+                39.9520673
             ],
             "color": "f693f0"
         },
@@ -343,15 +335,23 @@
                 -75.17841339111328,
                 39.934223203947056
             ],
-            "color": "0a3466"
+            "color": "3ba716"
         },
         {
-            "name": "South Philly",
+            "name": "South St",
             "coordinates": [
-                -75.16983032226562,
-                39.926127675060044
+                -75.147857,
+                39.9413076
             ],
             "color": "45699f"
+        },
+        {
+            "name": "Manayunk",
+            "coordinates": [
+                -75.2230934,
+                40.0256935
+            ],
+            "color": "0a3466"
         }
     ]
 }
