@@ -17,16 +17,28 @@ struct VenueDetailView: View {
         
         ScrollView {
             VStack {
-                Image(systemName: "music.note")
-                    .resizable()
-                    .padding(90)
+                ZStack(alignment: .bottomLeading) {
+                    Image(systemName: "music.note")
+                        .resizable()
+                        .padding(90)
+                        .foregroundColor(.white)
+                        .scaledToFit()
+                        .background(
+                            Rectangle()
+                                .foregroundColor(neightborhoodTint))
+                    
+                    VStack(alignment: .leading) {
+                        Text(venue.neighborhood?.name ?? "")
+                            .font(.title3)
+                        Text("Genres: \(venue.genresDescription)")
+                        Text("Vibe: \(venue.vibe.rawValue)")
+                    }
+                    .padding(12)
+                    .font(.subheadline)
                     .foregroundColor(.white)
-                    .scaledToFit()
-                    .background(
-                        Rectangle()
-                            .foregroundColor(neightborhoodTint)
+                }
+                .padding(12)
 
-                            .padding(12))
 
                 // TODO: Add venue description
             }
