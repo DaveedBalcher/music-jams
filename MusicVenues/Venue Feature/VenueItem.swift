@@ -8,7 +8,6 @@
 import Foundation
 
 public struct VenueItem: Identifiable, Equatable {
-    
     public let id: UUID
     public let name: String
     public let imageURL: URL?
@@ -49,7 +48,6 @@ public struct VenueItem: Identifiable, Equatable {
 }
 
 public extension VenueItem {
-    
     static var defaultItem: VenueItem {
         VenueItem(id: UUID(),
                   name: "Venue",
@@ -58,6 +56,10 @@ public extension VenueItem {
                   neighborhood: nil,
                   genres: [],
                   vibe: .vibe3)
+    }
+    
+    public var genresDescription: String {
+        (genres.map { $0.name}).joined(separator: ", ")
     }
 }
 

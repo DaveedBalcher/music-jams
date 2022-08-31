@@ -37,8 +37,7 @@ struct VenueBottomView: View {
                 
                 VStack(alignment: .leading) {
                     Text(venue.neighborhood?.name ?? "")
-                    let genres = (venue.genres.map { $0.name}).joined(separator: ", ")
-                    Text("Genres: \(genres)")
+                    Text("Genres: \(venue.genresDescription)")
                     Text("Vibe: \(venue.vibe.rawValue)")
                 }
                 .font(.subheadline)
