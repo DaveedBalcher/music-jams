@@ -44,7 +44,11 @@ struct MapView: View {
                     .edgesIgnoringSafeArea(.all)
                     
                     if let venue = vm.selectedVenue {
-                        VenueBottomView(venue: venue)
+                        NavigationLink {
+                            VenueDetailView(venue: venue)
+                        } label: {
+                            VenueBottomView(venue: venue)
+                        }
                     }
                 }
             }
