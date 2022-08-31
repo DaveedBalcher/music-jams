@@ -41,6 +41,11 @@ struct VenueDetailView: View {
 
 
                 // TODO: Add venue description
+                
+                Text("List of jams and open mics coming soon...")
+                    .padding()
+                    .font(.callout)
+                    .foregroundStyle(.gray)
             }
         }
         .navigationTitle(venue.name)
