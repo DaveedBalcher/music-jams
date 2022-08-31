@@ -13,6 +13,8 @@ struct MapView: View {
     
     @StateObject var vm: ViewModel
     
+    @State var presentInfo = false
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -54,6 +56,18 @@ struct MapView: View {
             }
             .navigationTitle("Philly Jams")
             .navigationBarTitleDisplayMode(.inline)
+            .popover(isPresented: $presentInfo){
+                InfoView()
+            }
+            .toolbar {
+                ToolbarItem {
+                    Button {
+                        presentInfo = true
+                    } label: {
+                        Label("Information", systemImage: "info.circle")
+                    }
+                }
+            }
         }
     }
     
