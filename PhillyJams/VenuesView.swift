@@ -33,29 +33,10 @@ struct VenuesView: View {
                 }
                 .padding([.leading])
                 
-                ZStack(alignment: .bottom) {
-                    
-                    Map(coordinateRegion: $vm.mapRegion, annotationItems: vm.venues) { venue in
-                        MapAnnotation(coordinate: venue.coordinates.mapCoordinates) {
-                            Button {
-                                vm.selectedVenue = venue
-                            } label: {
-                                VenueMarker(venue: venue, isSelected: venue == vm.selectedVenue)
-                            }
-                        }
-                    }
-                    .animation(.default, value: vm.mapRegion)
-                    .ignoresSafeArea()
-                    .edgesIgnoringSafeArea(.all)
-                    
-                    if let venue = vm.selectedVenue {
-                        NavigationLink {
-                            VenueDetailView(venue: venue)
-                        } label: {
-                            VenueBottomView(venue: venue)
-                        }
-                    }
-                }
+                MapView(venues: vm.venues,
+                        mapRegion: $vm.mapRegion,
+                        selectedVenue: $vm.selectedVenue
+                )
             }
             .navigationBarTitleDisplayMode(.inline)
             .popover(isPresented: $infoVM.isPresented){
