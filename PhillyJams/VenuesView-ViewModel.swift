@@ -9,18 +9,28 @@ import SwiftUI
 import MapKit
 import MusicVenues
 
+struct NeighborhoodMapModel {
+    let center: CLLocationCoordinate2D
+    let span: MKCoordinateSpan
+    let neighborhoodItem: NeighborhoodItem
+    
+    static var initialState: NeighborhoodMapModel {
+        NeighborhoodMapModel(
+            center: CLLocationCoordinate2D(latitude: 39.9509, longitude: -75.1575),
+            span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5),
+            neighborhoodItem: NeighborhoodItem(name: "Philadelphia", center: Coordinates.defaultValue, color: nil)
+        )
+    }
+}
+
 extension VenuesView {
     
     @MainActor class ViewModel: ObservableObject {
-        
-        private var defaultCoordinates = CLLocationCoordinate2D(latitude: 39.9509, longitude: -75.1575)
-        private var defaultSpan = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
         @Published var mapRegion: MKCoordinateRegion
         
         @Published var venues: [VenueItem] = []
         @Published var selectedVenue: VenueItem?
         
-        private var defaultNeighborhoodName = "Fishtown"
         @Published var neighborhoods: [NeighborhoodItem] = []
         @Published var selectedNeighborhood: NeighborhoodItem = NeighborhoodItem(name: "Philadelphia", center: Coordinates.defaultValue, color: nil) {
             didSet {
@@ -49,7 +59,10 @@ extension VenuesView {
         let venueLoader: VenueLoader!
         
         init(venueLoader: VenueLoader) {
-            self.mapRegion = MKCoordinateRegion(center: defaultCoordinates, span: defaultSpan)
+            
+            let initialModel = NeighborhoodMapModel.initialState
+            
+            self.mapRegion = MKCoordinateRegion(center: initialModel.center, span: initialModel.span)
             
             self.venueLoader = venueLoader
             
@@ -69,12 +82,12 @@ extension VenuesView {
             self.genreOptions = genres
             self.vibeOptions = vibes
             
-            setInitialNeighborhood()
+            setNeighborhood()
             setInitialVenueForInitialNeighborhood()
         }
 
-        func setInitialNeighborhood() {
-            self.selectedNeighborhood = self.neighborhoods.first { $0.name == defaultNeighborhoodName } ?? self.neighborhoods.first!
+        func setNeighborhood(name: String = "Fishtown") {
+            self.selectedNeighborhood = self.neighborhoods.first { $0.name == name } ?? self.neighborhoods.first!
         }
         
         func setInitialVenueForInitialNeighborhood() {
@@ -91,7 +104,7 @@ extension VenuesView {
             self.neighborhoods = neighborhoods
             
             if !neighborhoods.contains(selectedNeighborhood) {
-                setInitialNeighborhood()
+                setNeighborhood()
                 setInitialVenueForInitialNeighborhood()
             }
         }
