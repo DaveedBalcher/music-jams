@@ -12,7 +12,7 @@ import MusicVenues
 struct PhillyJamsApp: App {
     var body: some Scene {
         WindowGroup {
-            MapView(loader: DefaultVenueLoader())
+            VenuesView(loader: DefaultVenueLoader())
         }
     }
 }

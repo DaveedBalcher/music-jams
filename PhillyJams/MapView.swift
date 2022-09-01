@@ -1,99 +1,56 @@
 //
-//  ContentView.swift
-//  Shared
+//  MapView.swift
+//  PhillyJams
 //
-//  Created by Daveed Balcher on 7/18/22.
+//  Created by Daveed Balcher on 9/1/22.
 //
 
 import SwiftUI
 import MapKit
 import MusicVenues
 
-class InfoViewModel: ObservableObject {
-    @Published var isPresented = false
-}
-
 struct MapView: View {
+    let venues: [VenueItem]
     
-    @StateObject var vm: ViewModel
-    @StateObject var infoVM = InfoViewModel()
+    @Binding var mapRegion: MKCoordinateRegion
+    @Binding var selectedVenue: VenueItem?
+    
+    init(venues: [VenueItem], mapRegion: Binding<MKCoordinateRegion>, selectedVenue: Binding<VenueItem?>) {
+        self.venues = venues
+        _mapRegion = mapRegion
+        _selectedVenue = selectedVenue
+    }
     
     var body: some View {
-        NavigationView {
-            VStack {
-                
-                HStack {
-                    ToggleView(options: vm.neighborhoods, optionToString: { $0.name }, selected: $vm.selectedNeighborhood)
-                    
-                    SelectorView(typeString: GenreType.description, options: vm.genreOptions, optionToString: { $0.rawValue }, selected: $vm.selectedGenres)
-                    
-                    SelectorView(typeString: VibeType.description, options: vm.vibeOptions, optionToString: { $0.rawValue }, selected: $vm.selectedVibes)
-                    
-                    Spacer()
-                }
-                .padding([.leading])
-                
-                ZStack(alignment: .bottom) {
-                    
-                    Map(coordinateRegion: $vm.mapRegion, annotationItems: vm.venues) { venue in
-                        MapAnnotation(coordinate: venue.coordinates.mapCoordinates) {
-                            Button {
-                                vm.selectedVenue = venue
-                            } label: {
-                                VenueMarker(venue: venue, isSelected: venue == vm.selectedVenue)
-                            }
-                        }
-                    }
-                    .animation(.default, value: vm.mapRegion)
-                    .ignoresSafeArea()
-                    .edgesIgnoringSafeArea(.all)
-                    
-                    if let venue = vm.selectedVenue {
-                        NavigationLink {
-                            VenueDetailView(venue: venue)
-                        } label: {
-                            VenueBottomView(venue: venue)
-                        }
-                    }
-                }
-            }
-//            .navigationTitle("Philly Jams")
-            .navigationBarTitleDisplayMode(.inline)
-            .popover(isPresented: $infoVM.isPresented){
-                InfoView()
-            }
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Image("philly_jams_logo_navbar")
-                }
-                ToolbarItem {
+        ZStack(alignment: .bottom) {
+            Map(coordinateRegion: $mapRegion, annotationItems: venues) { venue in
+                MapAnnotation(coordinate: venue.coordinates.mapCoordinates) {
                     Button {
-                        infoVM.isPresented = true
+                        selectedVenue = venue
                     } label: {
-                        Label("Information", systemImage: "info.circle")
+                        VenueMarker(venue: venue, isSelected: venue == selectedVenue)
                     }
+                }
+            }
+            .animation(.default, value: mapRegion)
+            .ignoresSafeArea()
+            .edgesIgnoringSafeArea(.all)
+            
+            if let venue = selectedVenue {
+                NavigationLink {
+                    VenueDetailView(venue: venue)
+                } label: {
+                    VenueBottomView(venue: venue)
                 }
             }
         }
     }
-    
-    init(loader: VenueLoader) {
-        _vm = StateObject(wrappedValue: ViewModel(venueLoader: loader))
-    }
 }
 
-extension UINavigationController {
-    
-    open override func viewWillLayoutSubviews() {
-        // Remove back button text
-        super.viewWillLayoutSubviews()
-        navigationBar.topItem?.backButtonDisplayMode = .minimal
-    }
-    
-}
-
-struct MapView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView(loader: DefaultVenueLoader())
-    }
-}
+//struct MapView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MapView(venues: [VenueItem.defaultItem],
+//                mapRegion: ,
+//                selectedVenue: VenueItem.defaultItem)
+//    }
+//}

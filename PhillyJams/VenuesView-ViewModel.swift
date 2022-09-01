@@ -1,5 +1,5 @@
 //
-//  MapView-ViewModel.swift
+//  VenuesView-ViewModel.swift
 //  PhillyJams
 //
 //  Created by Daveed Balcher on 8/8/22.
@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 import MusicVenues
 
-extension MapView {
+extension VenuesView {
     
     @MainActor class ViewModel: ObservableObject {
         
