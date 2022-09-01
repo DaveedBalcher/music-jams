@@ -21,21 +21,20 @@ struct VenuesView: View {
     var body: some View {
         NavigationView {
             VStack {
-                
-                HStack {
-                    ToggleView(options: vm.neighborhoods, optionToString: { $0.name }, selected: $vm.selectedNeighborhood)
-                    
-                    SelectorView(typeString: GenreType.description, options: vm.genreOptions, optionToString: { $0.rawValue }, selected: $vm.selectedGenres)
-                    
-                    SelectorView(typeString: VibeType.description, options: vm.vibeOptions, optionToString: { $0.rawValue }, selected: $vm.selectedVibes)
-                    
-                    Spacer()
-                }
+                FiltersToolbarView(
+                    neighborhoods: vm.neighborhoods,
+                    genreOptions: vm.genreOptions,
+                    vibeOptions: vm.vibeOptions,
+                    selectedNeighborhood: $vm.selectedNeighborhood,
+                    selectedGenres: $vm.selectedGenres,
+                    selectedVibes: $vm.selectedVibes)
+                .padding([.top], 6)
                 .padding([.leading])
                 
-                MapView(venues: vm.venues,
-                        mapRegion: $vm.mapRegion,
-                        selectedVenue: $vm.selectedVenue
+                MapView(
+                    venues: vm.venues,
+                    mapRegion: $vm.mapRegion,
+                    selectedVenue: $vm.selectedVenue
                 )
             }
             .navigationBarTitleDisplayMode(.inline)

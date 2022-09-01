@@ -38,6 +38,7 @@
 		17604D8328BFF9A1001E3FF2 /* VenueDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17604D8228BFF9A1001E3FF2 /* VenueDetailView.swift */; };
 		17604D8728C006AC001E3FF2 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17604D8628C006AC001E3FF2 /* InfoView.swift */; };
 		17604D8A28C14F78001E3FF2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17604D8928C14F78001E3FF2 /* MapView.swift */; };
+		17604D8C28C15461001E3FF2 /* FiltersToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17604D8B28C15461001E3FF2 /* FiltersToolbarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		17604D8628C006AC001E3FF2 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		17604D8828C14902001E3FF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		17604D8928C14F78001E3FF2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		17604D8B28C15461001E3FF2 /* FiltersToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersToolbarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 				1755E5C1289DAEBD00164552 /* VenuesView.swift */,
 				1755E60E28A1A34200164552 /* VenuesView-ViewModel.swift */,
 				17604D8928C14F78001E3FF2 /* MapView.swift */,
+				17604D8B28C15461001E3FF2 /* FiltersToolbarView.swift */,
 				17604D8228BFF9A1001E3FF2 /* VenueDetailView.swift */,
 				17604D8628C006AC001E3FF2 /* InfoView.swift */,
 				1755E5C2289DAEBD00164552 /* VenueBottomView.swift */,
@@ -402,6 +405,7 @@
 				1755E606289DB7F400164552 /* VenuesView.swift in Sources */,
 				17604D8328BFF9A1001E3FF2 /* VenueDetailView.swift in Sources */,
 				1755E60F28A1A34200164552 /* VenuesView-ViewModel.swift in Sources */,
+				17604D8C28C15461001E3FF2 /* FiltersToolbarView.swift in Sources */,
 				1755E607289DB7F400164552 /* ToggleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
