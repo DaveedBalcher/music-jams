@@ -28,8 +28,7 @@ struct VenuesView: View {
                     selectedNeighborhood: $vm.selectedNeighborhood,
                     selectedGenres: $vm.selectedGenres,
                     selectedVibes: $vm.selectedVibes)
-                .padding([.top], 6)
-                .padding([.leading])
+
                 
                 MapView(
                     venues: vm.venues,

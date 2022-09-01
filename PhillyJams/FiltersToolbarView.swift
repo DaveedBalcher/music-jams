@@ -27,6 +27,14 @@ struct FiltersToolbarView: View {
             
             Spacer()
         }
+        .padding([.top], 6)
+        .padding([.leading])
+//        .background(
+//            Color.white
+//                .padding([.bottom], -4)
+//                .shadow(color: .gray, radius: 5, x: 0, y: 0)
+//                .mask(Rectangle().padding(.bottom, -5))
+//        )
     }
 }
 
