@@ -54,12 +54,15 @@ struct MapView: View {
                     }
                 }
             }
-            .navigationTitle("Philly Jams")
+//            .navigationTitle("Philly Jams")
             .navigationBarTitleDisplayMode(.inline)
             .popover(isPresented: $presentInfo){
                 InfoView()
             }
             .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Image("philly_jams_logo_navbar")
+                }
                 ToolbarItem {
                     Button {
                         presentInfo = true
