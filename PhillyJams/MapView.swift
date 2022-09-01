@@ -9,11 +9,14 @@ import SwiftUI
 import MapKit
 import MusicVenues
 
+class InfoViewModel: ObservableObject {
+    @Published var isPresented = false
+}
+
 struct MapView: View {
     
     @StateObject var vm: ViewModel
-    
-    @State var presentInfo = false
+    @StateObject var infoVM = InfoViewModel()
     
     var body: some View {
         NavigationView {
@@ -56,7 +59,7 @@ struct MapView: View {
             }
 //            .navigationTitle("Philly Jams")
             .navigationBarTitleDisplayMode(.inline)
-            .popover(isPresented: $presentInfo){
+            .popover(isPresented: $infoVM.isPresented){
                 InfoView()
             }
             .toolbar {
@@ -65,7 +68,7 @@ struct MapView: View {
                 }
                 ToolbarItem {
                     Button {
-                        presentInfo = true
+                        infoVM.isPresented = true
                     } label: {
                         Label("Information", systemImage: "info.circle")
                     }
