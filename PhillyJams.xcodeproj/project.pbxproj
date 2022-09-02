@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		170D9A4128C161DB00226CF9 /* NeighborhoodMapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D9A4028C161DB00226CF9 /* NeighborhoodMapItem.swift */; };
+		17289C1528C294E5000A701B /* MK-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17289C1428C294E5000A701B /* MK-Extensions.swift */; };
 		1755E601289DB7DF00164552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1755E600289DB7DF00164552 /* Assets.xcassets */; };
 		1755E603289DB7F400164552 /* PhillyJamsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */; };
 		1755E604289DB7F400164552 /* VenueMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E5BF289DAEBD00164552 /* VenueMarker.swift */; };
@@ -82,6 +83,7 @@
 
 /* Begin PBXFileReference section */
 		170D9A4028C161DB00226CF9 /* NeighborhoodMapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeighborhoodMapItem.swift; sourceTree = "<group>"; };
+		17289C1428C294E5000A701B /* MK-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MK-Extensions.swift"; sourceTree = "<group>"; };
 		174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhillyJamsApp.swift; sourceTree = "<group>"; };
 		174D45E0289C5F42001AAC96 /* VenueLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueLoader.swift; sourceTree = "<group>"; };
 		174D45E2289C6099001AAC96 /* VenueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueItem.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				1755E608289DB8C500164552 /* Color-HexString.swift */,
+				17289C1428C294E5000A701B /* MK-Extensions.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				17604D8728C006AC001E3FF2 /* InfoView.swift in Sources */,
 				1755E605289DB7F400164552 /* VenueBottomView.swift in Sources */,
 				1755E64928AAF1A300164552 /* SelectorView.swift in Sources */,
+				17289C1528C294E5000A701B /* MK-Extensions.swift in Sources */,
 				1755E603289DB7F400164552 /* PhillyJamsApp.swift in Sources */,
 				1755E609289DB8C500164552 /* Color-HexString.swift in Sources */,
 				1755E64B28ABCA2600164552 /* MultiSelectionView.swift in Sources */,
