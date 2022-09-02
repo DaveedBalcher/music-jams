@@ -18,28 +18,42 @@ struct FiltersToolbarView: View {
     @Binding var selectedVibes: Set<VibeType>
     
     var body: some View {
-        HStack {
-            ToggleView(options: neighborhoods, optionToString: { $0.name }, selected: $selectedNeighborhood)
-            
-            SelectorView(typeString: GenreType.description, options: genreOptions, optionToString: { $0.rawValue }, selected: $selectedGenres)
-            
-            SelectorView(typeString: VibeType.description, options: vibeOptions, optionToString: { $0.rawValue }, selected: $selectedVibes)
-            
-            Spacer()
+        VStack {
+            HStack {
+                ToggleView(options: neighborhoods, optionToString: { $0.name }, selected: $selectedNeighborhood)
+                
+                SelectorView(typeString: GenreType.description, options: genreOptions, optionToString: { $0.rawValue }, selected: $selectedGenres)
+                
+                SelectorView(typeString: VibeType.description, options: vibeOptions, optionToString: { $0.rawValue }, selected: $selectedVibes)
+                
+                Spacer()
+            }
+            .padding([.leading], 8)
+
+            Color.gray
+                .opacity(0.3)
+                .frame(height: 1)
         }
-        .padding([.top], 6)
-        .padding([.leading])
-//        .background(
-//            Color.white
-//                .padding([.bottom], -4)
-//                .shadow(color: .gray, radius: 5, x: 0, y: 0)
-//                .mask(Rectangle().padding(.bottom, -5))
-//        )
+        .padding([.top], 4)
+        .padding([.bottom], -8)
     }
 }
 
-//struct FiltersToolBarView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FiltersToolBarView(neighborhoods: <#T##[NeighborhoodItem]#>, genreOptions: <#T##[GenreType]#>, vibeOptions: <#T##[VibeType]#>, selectedNeighborhood: <#T##Binding<NeighborhoodItem>#>, selectedGenres: <#T##Binding<Set<GenreType>>#>, selectedVibes: <#T##Binding<Set<VibeType>>#>)
-//    }
-//}
+struct FiltersToolbarView_Previews: PreviewProvider {
+    static var previews: some View {
+        let initialNeighborhood = NeighborhoodMapModel.initialState.neighborhoodItem
+        
+        ZStack {
+            VStack {
+                FiltersToolbarView(neighborhoods: [initialNeighborhood],
+                                   genreOptions: [],
+                                   vibeOptions: [],
+                                   selectedNeighborhood: .constant(initialNeighborhood),
+                                   selectedGenres: .constant([]),
+                                   selectedVibes: .constant([])
+                )
+                Color.red
+            }
+        }
+    }
+}
