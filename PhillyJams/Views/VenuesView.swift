@@ -18,10 +18,10 @@ struct VenuesView: View {
         NavigationView {
             VStack {
                 FiltersToolbarView(
-                    neighborhoods: vm.neighborhoods,
+                    mapRegionOptions: vm.mapRegions,
                     genreOptions: vm.genreOptions,
                     vibeOptions: vm.vibeOptions,
-                    selectedNeighborhood: $vm.selectedNeighborhood,
+                    selectedMapRegion: $vm.selectedMapRegion,
                     selectedGenres: $vm.selectedGenres,
                     selectedVibes: $vm.selectedVibes)
                 

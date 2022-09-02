@@ -9,18 +9,18 @@ import SwiftUI
 import MusicVenues
 
 struct FiltersToolbarView: View {
-    let neighborhoods: [NeighborhoodItem]
+    let mapRegionOptions: [MapRegionItem]
     let genreOptions: [GenreType]
     let vibeOptions: [VibeType]
     
-    @Binding var selectedNeighborhood: NeighborhoodItem
+    @Binding var selectedMapRegion: MapRegionItem
     @Binding var selectedGenres: Set<GenreType>
     @Binding var selectedVibes: Set<VibeType>
     
     var body: some View {
         VStack {
             HStack {
-                ToggleView(options: neighborhoods, optionToString: { $0.name }, selected: $selectedNeighborhood)
+                ToggleView(options: mapRegionOptions, optionToString: { $0.name }, selected: $selectedMapRegion)
                 
                 SelectorView(typeString: GenreType.description, options: genreOptions, optionToString: { $0.rawValue }, selected: $selectedGenres)
                 
@@ -41,14 +41,14 @@ struct FiltersToolbarView: View {
 
 struct FiltersToolbarView_Previews: PreviewProvider {
     static var previews: some View {
-        let initialNeighborhood = NeighborhoodMapItem.initialState.item
+        let initialNeighborhood = MapRegionItem.initialState
         
         ZStack {
             VStack {
-                FiltersToolbarView(neighborhoods: [initialNeighborhood],
+                FiltersToolbarView(mapRegionOptions: [initialNeighborhood],
                                    genreOptions: [],
                                    vibeOptions: [],
-                                   selectedNeighborhood: .constant(initialNeighborhood),
+                                   selectedMapRegion: .constant(initialNeighborhood),
                                    selectedGenres: .constant([]),
                                    selectedVibes: .constant([])
                 )

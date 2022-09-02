@@ -17,15 +17,14 @@ class VenuesViewModel: ObservableObject {
     @Published var venues: [VenueItem] = []
     @Published var selectedVenue: VenueItem?
     
-    @Published var neighborhoods: [NeighborhoodItem] = []
-    @Published var selectedNeighborhood: NeighborhoodItem {
+    @Published var mapRegions: [MapRegionItem] = []
+    @Published var selectedMapRegion: MapRegionItem {
         didSet {
             setInitialVenue()
-            setMapRegion()
+            mapRegion = selectedMapRegion.region
         }
     }
     
-    private var parameters = [FilterParameter]()
     @Published var genreOptions: [GenreType] = []
     @Published var selectedGenres = Set<GenreType>() {
         didSet {
@@ -44,46 +43,41 @@ class VenuesViewModel: ObservableObject {
     
     init(venueLoader: VenueLoader) {
         
-        let initialModel = NeighborhoodMapItem.initialState
-        
-        self.mapRegion = MKCoordinateRegion(center: initialModel.center, span: initialModel.span)
+        let initialMapItem = MapRegionItem.initialState
 
         self.venueLoader = venueLoader
-        _selectedNeighborhood = Published(initialValue:  initialModel.item)
-        // Init Neighborhoods as non-empty
-        self.neighborhoods = [selectedNeighborhood]
+        
+        _mapRegion = Published(initialValue:  initialMapItem.region)
+        _selectedMapRegion = Published(initialValue:  initialMapItem)
+        self.mapRegions = [selectedMapRegion]
     }
     
     func retrieveVenuesData() {
         let (venues, neighborhoods, genres, vibes) = venueLoader.retrieveFiltered()
         self.venues = venues
-        self.neighborhoods = neighborhoods
+        self.mapRegions = neighborhoods.maptoMapRegionItems()
         self.genreOptions = genres
         self.vibeOptions = vibes
     }
     
     func setNeighborhood(name: String? = nil) {
-        if let neighborhood = neighborhoods.first(where: { $0.name == name }) ?? neighborhoods.first {
-            selectedNeighborhood = neighborhood
+        if let neighborhood = mapRegions.first(where: { $0.name == name }) ?? mapRegions.first {
+            selectedMapRegion = neighborhood
         }
         setInitialVenue()
     }
     
     func setInitialVenue() {
-        selectedVenue = venues.first { selectedNeighborhood.name == $0.neighborhood?.name}
-    }
-    
-    func setMapRegion() {
-        mapRegion = MKCoordinateRegion(center: selectedNeighborhood.center.mapCoordinates, span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.02))
+        selectedVenue = venues.first { selectedMapRegion.name == $0.neighborhood?.name}
     }
     
     func filterVenues() {
         let genreParameter = FilterParameter(type: .genres, values: selectedGenres.rawValues)
         let vibeParameter = FilterParameter(type: .vibes, values: selectedVibes.rawValues)
-        (venues, neighborhoods, _, _) = venueLoader.retrieveFiltered(filters: [genreParameter, vibeParameter])
-        venues = venues
-        neighborhoods = neighborhoods
-        setNeighborhood(name: selectedNeighborhood.name)
+        let (venueItems, neighborhoodItems, _, _) = venueLoader.retrieveFiltered(filters: [genreParameter, vibeParameter])
+        self.venues = venueItems
+        self.mapRegions = neighborhoodItems.maptoMapRegionItems()
+        setNeighborhood(name: selectedMapRegion.name)
     }
 }
 
