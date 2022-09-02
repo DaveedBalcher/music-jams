@@ -18,7 +18,7 @@ extension VenuesView {
         @Published var selectedVenue: VenueItem?
         
         @Published var neighborhoods: [NeighborhoodItem] = []
-        @Published var selectedNeighborhood: NeighborhoodItem = NeighborhoodItem(name: "Philadelphia", center: Coordinates.defaultValue, color: nil) {
+        @Published var selectedNeighborhood: NeighborhoodItem {
             didSet {
                 setInitialVenueForInitialNeighborhood()
                 setMapRegion()
@@ -51,7 +51,7 @@ extension VenuesView {
             self.mapRegion = MKCoordinateRegion(center: initialModel.center, span: initialModel.span)
             
             self.venueLoader = venueLoader
-            
+            _selectedNeighborhood = Published(initialValue:  initialModel.neighborhoodItem)
             // Init Neighborhoods as non-empty
             self.neighborhoods = [selectedNeighborhood]
             

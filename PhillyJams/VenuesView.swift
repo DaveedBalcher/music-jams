@@ -24,7 +24,6 @@ struct VenuesView: View {
                     selectedNeighborhood: $vm.selectedNeighborhood,
                     selectedGenres: $vm.selectedGenres,
                     selectedVibes: $vm.selectedVibes)
-
                 
                 MapView(
                     venues: vm.venues,
@@ -37,8 +36,10 @@ struct VenuesView: View {
                 InfoView()
             }
             .toolbar {
-                ToolbarItem(placement: .principal) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     Image("philly_jams_logo_navbar")
+                        .padding([.bottom], 8)
+                        .padding([.leading], 8)
                 }
                 ToolbarItem {
                     Button {
