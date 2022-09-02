@@ -11,7 +11,7 @@ import MusicVenues
 
 struct VenuesView: View {
     
-    @StateObject var vm: ViewModel
+    @ObservedObject var vm: VenuesViewModel
     @State var isPresentedInfo = false
     
     var body: some View {
@@ -52,8 +52,8 @@ struct VenuesView: View {
         }
     }
     
-    init(loader: VenueLoader) {
-        _vm = StateObject(wrappedValue: ViewModel(venueLoader: loader))
+    init(vm: VenuesViewModel) {
+        _vm = ObservedObject(wrappedValue: vm)
     }
 }
 
@@ -67,6 +67,6 @@ extension UINavigationController {
 
 struct VenuesView_Previews: PreviewProvider {
     static var previews: some View {
-        VenuesView(loader: DefaultVenueLoader())
+        VenuesView(vm: VenuesViewModel.init(venueLoader: DefaultVenueLoader()))
     }
 }

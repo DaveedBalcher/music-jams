@@ -15,7 +15,7 @@
 		1755E606289DB7F400164552 /* VenuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E5C1289DAEBD00164552 /* VenuesView.swift */; };
 		1755E607289DB7F400164552 /* ToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E5C0289DAEBD00164552 /* ToggleView.swift */; };
 		1755E609289DB8C500164552 /* Color-HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E608289DB8C500164552 /* Color-HexString.swift */; };
-		1755E60F28A1A34200164552 /* VenuesView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E60E28A1A34200164552 /* VenuesView-ViewModel.swift */; };
+		1755E60F28A1A34200164552 /* VenuesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E60E28A1A34200164552 /* VenuesViewModel.swift */; };
 		1755E62728A4419C00164552 /* MusicVenues.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1755E61D28A4419C00164552 /* MusicVenues.framework */; };
 		1755E62F28A4419C00164552 /* MusicVenues.h in Headers */ = {isa = PBXBuildFile; fileRef = 1755E61F28A4419C00164552 /* MusicVenues.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1755E63E28A44EB800164552 /* FilterModelVenueFilteringUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E63D28A44EB800164552 /* FilterModelVenueFilteringUseCaseTests.swift */; };
@@ -95,7 +95,7 @@
 		1755E5DE289DB4E000164552 /* PhillyJams.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhillyJams.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1755E600289DB7DF00164552 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1755E608289DB8C500164552 /* Color-HexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color-HexString.swift"; sourceTree = "<group>"; };
-		1755E60E28A1A34200164552 /* VenuesView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VenuesView-ViewModel.swift"; sourceTree = "<group>"; };
+		1755E60E28A1A34200164552 /* VenuesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesViewModel.swift; sourceTree = "<group>"; };
 		1755E61D28A4419C00164552 /* MusicVenues.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MusicVenues.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1755E61F28A4419C00164552 /* MusicVenues.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicVenues.h; sourceTree = "<group>"; };
 		1755E62628A4419C00164552 /* MusicVenuesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicVenuesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,7 +202,7 @@
 				17604D8828C14902001E3FF2 /* Info.plist */,
 				174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */,
 				1755E5C1289DAEBD00164552 /* VenuesView.swift */,
-				1755E60E28A1A34200164552 /* VenuesView-ViewModel.swift */,
+				1755E60E28A1A34200164552 /* VenuesViewModel.swift */,
 				170D9A4028C161DB00226CF9 /* NeighborhoodMapModel.swift */,
 				17604D8928C14F78001E3FF2 /* MapView.swift */,
 				17604D8B28C15461001E3FF2 /* FiltersToolbarView.swift */,
@@ -407,7 +407,7 @@
 				1755E64B28ABCA2600164552 /* MultiSelectionView.swift in Sources */,
 				1755E606289DB7F400164552 /* VenuesView.swift in Sources */,
 				17604D8328BFF9A1001E3FF2 /* VenueDetailView.swift in Sources */,
-				1755E60F28A1A34200164552 /* VenuesView-ViewModel.swift in Sources */,
+				1755E60F28A1A34200164552 /* VenuesViewModel.swift in Sources */,
 				17604D8C28C15461001E3FF2 /* FiltersToolbarView.swift in Sources */,
 				170D9A4128C161DB00226CF9 /* NeighborhoodMapModel.swift in Sources */,
 				1755E607289DB7F400164552 /* ToggleView.swift in Sources */,
