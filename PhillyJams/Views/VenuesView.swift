@@ -67,6 +67,6 @@ extension UINavigationController {
 
 struct VenuesView_Previews: PreviewProvider {
     static var previews: some View {
-        VenuesView(vm: VenuesViewModel.init(venueLoader: DefaultVenueLoader()))
+        VenuesView(vm: VenuesViewModel.init(initialMapRegion: MapRegionItem.initialState, venueLoader: DefaultVenueLoader()))
     }
 }

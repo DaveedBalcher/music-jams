@@ -17,7 +17,7 @@ class MainFlow {
     }
 }
 
-private let venuesViewModel = VenuesViewModel(venueLoader: DefaultVenueLoader())
+private let venuesViewModel = VenuesViewModel(initialMapRegion: MapRegionItem.initialState, venueLoader: DefaultVenueLoader())
 
 @main
 struct PhillyJamsApp: App {

@@ -41,14 +41,11 @@ class VenuesViewModel: ObservableObject {
     
     let venueLoader: VenueLoader!
     
-    init(venueLoader: VenueLoader) {
-        
-        let initialMapItem = MapRegionItem.initialState
-
+    init(initialMapRegion: MapRegionItem, venueLoader: VenueLoader) {
         self.venueLoader = venueLoader
         
-        _mapRegion = Published(initialValue:  initialMapItem.region)
-        _selectedMapRegion = Published(initialValue:  initialMapItem)
+        _mapRegion = Published(initialValue: initialMapRegion.region)
+        _selectedMapRegion = Published(initialValue: initialMapRegion)
         self.mapRegions = [selectedMapRegion]
     }
     
