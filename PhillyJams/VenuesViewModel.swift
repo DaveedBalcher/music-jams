@@ -62,16 +62,12 @@ class VenuesViewModel: ObservableObject {
         self.neighborhoods = neighborhoods
         self.genreOptions = genres
         self.vibeOptions = vibes
-        
-        setNeighborhood()
-        setInitialVenueForInitialNeighborhood()
     }
     
-    func setNeighborhood(name: String = "Fishtown") {
+    func setNeighborhood(name: String? = nil) {
         self.selectedNeighborhood = self.neighborhoods.first { $0.name == name } ?? self.neighborhoods.first!
-    }
-    
-    func setInitialVenueForInitialNeighborhood() {
+        
+        // Set initial venue
         self.selectedVenue = venues.first { selectedNeighborhood.name == $0.neighborhood?.name}
     }
     
@@ -84,10 +80,7 @@ class VenuesViewModel: ObservableObject {
         self.venues = venues
         self.neighborhoods = neighborhoods
         
-        if !neighborhoods.contains(selectedNeighborhood) {
-            setNeighborhood()
-            setInitialVenueForInitialNeighborhood()
-        }
+        setNeighborhood(name: selectedNeighborhood.name)
     }
 }
 
