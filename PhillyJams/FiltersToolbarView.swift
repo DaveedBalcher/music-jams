@@ -41,7 +41,7 @@ struct FiltersToolbarView: View {
 
 struct FiltersToolbarView_Previews: PreviewProvider {
     static var previews: some View {
-        let initialNeighborhood = NeighborhoodMapModel.initialState.neighborhoodItem
+        let initialNeighborhood = NeighborhoodMapItem.initialState.item
         
         ZStack {
             VStack {

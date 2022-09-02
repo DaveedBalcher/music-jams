@@ -19,7 +19,7 @@ class VenuesViewModel: ObservableObject {
     @Published var neighborhoods: [NeighborhoodItem] = []
     @Published var selectedNeighborhood: NeighborhoodItem {
         didSet {
-            setInitialVenueForInitialNeighborhood()
+            setInitialVenue()
             setMapRegion()
         }
     }
@@ -45,12 +45,12 @@ class VenuesViewModel: ObservableObject {
     
     init(venueLoader: VenueLoader) {
         
-        let initialModel = NeighborhoodMapModel.initialState
+        let initialModel = NeighborhoodMapItem.initialState
         
         self.mapRegion = MKCoordinateRegion(center: initialModel.center, span: initialModel.span)
-        
+
         self.venueLoader = venueLoader
-        _selectedNeighborhood = Published(initialValue:  initialModel.neighborhoodItem)
+        _selectedNeighborhood = Published(initialValue:  initialModel.item)
         // Init Neighborhoods as non-empty
         self.neighborhoods = [selectedNeighborhood]
     }
@@ -65,20 +65,23 @@ class VenuesViewModel: ObservableObject {
     }
     
     func setNeighborhood(name: String? = nil) {
-        self.selectedNeighborhood = self.neighborhoods.first { $0.name == name } ?? self.neighborhoods.first!
+        selectedNeighborhood = self.neighborhoods.first { $0.name == name } ?? self.neighborhoods.first!
         
-        // Set initial venue
-        self.selectedVenue = venues.first { selectedNeighborhood.name == $0.neighborhood?.name}
+        setInitialVenue()
+    }
+    
+    func setInitialVenue() {
+        selectedVenue = venues.first { selectedNeighborhood.name == $0.neighborhood?.name}
     }
     
     func setMapRegion() {
-        self.mapRegion = MKCoordinateRegion(center: selectedNeighborhood.center.mapCoordinates, span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.02))
+        mapRegion = MKCoordinateRegion(center: selectedNeighborhood.center.mapCoordinates, span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.02))
     }
     
     func filterVenues(with filter: FilterParameter) {
         (venues, neighborhoods, _, _) = venueLoader.retrieveFiltered(filters: [filter])
-        self.venues = venues
-        self.neighborhoods = neighborhoods
+        venues = venues
+        neighborhoods = neighborhoods
         
         setNeighborhood(name: selectedNeighborhood.name)
     }
