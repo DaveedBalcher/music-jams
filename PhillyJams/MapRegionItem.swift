@@ -15,10 +15,12 @@ struct MapRegionItem {
     let color: Color?
     
     static var initialState: MapRegionItem {
-        MapRegionItem(name: "Philadelphia",
-                      region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 39.9509, longitude: -75.1575),
-                                                 span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)),
-                      color: nil)
+        MapRegionItem(
+            name: "Philadelphia",
+            region: MKCoordinateRegion(
+                center: CLLocationCoordinate2D(latitude: 39.9509, longitude: -75.1575),
+                span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)),
+            color: nil)
     }
 }
 
@@ -33,8 +35,9 @@ extension Collection where Element == NeighborhoodItem {
         map {
             MapRegionItem(
                 name: $0.name,
-                region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: $0.center.latitude, longitude: $0.center.longitude),
-                                           span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.02)),
+                region: MKCoordinateRegion(
+                    center: CLLocationCoordinate2D(latitude: $0.center.latitude, longitude: $0.center.longitude),
+                    span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.02)),
                 color: $0.color != nil ? Color($0.color!) : nil)
         }
     }

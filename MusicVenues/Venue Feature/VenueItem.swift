@@ -58,7 +58,7 @@ public extension VenueItem {
                   vibe: .vibe3)
     }
     
-    public var genresDescription: String {
+    var genresDescription: String {
         (genres.map { $0.name}).joined(separator: ", ")
     }
 }
