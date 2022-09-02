@@ -28,16 +28,14 @@ class VenuesViewModel: ObservableObject {
     @Published var genreOptions: [GenreType] = []
     @Published var selectedGenres = Set<GenreType>() {
         didSet {
-            let genreParameter = FilterParameter(type: .genres, values: selectedGenres.rawValues)
-            filterVenues(with: genreParameter)
+            filterVenues()
         }
     }
     
     @Published var vibeOptions: [VibeType] = VibeType.allCases
     @Published var selectedVibes = Set<VibeType>() {
         didSet {
-            let vibeParameter = FilterParameter(type: .vibes, values: selectedVibes.rawValues)
-            filterVenues(with: vibeParameter)
+            filterVenues()
         }
     }
     
@@ -65,7 +63,9 @@ class VenuesViewModel: ObservableObject {
     }
     
     func setNeighborhood(name: String? = nil) {
-        selectedNeighborhood = self.neighborhoods.first { $0.name == name } ?? self.neighborhoods.first!
+        if let neighborhood = neighborhoods.first(where: { $0.name == name }) ?? neighborhoods.first {
+            selectedNeighborhood = neighborhood
+        }
         
         setInitialVenue()
     }
@@ -78,8 +78,10 @@ class VenuesViewModel: ObservableObject {
         mapRegion = MKCoordinateRegion(center: selectedNeighborhood.center.mapCoordinates, span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.02))
     }
     
-    func filterVenues(with filter: FilterParameter) {
-        (venues, neighborhoods, _, _) = venueLoader.retrieveFiltered(filters: [filter])
+    func filterVenues() {
+        let genreParameter = FilterParameter(type: .genres, values: selectedGenres.rawValues)
+        let vibeParameter = FilterParameter(type: .vibes, values: selectedVibes.rawValues)
+        (venues, neighborhoods, _, _) = venueLoader.retrieveFiltered(filters: [genreParameter, vibeParameter])
         venues = venues
         neighborhoods = neighborhoods
         
@@ -93,4 +95,3 @@ extension Coordinates {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }
-
