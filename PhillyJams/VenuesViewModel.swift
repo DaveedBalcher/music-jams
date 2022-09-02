@@ -11,6 +11,7 @@ import MusicVenues
 
 
 class VenuesViewModel: ObservableObject {
+    
     @Published var mapRegion: MKCoordinateRegion
     
     @Published var venues: [VenueItem] = []
@@ -55,7 +56,6 @@ class VenuesViewModel: ObservableObject {
     
     func retrieveVenuesData() {
         let (venues, neighborhoods, genres, vibes) = venueLoader.retrieveFiltered()
-        
         self.venues = venues
         self.neighborhoods = neighborhoods
         self.genreOptions = genres
@@ -66,7 +66,6 @@ class VenuesViewModel: ObservableObject {
         if let neighborhood = neighborhoods.first(where: { $0.name == name }) ?? neighborhoods.first {
             selectedNeighborhood = neighborhood
         }
-        
         setInitialVenue()
     }
     
@@ -84,7 +83,6 @@ class VenuesViewModel: ObservableObject {
         (venues, neighborhoods, _, _) = venueLoader.retrieveFiltered(filters: [genreParameter, vibeParameter])
         venues = venues
         neighborhoods = neighborhoods
-        
         setNeighborhood(name: selectedNeighborhood.name)
     }
 }
