@@ -53,10 +53,6 @@ class VenuesViewModel: ObservableObject {
         _selectedNeighborhood = Published(initialValue:  initialModel.neighborhoodItem)
         // Init Neighborhoods as non-empty
         self.neighborhoods = [selectedNeighborhood]
-        
-        //            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-        //                self.retrieveVenuesData()
-        //            }
     }
     
     func retrieveVenuesData() {
