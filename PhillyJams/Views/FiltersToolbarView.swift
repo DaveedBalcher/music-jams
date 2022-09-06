@@ -22,9 +22,9 @@ struct FiltersToolbarView: View {
             HStack {
                 ToggleView(options: mapRegionOptions, optionToString: { $0.name }, selected: $selectedMapRegion)
                 
-                SelectorView(typeString: GenreType.description, options: genreOptions, optionToString: { $0.rawValue }, selected: $selectedGenres)
+                SelectorView(typeString: GenreType.description, options: genreOptions, selected: $selectedGenres)
                 
-                SelectorView(typeString: VibeType.description, options: vibeOptions, optionToString: { $0.rawValue }, selected: $selectedVibes)
+                SelectorView(typeString: VibeType.description, options: vibeOptions, selected: $selectedVibes)
                 
                 Spacer()
             }

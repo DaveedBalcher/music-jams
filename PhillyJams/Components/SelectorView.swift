@@ -7,10 +7,14 @@
 
 import SwiftUI
 
-struct SelectorView<Selectable: Identifiable & Hashable>: View {
+//enum SelectorType {
+//    case list, rangeSlider
+//}
+
+struct SelectorView: View {
     var typeString: String = ""
-    let options: [Selectable]
-    let optionToString: (Selectable) -> String
+    let options: [String]
+//    let selectorType: SelectorType
     
     @Binding var selected: Set<String>
     
@@ -30,7 +34,22 @@ struct SelectorView<Selectable: Identifiable & Hashable>: View {
     
     var body: some View {
         HStack {
-            NavigationLink(destination: multiSelectionView()) {
+            NavigationLink {
+//                switch selectorType {
+//                case .list:
+                    MultiSelectionView(
+                        title: typeString,
+                        options: options,
+                        selected: $selected
+                    )
+//                case .rangeSlider:
+//                    SliderView(
+//                        title: typeString,
+//                        options: options,
+//                        selected: $selected
+//                    )
+//                }
+            } label: {
                 Text(formattedSelectedListString)
                     .font(.system(size: 15))
                     .padding(6)
@@ -39,15 +58,6 @@ struct SelectorView<Selectable: Identifiable & Hashable>: View {
         .padding([.leading, .trailing], 8)
         .background(Capsule().strokeBorder(.secondary))
         .frame(idealHeight: 44)
-    }
-    
-    private func multiSelectionView() -> some View {
-        MultiSelectionView(
-            title: typeString,
-            options: options,
-            optionToString: optionToString,
-            selected: $selected
-        )
     }
 }
 
