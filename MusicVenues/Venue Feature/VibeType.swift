@@ -17,8 +17,7 @@ public enum VibeType: String, CaseIterable, Identifiable {
         vibe2 = "Chill",
         vibe3 = "Moderate",
         vibe4 = "Serious",
-        vibe5 = "Whiplash",
-        defaultValue = "Unspecified"
+        vibe5 = "Whiplash"
     
     public static var description: String {
         "Vibes"

@@ -69,8 +69,10 @@ class VenuesViewModel: ObservableObject {
     }
     
     func filterVenues() {
-        let genreParameter = FilterParameter(type: .genres, values: selectedGenres)
-        let vibeParameter = FilterParameter(type: .vibes, values: selectedVibes)
+        let allGenresSelected = genreOptions.count == selectedGenres.count
+        let genreParameter = FilterParameter(type: .genres, values: selectedGenres, allSelected: allGenresSelected)
+        let allVibesSelected = vibeOptions.count == selectedVibes.count
+        let vibeParameter = FilterParameter(type: .vibes, values: selectedVibes, allSelected: allVibesSelected)
         let (venueItems, neighborhoodItems, _) = venueLoader.retrieveFiltered(filters: [genreParameter, vibeParameter])
         self.venues = venueItems
         self.mapRegions = neighborhoodItems.maptoMapRegionItems()

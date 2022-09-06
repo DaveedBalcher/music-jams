@@ -54,7 +54,7 @@ class FilterModelVenueFilteringUseCaseTests: XCTestCase {
         let sut = MockedVenueLoader()
         
         let prefilterVenues = sut.retrieveVenues()
-        let (postfilterVenues, _, _, _) = sut.retrieveFiltered(filters: [])
+        let (postfilterVenues, _, _) = sut.retrieveFiltered(filters: [])
         
         XCTAssertEqual(prefilterVenues, postfilterVenues)
     }
@@ -68,7 +68,7 @@ class FilterModelVenueFilteringUseCaseTests: XCTestCase {
 
         let filteredVenues = FilterProcesser.filter(prefilterVenues, with: [parameter])
         
-        let (retrievedFilteredVenues, _, _, _) =  sut.retrieveFiltered(filters: [parameter])
+        let (retrievedFilteredVenues, _, _) =  sut.retrieveFiltered(filters: [parameter])
         
         XCTAssertEqual(filteredVenues.count, retrievedFilteredVenues.count)
         
@@ -83,7 +83,7 @@ class FilterModelVenueFilteringUseCaseTests: XCTestCase {
         let parameter1 = FilterParameter(type: .genres, values: ["genre1", "genre2"])
         let filteredVenues = FilterProcesser.filter(prefilterVenues, with: [parameter1])
         
-        let (retrievedFilteredVenues, _, _, _) =  sut.retrieveFiltered(filters: [parameter1])
+        let (retrievedFilteredVenues, _, _) =  sut.retrieveFiltered(filters: [parameter1])
         
         XCTAssertEqual(filteredVenues.count, retrievedFilteredVenues.count)
         
@@ -99,7 +99,7 @@ class FilterModelVenueFilteringUseCaseTests: XCTestCase {
         let parameter2 = FilterParameter(type: .vibes, values: ["vibe2"])
         let filteredVenues = FilterProcesser.filter(prefilterVenues, with: [parameter1, parameter2])
 
-        let (retrievedFilteredVenues, _, _, _) =  sut.retrieveFiltered(filters: [parameter1, parameter2])
+        let (retrievedFilteredVenues, _, _) =  sut.retrieveFiltered(filters: [parameter1, parameter2])
 
         XCTAssertEqual(filteredVenues.count, retrievedFilteredVenues.count)
         
