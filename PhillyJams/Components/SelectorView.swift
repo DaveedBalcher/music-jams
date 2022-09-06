@@ -12,7 +12,7 @@ struct SelectorView<Selectable: Identifiable & Hashable>: View {
     let options: [Selectable]
     let optionToString: (Selectable) -> String
     
-    @Binding var selected: Set<Selectable>
+    @Binding var selected: Set<String>
     
     private var formattedSelectedListString: String {
         
@@ -21,9 +21,9 @@ struct SelectorView<Selectable: Identifiable & Hashable>: View {
         case 0, options.count:
             return "All \(typeString)"
         case 1:
-            return $selected.wrappedValue.map { optionToString($0) }.sorted().first!
+            return $selected.wrappedValue.sorted().first!
         default:
-            let first = $selected.wrappedValue.map { optionToString($0) }.sorted().first!
+            let first = $selected.wrappedValue.sorted().first!
             return first + " +\(count-1)"
         }
     }
@@ -52,19 +52,13 @@ struct SelectorView<Selectable: Identifiable & Hashable>: View {
 }
 
 struct MultiSelector_Previews: PreviewProvider {
-    struct IdentifiableString: Identifiable, Hashable {
-        let string: String
-        var id: String { string }
-    }
-    
-    @State static var selected: Set<IdentifiableString> = Set(["A", "C"].map { IdentifiableString(string: $0) })
+    @State static var selected: Set<String> = Set(["A", "C"])
     
     static var previews: some View {
         NavigationView {
             Form {
-                SelectorView<IdentifiableString>(
-                    options: ["A", "B", "C", "D"].map { IdentifiableString(string: $0) },
-                    optionToString: { $0.string },
+                SelectorView(
+                    options: ["A", "B", "C", "D"],
                     selected: $selected
                 )
             }.navigationTitle("Title")

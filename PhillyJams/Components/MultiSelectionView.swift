@@ -7,26 +7,26 @@
 
 import SwiftUI
 
-struct MultiSelectionView<Selectable: Identifiable & Hashable>: View {
+struct MultiSelectionView: View {
     let title: String
-    let options: [Selectable]
-    let optionToString: (Selectable) -> String
+    let options: [String]
     
-    @Binding var selected: Set<Selectable>
+    @Binding var selected: Set<String>
     
     var body: some View {
         List {
-            ForEach(options) { selectable in
+            ForEach(options, id: \.self) { selectable in
                 Button(action: { toggleSelection(selectable: selectable) }) {
                     HStack {
-                        Text(optionToString(selectable)).foregroundColor(.black)
+                        Text(selectable)
+                            .foregroundColor(.black)
                         Spacer()
-                        if selected.contains { $0.id == selectable.id } {
+                        if selected.contains { $0 == selectable } {
                             Image(systemName: "checkmark").foregroundColor(.accentColor)
                         }
                     }
                 }
-                .tag(selectable.id)
+                .tag(selectable)
             }
         }
         .listStyle(GroupedListStyle())
@@ -38,8 +38,8 @@ struct MultiSelectionView<Selectable: Identifiable & Hashable>: View {
         .navigationTitle(title)
     }
     
-    private func toggleSelection(selectable: Selectable) {
-        if let existingIndex = selected.firstIndex(where: { $0.id == selectable.id }) {
+    private func toggleSelection(selectable: String) {
+        if let existingIndex = selected.firstIndex(where: { $0 == selectable }) {
             
             guard selected.count > 1 else { return }
             
@@ -51,19 +51,13 @@ struct MultiSelectionView<Selectable: Identifiable & Hashable>: View {
 }
 
 struct MultiSelectionView_Previews: PreviewProvider {
-    struct IdentifiableString: Identifiable, Hashable {
-        let string: String
-        var id: String { string }
-    }
-    
-    @State static var selected: Set<IdentifiableString> = Set(["A", "C"].map { IdentifiableString(string: $0) })
+    @State static var selected: Set<String> = Set(["A", "C"])
     
     static var previews: some View {
         NavigationView {
             MultiSelectionView(
                 title: "Preview",
-                options: ["A", "B", "C", "D"].map { IdentifiableString(string: $0) },
-                optionToString: { $0.string },
+                options: ["A", "B", "C", "D"],
                 selected: $selected
             )
         }

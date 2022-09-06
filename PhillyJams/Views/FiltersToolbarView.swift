@@ -10,12 +10,12 @@ import MusicVenues
 
 struct FiltersToolbarView: View {
     let mapRegionOptions: [MapRegionItem]
-    let genreOptions: [GenreType]
-    let vibeOptions: [VibeType]
+    let genreOptions: [String]
+    let vibeOptions: [String]
     
     @Binding var selectedMapRegion: MapRegionItem
-    @Binding var selectedGenres: Set<GenreType>
-    @Binding var selectedVibes: Set<VibeType>
+    @Binding var selectedGenres: Set<String>
+    @Binding var selectedVibes: Set<String>
     
     var body: some View {
         VStack {

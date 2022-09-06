@@ -31,9 +31,9 @@ public struct FilterProcesser {
 
 public struct FilterParameter: Equatable {
     let type: FilterType
-    let values: [String]
+    let values: Set<String>
     
-    public init(type: FilterType, values: [String]) {
+    public init(type: FilterType, values: Set<String>) {
         self.type = type
         self.values = values
     }

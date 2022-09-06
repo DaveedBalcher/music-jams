@@ -25,15 +25,15 @@ class VenuesViewModel: ObservableObject {
         }
     }
     
-    @Published var genreOptions: [GenreType] = []
-    @Published var selectedGenres = Set<GenreType>() {
+    @Published var genreOptions: [String] = []
+    @Published var selectedGenres = Set<String>() {
         didSet {
             filterVenues()
         }
     }
     
-    @Published var vibeOptions: [VibeType] = VibeType.allCases
-    @Published var selectedVibes = Set<VibeType>() {
+    @Published var vibeOptions: [String] = []
+    @Published var selectedVibes = Set<String>() {
         didSet {
             filterVenues()
         }
@@ -50,11 +50,11 @@ class VenuesViewModel: ObservableObject {
     }
     
     func retrieveVenuesData() {
-        let (venues, neighborhoods, genres, vibes) = venueLoader.retrieveFiltered()
+        let (venues, neighborhoods, filters) = venueLoader.retrieveFiltered()
         self.venues = venues
         self.mapRegions = neighborhoods.maptoMapRegionItems()
-        self.genreOptions = genres
-        self.vibeOptions = vibes
+        self.genreOptions = filters.genreOptions
+        self.vibeOptions = filters.vibeOptions
     }
     
     func setNeighborhood(name: String? = nil) {
@@ -69,9 +69,9 @@ class VenuesViewModel: ObservableObject {
     }
     
     func filterVenues() {
-        let genreParameter = FilterParameter(type: .genres, values: selectedGenres.rawValues)
-        let vibeParameter = FilterParameter(type: .vibes, values: selectedVibes.rawValues)
-        let (venueItems, neighborhoodItems, _, _) = venueLoader.retrieveFiltered(filters: [genreParameter, vibeParameter])
+        let genreParameter = FilterParameter(type: .genres, values: selectedGenres)
+        let vibeParameter = FilterParameter(type: .vibes, values: selectedVibes)
+        let (venueItems, neighborhoodItems, _) = venueLoader.retrieveFiltered(filters: [genreParameter, vibeParameter])
         self.venues = venueItems
         self.mapRegions = neighborhoodItems.maptoMapRegionItems()
         setNeighborhood(name: selectedMapRegion.name)
