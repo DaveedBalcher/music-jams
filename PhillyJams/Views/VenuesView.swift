@@ -14,23 +14,33 @@ struct VenuesView: View {
     @ObservedObject var vm: VenuesViewModel
     @State var isPresentedInfo = false
     
+    @State var showPicker: Bool = false
+    
     var body: some View {
         NavigationView {
-            VStack {
+            ZStack(alignment: .topLeading) {
+                MapView(
+                    venues: vm.venues,
+                    mapRegion: $vm.mapRegion,
+                    selectedVenue: $vm.selectedVenue
+                )
+                .padding([.top], 42)
+                
                 FiltersToolbarView(
                     mapRegionOptions: vm.mapRegions,
                     genreOptions: vm.genreOptions,
                     vibeOptions: vm.vibeOptions,
                     selectedMapRegion: $vm.selectedMapRegion,
                     selectedGenres: $vm.selectedGenres,
-                    selectedVibes: $vm.selectedVibes)
-                
-                MapView(
-                    venues: vm.venues,
-                    mapRegion: $vm.mapRegion,
-                    selectedVenue: $vm.selectedVenue
+                    selectedVibes: $vm.selectedVibes
                 )
+                
             }
+//            .toolBarPopover(show: $showPicker) {
+//                DatePicker("", selection: .constant(Date()))
+//                    .datePickerStyle(.compact)
+//                    .labelsHidden()
+//            }
             .navigationBarTitleDisplayMode(.inline)
             .popover(isPresented: $isPresentedInfo){
                 InfoView()
