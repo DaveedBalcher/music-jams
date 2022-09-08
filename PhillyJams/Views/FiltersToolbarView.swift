@@ -14,17 +14,21 @@ struct FiltersToolbarView: View {
     let vibeOptions: [VibeType]
     
     @Binding var selectedMapRegion: MapRegionItem
-    @Binding var selectedGenres: Set<GenreType>
-    @Binding var selectedVibes: Set<VibeType>
+    @Binding var selectedGenre: GenreType?
+    @Binding var selectedVibe: VibeType?
     
     var body: some View {
         VStack {
             HStack {
                 ToggleView(options: mapRegionOptions, optionToString: { $0.name }, selected: $selectedMapRegion)
                 
-                SelectorView(typeString: GenreType.description, options: genreOptions, optionToString: { $0.rawValue }, selected: $selectedGenres)
+                ToggleWithAllView(typeString: GenreType.description, options: genreOptions, optionToString: { $0.rawValue }, selected: $selectedGenre)
                 
-                SelectorView(typeString: VibeType.description, options: vibeOptions, optionToString: { $0.rawValue }, selected: $selectedVibes)
+                ToggleWithAllView(typeString: VibeType.description, options: vibeOptions, optionToString: { $0.rawValue }, selected: $selectedVibe)
+                
+//                SelectorView(typeString: GenreType.description, options: genreOptions, optionToString: { $0.rawValue }, selected: $selectedGenres)
+//
+//                SelectorView(typeString: VibeType.description, options: vibeOptions, optionToString: { $0.rawValue }, selected: $selectedVibes)
                 
                 Spacer()
             }
@@ -46,11 +50,11 @@ struct FiltersToolbarView_Previews: PreviewProvider {
         ZStack {
             VStack {
                 FiltersToolbarView(mapRegionOptions: [initialNeighborhood],
-                                   genreOptions: [],
-                                   vibeOptions: [],
+                                   genreOptions: [GenreType.defaultValue],
+                                   vibeOptions: [VibeType.defaultValue],
                                    selectedMapRegion: .constant(initialNeighborhood),
-                                   selectedGenres: .constant([]),
-                                   selectedVibes: .constant([])
+                                   selectedGenre: .constant(GenreType.defaultValue),
+                                   selectedVibe: .constant(VibeType.defaultValue)
                 )
                 Color.red
             }

@@ -7,6 +7,29 @@
 
 import SwiftUI
 
+struct ToggleWithAllView<Selectable: Hashable>: View {
+    let typeString: String
+    let options: [Selectable]
+    let optionToString: (Selectable) -> String
+    
+    @Binding var selected: Selected<Selectable>
+    
+    var body: some View {
+        HStack {
+            Picker("", selection: $selected) {
+                Text("All \(typeString)")
+                ForEach(options, id: \.self) { option in
+                    Text(optionToString(option))
+                        .tag(option)
+                }
+            }
+        }
+        .padding([.leading, .trailing], 12)
+        .background(Capsule().strokeBorder(.secondary))
+        .frame(idealHeight: 44)
+    }
+}
+
 struct ToggleView<Selectable: Hashable>: View {
     let options: [Selectable]
     let optionToString: (Selectable) -> String

@@ -9,6 +9,11 @@ import SwiftUI
 import MapKit
 import MusicVenues
 
+enum Selected<Wrapped> {
+    case all
+    case one(Wrapped)
+}
+
 
 class VenuesViewModel: ObservableObject {
     
@@ -26,14 +31,14 @@ class VenuesViewModel: ObservableObject {
     }
     
     @Published var genreOptions: [GenreType] = []
-    @Published var selectedGenres = Set<GenreType>() {
+    @Published var selectedGenre: Selected<GenreType> = .all {
         didSet {
             filterVenues()
         }
     }
     
     @Published var vibeOptions: [VibeType] = VibeType.allCases
-    @Published var selectedVibes = Set<VibeType>() {
+    @Published var selectedVibe: Selected<VibeType> = .all {
         didSet {
             filterVenues()
         }
@@ -69,9 +74,27 @@ class VenuesViewModel: ObservableObject {
     }
     
     func filterVenues() {
-        let genreParameter = FilterParameter(type: .genres, values: selectedGenres.rawValues)
-        let vibeParameter = FilterParameter(type: .vibes, values: selectedVibes.rawValues)
-        let (venueItems, neighborhoodItems, _, _) = venueLoader.retrieveFiltered(filters: [genreParameter, vibeParameter])
+        var filters = [FilterParameter]()
+        switch selectedGenre {
+        case .all:
+            break
+        case let .one(genre):
+            filters.append(FilterParameter(type: .genres, values: [genre.rawValue]))
+        }
+        switch selectedVibe {
+        case .all:
+            break
+        case let .one(vibe):
+            filters.append(FilterParameter(type: .vibes, values: [vibe.rawValue]))
+        }
+        
+//        if selectedGenre{
+//            filters.append(FilterParameter(type: .genres, values: [genre.rawValue]))
+//        }
+//        if let vibe = selectedVibe {
+//            filters.append(FilterParameter(type: .vibes, values: [vibe.rawValue]))
+//        }
+        let (venueItems, neighborhoodItems, _, _) = venueLoader.retrieveFiltered(filters: filters)
         self.venues = venueItems
         self.mapRegions = neighborhoodItems.maptoMapRegionItems()
         setNeighborhood(name: selectedMapRegion.name)

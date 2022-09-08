@@ -31,8 +31,8 @@ struct VenuesView: View {
                     genreOptions: vm.genreOptions,
                     vibeOptions: vm.vibeOptions,
                     selectedMapRegion: $vm.selectedMapRegion,
-                    selectedGenres: $vm.selectedGenres,
-                    selectedVibes: $vm.selectedVibes
+                    selectedGenre: $vm.selectedGenre,
+                    selectedVibe: $vm.selectedVibe
                 )
                 
             }
