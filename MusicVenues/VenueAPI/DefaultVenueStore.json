@@ -1,19 +1,32 @@
 {
     "venues": [
         {
-            "name": "Ortlieb's",
-            "neighborhood": "Northern Liberties",
-            "coordinates": [
-                -75.142369,
-                39.9645332
-            ]
-        },
-        {
             "name": "The Fire",
             "neighborhood": "Northern Liberties",
             "coordinates": [
                 -75.1435606,
                 39.9698626
+            ]
+        },
+        {
+            "name": "Heritage",
+            "neighborhood": "Northern Liberties",
+            "coordinates": [
+                -75.1407277,
+                39.9645377
+            ],
+            "events" : [
+                {
+                    "name": "",
+                    "day_of_the_week": "Wednesdays",
+                    "start_time": "6:00pm",
+                    "end_time": "9:00pm",
+                    "vibe_index": 3,
+                    "genres": ["Jazz"],
+                    "type": "Open Jam",
+                    "host": ["Tony Catastrophe", "Darth Kaplowtz"],
+                    "url": "https://www.facebook.com/thecitywidesessions/"
+                }
             ]
         },
         {
@@ -23,26 +36,7 @@
                 -75.140773,
                 39.9620411
             ],
-            "vibe_index": 2,
-            "genres": [
-                "Indie",
-                "Rock",
-                "Hip hop",
-                "Jazz"
-            ]
-        },
-        {
-            "name": "Heritage",
-            "neighborhood": "Northern Liberties",
-            "coordinates": [
-                -75.140773,
-                39.9620411
-            ],
-            "vibe_index": 3,
-            "genres": [
-                "Jazz",
-                "Bluegrass"
-            ]
+            "vibe_index": 2
         },
         {
             "name": "SOUTH",
@@ -73,10 +67,18 @@
                 -75.158515,
                 39.970709
             ],
-            "vibe_index": 3,
-            "genres": [
-                "Electronic",
-                "Jazz"
+            "events" : [
+                {
+                    "name": "",
+                    "day_of_the_week": "Wednesdays",
+                    "start_time": "8:00pm",
+                    "end_time": "12:00am",
+                    "vibe_index": 3,
+                    "genres": ["Jazz", "Electronic"],
+                    "type": "Open Jam",
+                    "host": ["DJ Ha", "Slokey"],
+                    "url": "https://www.facebook.com/thecitywidesessions/"
+                }
             ]
         },
         {
@@ -86,9 +88,18 @@
                 -75.147857,
                 39.9413076
             ],
-            "vibe_index": 0,
-            "genres": [
-                "Rock"
+            "events" : [
+                {
+                    "name": "",
+                    "day_of_the_week": "1st & 3rd Sundays",
+                    "start_time": "8:00pm",
+                    "end_time": "12:00am",
+                    "vibe_index": 0,
+                    "genres": ["Rock"],
+                    "type": "Open Jam",
+                    "host": ["Mikey O."],
+                    "url": "https://www.facebook.com/dobbsonsouth/"
+                }
             ]
         },
         {
@@ -97,14 +108,27 @@
             "coordinates": [
                 -75.1451777,
                 39.9418511
+            ],
+            "events" : [
+                {
+                    "name": "",
+                    "day_of_the_week": "Sundays",
+                    "start_time": "5:00pm",
+                    "end_time": "9:00pm",
+                    "vibe_index": 1,
+                    "genres": ["Blues"],
+                    "type": "Open Jam",
+                    "host": ["Mikey Junior"],
+                    "url": "http://thetwistedtail.com/event/open-blues-jam/all/"
+                }
             ]
         },
         {
-            "name": "MilkBoy",
-            "neighborhood": "Center City",
+            "name": "Khyber Pass Pub",
+            "neighborhood": "Old City",
             "coordinates": [
-                -75.1587791,
-                39.9500946
+                -75.1441372,
+                39.948667
             ]
         },
         {
@@ -114,12 +138,46 @@
                 -75.162516,
                 39.9497362
             ],
+            "events" : [
+                {
+                    "name": "",
+                    "day_of_the_week": "Sundays",
+                    "start_time": "8:00pm",
+                    "end_time": "12:00am",
+                    "vibe_index": 1,
+                    "genres": [
+                        "Jazz",
+                        "Funk",
+                        "Fusion"
+                    ],
+                    "type": "Open Jam",
+                    "host": ["Tim Brey Trio"],
+                    "url": "https://www.timerestaurant.net/copy-of-music-events"
+                },
+                {
+                    "name": "",
+                    "day_of_the_week": "Tuesdays",
+                    "start_time": "9:00pm",
+                    "end_time": "1:00am",
+                    "vibe_index": 1,
+                    "genres": [],
+                    "type": "Open Mic",
+                    "host": ["Chris Farrell & The Ritmo Collective"],
+                    "url": "https://www.timerestaurant.net/copy-of-music-events"
+                }
+            ]
             "vibe_index": 2,
             "genres": [
                 "Jazz",
                 "Funk",
                 "Fusion"
-            ]
+            ],
+            "event_types": [
+                "Open Jam",
+                "Open Mic"
+            ],
+            "host": ["Mikey Junior"],
+            "url": "https://www.timerestaurant.net/copy-of-music-events"
         },
         {
             "name": "McGillin's Olde Ale House",
@@ -127,6 +185,9 @@
             "coordinates": [
                 -75.1626132,
                 39.950476
+            ],
+            "event_types": [
+                "Open Mic"
             ]
         },
         {
@@ -135,6 +196,9 @@
             "coordinates": [
                 -75.1611827,
                 39.9496403
+            ],
+            "event_types": [
+                "Open Mic"
             ]
         },
         {
@@ -147,6 +211,10 @@
             "vibe_index": 2,
             "genres": [
                 "Jazz"
+            ],
+            "event_types": [
+                "Open Jam",
+                "Open Mic"
             ]
         },
         {
@@ -155,6 +223,9 @@
             "coordinates": [
                 -75.2230934,
                 40.0256935
+            ],
+            "event_types": [
+                "Open Mic"
             ]
         },
         {
@@ -163,6 +234,9 @@
             "coordinates": [
                 -75.212808,
                 40.018596
+            ],
+            "event_types": [
+                "Open Mic"
             ]
         },
         {
@@ -171,6 +245,9 @@
             "coordinates": [
                 -75.1796596,
                 39.9392658
+            ],
+            "event_types": [
+                "Open Mic"
             ]
         },
         {
@@ -183,6 +260,9 @@
             "vibe_index": 4,
             "genres": [
                 "Jazz"
+            ],
+            "event_types": [
+                "Open Jam"
             ]
         },
         {
@@ -191,6 +271,9 @@
             "coordinates": [
                 -75.1696208,
                 39.9507154
+            ],
+            "event_types": [
+                "Open Mic"
             ]
         },
         {
@@ -199,6 +282,10 @@
             "coordinates": [
                 -75.1851726,
                 39.9520673
+            ],
+            "event_types": [
+                "Open Jam",
+                "Open Mic"
             ]
         },
         {
@@ -212,6 +299,10 @@
             "genres": [
                 "Jazz",
                 "Folk"
+            ],
+            "event_types": [
+                "Open Jam",
+                "Open Mic"
             ]
         },
         {
@@ -295,7 +386,7 @@
                 -75.14777183532715,
                 39.95126675597663
             ],
-            "color": "0a3466"
+            "color": "3484c4"
         },
         {
             "name": "North Broad",
@@ -348,8 +439,8 @@
         {
             "name": "Manayunk",
             "coordinates": [
-                -75.2230934,
-                40.0256935
+                -75.217396,
+                40.021419
             ],
             "color": "3484c4"
         }
