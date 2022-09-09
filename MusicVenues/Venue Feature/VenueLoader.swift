@@ -12,7 +12,6 @@ public protocol VenueLoader {
     typealias FilterOptions = (genreOptions: [String], vibeOptions: [String])
     
     func retrieveVenues() -> [VenueItem]
-    func retrieveFilters() -> FilterOptions
 }
 
 public extension VenueLoader {
