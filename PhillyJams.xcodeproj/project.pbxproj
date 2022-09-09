@@ -35,12 +35,11 @@
 		1755E65728B3C8FE00164552 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E65628B3C8FE00164552 /* Coordinates.swift */; };
 		1755E66928B577C800164552 /* MusicVenues.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1755E61D28A4419C00164552 /* MusicVenues.framework */; };
 		1755E66A28B577C800164552 /* MusicVenues.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1755E61D28A4419C00164552 /* MusicVenues.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		17604D5728B7F4F6001E3FF2 /* LoadAndStoreFilterOptionsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17604D5628B7F4F6001E3FF2 /* LoadAndStoreFilterOptionsUseCaseTests.swift */; };
-		17604D5928B80257001E3FF2 /* RetrieveFilteredVenuesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17604D5828B80257001E3FF2 /* RetrieveFilteredVenuesUseCaseTests.swift */; };
 		17604D8328BFF9A1001E3FF2 /* VenueDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17604D8228BFF9A1001E3FF2 /* VenueDetailView.swift */; };
 		17604D8728C006AC001E3FF2 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17604D8628C006AC001E3FF2 /* InfoView.swift */; };
 		17604D8A28C14F78001E3FF2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17604D8928C14F78001E3FF2 /* MapView.swift */; };
 		17604D8C28C15461001E3FF2 /* FiltersToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17604D8B28C15461001E3FF2 /* FiltersToolbarView.swift */; };
+		17C91C0E28CBB0870038F788 /* CSVVenueLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C91C0D28CBB0870038F788 /* CSVVenueLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,13 +108,12 @@
 		1755E65228B3C67F00164552 /* GenreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreType.swift; sourceTree = "<group>"; };
 		1755E65428B3C69F00164552 /* VibeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibeType.swift; sourceTree = "<group>"; };
 		1755E65628B3C8FE00164552 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
-		17604D5628B7F4F6001E3FF2 /* LoadAndStoreFilterOptionsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAndStoreFilterOptionsUseCaseTests.swift; sourceTree = "<group>"; };
-		17604D5828B80257001E3FF2 /* RetrieveFilteredVenuesUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveFilteredVenuesUseCaseTests.swift; sourceTree = "<group>"; };
 		17604D8228BFF9A1001E3FF2 /* VenueDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetailView.swift; sourceTree = "<group>"; };
 		17604D8628C006AC001E3FF2 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		17604D8828C14902001E3FF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		17604D8928C14F78001E3FF2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		17604D8B28C15461001E3FF2 /* FiltersToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersToolbarView.swift; sourceTree = "<group>"; };
+		17C91C0D28CBB0870038F788 /* CSVVenueLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVVenueLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +193,7 @@
 		174D45DD289C5CDA001AAC96 /* VenueAPI */ = {
 			isa = PBXGroup;
 			children = (
+				17C91C0D28CBB0870038F788 /* CSVVenueLoader.swift */,
 				174D45E4289C689B001AAC96 /* DefaultVenueLoader.swift */,
 				174D45F2289D9C2C001AAC96 /* DefaultVenueMapper.swift */,
 				174D45E9289C6AE8001AAC96 /* DefaultVenueStore.json */,
@@ -247,8 +246,6 @@
 			isa = PBXGroup;
 			children = (
 				1755E63D28A44EB800164552 /* FilterModelVenueFilteringUseCaseTests.swift */,
-				17604D5628B7F4F6001E3FF2 /* LoadAndStoreFilterOptionsUseCaseTests.swift */,
-				17604D5828B80257001E3FF2 /* RetrieveFilteredVenuesUseCaseTests.swift */,
 			);
 			path = MusicVenuesTests;
 			sourceTree = "<group>";
@@ -365,6 +362,9 @@
 				Base,
 			);
 			mainGroup = 174D45A5289C5C35001AAC96;
+			packageReferences = (
+				17C91C0C28CBAFA40038F788 /* XCRemoteSwiftPackageReference "CSVParser" */,
+			);
 			productRefGroup = 174D45AF289C5C35001AAC96 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -437,6 +437,7 @@
 				1755E65328B3C67F00164552 /* GenreType.swift in Sources */,
 				1755E64E28B3128900164552 /* FilterProcesser.swift in Sources */,
 				1755E64028A5704E00164552 /* VenueLoader.swift in Sources */,
+				17C91C0E28CBB0870038F788 /* CSVVenueLoader.swift in Sources */,
 				1755E65528B3C69F00164552 /* VibeType.swift in Sources */,
 				1755E65728B3C8FE00164552 /* Coordinates.swift in Sources */,
 			);
@@ -446,8 +447,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17604D5728B7F4F6001E3FF2 /* LoadAndStoreFilterOptionsUseCaseTests.swift in Sources */,
-				17604D5928B80257001E3FF2 /* RetrieveFilteredVenuesUseCaseTests.swift in Sources */,
 				1755E63E28A44EB800164552 /* FilterModelVenueFilteringUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -801,6 +800,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		17C91C0C28CBAFA40038F788 /* XCRemoteSwiftPackageReference "CSVParser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Nero5023/CSVParser";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 174D45A6289C5C35001AAC96 /* Project object */;
 }
