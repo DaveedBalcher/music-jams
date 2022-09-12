@@ -15,13 +15,22 @@ struct ToggleView<Selectable: Hashable>: View {
     
     var body: some View {
         HStack {
-            Picker("", selection: $selected) {
-                ForEach(options, id: \.self) { option in
-                    Text(optionToString(option))
-                        .tag(option)
+            switch options.count {
+            case 0:
+                fatalError("Can not have empty options")
+            case 1:
+                Text(optionToString(options.first!))
+                    .padding(2)
+            default:
+                Picker("", selection: $selected) {
+                    ForEach(options, id: \.self) { option in
+                        Text(optionToString(option))
+                            .tag(option)
+                    }
                 }
             }
         }
+        .font(.system(size: 15))
         .padding([.leading, .trailing], 12)
         .background(Capsule().strokeBorder(.secondary))
         .frame(idealHeight: 44)
