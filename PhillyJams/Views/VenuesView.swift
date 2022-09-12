@@ -14,16 +14,27 @@ struct VenuesView: View {
     @ObservedObject var vm: VenuesViewModel
     @State var isPresentedInfo = false
     
+    @State var mapRegionTitle: String = "Philadelphia"
+    @State var regionFiltersDescription: String = "Jams · Vibes · Genres"
+    
     var body: some View {
         NavigationView {
-            VStack {
-                FiltersToolbarView(
-                    mapRegionOptions: vm.mapRegions,
-                    genreOptions: vm.genreOptions,
-                    vibeOptions: vm.vibeOptions,
-                    selectedMapRegion: $vm.selectedMapRegion,
-                    selectedGenres: $vm.selectedGenres,
-                    selectedVibes: $vm.selectedVibes)
+            VStack(alignment: .leading) {
+                Button {
+                    isPresentedInfo = true
+                } label: {
+                    Label {
+                        Text("About")
+                            .font(.caption)
+                            .fontWeight(.light)
+                            .offset(x: -4)
+                    } icon: {
+                        Image(systemName: "info.circle")
+                    }
+
+                }
+                .padding([.leading], 48)
+                .offset(y: -2)
                 
                 MapView(
                     venues: vm.venues,
@@ -42,10 +53,10 @@ struct VenuesView: View {
                         .padding([.leading], 8)
                 }
                 ToolbarItem {
-                    Button {
-                        isPresentedInfo = true
-                    } label: {
-                        Label("Information", systemImage: "info.circle")
+                    MapRegionView(mapRegionTitle: mapRegionTitle, regionFiltersDescription: regionFiltersDescription) {
+                        
+                    } onTapSelectRegionFilters: {
+                        
                     }
                 }
             }
