@@ -363,7 +363,6 @@
 			);
 			mainGroup = 174D45A5289C5C35001AAC96;
 			packageReferences = (
-				17C91C0C28CBAFA40038F788 /* XCRemoteSwiftPackageReference "CSVParser" */,
 			);
 			productRefGroup = 174D45AF289C5C35001AAC96 /* Products */;
 			projectDirPath = "";
@@ -448,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1755E63E28A44EB800164552 /* FilterModelVenueFilteringUseCaseTests.swift in Sources */,
+				17C91C1128CBB3590038F788 /* CSVVenueLoaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -800,17 +800,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		17C91C0C28CBAFA40038F788 /* XCRemoteSwiftPackageReference "CSVParser" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Nero5023/CSVParser";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 174D45A6289C5C35001AAC96 /* Project object */;
 }

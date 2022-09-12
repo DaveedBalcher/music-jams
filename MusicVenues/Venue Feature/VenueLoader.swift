@@ -9,25 +9,27 @@ import Foundation
 
 public protocol VenueLoader {
     
-    typealias FilterOptions = (genreOptions: [String], vibeOptions: [String])
+    typealias LoadCompletion = ([VenueItem]) -> Void
+    typealias FilteredCompletion = (_ venueItems: [VenueItem], _ neighborhoodItems: [NeighborhoodItem], _ genreOptions: [GenreType], _ vibeOptions: [VibeType]) -> Void
     
-    func retrieveVenues() -> [VenueItem]
+    func load(completion: @escaping LoadCompletion)
 }
 
 public extension VenueLoader {
     
-    func retrieveFiltered(filters: [FilterParameter]? = nil) -> (venues: [VenueItem], neighborhoods: [NeighborhoodItem], genreOptions: [GenreType], vibeOptions: [VibeType]) {
-        let loadedVenues = retrieveVenues()
-        
-        let filters = filters ?? [
-            FilterParameter(type: .genres, values: loadedVenues.getGenres().rawValues),
-            FilterParameter(type: .vibes, values: loadedVenues.getVibes().rawValues)
-        ]
-        
-        let filteredVenues = FilterProcesser.filter(loadedVenues, with: filters)
-        let filteredNeighborhoods = filteredVenues.neighborhoods
-        let filteredGenres = filteredVenues.getGenres()
-        let filteredVibes = filteredVenues.getVibes()
-        return (filteredVenues, filteredNeighborhoods, filteredGenres, filteredVibes)
+    func retrieveFiltered(filters: [FilterParameter]? = nil, completion: @escaping FilteredCompletion) {
+        load { loadedVenues in
+            let filters = filters ?? [
+                FilterParameter(type: .genres, values: loadedVenues.getGenres().rawValues),
+                FilterParameter(type: .vibes, values: loadedVenues.getVibes().rawValues)
+            ]
+            
+            let filteredVenues = FilterProcesser.filter(loadedVenues, with: filters)
+            let filteredNeighborhoods = filteredVenues.neighborhoods
+            let filteredGenres = filteredVenues.getGenres()
+            let filteredVibes = filteredVenues.getVibes()
+            
+            completion(filteredVenues, filteredNeighborhoods, filteredGenres, filteredVibes)
+        }
     }
 }

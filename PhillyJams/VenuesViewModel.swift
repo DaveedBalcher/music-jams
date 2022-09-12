@@ -50,11 +50,12 @@ class VenuesViewModel: ObservableObject {
     }
     
     func retrieveVenuesData() {
-        let (venues, neighborhoods, genres, vibes) = venueLoader.retrieveFiltered()
-        self.venues = venues
-        self.mapRegions = neighborhoods.maptoMapRegionItems()
-        self.genreOptions = genres
-        self.vibeOptions = vibes
+        venueLoader.retrieveFiltered { [weak self] venueItems, neighborhoodItems, genreOptions, vibeOptions in
+            self?.venues = venueItems
+            self?.mapRegions = neighborhoodItems.maptoMapRegionItems()
+            self?.genreOptions = genreOptions
+            self?.vibeOptions = vibeOptions
+        }
     }
     
     func setNeighborhood(name: String? = nil) {
@@ -71,10 +72,11 @@ class VenuesViewModel: ObservableObject {
     func filterVenues() {
         let genreParameter = FilterParameter(type: .genres, values: selectedGenres.rawValues)
         let vibeParameter = FilterParameter(type: .vibes, values: selectedVibes.rawValues)
-        let (venueItems, neighborhoodItems, _, _) = venueLoader.retrieveFiltered(filters: [genreParameter, vibeParameter])
-        self.venues = venueItems
-        self.mapRegions = neighborhoodItems.maptoMapRegionItems()
-        setNeighborhood(name: selectedMapRegion.name)
+        venueLoader.retrieveFiltered(filters: [genreParameter, vibeParameter]) { [weak self] venueItems, neighborhoodItems, genreOptions, vibeOptions in
+            self?.venues = venueItems
+            self?.mapRegions = neighborhoodItems.maptoMapRegionItems()
+            self?.setNeighborhood(name: self?.selectedMapRegion.name)
+        }
     }
 }
 
