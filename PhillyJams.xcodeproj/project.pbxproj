@@ -100,7 +100,6 @@
 		1755E61D28A4419C00164552 /* MusicVenues.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MusicVenues.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1755E61F28A4419C00164552 /* MusicVenues.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicVenues.h; sourceTree = "<group>"; };
 		1755E62628A4419C00164552 /* MusicVenuesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicVenuesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1755E63D28A44EB800164552 /* FilterModelVenueFilteringUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModelVenueFilteringUseCaseTests.swift; sourceTree = "<group>"; };
 		1755E64828AAF1A300164552 /* SelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorView.swift; sourceTree = "<group>"; };
 		1755E64A28ABCA2600164552 /* MultiSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionView.swift; sourceTree = "<group>"; };
 		1755E64D28B3128900164552 /* FilterProcesser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterProcesser.swift; sourceTree = "<group>"; };
@@ -248,7 +247,6 @@
 		1755E62C28A4419C00164552 /* MusicVenuesTests */ = {
 			isa = PBXGroup;
 			children = (
-				1755E63D28A44EB800164552 /* FilterModelVenueFilteringUseCaseTests.swift */,
 			);
 			path = MusicVenuesTests;
 			sourceTree = "<group>";
