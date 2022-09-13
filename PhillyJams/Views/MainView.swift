@@ -12,7 +12,7 @@ import MusicVenues
 struct MainView: View {
     
     @ObservedObject var vm: VenuesViewModel
-    @State var isPresentedInfo = false
+    @State var isPresentingInfo = false
     @State var isPresentingMapRegionPicker = false
     
     @State var mapRegions: [String] = ["A", "B", "C", "D"]
@@ -39,7 +39,7 @@ struct MainView: View {
             .padding([.leading, .trailing], 8)
             
             Button {
-                isPresentedInfo = true
+                isPresentingInfo = true
             } label: {
                 Label {
                     Text("About")
@@ -59,11 +59,13 @@ struct MainView: View {
                 selectedVenue: $vm.selectedVenue
             )
         }
-        .popover(isPresented: $isPresentedInfo){
+        .popover(isPresented: $isPresentingInfo){
             InfoView()
         }
         .popover(isPresented: $isPresentingMapRegionPicker) {
-            MapRegionPicker(mapRegions: mapRegions, selectedMapRegions: $selectedMapRegions)
+            MapRegionPicker(mapRegions: mapRegions,
+                            selectedMapRegions: $selectedMapRegions,
+                            showView: $isPresentingMapRegionPicker)
         }
     }
     
