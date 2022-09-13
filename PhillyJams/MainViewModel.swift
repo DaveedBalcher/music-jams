@@ -10,7 +10,7 @@ import MapKit
 import MusicVenues
 
 
-class VenuesViewModel: ObservableObject {
+class MainViewModel: ObservableObject {
     
     @Published var mapRegion: MKCoordinateRegion
     

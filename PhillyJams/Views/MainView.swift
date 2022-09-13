@@ -11,7 +11,7 @@ import MusicVenues
 
 struct MainView: View {
     
-    @ObservedObject var vm: VenuesViewModel
+    @ObservedObject var vm: MainViewModel
     @State var isPresentingInfo = false
     @State var isPresentingMapRegionPicker = false
     
@@ -69,7 +69,7 @@ struct MainView: View {
         }
     }
     
-    init(vm: VenuesViewModel) {
+    init(vm: MainViewModel) {
         _vm = ObservedObject(wrappedValue: vm)
     }
 }
@@ -84,6 +84,6 @@ extension UINavigationController {
 
 struct VenuesView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(vm: VenuesViewModel.init(initialMapRegion: MapRegionItem.initialState, venueLoader: DefaultVenueLoader()))
+        MainView(vm: MainViewModel.init(initialMapRegion: MapRegionItem.initialState, venueLoader: DefaultVenueLoader()))
     }
 }

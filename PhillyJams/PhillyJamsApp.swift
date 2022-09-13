@@ -9,7 +9,7 @@ import SwiftUI
 import MusicVenues
 
 class MainFlow {
-    init(vm: VenuesViewModel) {
+    init(vm: MainViewModel) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             vm.retrieveVenuesData()
             vm.setNeighborhood(name: "Fishtown")
@@ -17,7 +17,7 @@ class MainFlow {
     }
 }
 
-private let venuesViewModel = VenuesViewModel(initialMapRegion: MapRegionItem.initialState, venueLoader: DefaultVenueLoader())
+private let venuesViewModel = MainViewModel(initialMapRegion: MapRegionItem.initialState, venueLoader: DefaultVenueLoader())
 
 @main
 struct PhillyJamsApp: App {
