@@ -15,10 +15,10 @@ struct MainView: View {
     @State var isPresentingInfo = false
     @State var isPresentingMapRegionPicker = false
     
-    @State var mapRegions: [String] = ["A", "B", "C", "D"]
-    @State var selectedMapRegions: String = "A"
+//    @State var mapRegions: [String] = ["A", "B", "C", "D"]
+//    @State var selectedMapRegion: String = "A"
     var mapRegionTitle: String {
-        selectedMapRegions
+        vm.selectedMapRegion.name
     }
     @State var regionFiltersDescription: String = "Jams · Vibes · Genres"
     
@@ -63,9 +63,15 @@ struct MainView: View {
             InfoView()
         }
         .popover(isPresented: $isPresentingMapRegionPicker) {
-            MapRegionPicker(mapRegions: mapRegions,
-                            selectedMapRegions: $selectedMapRegions,
-                            showView: $isPresentingMapRegionPicker)
+            MapRegionPicker(title: "Neighborhoods",
+                            mapRegions: vm.mapRegions.map { $0.name },
+                            selectedMapRegions: vm.selectedMapRegion.name,
+                            showView: $isPresentingMapRegionPicker) {
+                selected in
+                if let mapRegion = (vm.mapRegions.first { $0.name == selected }) {
+                    vm.selectedMapRegion = mapRegion
+                }
+            }
         }
     }
     

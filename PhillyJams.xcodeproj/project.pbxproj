@@ -216,7 +216,6 @@
 			children = (
 				17604D8828C14902001E3FF2 /* Info.plist */,
 				174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */,
-				1755E60E28A1A34200164552 /* MainViewModel.swift */,
 				170D9A4028C161DB00226CF9 /* MapRegionItem.swift */,
 				17C91C1428CFCA1B0038F788 /* Model */,
 				17289C1628C29B50000A701B /* Views */,
@@ -266,6 +265,7 @@
 		17C91C1428CFCA1B0038F788 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1755E60E28A1A34200164552 /* MainViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

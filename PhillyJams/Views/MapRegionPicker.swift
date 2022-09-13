@@ -8,25 +8,35 @@
 import SwiftUI
 
 struct MapRegionPicker: View {
+    let title: String
     let mapRegions: [String]
-    @Binding var selectedMapRegions: String
+    let selectedMapRegions: String
     @Binding var showView: Bool
+    
+    let didSelect: (String)->Void
     
     var body: some View {
         
-        VStack(alignment: .trailing) {
-            Button {
-                showView = false
-            } label: {
-                Text("Cancel")
+        VStack {
+            HStack {
+                Spacer()
+                Spacer()
+                Text(title)
+                    .font(.headline)
+                Spacer()
+                Button {
+                    showView = false
+                } label: {
+                    Text("Cancel")
+                }
+                .padding([.trailing], 24)
             }
-            .padding([.top], 12)
-            .padding([.trailing], 24)
+            .padding([.top], 24)
             
             Form {
                 ForEach(mapRegions, id: \.self) { option in
                     Button {
-                        selectedMapRegions = option
+                        didSelect(option)
                         showView = false
                     } label: {
                         HStack {
@@ -48,8 +58,9 @@ struct MapRegionPicker: View {
 
 struct MapRegionPicker_Previews: PreviewProvider {
     static var previews: some View {
-        MapRegionPicker(mapRegions: ["A", "B", "C", "D"],
-                        selectedMapRegions: .constant("A"),
-                        showView: .constant(true))
+        MapRegionPicker(title: "Letters",
+                        mapRegions: ["A", "B", "C", "D"],
+                        selectedMapRegions: "A",
+                        showView: .constant(true)) { _ in }
     }
 }
