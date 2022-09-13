@@ -43,20 +43,25 @@ struct MultipleSectionPicker: View {
             }
             .padding([.top], 24)
             
-            ForEach(0..<vm.sections.count, id:\.self) { index in
-                let section = vm.sections[index]
-                VStack(alignment: .leading) {
-                    Text(section.title)
-                    SectionPicker(options: section.options, selectedOption: $vm.sections[index].selectedOption)
+            VStack {
+                ForEach(0..<vm.sections.count, id:\.self) { index in
+                    let section = vm.sections[index]
+                    VStack(alignment: .leading) {
+                        Text(section.title)
+                        SectionPicker(options: section.options, selectedOption: $vm.sections[index].selectedOption)
+                    }
+                    .padding()
+                    .background(RoundedRectangle(cornerSize: CGSize(width: 12, height: 12)).foregroundColor(.white))
+                    .padding([.leading, .trailing], 12)
+                    .padding([.bottom], 8)
                 }
-                .padding()
-                .background(RoundedRectangle(cornerSize: CGSize(width: 8, height: 8)).foregroundColor(.white))
-                .padding([.leading, .trailing], 12)
-                .padding([.bottom], 8)
+                Spacer()
             }
+            .padding([.top], 36)
+            .background(.regularMaterial)
+            
+
         }
-        .padding([.bottom], 24)
-        .background(.regularMaterial)
     }
     
     init(vm: MultipleSectionViewModel, title: String, didComplete: @escaping ([String])->Void) {

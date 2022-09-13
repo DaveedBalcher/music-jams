@@ -11,9 +11,8 @@ struct MapRegionPicker: View {
     let title: String
     let mapRegions: [String]
     let selectedMapRegions: String
-    @Binding var showView: Bool
     
-    let didSelect: (String)->Void
+    let didComplete: (String?)->Void
     
     var body: some View {
         
@@ -25,7 +24,7 @@ struct MapRegionPicker: View {
                     .font(.headline)
                 Spacer()
                 Button {
-                    showView = false
+                    didComplete(nil)
                 } label: {
                     Text("Cancel")
                 }
@@ -36,8 +35,7 @@ struct MapRegionPicker: View {
             Form {
                 ForEach(mapRegions, id: \.self) { option in
                     Button {
-                        didSelect(option)
-                        showView = false
+                        didComplete(option)
                     } label: {
                         HStack {
                             ZStack {
@@ -60,7 +58,6 @@ struct MapRegionPicker_Previews: PreviewProvider {
     static var previews: some View {
         MapRegionPicker(title: "Letters",
                         mapRegions: ["A", "B", "C", "D"],
-                        selectedMapRegions: "A",
-                        showView: .constant(true)) { _ in }
+                        selectedMapRegions: "A") { _ in }
     }
 }

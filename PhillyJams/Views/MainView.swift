@@ -14,12 +14,8 @@ struct MainView: View {
     @ObservedObject var vm: MainViewModel
     @State var isPresentingInfo = false
     @State var isPresentingMapRegionPicker = false
+    @State var isPresentingFiltersPicker = false
     
-//    @State var mapRegions: [String] = ["A", "B", "C", "D"]
-//    @State var selectedMapRegion: String = "A"
-    var mapRegionTitle: String {
-        vm.selectedMapRegion.name
-    }
     @State var regionFiltersDescription: String = "Jams · Vibes · Genres"
     
     var body: some View {
@@ -47,10 +43,10 @@ struct MainView: View {
             }
             .padding([.leading, .trailing], 12)
             
-            MapRegionView(mapRegionTitle: mapRegionTitle, regionFiltersDescription: regionFiltersDescription) {
+            MapRegionView(mapRegionTitle: vm.selectedMapRegion.name, regionFiltersDescription: regionFiltersDescription) {
                 isPresentingMapRegionPicker = true
             } onTapSelectRegionFilters: {
-                
+                isPresentingFiltersPicker = true
             }
             .padding([.leading, .trailing], 12)
             .offset(y: 4)
@@ -67,12 +63,24 @@ struct MainView: View {
         .popover(isPresented: $isPresentingMapRegionPicker) {
             MapRegionPicker(title: "Neighborhoods",
                             mapRegions: vm.mapRegions.map { $0.name },
-                            selectedMapRegions: vm.selectedMapRegion.name,
-                            showView: $isPresentingMapRegionPicker) {
+                            selectedMapRegions: vm.selectedMapRegion.name) {
                 selected in
                 if let mapRegion = (vm.mapRegions.first { $0.name == selected }) {
                     vm.selectedMapRegion = mapRegion
                 }
+                isPresentingMapRegionPicker = false
+            }
+        }
+        .popover(isPresented: $isPresentingFiltersPicker) {
+            MultipleSectionPicker(
+                vm: MultipleSectionViewModel(
+                    sections: [
+                        SectionModel(title: VibeType.description,
+                                     options: vm.vibeOptions.map { $0.rawValue },
+                                     selectedOption: vm.selectedVibe.rawValue)]),
+                title: "Filters") { selectedFilters in
+                
+                    isPresentingFiltersPicker = false
             }
         }
     }

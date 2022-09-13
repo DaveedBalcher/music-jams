@@ -26,14 +26,14 @@ class MainViewModel: ObservableObject {
     }
     
     @Published var genreOptions: [GenreType] = []
-    @Published var selectedGenres = Set<GenreType>() {
+    @Published var selectedGenre = GenreType.defaultValue {
         didSet {
             filterVenues()
         }
     }
     
     @Published var vibeOptions: [VibeType] = VibeType.allCases
-    @Published var selectedVibes = Set<VibeType>() {
+    @Published var selectedVibe = VibeType.defaultValue {
         didSet {
             filterVenues()
         }
@@ -70,8 +70,8 @@ class MainViewModel: ObservableObject {
     }
     
     func filterVenues() {
-        let genreParameter = FilterParameter(type: .genres, values: selectedGenres.rawValues)
-        let vibeParameter = FilterParameter(type: .vibes, values: selectedVibes.rawValues)
+        let genreParameter = FilterParameter(type: .genres, values: [selectedGenre.rawValue])
+        let vibeParameter = FilterParameter(type: .vibes, values: [selectedVibe.rawValue])
         venueLoader.retrieveFiltered(filters: [genreParameter, vibeParameter]) { [weak self] venueItems, neighborhoodItems, genreOptions, vibeOptions in
             self?.venues = venueItems
             self?.mapRegions = neighborhoodItems.maptoMapRegionItems()
