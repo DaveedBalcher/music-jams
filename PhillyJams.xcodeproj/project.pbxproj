@@ -36,7 +36,9 @@
 		17604D8A28C14F78001E3FF2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17604D8928C14F78001E3FF2 /* MapView.swift */; };
 		17C91C1328CFC8B80038F788 /* MapRegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C91C1228CFC8B80038F788 /* MapRegionView.swift */; };
 		17C91C1D28CFDEEE0038F788 /* MapRegionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C91C1C28CFDEEE0038F788 /* MapRegionPicker.swift */; };
-		17C91C1F28D0F8640038F788 /* FilterPickersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C91C1E28D0F8640038F788 /* FilterPickersView.swift */; };
+		17C91C1F28D0F8640038F788 /* MultipleSectionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C91C1E28D0F8640038F788 /* MultipleSectionPicker.swift */; };
+		17C91C2228D0FD8E0038F788 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 17C91C2128D0FD8E0038F788 /* WrappingHStack */; };
+		17C91C2428D10BBB0038F788 /* SectionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C91C2328D10BBB0038F788 /* SectionPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,7 +109,8 @@
 		17604D8928C14F78001E3FF2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		17C91C1228CFC8B80038F788 /* MapRegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRegionView.swift; sourceTree = "<group>"; };
 		17C91C1C28CFDEEE0038F788 /* MapRegionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRegionPicker.swift; sourceTree = "<group>"; };
-		17C91C1E28D0F8640038F788 /* FilterPickersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPickersView.swift; sourceTree = "<group>"; };
+		17C91C1E28D0F8640038F788 /* MultipleSectionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSectionPicker.swift; sourceTree = "<group>"; };
+		17C91C2328D10BBB0038F788 /* SectionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17C91C2228D0FD8E0038F788 /* WrappingHStack in Frameworks */,
 				1755E66928B577C800164552 /* MusicVenues.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,7 +147,8 @@
 				1755E5C1289DAEBD00164552 /* MainView.swift */,
 				17C91C1228CFC8B80038F788 /* MapRegionView.swift */,
 				17C91C1C28CFDEEE0038F788 /* MapRegionPicker.swift */,
-				17C91C1E28D0F8640038F788 /* FilterPickersView.swift */,
+				17C91C1E28D0F8640038F788 /* MultipleSectionPicker.swift */,
+				17C91C2328D10BBB0038F788 /* SectionPicker.swift */,
 				17604D8928C14F78001E3FF2 /* MapView.swift */,
 				17604D8228BFF9A1001E3FF2 /* VenueDetailView.swift */,
 				17604D8628C006AC001E3FF2 /* InfoView.swift */,
@@ -290,6 +295,9 @@
 				1755E63128A4419C00164552 /* PBXTargetDependency */,
 			);
 			name = PhillyJams;
+			packageProductDependencies = (
+				17C91C2128D0FD8E0038F788 /* WrappingHStack */,
+			);
 			productName = PhillyJamsIOS;
 			productReference = 1755E5DE289DB4E000164552 /* PhillyJams.app */;
 			productType = "com.apple.product-type.application";
@@ -362,6 +370,7 @@
 			);
 			mainGroup = 174D45A5289C5C35001AAC96;
 			packageReferences = (
+				17C91C2028D0FD8E0038F788 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 			);
 			productRefGroup = 174D45AF289C5C35001AAC96 /* Products */;
 			projectDirPath = "";
@@ -406,10 +415,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17C91C1F28D0F8640038F788 /* FilterPickersView.swift in Sources */,
+				17C91C1F28D0F8640038F788 /* MultipleSectionPicker.swift in Sources */,
 				1755E604289DB7F400164552 /* VenueMarker.swift in Sources */,
 				17604D8A28C14F78001E3FF2 /* MapView.swift in Sources */,
 				17604D8728C006AC001E3FF2 /* InfoView.swift in Sources */,
+				17C91C2428D10BBB0038F788 /* SectionPicker.swift in Sources */,
 				1755E605289DB7F400164552 /* VenueBottomView.swift in Sources */,
 				17C91C1328CFC8B80038F788 /* MapRegionView.swift in Sources */,
 				17289C1528C294E5000A701B /* MK-Extensions.swift in Sources */,
@@ -795,6 +805,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		17C91C2028D0FD8E0038F788 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		17C91C2128D0FD8E0038F788 /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17C91C2028D0FD8E0038F788 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 174D45A6289C5C35001AAC96 /* Project object */;
 }
