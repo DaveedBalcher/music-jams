@@ -15,32 +15,36 @@ struct MapRegionView: View {
     let onTapSelectRegionFilters: ()->()
     
     var body: some View {
-        HStack {
-            Image(systemName: "map")
-                .resizable()
-                .frame(width: 16, height: 14)
-                .padding([.leading], 8)
-            
-            VStack(alignment: .leading) {
-                Text(mapRegionTitle)
-                    .font(.caption)
-                    .fontWeight(.semibold)
-                Text(regionFiltersDescription)
-                    .font(.caption2)
-                    .fontWeight(.light)
-            }
-            
-            Spacer()
-            
-            Image(systemName: "line.3.horizontal.decrease")
-                .resizable()
-                .frame(width: 14, height: 9)
-                .padding(7)
-                .background(Circle().strokeBorder(.secondary))
-                .onTapGesture {
-                    
+        Button {
+            onTapSelectMapRegion()
+        } label: {
+            HStack {
+                Image(systemName: "map")
+                    .resizable()
+                    .frame(width: 16, height: 14)
+                    .padding([.leading], 8)
+                
+                VStack(alignment: .leading) {
+                    Text(mapRegionTitle)
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                    Text(regionFiltersDescription)
+                        .font(.caption2)
+                        .fontWeight(.light)
                 }
-            
+                
+                Spacer()
+                
+                Button {
+                    onTapSelectRegionFilters()
+                } label: {
+                    Image(systemName: "line.3.horizontal.decrease")
+                        .resizable()
+                        .frame(width: 14, height: 9)
+                        .padding(7)
+                        .background(Circle().strokeBorder(.secondary))
+                }
+            }
         }
         .padding([.leading, .trailing], 4)
         .padding([.top, .bottom], 6)
