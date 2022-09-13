@@ -20,7 +20,8 @@ struct MapRegionPicker: View {
             } label: {
                 Text("Cancel")
             }
-            .padding()
+            .padding([.top], 12)
+            .padding([.trailing], 24)
             
             Form {
                 ForEach(mapRegions, id: \.self) { option in
