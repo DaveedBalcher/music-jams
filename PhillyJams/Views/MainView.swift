@@ -23,35 +23,37 @@ struct MainView: View {
     @State var regionFiltersDescription: String = "Jams · Vibes · Genres"
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack{
             HStack {
                 Image("philly_jams_logo_navbar")
                     .padding([.leading], 8)
                     .padding([.trailing], 8)
-                    .padding([.bottom], 8)
                 
-                MapRegionView(mapRegionTitle: mapRegionTitle, regionFiltersDescription: regionFiltersDescription) {
-                    isPresentingMapRegionPicker = true
-                } onTapSelectRegionFilters: {
-                    
+                Spacer()
+                
+                Button {
+                    isPresentingInfo = true
+                } label: {
+                    Label {
+                        Text("About")
+                            .font(.caption)
+                            .fontWeight(.light)
+                            .offset(x: -4)
+                    } icon: {
+                        Image(systemName: "info.circle")
+                    }
                 }
+                .offset(y: -8)
             }
-            .padding([.leading, .trailing], 8)
+            .padding([.leading, .trailing], 12)
             
-            Button {
-                isPresentingInfo = true
-            } label: {
-                Label {
-                    Text("About")
-                        .font(.caption)
-                        .fontWeight(.light)
-                        .offset(x: -4)
-                } icon: {
-                    Image(systemName: "info.circle")
-                }
+            MapRegionView(mapRegionTitle: mapRegionTitle, regionFiltersDescription: regionFiltersDescription) {
+                isPresentingMapRegionPicker = true
+            } onTapSelectRegionFilters: {
+                
             }
-            .padding([.leading], 12)
-            .offset(y: -8)
+            .padding([.leading, .trailing], 12)
+            .offset(y: 4)
             
             MapView(
                 venues: vm.venues,
