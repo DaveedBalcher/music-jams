@@ -17,16 +17,16 @@ class MainFlow {
     }
 }
 
-private let venuesViewModel = MainViewModel(initialMapRegion: MapRegionItem.initialState, venueLoader: DefaultVenueLoader())
+private let mainViewModel = MainViewModel(initialMapRegion: MapRegionItem.initialState, venueLoader: DefaultVenueLoader())
 
 @main
 struct PhillyJamsApp: App {
     
-    let mainFlow = MainFlow(vm: venuesViewModel)
+    let mainFlow = MainFlow(vm: mainViewModel)
     
     var body: some Scene {
         WindowGroup {
-            MainView(vm: venuesViewModel)
+            MainView(vm: mainViewModel)
         }
     }
 }
