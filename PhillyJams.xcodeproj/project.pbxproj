@@ -145,11 +145,11 @@
 			isa = PBXGroup;
 			children = (
 				1755E5C1289DAEBD00164552 /* MainView.swift */,
+				17604D8928C14F78001E3FF2 /* MapView.swift */,
 				17C91C1228CFC8B80038F788 /* MapRegionView.swift */,
 				17C91C1C28CFDEEE0038F788 /* MapRegionPicker.swift */,
 				17C91C1E28D0F8640038F788 /* MultipleSectionPicker.swift */,
 				17C91C2328D10BBB0038F788 /* SectionPicker.swift */,
-				17604D8928C14F78001E3FF2 /* MapView.swift */,
 				17604D8228BFF9A1001E3FF2 /* VenueDetailView.swift */,
 				17604D8628C006AC001E3FF2 /* InfoView.swift */,
 			);
@@ -215,7 +215,6 @@
 			children = (
 				17604D8828C14902001E3FF2 /* Info.plist */,
 				174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */,
-				170D9A4028C161DB00226CF9 /* MapRegionItem.swift */,
 				17C91C1428CFCA1B0038F788 /* Model */,
 				17289C1628C29B50000A701B /* Views */,
 				1755E64C28B2CFC500164552 /* Components */,
@@ -262,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				1755E60E28A1A34200164552 /* MainViewModel.swift */,
+				170D9A4028C161DB00226CF9 /* MapRegionItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

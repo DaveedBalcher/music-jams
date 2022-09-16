@@ -16,72 +16,92 @@ struct MainView: View {
     @State var isPresentingMapRegionPicker = false
     @State var isPresentingFiltersPicker = false
     
-    @State var regionFiltersDescription: String = "Jams · Vibes · Genres"
+    var regionFiltersDescription: String {
+        let strings = vm.filtersSelected.compactMap { $0.value }
+        return strings.isEmpty ? "Jams · Vibes · Genres" : strings.joined(separator: " · ")
+    }
     
     var body: some View {
-        VStack{
-            HStack {
-                Image("philly_jams_logo_navbar")
-                    .padding([.leading], 8)
-                    .padding([.trailing], 8)
+        NavigationView {
+            VStack {
+                MapRegionView(mapRegionTitle: vm.selectedMapRegion.name, regionFiltersDescription: regionFiltersDescription) {
+                    isPresentingMapRegionPicker = true
+                } onTapSelectRegionFilters: {
+                    isPresentingFiltersPicker = true
+                }
+                .padding([.leading, .trailing], 12)
                 
-                Spacer()
-                
-                Button {
-                    isPresentingInfo = true
-                } label: {
-                    Label {
-                        Text("About")
-                            .font(.caption)
-                            .fontWeight(.light)
-                            .offset(x: -4)
-                    } icon: {
-                        Image(systemName: "info.circle")
+                if vm.checkVenueAvailable() {
+                    
+                    ZStack {
+                        Color.red
+                            .frame(height: 44)
+                        
+                        Text("No venues")
+                            .foregroundColor(.white)
                     }
                 }
-                .offset(y: -8)
+                
+                MapView(
+                    venues: vm.filteredVenues,
+                    mapRegion: $vm.mapRegion,
+                    selectedVenue: $vm.selectedVenue
+                )
             }
-            .padding([.leading, .trailing], 12)
-            
-            MapRegionView(mapRegionTitle: vm.selectedMapRegion.name, regionFiltersDescription: regionFiltersDescription) {
-                isPresentingMapRegionPicker = true
-            } onTapSelectRegionFilters: {
-                isPresentingFiltersPicker = true
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Image("philly_jams_logo_navbar")
+                        .padding([.leading], 8)
+                        .padding([.trailing], 8)
+                }
+                
+                ToolbarItem {
+                    Button {
+                        isPresentingInfo = true
+                    } label: {
+                        Label {
+                            Text("About")
+                                .font(.caption)
+                                .fontWeight(.light)
+                                .offset(x: -4)
+                        } icon: {
+                            Image(systemName: "info.circle")
+                        }
+                    }
+                    .offset(y: -8)
+                }
             }
-            .padding([.leading, .trailing], 12)
-            .offset(y: 4)
-            
-            MapView(
-                venues: vm.venues,
-                mapRegion: $vm.mapRegion,
-                selectedVenue: $vm.selectedVenue
-            )
         }
         .popover(isPresented: $isPresentingInfo){
             InfoView()
         }
         .popover(isPresented: $isPresentingMapRegionPicker) {
             MapRegionPicker(title: "Neighborhoods",
-                            mapRegions: vm.mapRegions.map { $0.name },
+                            mapRegions: vm.filteredMapRegions.map { $0.name },
                             selectedMapRegions: vm.selectedMapRegion.name) {
                 selected in
-                if let mapRegion = (vm.mapRegions.first { $0.name == selected }) {
+                if let mapRegion = (vm.filteredMapRegions.first { $0.name == selected }) {
                     vm.selectedMapRegion = mapRegion
                 }
                 isPresentingMapRegionPicker = false
             }
         }
         .popover(isPresented: $isPresentingFiltersPicker) {
-            MultipleSectionPicker(
-                vm: MultipleSectionViewModel(
-                    sections: [
-                        SectionModel(title: VibeType.description,
-                                     options: vm.vibeOptions.map { $0.rawValue },
-                                     selectedOption: vm.selectedVibe.rawValue)]),
-                title: "Filters") { selectedFilters in
-                
-                    isPresentingFiltersPicker = false
+            let sections = vm.filterOptions.map { filter in
+                SectionModel(type: filter.key,
+                             displayIndex: [VibeType.description, GenreType.description].firstIndex(of: filter.key) ?? 0,
+                             options: filter.value.filter { $0 != VibeType.defaultValue.rawValue},
+                             selectedOption: vm.filtersSelected[filter.key] ?? nil
+                )
             }
+                .sorted()
+            MultipleSectionPicker(
+                vm: MultipleSectionViewModel(sections: sections),
+                title: "Filters") { selectedFilters in
+                    vm.filtersSelected = selectedFilters
+                    isPresentingFiltersPicker = false
+                }
         }
     }
     

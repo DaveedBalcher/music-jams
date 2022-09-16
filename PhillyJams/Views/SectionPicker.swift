@@ -10,14 +10,28 @@ import WrappingHStack
 
 struct SectionPicker: View {
     let options: [String]
-    @Binding var selectedOption: String
+    @Binding var selectedOption: String?
     
     var body: some View {
+        Button {
+            selectedOption = nil
+        } label: {
+            let isSelected = selectedOption == nil
+            Text("All")
+                .foregroundColor(isSelected ? Color.accentColor : .black)
+                .padding([.leading, .trailing], 8)
+                .padding([.top, .bottom], 2)
+                .background(Capsule().strokeBorder(isSelected ? Color.accentColor : .secondary))
+            
+                .padding([.trailing], -2)
+                .padding([.bottom], -4)
+        }
+        
         WrappingHStack(options, id:\.self) { option in
             Button {
                 selectedOption = option
             } label: {
-                let isSelected = option == selectedOption
+                let isSelected = selectedOption == option
                 Text(option)
                     .foregroundColor(isSelected ? Color.accentColor : .black)
                     .padding([.leading, .trailing], 8)
@@ -29,6 +43,8 @@ struct SectionPicker: View {
             }
         }
     }
+    
+    
 }
 
 struct SectionPicker_Previews: PreviewProvider {

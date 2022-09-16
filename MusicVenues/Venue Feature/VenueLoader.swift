@@ -17,14 +17,10 @@ public protocol VenueLoader {
 
 public extension VenueLoader {
     
-    func retrieveFiltered(filters: [FilterParameter]? = nil, completion: @escaping FilteredCompletion) {
+    func retrieveFiltered(filters: [String: String?]? = nil, completion: @escaping FilteredCompletion) {
         load { loadedVenues in
-            let filters = filters ?? [
-                FilterParameter(type: .genres, values: loadedVenues.getGenres().rawValues),
-                FilterParameter(type: .vibes, values: loadedVenues.getVibes().rawValues)
-            ]
-            
-            let filteredVenues = FilterProcesser.filter(loadedVenues, with: filters)
+
+            let filteredVenues = loadedVenues 
             let filteredNeighborhoods = filteredVenues.neighborhoods
             let filteredGenres = filteredVenues.getGenres()
             let filteredVibes = filteredVenues.getVibes()

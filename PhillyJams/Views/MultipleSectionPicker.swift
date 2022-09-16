@@ -7,10 +7,15 @@
 
 import SwiftUI
 
-struct SectionModel {
-    let title: String
+struct SectionModel: Comparable {
+    let type: String
+    let displayIndex: Int
     let options: [String]
-    var selectedOption: String
+    var selectedOption: String?
+    
+    static func < (lhs: SectionModel, rhs: SectionModel) -> Bool {
+        lhs.displayIndex > rhs.displayIndex
+    }
 }
 
 class MultipleSectionViewModel: ObservableObject {
@@ -24,7 +29,7 @@ class MultipleSectionViewModel: ObservableObject {
 struct MultipleSectionPicker: View {
     var title: String
     @StateObject var vm: MultipleSectionViewModel
-    let didComplete: ([String])->Void
+    let didComplete: ([String: String?])->Void
     
     var body: some View {
         VStack {
@@ -35,7 +40,7 @@ struct MultipleSectionPicker: View {
                     .font(.headline)
                 Spacer()
                 Button {
-                    didComplete(vm.sections.map { $0.selectedOption })
+                    didComplete(vm.sections.reduce(into: [String : String?]()) { $0[$1.type] = $1.selectedOption })
                 } label: {
                     Text("Done")
                 }
@@ -47,7 +52,8 @@ struct MultipleSectionPicker: View {
                 ForEach(0..<vm.sections.count, id:\.self) { index in
                     let section = vm.sections[index]
                     VStack(alignment: .leading) {
-                        Text(section.title)
+                        Text(section.type.capitalized)
+                            .fontWeight(.semibold)
                         SectionPicker(options: section.options, selectedOption: $vm.sections[index].selectedOption)
                     }
                     .padding()
@@ -64,32 +70,32 @@ struct MultipleSectionPicker: View {
         }
     }
     
-    init(vm: MultipleSectionViewModel, title: String, didComplete: @escaping ([String])->Void) {
+    init(vm: MultipleSectionViewModel, title: String, didComplete: @escaping ([String: String?])->Void) {
         _vm = StateObject(wrappedValue: vm)
         self.title = title
         self.didComplete = didComplete
     }
 }
 
-struct FilterPickersView_Previews: PreviewProvider {
-    static var previews: some View {
-        MultipleSectionPicker(
-            vm: MultipleSectionViewModel(
-                sections: [
-                    SectionModel(
-                        title: "Section",
-                        options: ["Test A", "Test B", "Test C", "Test D", "Test E", "Test F", "Test G"],
-                        selectedOption: "Test A"),
-                    SectionModel(
-                        title: "Section",
-                        options: ["Test A", "Test B", "Test C", "Test D", "Test E", "Test F", "Test G"],
-                        selectedOption: "Test A"),
-                    SectionModel(
-                        title: "Section",
-                        options: ["Test A", "Test B", "Test C", "Test D", "Test E", "Test F", "Test G"],
-                        selectedOption: "Test A")
-                ]
-            ),
-            title: "Title") { _ in }
-    }
-}
+//struct FilterPickersView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MultipleSectionPicker(
+//            vm: MultipleSectionViewModel(
+//                sections: [
+//                    SectionModel(
+//                        title: "Section",
+//                        options: ["Test A", "Test B", "Test C", "Test D", "Test E", "Test F", "Test G"],
+//                        selectedOption: "Test A"),
+//                    SectionModel(
+//                        title: "Section",
+//                        options: ["Test A", "Test B", "Test C", "Test D", "Test E", "Test F", "Test G"],
+//                        selectedOption: "Test A"),
+//                    SectionModel(
+//                        title: "Section",
+//                        options: ["Test A", "Test B", "Test C", "Test D", "Test E", "Test F", "Test G"],
+//                        selectedOption: "Test A")
+//                ]
+//            ),
+//            title: "Title") { _ in }
+//    }
+//}

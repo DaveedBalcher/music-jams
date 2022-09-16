@@ -49,8 +49,6 @@ struct MapRegionView: View {
         .padding([.leading, .trailing], 4)
         .padding([.top, .bottom], 6)
         .background(Capsule().strokeBorder(.secondary))
-        .frame(minWidth: 202)
-        .offset(y: -4)
     }
 }
 

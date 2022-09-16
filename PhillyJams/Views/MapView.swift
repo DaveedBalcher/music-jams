@@ -32,6 +32,7 @@ struct MapView: View {
                     }
                 }
             }
+            .padding([.top], -8)
             .animation(.default, value: mapRegion)
             .ignoresSafeArea()
             .edgesIgnoringSafeArea(.all)
@@ -47,10 +48,10 @@ struct MapView: View {
     }
 }
 
-//struct MapView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MapView(venues: [VenueItem.defaultItem],
-//                mapRegion: ,
-//                selectedVenue: VenueItem.defaultItem)
-//    }
-//}
+struct MapView_Previews: PreviewProvider {
+    static var previews: some View {
+        MapView(venues: [VenueItem.defaultItem],
+                mapRegion: .constant(MapRegionItem.initialState.region),
+                selectedVenue: .constant(VenueItem.defaultItem))
+    }
+}
