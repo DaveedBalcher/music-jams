@@ -80,23 +80,13 @@ struct MainView: View {
                             mapRegions: vm.filteredMapRegions.map { $0.name },
                             selectedMapRegions: vm.selectedMapRegion.name) {
                 selected in
-                if let mapRegion = (vm.filteredMapRegions.first { $0.name == selected }) {
-                    vm.selectedMapRegion = mapRegion
-                }
+                vm.setMapRegion(name: selected)
                 isPresentingMapRegionPicker = false
             }
         }
         .popover(isPresented: $isPresentingFiltersPicker) {
-            let sections = vm.filterOptions.map { filter in
-                SectionModel(type: filter.key,
-                             displayIndex: [VibeType.description, GenreType.description].firstIndex(of: filter.key) ?? 0,
-                             options: filter.value.filter { $0 != VibeType.defaultValue.rawValue},
-                             selectedOption: vm.filtersSelected[filter.key] ?? nil
-                )
-            }
-                .sorted()
             MultipleSectionPicker(
-                vm: MultipleSectionViewModel(sections: sections),
+                vm: MultipleSectionViewModel(sections: SectionModel.mapFromFilters(filterOptions: vm.filterOptions, filterSelected: vm.filtersSelected)),
                 title: "Filters") { selectedFilters in
                     vm.filtersSelected = selectedFilters
                     isPresentingFiltersPicker = false

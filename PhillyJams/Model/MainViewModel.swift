@@ -20,12 +20,7 @@ class MainViewModel: ObservableObject {
     
     private var mapRegions: [MapRegionItem] = []
     @Published var filteredMapRegions: [MapRegionItem] = []
-    @Published var selectedMapRegion: MapRegionItem {
-        didSet {
-            setInitialVenue()
-            mapRegion = selectedMapRegion.region
-        }
-    }
+    @Published var selectedMapRegion: MapRegionItem
     
     @Published var filterOptions: [String: [String]] = [:]
     @Published var filtersSelected: [String: String?] = [:] {
@@ -57,11 +52,13 @@ class MainViewModel: ObservableObject {
         }
     }
     
-    func setNeighborhood(name: String? = nil) {
+    func setMapRegion(name: String? = nil) {
         if let neighborhood = filteredMapRegions.first(where: { $0.name == name }) ?? filteredMapRegions.first {
             selectedMapRegion = neighborhood
         }
         setInitialVenue()
+        
+        mapRegion = selectedMapRegion.region
     }
     
     func setInitialVenue() {
@@ -73,7 +70,7 @@ class MainViewModel: ObservableObject {
         filteredMapRegions = filteredVenues.neighborhoods.maptoMapRegionItems()
         
         if !(filteredMapRegions.contains { $0.name == selectedVenue?.neighborhood?.name }) {
-            setNeighborhood()
+            setMapRegion()
         }
     }
     

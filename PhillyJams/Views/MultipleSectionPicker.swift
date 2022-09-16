@@ -7,17 +7,6 @@
 
 import SwiftUI
 
-struct SectionModel: Comparable {
-    let type: String
-    let displayIndex: Int
-    let options: [String]
-    var selectedOption: String?
-    
-    static func < (lhs: SectionModel, rhs: SectionModel) -> Bool {
-        lhs.displayIndex > rhs.displayIndex
-    }
-}
-
 class MultipleSectionViewModel: ObservableObject {
     @Published var sections: [SectionModel]
     

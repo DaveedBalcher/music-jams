@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		170D9A4128C161DB00226CF9 /* MapRegionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D9A4028C161DB00226CF9 /* MapRegionItem.swift */; };
+		1716927B28D5130800712362 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1716927A28D5130800712362 /* SectionModel.swift */; };
 		17289C1528C294E5000A701B /* MK-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17289C1428C294E5000A701B /* MK-Extensions.swift */; };
 		1755E601289DB7DF00164552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1755E600289DB7DF00164552 /* Assets.xcassets */; };
 		1755E603289DB7F400164552 /* PhillyJamsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */; };
@@ -81,6 +82,7 @@
 
 /* Begin PBXFileReference section */
 		170D9A4028C161DB00226CF9 /* MapRegionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRegionItem.swift; sourceTree = "<group>"; };
+		1716927A28D5130800712362 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		17289C1428C294E5000A701B /* MK-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MK-Extensions.swift"; sourceTree = "<group>"; };
 		174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhillyJamsApp.swift; sourceTree = "<group>"; };
 		174D45E0289C5F42001AAC96 /* VenueLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueLoader.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 			children = (
 				1755E60E28A1A34200164552 /* MainViewModel.swift */,
 				170D9A4028C161DB00226CF9 /* MapRegionItem.swift */,
+				1716927A28D5130800712362 /* SectionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				17C91C1F28D0F8640038F788 /* MultipleSectionPicker.swift in Sources */,
 				1755E604289DB7F400164552 /* VenueMarker.swift in Sources */,
 				17604D8A28C14F78001E3FF2 /* MapView.swift in Sources */,
+				1716927B28D5130800712362 /* SectionModel.swift in Sources */,
 				17604D8728C006AC001E3FF2 /* InfoView.swift in Sources */,
 				17C91C2428D10BBB0038F788 /* SectionPicker.swift in Sources */,
 				1755E605289DB7F400164552 /* VenueBottomView.swift in Sources */,

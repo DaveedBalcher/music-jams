@@ -12,7 +12,7 @@ class MainFlow {
     init(vm: MainViewModel) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             vm.retrieveVenuesData()
-            vm.setNeighborhood(name: "Fishtown")
+            vm.setMapRegion(name: "Fishtown")
         }
     }
 }
