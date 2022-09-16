@@ -16,9 +16,7 @@ struct InfoView: View {
 
             Text(
                 """
-                Use this iOS app to navigate Philly's weekly and monthly music jam sessions and open mics.
-                
-                We want to invigorate music communities around Philadelphia and help you find your musical vibe. We rely on Philadelphians like you to build and validate this exclusive centralized collection.
+                Philly Jams is built to advance engagement in neighborly collaboration via playing music. Musicians and music lovers use the app to discover events that fit their favorite genre of music and social vibe.
                 
                 We heavily value your feedback and contributing your knowledge. Please fill out the following short survey:
                 

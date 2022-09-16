@@ -18,7 +18,7 @@ struct MainView: View {
     
     var regionFiltersDescription: String {
         let strings = vm.filtersSelected.compactMap { $0.value }
-        return strings.isEmpty ? "Jams · Vibes · Genres" : strings.joined(separator: " · ")
+        return strings.isEmpty ? "Open Jams & Open Mics · Vibes · Genres" : strings.joined(separator: " · ")
     }
     
     var body: some View {
