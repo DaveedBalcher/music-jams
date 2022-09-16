@@ -32,7 +32,6 @@ struct MainView: View {
                 .padding([.leading, .trailing], 12)
                 
                 if vm.checkVenueAvailable() {
-                    
                     ZStack {
                         Color.red
                             .frame(height: 44)

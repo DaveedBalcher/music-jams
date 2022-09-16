@@ -15,7 +15,6 @@ struct MapRegionPicker: View {
     let didComplete: (String?)->Void
     
     var body: some View {
-        
         VStack {
             HStack {
                 Spacer()

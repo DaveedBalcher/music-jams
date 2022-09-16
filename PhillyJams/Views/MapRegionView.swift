@@ -55,9 +55,6 @@ struct MapRegionView: View {
 struct MapRegionView_Previews: PreviewProvider {
     static var previews: some View {
         MapRegionView(mapRegionTitle: "Philadelphia", regionFiltersDescription: "Jams · Chill · Jazz") {
-            
-        } onTapSelectRegionFilters: {
-            
-        }
+        } onTapSelectRegionFilters: { }
     }
 }
