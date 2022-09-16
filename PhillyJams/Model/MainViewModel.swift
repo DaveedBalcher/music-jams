@@ -40,15 +40,12 @@ class MainViewModel: ObservableObject {
     }
     
     func retrieveVenuesData() {
-        venueLoader.retrieveFiltered { [weak self] venueItems, neighborhoodItems, genreOptions, vibeOptions in
+        venueLoader.load { [weak self] venueItems in
             self?.venues = venueItems
             self?.filteredVenues = venueItems
-            self?.mapRegions = neighborhoodItems.maptoMapRegionItems()
-            self?.filteredMapRegions = neighborhoodItems.maptoMapRegionItems()
-            self?.filterOptions = [
-                FilterType.vibes.rawValue : vibeOptions.rawValues,
-                FilterType.genres.rawValue : genreOptions.rawValues
-            ]
+            self?.mapRegions = venueItems.neighborhoods.maptoMapRegionItems()
+            self?.filterOptions = self?.venueLoader.retrieveFilters(for: venueItems) ?? [:]
+            
         }
     }
     

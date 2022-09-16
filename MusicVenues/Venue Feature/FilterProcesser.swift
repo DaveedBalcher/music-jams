@@ -18,7 +18,7 @@ public struct FilterProcesser {
 
                 let type = filter.key
                 
-                if let filterParam = venueItem.filterValues.filter({ $0.key.rawValue == type }).first,
+                if let filterParam = venueItem.filterValues.filter({ $0.key == type }).first,
                    (filter.value == nil || filterParam.value.contains(filter.value!)) {
                     // Should include venue
                 } else {

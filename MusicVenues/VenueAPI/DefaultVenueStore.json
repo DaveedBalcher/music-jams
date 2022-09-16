@@ -26,7 +26,7 @@
             "Jazz"
           ],
           "type": "Open Jam",
-          "host": [
+          "hosts": [
             "Tony Catastrophe",
             "Darth Kaplowtz"
           ],
@@ -61,7 +61,7 @@
             "Electronic"
           ],
           "type": "Open Jam",
-          "host": [
+          "hosts": [
             "DJ Ha",
             "Slokey"
           ],
@@ -87,7 +87,7 @@
             "Rock"
           ],
           "type": "Open Jam",
-          "host": [
+          "hosts": [
             "Mikey O."
           ],
           "url": "https://www.facebook.com/dobbsonsouth/"
@@ -112,7 +112,7 @@
             "Blues"
           ],
           "type": "Open Jam",
-          "host": [
+          "hosts": [
             "Mikey Junior"
           ],
           "url": "http://thetwistedtail.com/event/open-blues-jam/all/"
@@ -147,7 +147,7 @@
             "Fusion"
           ],
           "type": "Open Jam",
-          "host": [
+          "hosts": [
             "Tim Brey Trio"
           ],
           "url": "https://www.timerestaurant.net/copy-of-music-events"
@@ -160,7 +160,7 @@
           "vibe_index": 1,
           "genres": [],
           "type": "Open Mic",
-          "host": [
+          "hosts": [
             "Chris Farrell & The Ritmo Collective"
           ],
           "url": "https://www.timerestaurant.net/copy-of-music-events"
@@ -187,7 +187,7 @@
             "Comedy"
           ],
           "type": "Open Jam",
-          "host": [
+          "hosts": [
             "Tom Monari"
           ],
           "url": "https://www.facebook.com/PhillyLocalIMPACTLive"
@@ -224,7 +224,7 @@
           "vibe_index": 2,
           "genres": [],
           "type": "Open Jam",
-          "host": [],
+          "hosts": [],
           "url": "https://www.graperoommusic.com/"
         },
         {
@@ -233,7 +233,7 @@
           "vibe_index": 2,
           "genres": [],
           "type": "Open Mic",
-          "host": [],
+          "hosts": [],
           "url": "https://www.graperoommusic.com/"
         }
       ]
@@ -264,7 +264,7 @@
             "Jazz"
           ],
           "type": "Open Jam",
-          "host": [],
+          "hosts": [],
           "url": "https://www.facebook.com/profile.php?id=100063265538158"
         },
         {
@@ -277,7 +277,7 @@
             "Jazz"
           ],
           "type": "Open Jam",
-          "host": [],
+          "hosts": [],
           "url": "https://www.facebook.com/profile.php?id=100063265538158"
         }
       ]
@@ -318,7 +318,7 @@
             "Fusion"
           ],
           "type": "Open Jam",
-          "host": [],
+          "hosts": [],
           "url": "https://www.facebook.com/people/The-El-Bar/100064174355397/"
         },
         {
@@ -329,7 +329,7 @@
           "vibe_index": 1,
           "genres": [],
           "type": "Open Mic",
-          "host": [],
+          "hosts": [],
           "url": "https://www.facebook.com/people/The-El-Bar/100064174355397/"
         }
       ]

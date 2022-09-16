@@ -38,7 +38,7 @@ struct VenueBottomView: View {
                 VStack(alignment: .leading) {
                     Text(venue.neighborhood?.name ?? "")
                     Text("Genres: \(venue.genresDescription)")
-                    Text("Vibe: \(venue.vibe.rawValue)")
+                    Text("Vibe: \(venue.vibe)")
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)

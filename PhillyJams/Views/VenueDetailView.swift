@@ -31,7 +31,7 @@ struct VenueDetailView: View {
                         Text(venue.neighborhood?.name ?? "")
                             .font(.title3)
                         Text("Genres: \(venue.genresDescription)")
-                        Text("Vibe: \(venue.vibe.rawValue)")
+                        Text("Vibe: \(venue.vibe)")
                     }
                     .padding(12)
                     .font(.subheadline)

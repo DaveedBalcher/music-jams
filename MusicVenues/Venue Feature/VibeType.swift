@@ -23,19 +23,21 @@ public enum VibeType: String, CaseIterable, Identifiable {
     public static var description: String {
         "Vibes"
     }
-}
-
-extension VibeType: Comparable {
-    public static func < (lhs: VibeType, rhs: VibeType) -> Bool {
-        let lIndex = VibeType.allCases.firstIndex(of: lhs) ?? 0
-        let rIndex = VibeType.allCases.firstIndex(of: rhs) ?? 0
-        return lIndex < rIndex
+    
+    public static func getVibe(from index: Int?) -> VibeType {
+        switch index {
+        case 0:
+            return .vibe1
+        case 1:
+            return .vibe2
+        case 2:
+            return .vibe3
+        case 3:
+            return .vibe4
+        case 4:
+            return .vibe5
+        default:
+            return .defaultValue
+        }
     }
 }
-
-public extension Collection where Element == VibeType {
-    var rawValues: [String] {
-        self.map { $0.rawValue }
-    }
-}
-

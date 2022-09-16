@@ -7,18 +7,30 @@
 
 import Foundation
 
+public struct EventItem {
+    public let name: String
+    public let dayOfTheWeek: String?
+    public let startTime: String?
+    public let endTime: String?
+    public let vibeIndex: Int?
+    public let genres: [String]?
+    public let type: String?
+    public let hosts: [String]?
+    public let url: String
+}
+
 public struct VenueItem: Identifiable, Equatable {
     public let id: UUID
     public let name: String
     public let imageURL: URL?
     public let coordinates: Coordinates
     public let neighborhood: NeighborhoodItem?
-    public let genres: [GenreType]
-    public let vibe: VibeType
-    public var filterValues: [FilterType: [String]] {
+    public let events: [EventItem]
+//    public let vibe: VibeType
+    public var filterValues: [String: [String]] {
         [
-            .genres : genres.map { $0.rawValue },
-            .vibes : [vibe.rawValue]
+            FilterType.genres.rawValue : genres,
+            FilterType.vibes.rawValue : [vibe]
         ]
     }
     
@@ -26,25 +38,24 @@ public struct VenueItem: Identifiable, Equatable {
         lhs.name == rhs.name
     }
     
-    public init(id: UUID, name: String, imageURL: URL?, coordinates: Coordinates, neighborhood: NeighborhoodItem?, genres: [GenreType], vibe: VibeType) {
+    public init(id: UUID, name: String, imageURL: URL?, coordinates: Coordinates, neighborhood: NeighborhoodItem?, events: [EventItem]) {
         self.id = id
         self.name = name
         self.imageURL = imageURL
         self.coordinates = coordinates
         self.neighborhood = neighborhood
-        self.genres = genres
-        self.vibe = vibe
+        self.events = events
     }
     
-    public init(name: String, genres: [GenreType], vibe: VibeType) {
-        self.id = UUID()
-        self.name = name
-        self.imageURL = nil
-        self.coordinates = Coordinates.defaultValue
-        self.neighborhood = nil
-        self.genres = genres
-        self.vibe = vibe
-    }
+//    public init(name: String, genres: [GenreType], vibe: VibeType) {
+//        self.id = UUID()
+//        self.name = name
+//        self.imageURL = nil
+//        self.coordinates = Coordinates.defaultValue
+//        self.neighborhood = nil
+//        self.events = []
+//        self.vibe = vibe
+//    }
 }
 
 public extension VenueItem {
@@ -54,12 +65,19 @@ public extension VenueItem {
                   imageURL: nil,
                   coordinates: Coordinates.defaultValue,
                   neighborhood: nil,
-                  genres: [],
-                  vibe: .vibe3)
+                  events: [])
+    }
+    
+    var vibe: String {
+        events.compactMap { VibeType.getVibe(from: $0.vibeIndex).rawValue }.first ?? VibeType.defaultValue.rawValue
+    }
+    
+    var genres: [String] {
+        events.compactMap { $0.genres }.flatMap { $0 }
     }
     
     var genresDescription: String {
-        (genres.map { $0.name}).joined(separator: ", ")
+        (genres.map { $0 }).joined(separator: ", ")
     }
 }
 
@@ -71,20 +89,12 @@ public extension Collection where Element == VenueItem {
     var neighborhoods: [NeighborhoodItem] {
         Set(self.compactMap { $0.neighborhood }).sorted()
     }
-
-    func getGenres() -> [GenreType] {
+    
+    func getGenreOptions() -> [String] {
         Set(self.flatMap { $0.genres }).sorted()
     }
     
-    func getVibes() -> [VibeType] {
-        Set(self.compactMap { $0.vibe }).sorted()
-    }
-    
-    func getGenreOptions() -> [String] {
-        Set(self.flatMap { $0.genres.rawValues }).sorted()
-    }
-    
     func getVibeOptions() -> [String] {
-        Set(self.compactMap { $0.vibe.rawValue }).sorted()
+        Set(self.compactMap { $0.vibe }).sorted()
     }
 }
