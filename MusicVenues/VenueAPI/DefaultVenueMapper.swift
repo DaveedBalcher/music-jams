@@ -35,13 +35,14 @@ public final class DefaultVenueMapper {
                                      coordinates: coordinatesItem,
                                      neighborhood: neighborhoodItem,
                                      events: venue.events?.map {
-                    EventItem(name: $0.name,
-                              dayOfTheWeek: $0.dayOfTheWeek,
-                              startTime: $0.startTime,
-                              endTime: $0.endTime,
+                    EventItem(id: UUID(),
+                              name: $0.name,
+                              type: $0.type ?? "",
+                              dayOfTheWeek: $0.dayOfTheWeek ?? "",
+                              startTime: $0.startTime ?? "",
+                              endTime: $0.endTime ?? "",
                               vibeIndex: $0.vibeIndex,
                               genres: $0.genres,
-                              type: $0.type,
                               hosts: $0.hosts,
                               url: $0.url)
                     

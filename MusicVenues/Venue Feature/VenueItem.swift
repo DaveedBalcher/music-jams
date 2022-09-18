@@ -1,23 +1,11 @@
 //
 //  VenueItem.swift
-//  PhillyJams
+//  MusicVenues
 //
 //  Created by Daveed Balcher on 8/4/22.
 //
 
 import Foundation
-
-public struct EventItem {
-    public let name: String
-    public let dayOfTheWeek: String?
-    public let startTime: String?
-    public let endTime: String?
-    public let vibeIndex: Int?
-    public let genres: [String]?
-    public let type: String?
-    public let hosts: [String]?
-    public let url: String
-}
 
 public struct VenueItem: Identifiable, Equatable {
     public let id: UUID

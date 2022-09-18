@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		170D9A4128C161DB00226CF9 /* MapRegionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D9A4028C161DB00226CF9 /* MapRegionItem.swift */; };
 		1716927B28D5130800712362 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1716927A28D5130800712362 /* SectionModel.swift */; };
+		1716927D28D7690600712362 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1716927C28D7690600712362 /* EventItem.swift */; };
 		17289C1528C294E5000A701B /* MK-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17289C1428C294E5000A701B /* MK-Extensions.swift */; };
 		1755E601289DB7DF00164552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1755E600289DB7DF00164552 /* Assets.xcassets */; };
 		1755E603289DB7F400164552 /* PhillyJamsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */; };
@@ -83,6 +84,7 @@
 /* Begin PBXFileReference section */
 		170D9A4028C161DB00226CF9 /* MapRegionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRegionItem.swift; sourceTree = "<group>"; };
 		1716927A28D5130800712362 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
+		1716927C28D7690600712362 /* EventItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
 		17289C1428C294E5000A701B /* MK-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MK-Extensions.swift"; sourceTree = "<group>"; };
 		174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhillyJamsApp.swift; sourceTree = "<group>"; };
 		174D45E0289C5F42001AAC96 /* VenueLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueLoader.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				174D45E0289C5F42001AAC96 /* VenueLoader.swift */,
 				1755E64D28B3128900164552 /* FilterProcesser.swift */,
 				174D45E2289C6099001AAC96 /* VenueItem.swift */,
+				1716927C28D7690600712362 /* EventItem.swift */,
 				1755E65628B3C8FE00164552 /* Coordinates.swift */,
 				1755E65028B3C65B00164552 /* NeighborhoodItem.swift */,
 				1755E65228B3C67F00164552 /* GenreType.swift */,
@@ -448,6 +451,7 @@
 				1755E65328B3C67F00164552 /* GenreType.swift in Sources */,
 				1755E64E28B3128900164552 /* FilterProcesser.swift in Sources */,
 				1755E64028A5704E00164552 /* VenueLoader.swift in Sources */,
+				1716927D28D7690600712362 /* EventItem.swift in Sources */,
 				1755E65528B3C69F00164552 /* VibeType.swift in Sources */,
 				1755E65728B3C8FE00164552 /* Coordinates.swift in Sources */,
 			);
