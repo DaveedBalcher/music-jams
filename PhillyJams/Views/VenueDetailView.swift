@@ -42,10 +42,30 @@ struct VenueDetailView: View {
 
                 // TODO: Add venue description
                 
-                Text("List of jams and open mics coming soon...")
-                    .padding()
-                    .font(.callout)
-                    .foregroundStyle(.gray)
+                if venue.events.isEmpty {
+                                    Text("List of jams and open mics coming soon...")
+                                        .padding()
+                                        .font(.callout)
+                                        .foregroundStyle(.gray)
+                } else {
+                    ForEach(venue.events) { event in
+                        HStack {
+                            let title = [event.type, event.name].filter { !$0.isEmpty }.joined(separator: ": ")
+                            let date = [event.dayOfTheWeek, event.startTime, event.endTime].filter { !$0.isEmpty }.joined(separator: " - ")
+                            let hosts = event.hosts?.filter { !$0.isEmpty }.joined(separator: " and ") ?? "unspecified"
+                            
+                            VStack(alignment: .leading) {
+                                Text(title)
+                                Text("Host(s): \(hosts)")
+                                Text("Every \(date)")
+                            }
+                            .font(.subheadline)
+                            
+                            Spacer()
+                        }
+                        .padding()
+                    }
+                }
             }
         }
         .navigationTitle(venue.name)
