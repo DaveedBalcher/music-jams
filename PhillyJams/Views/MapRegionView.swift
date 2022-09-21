@@ -48,14 +48,24 @@ struct MapRegionView: View {
         }
         .padding([.leading, .trailing], 4)
         .padding([.top, .bottom], 6)
-        .background(Capsule().strokeBorder(.secondary))
+        .frame(height: 50)
+        .background(
+            ZStack {
+                Capsule().fill(.white)
+                Capsule().strokeBorder(.secondary)
+            }
+        )
         .padding([.top], 6)
     }
 }
 
 struct MapRegionView_Previews: PreviewProvider {
     static var previews: some View {
-        MapRegionView(mapRegionTitle: "Philadelphia", regionFiltersDescription: "Jams · Chill · Jazz") {
-        } onTapSelectRegionFilters: { }
+        HStack(alignment: .top) {
+            MapRegionView(mapRegionTitle: "Philadelphia", regionFiltersDescription: "Jams · Chill · Jazz") {
+            } onTapSelectRegionFilters: { }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.blue)
     }
 }

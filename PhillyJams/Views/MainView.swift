@@ -23,29 +23,31 @@ struct MainView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                MapRegionView(mapRegionTitle: vm.selectedMapRegion.name, regionFiltersDescription: regionFiltersDescription) {
-                    isPresentingMapRegionPicker = true
-                } onTapSelectRegionFilters: {
-                    isPresentingFiltersPicker = true
-                }
-                .padding([.leading, .trailing], 12)
-                
-                if vm.checkVenueAvailable() {
-                    ZStack {
-                        Color.red
-                            .frame(height: 44)
-                        
-                        Text("No venues")
-                            .foregroundColor(.white)
-                    }
-                }
-                
+            ZStack(alignment: .top) {
                 MapView(
                     venues: vm.filteredVenues,
                     mapRegion: $vm.mapRegion,
                     selectedVenue: $vm.selectedVenue
                 )
+                
+                VStack {
+                    MapRegionView(mapRegionTitle: vm.selectedMapRegion.name, regionFiltersDescription: regionFiltersDescription) {
+                        isPresentingMapRegionPicker = true
+                    } onTapSelectRegionFilters: {
+                        isPresentingFiltersPicker = true
+                    }
+                    .padding([.leading, .trailing], 12)
+                    
+                    if vm.checkVenueAvailable() {
+                        ZStack {
+                            Color.red
+                                .frame(height: 44)
+                            
+                            Text("No venues")
+                                .foregroundColor(.white)
+                        }
+                    }
+                }
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -66,6 +68,7 @@ struct MainView: View {
                                 .offset(x: -4)
                         } icon: {
                             Image(systemName: "info.circle")
+                                .background(Circle().fill(.white))
                         }
                     }
                     .offset(y: -8)
