@@ -14,9 +14,9 @@ public struct VenueItem: Identifiable, Equatable {
     public let coordinates: Coordinates
     public let neighborhood: NeighborhoodItem?
     public let events: [EventItem]
-//    public let vibe: VibeType
     public var filterValues: [String: [String]] {
         [
+            FilterType.eventType.rawValue : eventTypes,
             FilterType.genres.rawValue : genres,
             FilterType.vibes.rawValue : [vibe]
         ]
@@ -34,16 +34,6 @@ public struct VenueItem: Identifiable, Equatable {
         self.neighborhood = neighborhood
         self.events = events
     }
-    
-//    public init(name: String, genres: [GenreType], vibe: VibeType) {
-//        self.id = UUID()
-//        self.name = name
-//        self.imageURL = nil
-//        self.coordinates = Coordinates.defaultValue
-//        self.neighborhood = nil
-//        self.events = []
-//        self.vibe = vibe
-//    }
 }
 
 public extension VenueItem {
@@ -61,21 +51,29 @@ public extension VenueItem {
     }
     
     var genres: [String] {
-        events.compactMap { $0.genres }.flatMap { $0 }
+        Set(events.compactMap { $0.genres }.flatMap { $0 }).sorted()
     }
     
     var genresDescription: String {
         (genres.map { $0 }).joined(separator: ", ")
     }
+    
+    var eventTypes: [String] {
+        Set(events.compactMap { $0.type }.compactMap { $0 }).sorted()
+    }
 }
 
 public enum FilterType: String {
-    case genres, vibes
+    case genres, vibes, eventType = "Event Types"
 }
 
 public extension Collection where Element == VenueItem {
     var neighborhoods: [NeighborhoodItem] {
         Set(self.compactMap { $0.neighborhood }).sorted()
+    }
+    
+    func getEventTypeOptions() -> [String] {
+        Set(self.flatMap { $0.eventTypes }).sorted()
     }
     
     func getGenreOptions() -> [String] {
