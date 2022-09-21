@@ -16,14 +16,18 @@ struct InfoView: View {
 
             Text(
                 """
-                Philly Jams is built to advance engagement in neighborly collaboration via playing music. Musicians and music lovers use the app to discover events that fit their favorite genre of music and social vibe.
+                Philly Jams is built to advance engagement in neighborly creativity and collaboration via playing music. Musicians and music lovers use the app to discover events that fit their favorite genre of music and social vibe.
                 
-                We heavily value your feedback and contributing your knowledge. Please fill out the following short survey:
+                This community is built on fellow philadelphian's feedback and contributed knowledge.
                 
                 """
             )
-            Link("Click here", destination: URL(string: "https://forms.gle/K3MBdoiw5xfSkxx2A")!)
+            Link("Add a venue or event", destination: URL(string: "https://forms.gle/ZdcBWFYL97iuhDZx8")!)
                 .foregroundColor(.blue)
+            
+            Link("Leave a comment or question", destination: URL(string: "https://forms.gle/ycYkYEcLsuzLNQEJA")!)
+                .foregroundColor(.blue)
+            
             
             Text(
                 """
@@ -31,7 +35,7 @@ struct InfoView: View {
                 
                 Comments or questions?
                 
-                Email Daveed: Drummer.Philly@gmail.com
+                Email Daveed: Daveed@daveedmakesapps.com
                 """
             )
             Spacer()
