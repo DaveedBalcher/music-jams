@@ -44,6 +44,7 @@ class MainViewModel: ObservableObject {
             self?.venues = venueItems
             self?.filteredVenues = venueItems
             self?.mapRegions = venueItems.neighborhoods.maptoMapRegionItems()
+            self?.filteredMapRegions = venueItems.neighborhoods.maptoMapRegionItems()
             self?.filterOptions = self?.venueLoader.retrieveFilters(for: venueItems) ?? [:]
             
         }

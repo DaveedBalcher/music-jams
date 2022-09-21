@@ -33,14 +33,19 @@ struct VenueDetailView: View {
                         Text("Genres: \(venue.genresDescription)")
                         Text("Vibe: \(venue.vibe)")
                     }
-                    .padding(12)
                     .font(.subheadline)
                     .foregroundColor(.white)
+                    .padding(12)
+
                 }
                 .padding(12)
 
 
                 // TODO: Add venue description
+                
+                Text("Events")
+                    .font(.headline)
+                    .padding()
                 
                 if venue.events.isEmpty {
                                     Text("List of jams and open mics coming soon...")
@@ -52,18 +57,23 @@ struct VenueDetailView: View {
                         HStack {
                             let title = [event.type, event.name].filter { !$0.isEmpty }.joined(separator: ": ")
                             let date = [event.dayOfTheWeek, event.startTime, event.endTime].filter { !$0.isEmpty }.joined(separator: " - ")
-                            let hosts = event.hosts?.filter { !$0.isEmpty }.joined(separator: " and ") ?? "unspecified"
+                            let hosts = event.hosts?.filter { !$0.isEmpty }.joined(separator: " and ")
                             
                             VStack(alignment: .leading) {
                                 Text(title)
-                                Text("Host(s): \(hosts)")
+                                    .fontWeight(.semibold)
+                                Text("Host(s): \(hosts ?? "unspecified")")
                                 Text("Every \(date)")
+                                if let url = URL(string: event.url ?? "") {
+                                    Link("Visit Event Page", destination: url)
+                                }
                             }
                             .font(.subheadline)
+                            .padding(8)
                             
                             Spacer()
                         }
-                        .padding()
+                        .padding([.leading, .trailing], 16)
                     }
                 }
             }

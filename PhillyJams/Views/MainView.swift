@@ -80,7 +80,9 @@ struct MainView: View {
                             mapRegions: vm.filteredMapRegions.map { $0.name },
                             selectedMapRegions: vm.selectedMapRegion.name) {
                 selected in
-                vm.setMapRegion(name: selected)
+                if let selected = selected {
+                    vm.setMapRegion(name: selected)
+                }
                 isPresentingMapRegionPicker = false
             }
         }

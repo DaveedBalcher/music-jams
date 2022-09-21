@@ -21,15 +21,15 @@ struct MapRegionView: View {
             HStack {
                 Image(systemName: "map")
                     .resizable()
-                    .frame(width: 16, height: 14)
-                    .padding([.leading], 8)
+                    .frame(width: 20, height: 17)
+                    .padding([.leading], 12)
                 
                 VStack(alignment: .leading) {
                     Text(mapRegionTitle)
-                        .font(.caption)
+                        .font(.headline)
                         .fontWeight(.semibold)
                     Text(regionFiltersDescription)
-                        .font(.caption2)
+                        .font(.subheadline)
                         .fontWeight(.light)
                 }
                 
@@ -40,8 +40,8 @@ struct MapRegionView: View {
                 } label: {
                     Image(systemName: "line.3.horizontal.decrease")
                         .resizable()
-                        .frame(width: 14, height: 9)
-                        .padding(7)
+                        .frame(width: 18, height: 12)
+                        .padding(12)
                         .background(Circle().strokeBorder(.secondary))
                 }
             }
@@ -49,6 +49,7 @@ struct MapRegionView: View {
         .padding([.leading, .trailing], 4)
         .padding([.top, .bottom], 6)
         .background(Capsule().strokeBorder(.secondary))
+        .padding([.top], 6)
     }
 }
 
