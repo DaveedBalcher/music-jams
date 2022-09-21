@@ -12,14 +12,3 @@ public protocol VenueLoader {
     
     func load(completion: @escaping LoadCompletion)
 }
-
-public extension VenueLoader {
-    
-    func retrieveFilters(for venues: [VenueItem]) -> [String: [String]] {
-        return [
-            FilterType.eventType.rawValue : venues.getEventTypeOptions(),
-            FilterType.vibes.rawValue : venues.getVibeOptions(),
-            FilterType.genres.rawValue : venues.getGenreOptions()
-        ]
-    }
-}

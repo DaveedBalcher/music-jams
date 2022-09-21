@@ -28,4 +28,12 @@ public struct FilterProcesser {
             return true
         }
     }
+    
+    public static func retrieveFilters(for venues: [VenueItem]) -> [String: [String]] {
+        return [
+            FilterType.eventType.rawValue : venues.getEventTypeOptions(),
+            FilterType.vibes.rawValue : venues.getVibeOptions(),
+            FilterType.genres.rawValue : venues.getGenreOptions()
+        ]
+    }
 }
