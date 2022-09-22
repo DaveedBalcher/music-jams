@@ -25,18 +25,23 @@ struct VenueDetailView: View {
                         .scaledToFit()
                         .background(
                             Rectangle()
-                                .foregroundColor(neightborhoodTint))
+                                .foregroundColor(neightborhoodTint)
+                                .cornerRadius(8)
+                                .shadow(radius: 8)
+                        )
                     
                     VStack(alignment: .leading) {
                         Text(venue.neighborhood?.name ?? "")
                             .font(.title3)
+                            .fontWeight(.light)
                         Text("Genres: \(venue.genresDescription)")
+                            .fontWeight(.light)
                         Text("Vibe: \(venue.vibe)")
+                            .fontWeight(.light)
                     }
                     .font(.subheadline)
                     .foregroundColor(.white)
                     .padding(12)
-
                 }
                 .padding(12)
 
@@ -63,9 +68,12 @@ struct VenueDetailView: View {
                                 Text(title)
                                     .fontWeight(.semibold)
                                 Text("Host(s): \(hosts ?? "unspecified")")
+                                    .fontWeight(.light)
                                 Text("Every \(date)")
+                                    .fontWeight(.light)
                                 if let url = URL(string: event.url ?? "") {
                                     Link("Visit Event Page", destination: url)
+                                        .foregroundColor(.blue)
                                 }
                             }
                             .font(.subheadline)

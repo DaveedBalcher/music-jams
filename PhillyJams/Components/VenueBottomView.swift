@@ -27,26 +27,31 @@ struct VenueBottomView: View {
                     RoundedRectangle(cornerRadius: 8)
                         .foregroundColor(neightborhoodTint)
                     
-                        .padding([.leading], 12))
+                        .padding([.leading], 12)
+                )
+                .padding([.trailing], 4)
             
             VStack(alignment: .leading) {
                 
                 Text(venue.name)
                     .font(.headline)
+                    .fontWeight(.semibold)
                     .foregroundColor(neightborhoodTint)
                 
                 VStack(alignment: .leading) {
                     Text(venue.neighborhood?.name ?? "")
+                        .fontWeight(.light)
                     Text("Genres: \(venue.genresDescription)")
+                        .fontWeight(.light)
                     Text("Vibe: \(venue.vibe)")
+                        .fontWeight(.light)
                 }
                 .font(.subheadline)
-                .foregroundColor(.secondary)
+                .foregroundColor(Color.accentColor)
                 
                 Spacer()
             }
             .padding([.top], 8)
-            
             
             Spacer()
         }
@@ -55,8 +60,9 @@ struct VenueBottomView: View {
         .background(
             ZStack {
                 RoundedRectangle(cornerRadius: 8).fill(.white)
-                RoundedRectangle(cornerRadius: 8).strokeBorder(Color("32304c"))
+                RoundedRectangle(cornerRadius: 8).strokeBorder(Color("32304c").opacity(0.25))
             }
+            .shadow(color: Color("32304c").opacity(0.25), radius: 8)
         )
         .padding([.leading,.trailing], 12)
     }

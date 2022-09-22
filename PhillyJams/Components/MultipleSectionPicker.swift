@@ -46,7 +46,11 @@ struct MultipleSectionPicker: View {
                         SectionPicker(options: section.options, selectedOption: $vm.sections[index].selectedOption)
                     }
                     .padding()
-                    .background(RoundedRectangle(cornerSize: CGSize(width: 12, height: 12)).foregroundColor(.white))
+                    .background(
+                        RoundedRectangle(cornerSize: CGSize(width: 12, height: 12))
+                            .foregroundColor(.white)
+                            .shadow(color: Color("32304c").opacity(0.25), radius: 8)
+                    )
                     .padding([.leading, .trailing], 12)
                     .padding([.bottom], 8)
                 }

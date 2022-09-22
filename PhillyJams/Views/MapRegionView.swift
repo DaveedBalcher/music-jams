@@ -22,7 +22,8 @@ struct MapRegionView: View {
                 Image(systemName: "map")
                     .resizable()
                     .frame(width: 20, height: 17)
-                    .padding([.leading], 12)
+                    .padding([.leading], 8)
+                    .padding([.trailing], 4)
                 
                 VStack(alignment: .leading) {
                     Text(mapRegionTitle)
@@ -41,19 +42,21 @@ struct MapRegionView: View {
                     Image(systemName: "line.3.horizontal.decrease")
                         .resizable()
                         .frame(width: 18, height: 12)
-                        .padding(12)
-                        .background(Circle().strokeBorder(.secondary))
+                        .padding(8)
+                        .background(RoundedRectangle(cornerRadius: 8).strokeBorder(.secondary))
                 }
+                .padding([.trailing], 4)
             }
         }
-        .padding([.leading, .trailing], 4)
+        .padding([.leading, .trailing], 8)
         .padding([.top, .bottom], 6)
         .frame(height: 50)
         .background(
             ZStack {
-                Capsule().fill(.white)
-                Capsule().strokeBorder(Color("32304c"))
+                RoundedRectangle(cornerRadius: 8).fill(.white)
+                RoundedRectangle(cornerRadius: 8).strokeBorder(Color("32304c").opacity(0.25))
             }
+            .shadow(color: Color("32304c").opacity(0.25), radius: 8)
         )
         .padding([.top], 6)
     }
