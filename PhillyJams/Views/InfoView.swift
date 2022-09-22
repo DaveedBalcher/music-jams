@@ -18,7 +18,7 @@ struct InfoView: View {
                 """
                 Philly Jams is built to advance engagement in neighborly creativity and collaboration via playing music. Musicians and music lovers use the app to discover events that fit their favorite genre of music and social vibe.
                 
-                This community is built on fellow philadelphian's feedback and contributed knowledge.
+                This community is built on fellow Philadelphian's feedback and contributed knowledge.
                 
                 """
             )

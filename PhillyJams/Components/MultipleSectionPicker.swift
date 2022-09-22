@@ -66,25 +66,16 @@ struct MultipleSectionPicker: View {
     }
 }
 
-//struct FilterPickersView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MultipleSectionPicker(
-//            vm: MultipleSectionViewModel(
-//                sections: [
-//                    SectionModel(
-//                        title: "Section",
-//                        options: ["Test A", "Test B", "Test C", "Test D", "Test E", "Test F", "Test G"],
-//                        selectedOption: "Test A"),
-//                    SectionModel(
-//                        title: "Section",
-//                        options: ["Test A", "Test B", "Test C", "Test D", "Test E", "Test F", "Test G"],
-//                        selectedOption: "Test A"),
-//                    SectionModel(
-//                        title: "Section",
-//                        options: ["Test A", "Test B", "Test C", "Test D", "Test E", "Test F", "Test G"],
-//                        selectedOption: "Test A")
-//                ]
-//            ),
-//            title: "Title") { _ in }
-//    }
-//}
+struct FilterPickersView_Previews: PreviewProvider {
+    static var previews: some View {
+        MultipleSectionPicker(
+            vm: MultipleSectionViewModel(
+                sections: [
+                    SectionModel(type: "Section", displayIndex: 0, options: ["Test A", "Test B", "Test C", "Test D", "Test E", "Test F", "Test G"]),
+                    SectionModel(type: "Section", displayIndex: 0, options: ["Test A", "Test B", "Test C", "Test D", "Test E", "Test F", "Test G"]),
+                    SectionModel(type: "Section", displayIndex: 0, options: ["Test A", "Test B", "Test C", "Test D", "Test E", "Test F", "Test G"])
+                ]
+            ),
+            title: "Title") { _ in }
+    }
+}

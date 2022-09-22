@@ -13,35 +13,38 @@ struct SectionPicker: View {
     @Binding var selectedOption: String?
     
     var body: some View {
-        Button {
-            selectedOption = nil
-        } label: {
-            let isSelected = selectedOption == nil
-            Text("All")
-                .foregroundColor(isSelected ? Color.accentColor : .black)
-                .padding([.leading, .trailing], 8)
-                .padding([.top, .bottom], 2)
-                .background(Capsule().strokeBorder(isSelected ? Color.accentColor : .secondary))
-            
-                .padding([.trailing], -2)
-                .padding([.bottom], -4)
-        }
-        
-        WrappingHStack(options, id:\.self) { option in
+        VStack(alignment: .leading) {
             Button {
-                selectedOption = option
+                selectedOption = nil
             } label: {
-                let isSelected = selectedOption == option
-                Text(option)
+                let isSelected = selectedOption == nil
+                Text("All")
                     .foregroundColor(isSelected ? Color.accentColor : .black)
                     .padding([.leading, .trailing], 8)
                     .padding([.top, .bottom], 2)
                     .background(Capsule().strokeBorder(isSelected ? Color.accentColor : .secondary))
                 
                     .padding([.trailing], -2)
-                    .padding([.top, .bottom], 4)
+                    .padding([.bottom], -4)
+            }
+            
+            WrappingHStack(options, id:\.self) { option in
+                Button {
+                    selectedOption = option
+                } label: {
+                    let isSelected = selectedOption == option
+                    Text(option)
+                        .foregroundColor(isSelected ? Color.accentColor : .black)
+                        .padding([.leading, .trailing], 8)
+                        .padding([.top, .bottom], 2)
+                        .background(Capsule().strokeBorder(isSelected ? Color.accentColor : .secondary))
+                    
+                        .padding([.trailing], -2)
+                        .padding([.top, .bottom], 4)
+                }
             }
         }
+
     }
     
     
