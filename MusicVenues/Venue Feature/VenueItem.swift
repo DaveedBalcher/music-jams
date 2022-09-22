@@ -64,7 +64,7 @@ public extension VenueItem {
 }
 
 public enum FilterType: String {
-    case genres, vibes, eventType = "Event Types"
+    case genres = "Genre", vibes = "Vibe", eventType = "Event"
 }
 
 public extension Collection where Element == VenueItem {

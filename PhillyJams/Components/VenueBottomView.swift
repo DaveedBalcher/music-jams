@@ -24,7 +24,7 @@ struct VenueBottomView: View {
                 .frame(width: 72, height: 72)
                 .padding([.leading], 12)
                 .background(
-                    Rectangle()
+                    RoundedRectangle(cornerRadius: 8)
                         .foregroundColor(neightborhoodTint)
                     
                         .padding([.leading], 12))
@@ -53,7 +53,11 @@ struct VenueBottomView: View {
         
         .frame(maxWidth: .infinity, maxHeight: 96)
         .background(
-            RoundedRectangle(cornerRadius: 8).foregroundColor(.white))
+            ZStack {
+                RoundedRectangle(cornerRadius: 8).fill(.white)
+                RoundedRectangle(cornerRadius: 8).strokeBorder(Color("32304c"))
+            }
+        )
         .padding([.leading,.trailing], 12)
     }
 }

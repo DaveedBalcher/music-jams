@@ -52,7 +52,7 @@ struct MapRegionView: View {
         .background(
             ZStack {
                 Capsule().fill(.white)
-                Capsule().strokeBorder(.secondary)
+                Capsule().strokeBorder(Color("32304c"))
             }
         )
         .padding([.top], 6)
