@@ -25,6 +25,7 @@ struct MapRegionView: View {
                     .frame(width: 20, height: 17)
                     .padding([.leading], 8)
                     .padding([.trailing], 4)
+                    .foregroundColor(mapRegionColor ?? Color.accentColor)
                 
                 VStack(alignment: .leading) {
                     Text(mapRegionTitle)
@@ -45,7 +46,11 @@ struct MapRegionView: View {
                         .resizable()
                         .frame(width: 18, height: 12)
                         .padding(8)
-                        .background(RoundedRectangle(cornerRadius: 8).strokeBorder(.secondary))
+                        .foregroundColor(.lightBlue)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .strokeBorder(Color.lightBlue, lineWidth: 2)
+                        )
                 }
                 .padding([.trailing], 4)
             }
@@ -56,9 +61,9 @@ struct MapRegionView: View {
         .background(
             ZStack {
                 RoundedRectangle(cornerRadius: 8).fill(.white)
-                RoundedRectangle(cornerRadius: 8).strokeBorder(Color("32304c").opacity(0.25))
+                RoundedRectangle(cornerRadius: 8).strokeBorder(Color.accentColor.opacity(0.25))
             }
-            .shadow(color: Color("32304c").opacity(0.25), radius: 8)
+                .shadow(color: Color.accentColor.opacity(0.25), radius: 8)
         )
         .padding([.top], 6)
     }

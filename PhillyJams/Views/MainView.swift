@@ -30,6 +30,11 @@ struct MainView: View {
                     selectedVenue: $vm.selectedVenue
                 )
                 
+                Rectangle()
+                    .fill(.ultraThinMaterial)
+                    .frame(maxHeight: 92)
+                    .ignoresSafeArea()
+                
                 VStack {
                     MapRegionView(mapRegionTitle: vm.selectedMapRegion.name,
                                   mapRegionColor: vm.selectedMapRegion.color,
@@ -70,7 +75,8 @@ struct MainView: View {
                                 .offset(x: -4)
                         } icon: {
                             Image(systemName: "info.circle")
-                                .background(Circle().fill(.white))
+                                .foregroundColor(.lightBlue)
+                                .background(Circle().fill(.white.opacity(0.5)))
                         }
                     }
                     .offset(y: -8)

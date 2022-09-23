@@ -15,40 +15,52 @@ struct MapRegionPicker: View {
     let didComplete: (String?)->Void
     
     var body: some View {
+        
         VStack {
-            HStack {
-                Spacer()
-                Spacer()
-                Text(title)
-                    .font(.headline)
-                Spacer()
-                Button {
+            PageHeader(
+                title: title,
+                actionText: "Cancel") {
                     didComplete(nil)
-                } label: {
-                    Text("Cancel")
-                }
-                .padding([.trailing], 24)
             }
-            .padding([.top], 24)
             
-            Form {
-                ForEach(mapRegions, id: \.self) { option in
-                    Button {
-                        didComplete(option)
-                    } label: {
-                        HStack {
-                            ZStack {
-                                if option == selectedMapRegions {
-                                    Image(systemName: "checkmark")
-                                        .foregroundColor(.accentColor)
+            VStack {
+                VStack {
+                    ForEach(mapRegions, id: \.self) { option in
+                        Button {
+                            didComplete(option)
+                        } label: {
+                            HStack {
+                                ZStack {
+                                    if option == selectedMapRegions {
+                                        Image(systemName: "checkmark")
+                                            .foregroundColor(Color.lightBlue)
+                                    }
                                 }
+                                .frame(width: 20)
+                                Text(option)                        .fontWeight(.light)
+                                    .font(.headline)
+                                    .foregroundColor(option == selectedMapRegions ? Color.lightBlue : Color.accentColor)
+                                Spacer()
                             }
-                            .frame(width: 20)
-                            Text(option)
+                            .padding([.leading], 12)
+                            .frame(maxWidth: .infinity)
                         }
                     }
+                    .padding([.top, .bottom], 8)
                 }
+                .padding([.top, .bottom], 12)
+                .background(
+                    RoundedRectangle(cornerSize: CGSize(width: 12, height: 12))
+                        .foregroundColor(.white)
+                        .shadow(color: Color.accentColor.opacity(0.25), radius: 8)
+                )
+                .padding([.leading, .trailing], 12)
+                .padding([.bottom], 8)
+
+                Spacer()
             }
+            .padding([.top], 36)
+            .background(.regularMaterial)
         }
     }
 }

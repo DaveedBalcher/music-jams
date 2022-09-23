@@ -19,11 +19,15 @@ struct SectionPicker: View {
             } label: {
                 let isSelected = selectedOption == nil
                 Text("All")
-                    .foregroundColor(isSelected ? .blue : .black)
+                    .font(.headline)
+                    .fontWeight(.light)
+                    .foregroundColor(isSelected ? Color.lightBlue : Color.accentColor)
                     .padding([.leading, .trailing], 8)
                     .padding([.top, .bottom], 2)
-                    .background(Capsule().strokeBorder(isSelected ? .blue : .black.opacity(0.5)))
-                
+                    .background(
+                        RoundedRectangle(cornerRadius: 8)
+                            .strokeBorder(isSelected ? Color.lightBlue : Color.accentColor.opacity(0.5))
+                    )
                     .padding([.trailing], -2)
                     .padding([.bottom], -4)
             }
@@ -34,10 +38,12 @@ struct SectionPicker: View {
                 } label: {
                     let isSelected = selectedOption == option
                     Text(option)
-                        .foregroundColor(isSelected ? .blue : .black)
+                        .font(.headline)
+                        .fontWeight(.light)
+                        .foregroundColor(isSelected ? Color.lightBlue : Color.accentColor)
                         .padding([.leading, .trailing], 8)
                         .padding([.top, .bottom], 2)
-                        .background(Capsule().strokeBorder(isSelected ? .blue : .black.opacity(0.5)))
+                        .background(Capsule().strokeBorder(isSelected ? Color.lightBlue : .black.opacity(0.5)))
                     
                         .padding([.trailing], -2)
                         .padding([.top, .bottom], 4)

@@ -23,7 +23,7 @@ struct InfoView: View {
                 """
             )
             Link("Add a venue or event", destination: URL(string: "https://forms.gle/ZdcBWFYL97iuhDZx8")!)
-                .foregroundColor(.blue)
+                .foregroundColor(Color.lightBlue)
             
             Text(
             """
@@ -32,7 +32,7 @@ struct InfoView: View {
             )
             
             Link("Leave a comment or question", destination: URL(string: "https://forms.gle/ycYkYEcLsuzLNQEJA")!)
-                .foregroundColor(.blue)
+                .foregroundColor(Color.lightBlue)
             Spacer()
         }
         .padding([.top], 48)

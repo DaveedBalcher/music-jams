@@ -13,7 +13,7 @@ public enum VibeType: String, CaseIterable, Identifiable {
         self.hashValue
     }
     
-    case vibe1 = "Loose",
+    case vibe1 = "Beginner-Friendly",
         vibe2 = "Chill",
         vibe3 = "Moderate",
         vibe4 = "Tight",

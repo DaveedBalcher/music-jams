@@ -60,9 +60,9 @@ struct VenueBottomView: View {
         .background(
             ZStack {
                 RoundedRectangle(cornerRadius: 8).fill(.white)
-                RoundedRectangle(cornerRadius: 8).strokeBorder(Color("32304c").opacity(0.25))
+                RoundedRectangle(cornerRadius: 8).strokeBorder(Color.accentColor.opacity(0.25))
             }
-            .shadow(color: Color("32304c").opacity(0.25), radius: 8)
+            .shadow(color: Color.accentColor.opacity(0.25), radius: 8)
         )
         .padding([.leading,.trailing], 12)
     }

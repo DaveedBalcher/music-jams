@@ -73,7 +73,7 @@ struct VenueDetailView: View {
                                     .fontWeight(.light)
                                 if let url = URL(string: event.url ?? "") {
                                     Link("Visit Event Page", destination: url)
-                                        .foregroundColor(.blue)
+                                        .foregroundColor(Color.lightBlue)
                                 }
                             }
                             .font(.subheadline)

@@ -37,6 +37,8 @@
 		17604D8728C006AC001E3FF2 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17604D8628C006AC001E3FF2 /* InfoView.swift */; };
 		17604D8A28C14F78001E3FF2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17604D8928C14F78001E3FF2 /* MapView.swift */; };
 		17AA372428DB9E3E0030F6B7 /* VenueLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AA372328DB9E3E0030F6B7 /* VenueLoaderTests.swift */; };
+		17AA372628DE449C0030F6B7 /* Color-Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AA372528DE449C0030F6B7 /* Color-Styles.swift */; };
+		17AA372828DE58AD0030F6B7 /* PageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AA372728DE58AD0030F6B7 /* PageHeader.swift */; };
 		17C91C1328CFC8B80038F788 /* MapRegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C91C1228CFC8B80038F788 /* MapRegionView.swift */; };
 		17C91C1D28CFDEEE0038F788 /* MapRegionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C91C1C28CFDEEE0038F788 /* MapRegionPicker.swift */; };
 		17C91C1F28D0F8640038F788 /* MultipleSectionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C91C1E28D0F8640038F788 /* MultipleSectionPicker.swift */; };
@@ -113,6 +115,8 @@
 		17604D8828C14902001E3FF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		17604D8928C14F78001E3FF2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		17AA372328DB9E3E0030F6B7 /* VenueLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueLoaderTests.swift; sourceTree = "<group>"; };
+		17AA372528DE449C0030F6B7 /* Color-Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Styles.swift"; sourceTree = "<group>"; };
+		17AA372728DE58AD0030F6B7 /* PageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageHeader.swift; sourceTree = "<group>"; };
 		17C91C1228CFC8B80038F788 /* MapRegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRegionView.swift; sourceTree = "<group>"; };
 		17C91C1C28CFDEEE0038F788 /* MapRegionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRegionPicker.swift; sourceTree = "<group>"; };
 		17C91C1E28D0F8640038F788 /* MultipleSectionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSectionPicker.swift; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				1755E608289DB8C500164552 /* Color-HexString.swift */,
+				17AA372528DE449C0030F6B7 /* Color-Styles.swift */,
 				17289C1428C294E5000A701B /* MK-Extensions.swift */,
 			);
 			path = Helper;
@@ -256,6 +261,7 @@
 		1755E64C28B2CFC500164552 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				17AA372728DE58AD0030F6B7 /* PageHeader.swift */,
 				17C91C1C28CFDEEE0038F788 /* MapRegionPicker.swift */,
 				17C91C1E28D0F8640038F788 /* MultipleSectionPicker.swift */,
 				17C91C2328D10BBB0038F788 /* SectionPicker.swift */,
@@ -436,9 +442,11 @@
 				17289C1528C294E5000A701B /* MK-Extensions.swift in Sources */,
 				1755E603289DB7F400164552 /* PhillyJamsApp.swift in Sources */,
 				1755E609289DB8C500164552 /* Color-HexString.swift in Sources */,
+				17AA372628DE449C0030F6B7 /* Color-Styles.swift in Sources */,
 				17C91C1D28CFDEEE0038F788 /* MapRegionPicker.swift in Sources */,
 				1755E606289DB7F400164552 /* MainView.swift in Sources */,
 				17604D8328BFF9A1001E3FF2 /* VenueDetailView.swift in Sources */,
+				17AA372828DE58AD0030F6B7 /* PageHeader.swift in Sources */,
 				1755E60F28A1A34200164552 /* MainViewModel.swift in Sources */,
 				170D9A4128C161DB00226CF9 /* MapRegionItem.swift in Sources */,
 			);
@@ -610,7 +618,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = W5SMVQ4M6D;
 				ENABLE_PREVIEWS = YES;
@@ -645,7 +653,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = W5SMVQ4M6D;
 				ENABLE_PREVIEWS = YES;

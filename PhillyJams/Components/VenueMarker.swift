@@ -14,7 +14,7 @@ struct VenueMarker: View {
     
     var body: some View {
         ZStack {
-            let neightborhoodTint = Color(venue.neighborhood?.color, defaultColor: .blue)
+            let neightborhoodTint = Color(venue.neighborhood?.color, defaultColor: Color.lightBlue)
             let primaryColor = isSelected ? .white : neightborhoodTint
             let secondaryColor = isSelected ? neightborhoodTint : .white
             Circle()

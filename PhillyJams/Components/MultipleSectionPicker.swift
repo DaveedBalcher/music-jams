@@ -22,20 +22,10 @@ struct MultipleSectionPicker: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Spacer(minLength: 86)
-                Spacer()
-                Text(title)
-                    .font(.headline)
-                Spacer()
-                Button {
-                    didComplete(vm.sections.reduce(into: [String : String?]()) { $0[$1.type] = $1.selectedOption })
-                } label: {
-                    Text("Done")
-                }
-                .frame(width: 86)
+            PageHeader(
+                title: title,
+                actionText: "Done") {                    didComplete(vm.sections.reduce(into: [String : String?]()) { $0[$1.type] = $1.selectedOption })
             }
-            .padding([.top], 24)
             
             VStack {
                 ForEach(0..<vm.sections.count, id:\.self) { index in
@@ -49,7 +39,7 @@ struct MultipleSectionPicker: View {
                     .background(
                         RoundedRectangle(cornerSize: CGSize(width: 12, height: 12))
                             .foregroundColor(.white)
-                            .shadow(color: Color("32304c").opacity(0.25), radius: 8)
+                            .shadow(color: Color.accentColor.opacity(0.25), radius: 8)
                     )
                     .padding([.leading, .trailing], 12)
                     .padding([.bottom], 8)
