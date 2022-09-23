@@ -31,10 +31,12 @@ struct MainView: View {
                 )
                 
                 VStack {
-                    MapRegionView(mapRegionTitle: vm.selectedMapRegion.name, regionFiltersDescription: regionFiltersDescription) {
+                    MapRegionView(mapRegionTitle: vm.selectedMapRegion.name,
+                                  mapRegionColor: vm.selectedMapRegion.color,
+                                  regionFiltersDescription: regionFiltersDescription) {
                         isPresentingMapRegionPicker = true
                     } onTapSelectRegionFilters: {
-                        isPresentingFiltersPicker = true
+                        isPresentingFiltersPicker = !vm.filterOptions.isEmpty
                     }
                     .padding([.leading, .trailing], 12)
                     

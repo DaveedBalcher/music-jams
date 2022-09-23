@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MapRegionView: View {
     let mapRegionTitle: String
+    let mapRegionColor: Color?
     let regionFiltersDescription: String
     
     let onTapSelectMapRegion: ()->()
@@ -27,6 +28,7 @@ struct MapRegionView: View {
                 
                 VStack(alignment: .leading) {
                     Text(mapRegionTitle)
+                        .foregroundColor(mapRegionColor ?? Color.accentColor)
                         .font(.headline)
                         .fontWeight(.semibold)
                     Text(regionFiltersDescription)
@@ -65,7 +67,7 @@ struct MapRegionView: View {
 struct MapRegionView_Previews: PreviewProvider {
     static var previews: some View {
         HStack(alignment: .top) {
-            MapRegionView(mapRegionTitle: "Philadelphia", regionFiltersDescription: "Jams · Chill · Jazz") {
+            MapRegionView(mapRegionTitle: "Philadelphia", mapRegionColor: nil, regionFiltersDescription: "Jams · Chill · Jazz") {
             } onTapSelectRegionFilters: { }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

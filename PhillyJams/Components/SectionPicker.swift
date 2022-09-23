@@ -19,10 +19,10 @@ struct SectionPicker: View {
             } label: {
                 let isSelected = selectedOption == nil
                 Text("All")
-                    .foregroundColor(isSelected ? Color.accentColor : .black)
+                    .foregroundColor(isSelected ? .blue : .black)
                     .padding([.leading, .trailing], 8)
                     .padding([.top, .bottom], 2)
-                    .background(Capsule().strokeBorder(isSelected ? Color.accentColor : .secondary))
+                    .background(Capsule().strokeBorder(isSelected ? .blue : .black.opacity(0.5)))
                 
                     .padding([.trailing], -2)
                     .padding([.bottom], -4)
@@ -34,10 +34,10 @@ struct SectionPicker: View {
                 } label: {
                     let isSelected = selectedOption == option
                     Text(option)
-                        .foregroundColor(isSelected ? Color.accentColor : .black)
+                        .foregroundColor(isSelected ? .blue : .black)
                         .padding([.leading, .trailing], 8)
                         .padding([.top, .bottom], 2)
-                        .background(Capsule().strokeBorder(isSelected ? Color.accentColor : .secondary))
+                        .background(Capsule().strokeBorder(isSelected ? .blue : .black.opacity(0.5)))
                     
                         .padding([.trailing], -2)
                         .padding([.top, .bottom], 4)
