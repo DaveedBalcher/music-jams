@@ -11,6 +11,8 @@ import MusicVenues
 struct VenueDetailView: View {
     let venue: VenueItem
 
+    @State private var isPresentingWebView = false
+    
     var body: some View {
         
         let neightborhoodTint = Color(venue.neighborhood?.color, defaultColor: .black)
@@ -72,8 +74,17 @@ struct VenueDetailView: View {
                                 Text("Every \(date)")
                                     .fontWeight(.light)
                                 if let url = URL(string: event.url ?? "") {
-                                    Link("Visit Event Page", destination: url)
-                                        .foregroundColor(Color.lightBlue)
+                                    Button {
+                                        isPresentingWebView.toggle()
+                                    } label: {
+                                        Text("Visit Event Page")
+                                            .foregroundColor(Color.lightBlue)
+                                    }
+                                    .sheet(isPresented: $isPresentingWebView) {
+                                        WebView(url: url)
+                                    }
+//                                    Link("Visit Event Page", destination: url)
+//                                        .foregroundColor(Color.lightBlue)
                                 }
                             }
                             .font(.subheadline)
@@ -82,6 +93,21 @@ struct VenueDetailView: View {
                             Spacer()
                         }
                         .padding([.leading, .trailing], 16)
+                    }
+                }
+            }
+            .toolbar {                
+                ToolbarItem(placement: .primaryAction) {
+                    Link(destination: URL(string: "https://forms.gle/ZdcBWFYL97iuhDZx8")!) {
+                        Label {
+                            Text("Add")
+                                .font(.caption)
+                                .fontWeight(.light)
+                                .offset(x: -4)
+                        } icon: {
+                            Image(systemName: "plus")
+                                .foregroundColor(.lightBlue)
+                        }
                     }
                 }
             }
