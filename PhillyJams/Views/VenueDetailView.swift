@@ -83,8 +83,6 @@ struct VenueDetailView: View {
                                     .sheet(isPresented: $isPresentingWebView) {
                                         WebView(url: url)
                                     }
-//                                    Link("Visit Event Page", destination: url)
-//                                        .foregroundColor(Color.lightBlue)
                                 }
                             }
                             .font(.subheadline)
