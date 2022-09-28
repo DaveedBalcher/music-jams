@@ -55,7 +55,11 @@ public extension VenueItem {
     }
     
     var genresDescription: String {
-        (genres.map { $0 }).joined(separator: ", ")
+        if genres.isEmpty {
+            return "Unspecified"
+        } else {
+            return (genres.map { $0 }).joined(separator: ", ")
+        }
     }
     
     var eventTypes: [String] {
