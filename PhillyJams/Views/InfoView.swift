@@ -8,40 +8,57 @@
 import SwiftUI
 
 struct InfoView: View {
+    @Binding var isPresenting: Bool
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Welcome to Philly Jams!\n")
-                .font(.title2)
-                .foregroundColor(.secondary)
+        NavigationView {
+            VStack(alignment: .leading) {
+                Group {
+                    Text("Welcome to Philly Jams!\n")
+                        .font(.title2)
+                        .foregroundColor(.secondary)
 
-            Text(
-                """
-                Philly Jams is built to advance engagement in neighborly creativity and collaboration via playing music. Musicians and music lovers use the app to discover events that fit their favorite genre of music and social vibe.
-                
-                This community is built on fellow Philadelphian's feedback and contributed knowledge.
-                
-                """
-            )
-            Link("Add a venue or event", destination: URL(string: "https://forms.gle/ZdcBWFYL97iuhDZx8")!)
-                .foregroundColor(Color.lightBlue)
+                    Text(
+                        """
+                        Philly Jams is built to advance engagement in neighborly creativity and collaboration via playing music. Musicians and music lovers use the app to discover events that fit their favorite genre of music and social vibe.
+                        
+                        This community is built on fellow Philadelphian's feedback and contributed knowledge.
+                        
+                        """
+                    )
+                    Link("Add a venue or event", destination: URL(string: "https://forms.gle/ZdcBWFYL97iuhDZx8")!)
+                        .foregroundColor(Color.lightBlue)
+                    
+                    Text(
+                    """
+                        
+                    """
+                    )
+                    
+                    Link("Leave a comment or question", destination: URL(string: "https://forms.gle/ycYkYEcLsuzLNQEJA")!)
+                        .foregroundColor(Color.lightBlue)
+                }
+                .padding([.leading, .trailing])
             
-            Text(
-            """
-                
-            """
-            )
-            
-            Link("Leave a comment or question", destination: URL(string: "https://forms.gle/ycYkYEcLsuzLNQEJA")!)
-                .foregroundColor(Color.lightBlue)
-            Spacer()
+                Spacer()
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                Button {
+                    isPresenting = false
+                } label: {
+                    Text("Done")
+                        .foregroundColor(.lightBlue)
+                }
+            }
         }
-        .padding([.top], 48)
-        .padding()
     }
 }
 
 struct InfoView_Previews: PreviewProvider {
     static var previews: some View {
-        InfoView()
+        NavigationView {
+            InfoView(isPresenting: .constant(true))
+        }
     }
 }
