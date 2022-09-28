@@ -12,13 +12,14 @@ import MusicVenues
 struct MainView: View {
     
     @ObservedObject var vm: MainViewModel
-    @State var isPresentingInfo = false
-    @State var isPresentingMapRegionPicker = false
-    @State var isPresentingFiltersPicker = false
+    
+    @State private var isPresentingInfo = false
+    @State private var isPresentingMapRegionPicker = false
+    @State private var isPresentingFiltersPicker = false
     
     var regionFiltersDescription: String {
         let strings = vm.filtersSelected.compactMap { $0.value }
-        return strings.isEmpty ? "All Events ·  Vibes · Genres" : strings.joined(separator: " · ")
+        return strings.isEmpty ? "All Events · Vibes · Genres" : strings.joined(separator: " · ")
     }
     
     var body: some View {
