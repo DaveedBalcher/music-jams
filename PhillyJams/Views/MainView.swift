@@ -43,6 +43,7 @@ struct MainView: View {
                     } onTapSelectRegionFilters: {
                         isPresentingFiltersPicker = !vm.filterOptions.isEmpty
                     }
+                    .padding([.top], 8)
                     .padding([.leading, .trailing], 12)
                     
                     if vm.checkVenueAvailable() {
@@ -64,7 +65,7 @@ struct MainView: View {
                         .padding([.trailing], 8)
                 }
                 
-                ToolbarItem {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         isPresentingInfo = true
                     } label: {
@@ -76,15 +77,27 @@ struct MainView: View {
                         } icon: {
                             Image(systemName: "info.circle")
                                 .foregroundColor(.lightBlue)
-                                .background(Circle().fill(.white.opacity(0.5)))
                         }
                     }
-                    .offset(y: -8)
+                }
+                
+                ToolbarItem(placement: .primaryAction) {
+                    Link(destination: URL(string: "https://forms.gle/ZdcBWFYL97iuhDZx8")!) {
+                        Label {
+                            Text("Add")
+                                .font(.caption)
+                                .fontWeight(.light)
+                                .offset(x: -4)
+                        } icon: {
+                            Image(systemName: "plus")
+                                .foregroundColor(.lightBlue)
+                        }
+                    }
                 }
             }
         }
         .popover(isPresented: $isPresentingInfo){
-            InfoView()
+            InfoView(isPresenting: $isPresentingInfo)
         }
         .popover(isPresented: $isPresentingMapRegionPicker) {
             MapRegionPicker(title: "Neighborhoods",
