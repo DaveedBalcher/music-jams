@@ -72,9 +72,6 @@ struct MainView: View {
                     } label: {
                         Label {
                             Text("About")
-                                .font(.caption)
-                                .fontWeight(.light)
-                                .offset(x: -4)
                         } icon: {
                             Image(systemName: "info.circle")
                                 .foregroundColor(.lightBlue)
@@ -86,9 +83,6 @@ struct MainView: View {
                     Link(destination: URL(string: "https://forms.gle/ZdcBWFYL97iuhDZx8")!) {
                         Label {
                             Text("Add")
-                                .font(.caption)
-                                .fontWeight(.light)
-                                .offset(x: -4)
                         } icon: {
                             Image(systemName: "plus")
                                 .foregroundColor(.lightBlue)
