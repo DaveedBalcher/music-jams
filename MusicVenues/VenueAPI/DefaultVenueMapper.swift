@@ -26,16 +26,27 @@ public final class DefaultVenueMapper {
                 
                 let coordinatesItem = Coordinates(latitude: venue.coordinates[1], longitude: venue.coordinates[0])
                 let neighborhoodItem = neighborhoods.first { $0.name == venue.neighborhood }?.item
-                let genres = venue.genreTypes.isEmpty ? [GenreType.defaultValue] : venue.genreTypes
-                let vibeType = VibeType.allCases[venue.vibeIndex ?? 5]
+                //                let genres = venue.genreTypes.isEmpty ? [GenreType.defaultValue] : venue.genreTypes
+                //                let vibeType = VibeType.allCases[venue.vibeIndex ?? 5]
                 
                 let item = VenueItem(id: UUID(),
                                      name: venue.name,
                                      imageURL: venue.image,
                                      coordinates: coordinatesItem,
                                      neighborhood: neighborhoodItem,
-                                     genres: genres,
-                                     vibe: vibeType)
+                                     events: venue.events?.map {
+                    EventItem(id: UUID(),
+                              name: $0.name,
+                              type: $0.type ?? "",
+                              dayOfTheWeek: $0.dayOfTheWeek ?? "",
+                              startTime: $0.startTime ?? "",
+                              endTime: $0.endTime ?? "",
+                              vibeIndex: $0.vibeIndex,
+                              genres: $0.genres,
+                              hosts: $0.hosts,
+                              url: $0.url)
+                    
+                }  ?? [] )
                 
                 return item
             }
@@ -46,14 +57,25 @@ public final class DefaultVenueMapper {
         let name: String
         let neighborhood: String
         let coordinates: [Double]
-        let vibeIndex: Int?
-        let genres: [String]?
+        let events: [DefaultEvent]?
         let description: String?
         let image: URL?
         
-        var genreTypes: [GenreType] {
-            (genres?.compactMap { GenreType.init(name: $0) }) ?? []
-        }
+//        var genreTypes: [GenreType] {
+//            (genres?.compactMap { GenreType.init(name: $0) }) ?? []
+//        }
+    }
+    
+    private struct DefaultEvent: Decodable {
+        public let name: String
+        public let dayOfTheWeek: String?
+        public let startTime: String?
+        public let endTime: String?
+        public let vibeIndex: Int?
+        public let genres: [String]?
+        public let type: String?
+        public let hosts: [String]?
+        public let url: String
     }
     
     private struct DefaultNeighborhood: Decodable {

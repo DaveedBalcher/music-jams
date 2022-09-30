@@ -30,16 +30,3 @@ public struct GenreType: Identifiable {
         self.name = name
     }
 }
-
-extension GenreType: Hashable, Comparable {
-    public static func < (lhs: GenreType, rhs: GenreType) -> Bool {
-        lhs.name < rhs.name
-    }
-}
-
-public extension Collection where Element == GenreType {
-    var rawValues: [String] {
-        self.map { $0.rawValue }
-    }
-}
-

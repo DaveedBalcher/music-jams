@@ -27,11 +27,7 @@ public final class DefaultVenueLoader: VenueLoader {
         return []
     }
     
-    public func retrieveVenues() -> [VenueItem] {
-        venues
-    }
-    
-    public func retrieveFilters() -> FilterOptions {
-        (genreOptions: venues.getGenreOptions(), vibeOptions: venues.getVibeOptions())
+    public func load(completion: @escaping LoadCompletion) {
+        completion(venues)
     }
 }

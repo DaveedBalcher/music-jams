@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "Screen Shot 2022-08-01 at 7.25.51 PM.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -10,6 +9,7 @@
       "scale" : "2x"
     },
     {
+      "filename" : "philly_jams_logo_navbar.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

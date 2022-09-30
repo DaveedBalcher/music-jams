@@ -9,16 +9,17 @@ import Foundation
 
 public struct FilterProcesser {
     
-    public static func filter(_ venues: [VenueItem], with filters: [FilterParameter]) -> [VenueItem] {
+    public static func filter(_ venues: [VenueItem], with filters: [String: String?]) -> [VenueItem] {
         if filters.isEmpty { return venues }
         
         return venues.filter { venueItem in
             
             for filter in filters {
+
+                let type = filter.key
                 
-                if (venueItem.filterValues.contains { $0.key == filter.type }),
-                   let filterParam = venueItem.filterValues[filter.type],
-                   filterParam.filter(filter.values.contains).count > 0 {
+                if let filterParam = venueItem.filterValues.filter({ $0.key == type }).first,
+                   (filter.value == nil || filterParam.value.contains(filter.value!)) {
                     // Should include venue
                 } else {
                     return false
@@ -27,18 +28,12 @@ public struct FilterProcesser {
             return true
         }
     }
-}
-
-public struct FilterParameter: Equatable {
-    let type: FilterType
-    let values: [String]
     
-    public init(type: FilterType, values: [String]) {
-        self.type = type
-        self.values = values
-    }
-    
-    public static func == (lhs: FilterParameter, rhs: FilterParameter) -> Bool {
-        lhs.type == rhs.type
+    public static func retrieveFilters(for venues: [VenueItem]) -> [String: [String]] {
+        return [
+            FilterType.eventType.rawValue : venues.getEventTypeOptions(),
+            FilterType.vibes.rawValue : venues.getVibeOptions(),
+            FilterType.genres.rawValue : venues.getGenreOptions()
+        ]
     }
 }

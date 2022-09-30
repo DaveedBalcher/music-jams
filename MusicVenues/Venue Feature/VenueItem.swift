@@ -1,6 +1,6 @@
 //
 //  VenueItem.swift
-//  PhillyJams
+//  MusicVenues
 //
 //  Created by Daveed Balcher on 8/4/22.
 //
@@ -13,12 +13,12 @@ public struct VenueItem: Identifiable, Equatable {
     public let imageURL: URL?
     public let coordinates: Coordinates
     public let neighborhood: NeighborhoodItem?
-    public let genres: [GenreType]
-    public let vibe: VibeType
-    public var filterValues: [FilterType: [String]] {
+    public let events: [EventItem]
+    public var filterValues: [String: [String]] {
         [
-            .genres : genres.map { $0.rawValue },
-            .vibes : [vibe.rawValue]
+            FilterType.eventType.rawValue : eventTypes,
+            FilterType.genres.rawValue : genres,
+            FilterType.vibes.rawValue : [vibe]
         ]
     }
     
@@ -26,24 +26,13 @@ public struct VenueItem: Identifiable, Equatable {
         lhs.name == rhs.name
     }
     
-    public init(id: UUID, name: String, imageURL: URL?, coordinates: Coordinates, neighborhood: NeighborhoodItem?, genres: [GenreType], vibe: VibeType) {
+    public init(id: UUID, name: String, imageURL: URL?, coordinates: Coordinates, neighborhood: NeighborhoodItem?, events: [EventItem]) {
         self.id = id
         self.name = name
         self.imageURL = imageURL
         self.coordinates = coordinates
         self.neighborhood = neighborhood
-        self.genres = genres
-        self.vibe = vibe
-    }
-    
-    public init(name: String, genres: [GenreType], vibe: VibeType) {
-        self.id = UUID()
-        self.name = name
-        self.imageURL = nil
-        self.coordinates = Coordinates.defaultValue
-        self.neighborhood = nil
-        self.genres = genres
-        self.vibe = vibe
+        self.events = events
     }
 }
 
@@ -54,37 +43,48 @@ public extension VenueItem {
                   imageURL: nil,
                   coordinates: Coordinates.defaultValue,
                   neighborhood: nil,
-                  genres: [],
-                  vibe: .vibe3)
+                  events: [])
     }
     
-    public var genresDescription: String {
-        (genres.map { $0.name}).joined(separator: ", ")
+    var vibe: String {
+        events.compactMap { VibeType.getVibe(from: $0.vibeIndex).rawValue }.first ?? VibeType.defaultValue.rawValue
+    }
+    
+    var genres: [String] {
+        Set(events.compactMap { $0.genres }.flatMap { $0 }).sorted()
+    }
+    
+    var genresDescription: String {
+        if genres.isEmpty {
+            return "Unspecified"
+        } else {
+            return (genres.map { $0 }).joined(separator: ", ")
+        }
+    }
+    
+    var eventTypes: [String] {
+        Set(events.compactMap { $0.type }.compactMap { $0 }).sorted()
     }
 }
 
 public enum FilterType: String {
-    case genres, vibes
+    case genres = "Genre", vibes = "Vibe", eventType = "Event"
 }
 
 public extension Collection where Element == VenueItem {
     var neighborhoods: [NeighborhoodItem] {
         Set(self.compactMap { $0.neighborhood }).sorted()
     }
-
-    func getGenres() -> [GenreType] {
-        Set(self.flatMap { $0.genres }).sorted()
-    }
     
-    func getVibes() -> [VibeType] {
-        Set(self.compactMap { $0.vibe }).sorted()
+    func getEventTypeOptions() -> [String] {
+        Set(self.flatMap { $0.eventTypes }).sorted()
     }
     
     func getGenreOptions() -> [String] {
-        Set(self.flatMap { $0.genres.rawValues }).sorted()
+        Set(self.flatMap { $0.genres }).sorted()
     }
     
     func getVibeOptions() -> [String] {
-        Set(self.compactMap { $0.vibe.rawValue }).sorted()
+        Set(self.compactMap { $0.vibe }).sorted()
     }
 }

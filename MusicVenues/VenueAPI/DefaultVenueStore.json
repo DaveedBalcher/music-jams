@@ -1,11 +1,27 @@
 {
     "venues": [
         {
-            "name": "Ortlieb's",
-            "neighborhood": "Northern Liberties",
+            "name": "Philadelphia Brewing Company",
+            "neighborhood": "Kensington",
             "coordinates": [
-                -75.142369,
-                39.9645332
+                -75.12733742594719,
+                39.98256869260424
+            ],
+            "events": [
+                {
+                    "name": "",
+                    "day_of_the_week": "Wednesday",
+                    "start_time": "8:00pm",
+                    "end_time": "12:00am",
+                    "vibe_index": 1,
+                    "genres": [
+                        "Folk",
+                        "Rock"
+                    ],
+                    "type": "Open Mic",
+                    "hosts": [],
+                    "url": "https://philadelphiabrewing.com/"
+                }
             ]
         },
         {
@@ -17,31 +33,29 @@
             ]
         },
         {
-            "name": "Bourbon & Branch",
-            "neighborhood": "Northern Liberties",
-            "coordinates": [
-                -75.140773,
-                39.9620411
-            ],
-            "vibe_index": 2,
-            "genres": [
-                "Indie",
-                "Rock",
-                "Hip hop",
-                "Jazz"
-            ]
-        },
-        {
             "name": "Heritage",
             "neighborhood": "Northern Liberties",
             "coordinates": [
-                -75.140773,
-                39.9620411
+                -75.1407277,
+                39.9645377
             ],
-            "vibe_index": 3,
-            "genres": [
-                "Jazz",
-                "Bluegrass"
+            "events": [
+                {
+                    "name": "",
+                    "day_of_the_week": "Wednesday",
+                    "start_time": "6:00pm",
+                    "end_time": "9:00pm",
+                    "vibe_index": 3,
+                    "genres": [
+                        "Jazz"
+                    ],
+                    "type": "Open Jam",
+                    "hosts": [
+                        "Tony Catastrophe",
+                        "Darth Kaplowtz"
+                    ],
+                    "url": "https://www.facebook.com/thecitywidesessions/"
+                }
             ]
         },
         {
@@ -50,21 +64,7 @@
             "coordinates": [
                 -75.1612244,
                 39.9643921
-            ],
-            "vibe_index": 2,
-            "genres": [
-                "Jazz",
-                "Soul",
-                "Funk"
             ]
-        },
-        {
-            "name": "Parkside Beef & Ale",
-            "coordinates": [
-                -75.1646344,
-                39.9546959
-            ],
-            "neighborhood": "Center City"
         },
         {
             "name": "Warehouse on Watts | W.O.W.",
@@ -73,38 +73,82 @@
                 -75.158515,
                 39.970709
             ],
-            "vibe_index": 3,
-            "genres": [
-                "Electronic",
-                "Jazz"
+            "events": [
+                {
+                    "name": "",
+                    "day_of_the_week": "Wednesday",
+                    "start_time": "8:00pm",
+                    "end_time": "12:00am",
+                    "vibe_index": 3,
+                    "genres": [
+                        "Jazz",
+                        "Electronic"
+                    ],
+                    "type": "Open Jam",
+                    "hosts": [
+                        "DJ Ha",
+                        "Slokey"
+                    ],
+                    "url": "https://www.facebook.com/thecitywidesessions/"
+                }
             ]
         },
         {
             "name": "J.C. Dobbs",
-            "neighborhood": "South St",
+            "neighborhood": "South Street",
             "coordinates": [
                 -75.147857,
                 39.9413076
             ],
-            "vibe_index": 0,
-            "genres": [
-                "Rock"
+            "events": [
+                {
+                    "name": "",
+                    "day_of_the_week": "1st & 3rd Sunday",
+                    "start_time": "8:00pm",
+                    "end_time": "12:00am",
+                    "vibe_index": 1,
+                    "genres": [
+                        "Rock"
+                    ],
+                    "type": "Open Jam",
+                    "hosts": [
+                        "Mikey O."
+                    ],
+                    "url": "https://www.facebook.com/dobbsonsouth/"
+                }
             ]
         },
         {
             "name": "The Twisted Tail",
-            "neighborhood": "South St",
+            "neighborhood": "South Street",
             "coordinates": [
                 -75.1451777,
                 39.9418511
+            ],
+            "events": [
+                {
+                    "name": "",
+                    "day_of_the_week": "Sunday",
+                    "start_time": "5:00pm",
+                    "end_time": "9:00pm",
+                    "vibe_index": 1,
+                    "genres": [
+                        "Blues"
+                    ],
+                    "type": "Open Jam",
+                    "hosts": [
+                        "Mikey Junior"
+                    ],
+                    "url": "http://thetwistedtail.com/event/open-blues-jam/all/"
+                }
             ]
         },
         {
-            "name": "MilkBoy",
-            "neighborhood": "Center City",
+            "name": "Khyber Pass Pub",
+            "neighborhood": "Old City",
             "coordinates": [
-                -75.1587791,
-                39.9500946
+                -75.1441372,
+                39.948667
             ]
         },
         {
@@ -114,11 +158,37 @@
                 -75.162516,
                 39.9497362
             ],
-            "vibe_index": 2,
-            "genres": [
-                "Jazz",
-                "Funk",
-                "Fusion"
+            "events": [
+                {
+                    "name": "",
+                    "day_of_the_week": "Sunday",
+                    "start_time": "8:00pm",
+                    "end_time": "12:00am",
+                    "vibe_index": 1,
+                    "genres": [
+                        "Jazz",
+                        "Funk",
+                        "Fusion"
+                    ],
+                    "type": "Open Jam",
+                    "hosts": [
+                        "Tim Brey Trio"
+                    ],
+                    "url": "https://www.timerestaurant.net/copy-of-music-events"
+                },
+                {
+                    "name": "",
+                    "day_of_the_week": "Tuesday",
+                    "start_time": "9:00pm",
+                    "end_time": "1:00am",
+                    "vibe_index": 1,
+                    "genres": [],
+                    "type": "Open Mic",
+                    "hosts": [
+                        "Chris Farrell & The Ritmo Collective"
+                    ],
+                    "url": "https://www.timerestaurant.net/copy-of-music-events"
+                }
             ]
         },
         {
@@ -127,6 +197,25 @@
             "coordinates": [
                 -75.1626132,
                 39.950476
+            ],
+            "events": [
+                {
+                    "name": "Philly Local Impact Live!",
+                    "day_of_the_week": "Thursday",
+                    "start_time": "9:00pm",
+                    "end_time": "1:00am",
+                    "vibe_index": 1,
+                    "genres": [
+                        "Rock",
+                        "Folk",
+                        "Comedy"
+                    ],
+                    "type": "Open Jam",
+                    "hosts": [
+                        "Tom Monari"
+                    ],
+                    "url": "https://www.facebook.com/PhillyLocalIMPACTLive"
+                }
             ]
         },
         {
@@ -143,10 +232,6 @@
             "coordinates": [
                 -75.2192508,
                 40.022673
-            ],
-            "vibe_index": 2,
-            "genres": [
-                "Jazz"
             ]
         },
         {
@@ -155,6 +240,26 @@
             "coordinates": [
                 -75.2230934,
                 40.0256935
+            ],
+            "events": [
+                {
+                    "name": "",
+                    "day_of_the_week": "Wednesday",
+                    "vibe_index": 2,
+                    "genres": [],
+                    "type": "Open Jam",
+                    "hosts": [],
+                    "url": "https://www.graperoommusic.com/"
+                },
+                {
+                    "name": "",
+                    "day_of_the_week": "Thursday",
+                    "vibe_index": 2,
+                    "genres": [],
+                    "type": "Open Mic",
+                    "hosts": [],
+                    "url": "https://www.graperoommusic.com/"
+                }
             ]
         },
         {
@@ -166,36 +271,52 @@
             ]
         },
         {
-            "name": "Dock Street Brewery South",
-            "neighborhood": "Point Breeze",
-            "coordinates": [
-                -75.1796596,
-                39.9392658
-            ]
-        },
-        {
             "name": "Chris' Jazz Cafe",
             "neighborhood": "Center City",
             "coordinates": [
                 -75.165171,
                 39.9503269
             ],
-            "vibe_index": 4,
-            "genres": [
-                "Jazz"
+            "events": [
+                {
+                    "name": "",
+                    "day_of_the_week": "Friday",
+                    "start_time": "11:30pm",
+                    "end_time": "1:45am",
+                    "vibe_index": 4,
+                    "genres": [
+                        "Jazz"
+                    ],
+                    "type": "Open Jam",
+                    "hosts": [],
+                    "url": "https://www.facebook.com/profile.php?id=100063265538158"
+                },
+                {
+                    "name": "",
+                    "day_of_the_week": "Saturday",
+                    "start_time": "11:30pm",
+                    "end_time": "1:45am",
+                    "vibe_index": 4,
+                    "genres": [
+                        "Jazz"
+                    ],
+                    "type": "Open Jam",
+                    "hosts": [],
+                    "url": "https://www.facebook.com/profile.php?id=100063265538158"
+                }
             ]
         },
         {
-            "name": "Raven Lounge",
+            "name": "Jose Pistola's",
             "neighborhood": "Center City",
             "coordinates": [
-                -75.1696208,
-                39.9507154
+                -75.166239,
+                39.947703
             ]
         },
         {
             "name": "World Cafe Live",
-            "neighborhood": "U City",
+            "neighborhood": "University City",
             "coordinates": [
                 -75.1851726,
                 39.9520673
@@ -208,10 +329,33 @@
                 -75.1354739,
                 39.9718144
             ],
-            "vibe_index": 0,
-            "genres": [
-                "Jazz",
-                "Folk"
+            "events": [
+                {
+                    "name": "",
+                    "day_of_the_week": "Tuesday",
+                    "start_time": "8:00pm",
+                    "end_time": "12:00am",
+                    "vibe_index": 1,
+                    "genres": [
+                        "Jazz",
+                        "Funk",
+                        "Fusion"
+                    ],
+                    "type": "Open Jam",
+                    "hosts": [],
+                    "url": "https://www.facebook.com/people/The-El-Bar/100064174355397/"
+                },
+                {
+                    "name": "",
+                    "day_of_the_week": "Tuesday",
+                    "start_time": "8:30pm",
+                    "end_time": "12:00am",
+                    "vibe_index": 1,
+                    "genres": [],
+                    "type": "Open Mic",
+                    "hosts": [],
+                    "url": "https://www.facebook.com/people/The-El-Bar/100064174355397/"
+                }
             ]
         },
         {
@@ -228,10 +372,6 @@
             "coordinates": [
                 -75.1352904,
                 39.9702616
-            ],
-            "vibe_index": 1,
-            "genres": [
-                "Electronic"
             ]
         },
         {
@@ -240,11 +380,6 @@
             "coordinates": [
                 -75.134323,
                 39.9690372
-            ],
-            "vibe_index": 2,
-            "genres": [
-                "Indie",
-                "Rock"
             ]
         },
         {
@@ -271,13 +406,13 @@
                 -75.13069152832031,
                 39.98442041689492
             ],
-            "color": "32304c"
+            "color": "f09c1c"
         },
         {
             "name": "Fishtown",
             "coordinates": [
-                -75.13077735900879,
-                39.96857740683574
+                -75.12827735900879,
+                39.96947740683574
             ],
             "color": "3ba716"
         },
@@ -295,7 +430,7 @@
                 -75.14777183532715,
                 39.95126675597663
             ],
-            "color": "0a3466"
+            "color": "3484c4"
         },
         {
             "name": "North Broad",
@@ -311,7 +446,7 @@
                 -75.1748514175415,
                 39.97004922675408
             ],
-            "color": "a3bcd0"
+            "color": "fce45c"
         },
         {
             "name": "Center City",
@@ -322,12 +457,12 @@
             "color": "32304c"
         },
         {
-            "name": "U City",
+            "name": "University City",
             "coordinates": [
                 -75.1851726,
                 39.9520673
             ],
-            "color": "f693f0"
+            "color": "a3bcd0"
         },
         {
             "name": "Point Breeze",
@@ -335,23 +470,23 @@
                 -75.17841339111328,
                 39.934223203947056
             ],
-            "color": "3ba716"
+            "color": "653c1a"
         },
         {
-            "name": "South St",
+            "name": "South Street",
             "coordinates": [
                 -75.147857,
                 39.9413076
             ],
-            "color": "45699f"
+            "color": "a8985a"
         },
         {
             "name": "Manayunk",
             "coordinates": [
-                -75.2230934,
-                40.0256935
+                -75.217396,
+                40.021419
             ],
-            "color": "0a3466"
+            "color": "3484c4"
         }
     ]
 }
