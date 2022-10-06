@@ -13,6 +13,7 @@ struct MapRegionView: View {
     let regionFiltersDescription: String
     
     let onTapSelectMapRegion: ()->()
+    let onTapSelectZoomoutMapRegion: ()->()
     let onTapSelectRegionFilters: ()->()
     
     var body: some View {
@@ -20,12 +21,16 @@ struct MapRegionView: View {
             onTapSelectMapRegion()
         } label: {
             HStack {
-                Image(systemName: "map")
-                    .resizable()
-                    .frame(width: 20, height: 17)
-                    .padding([.leading], 8)
-                    .padding([.trailing], 4)
-                    .foregroundColor(mapRegionColor ?? Color.accentColor)
+                Button {
+                    onTapSelectZoomoutMapRegion()
+                } label: {
+                    Image(systemName: "map")
+                        .resizable()
+                        .frame(width: 20, height: 17)
+                        .padding([.leading], 8)
+                        .padding([.trailing], 4)
+                        .foregroundColor(mapRegionColor ?? Color.accentColor)
+                }
                 
                 VStack(alignment: .leading) {
                     Text(mapRegionTitle)
@@ -72,8 +77,9 @@ struct MapRegionView: View {
 struct MapRegionView_Previews: PreviewProvider {
     static var previews: some View {
         HStack(alignment: .top) {
-            MapRegionView(mapRegionTitle: "Philadelphia", mapRegionColor: nil, regionFiltersDescription: "Jams · Chill · Jazz") {
-            } onTapSelectRegionFilters: { }
+            MapRegionView(mapRegionTitle: "Philadelphia", mapRegionColor: nil, regionFiltersDescription: "Jams · Chill · Jazz") {}
+                onTapSelectZoomoutMapRegion: {}
+                onTapSelectRegionFilters: {}
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.blue)

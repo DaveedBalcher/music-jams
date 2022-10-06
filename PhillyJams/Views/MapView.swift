@@ -51,7 +51,7 @@ struct MapView: View {
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
         MapView(venues: [VenueItem.defaultItem],
-                mapRegion: .constant(MapRegionItem.initialState.region),
+                mapRegion: .constant(MainViewModel.zoomedOutMapRegion.mkRegion),
                 selectedVenue: .constant(VenueItem.defaultItem))
     }
 }

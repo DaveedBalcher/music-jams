@@ -12,11 +12,24 @@ import MusicVenues
 
 class MainViewModel: ObservableObject {
     
+    static var zoomedOutMapRegion: MapRegionItem {
+        MapRegionItem(
+            name: "Philadelphia",
+            mkRegion: MKCoordinateRegion(
+                center: CLLocationCoordinate2D(latitude: 39.975, longitude: -75.175),
+                span: MKCoordinateSpan(latitudeDelta: 0.12, longitudeDelta: 0.12)),
+            color: nil)
+    }
+    
     @Published var mapRegion: MKCoordinateRegion
     
     private var venues: [VenueItem] = []
     @Published var filteredVenues: [VenueItem] = []
-    @Published var selectedVenue: VenueItem?
+    @Published var selectedVenue: VenueItem? {
+        didSet {
+            setMapRegion(name: selectedVenue?.neighborhood?.name)
+        }
+    }
     
     private var mapRegions: [MapRegionItem] = []
     @Published var filteredMapRegions: [MapRegionItem] = []
@@ -31,11 +44,11 @@ class MainViewModel: ObservableObject {
     
     let venueLoader: VenueLoader!
     
-    init(initialMapRegion: MapRegionItem, venueLoader: VenueLoader) {
+    init(venueLoader: VenueLoader) {
         self.venueLoader = venueLoader
         
-        _mapRegion = Published(initialValue: initialMapRegion.region)
-        _selectedMapRegion = Published(initialValue: initialMapRegion)
+        _mapRegion = Published(initialValue: Self.zoomedOutMapRegion.mkRegion)
+        _selectedMapRegion = Published(initialValue: Self.zoomedOutMapRegion)
         self.filteredMapRegions = [selectedMapRegion]
     }
     
@@ -50,12 +63,10 @@ class MainViewModel: ObservableObject {
     }
     
     func setMapRegion(name: String? = nil) {
-        if let neighborhood = filteredMapRegions.first(where: { $0.name == name }) ?? filteredMapRegions.first {
-            selectedMapRegion = neighborhood
-        }
-        setInitialVenue()
+        selectedMapRegion = filteredMapRegions.first(where: { $0.name == name }) ?? Self.zoomedOutMapRegion
+//        setInitialVenue()
         
-        mapRegion = selectedMapRegion.region
+        mapRegion = selectedMapRegion.mkRegion
     }
     
     func setInitialVenue() {
