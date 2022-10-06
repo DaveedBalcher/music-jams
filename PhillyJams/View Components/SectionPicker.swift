@@ -28,7 +28,6 @@ struct SectionPicker: View {
                         RoundedRectangle(cornerRadius: 8)
                             .strokeBorder(isSelected ? Color.lightBlue : Color.accentColor.opacity(0.5))
                     )
-                    .padding([.trailing], -2)
                     .padding([.bottom], -4)
             }
             
@@ -43,17 +42,16 @@ struct SectionPicker: View {
                         .foregroundColor(isSelected ? Color.lightBlue : Color.accentColor)
                         .padding([.leading, .trailing], 8)
                         .padding([.top, .bottom], 2)
-                        .background(Capsule().strokeBorder(isSelected ? Color.lightBlue : .black.opacity(0.5)))
-                    
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .strokeBorder(isSelected ? Color.lightBlue : Color.accentColor.opacity(0.5))
+                        )
                         .padding([.trailing], -2)
                         .padding([.top, .bottom], 4)
                 }
             }
         }
-
     }
-    
-    
 }
 
 struct SectionPicker_Previews: PreviewProvider {

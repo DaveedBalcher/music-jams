@@ -21,12 +21,7 @@ struct MultipleSectionPicker: View {
     let didComplete: ([String: String?])->Void
     
     var body: some View {
-        VStack {
-            PageHeader(
-                title: title,
-                actionText: "Done") {                    didComplete(vm.sections.reduce(into: [String : String?]()) { $0[$1.type] = $1.selectedOption })
-            }
-            
+        NavigationView {
             VStack {
                 ForEach(0..<vm.sections.count, id:\.self) { index in
                     let section = vm.sections[index]
@@ -46,10 +41,20 @@ struct MultipleSectionPicker: View {
                 }
                 Spacer()
             }
-            .padding([.top], 36)
+            .padding([.top], 12)
             .background(.regularMaterial)
-            
-
+            .navigationBarTitle(title)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem {
+                    Button {
+                        didComplete(vm.sections.reduce(into: [String : String?]()) { $0[$1.type] = $1.selectedOption })
+                    } label: {
+                        Text("Done")
+                            .foregroundColor(Color.lightBlue)
+                    }
+                }
+            }
         }
     }
     

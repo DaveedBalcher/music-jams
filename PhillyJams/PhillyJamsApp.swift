@@ -12,12 +12,11 @@ class MainFlow {
     init(vm: MainViewModel) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             vm.retrieveVenuesData()
-            vm.setMapRegion(name: "Fishtown")
         }
     }
 }
 
-private let mainViewModel = MainViewModel(initialMapRegion: MapRegionItem.initialState, venueLoader: DefaultVenueLoader())
+private let mainViewModel = MainViewModel(venueLoader: DefaultVenueLoader())
 
 @main
 struct PhillyJamsApp: App {

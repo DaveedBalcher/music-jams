@@ -15,14 +15,7 @@ struct MapRegionPicker: View {
     let didComplete: (String?)->Void
     
     var body: some View {
-        
-        VStack {
-            PageHeader(
-                title: title,
-                actionText: "Cancel") {
-                    didComplete(nil)
-            }
-            
+        NavigationView {
             VStack {
                 VStack {
                     ForEach(mapRegions, id: \.self) { option in
@@ -56,11 +49,23 @@ struct MapRegionPicker: View {
                 )
                 .padding([.leading, .trailing], 12)
                 .padding([.bottom], 8)
-
+                
                 Spacer()
             }
-            .padding([.top], 36)
+            .padding([.top], 12)
             .background(.regularMaterial)
+            .navigationBarTitle(title)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem {
+                    Button {
+                        didComplete(nil)
+                    } label: {
+                        Text("Cancel")
+                            .foregroundColor(Color.lightBlue)
+                    }
+                }
+            }
         }
     }
 }

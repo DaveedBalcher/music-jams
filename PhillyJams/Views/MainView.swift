@@ -41,6 +41,8 @@ struct MainView: View {
                                   mapRegionColor: vm.selectedMapRegion.color,
                                   regionFiltersDescription: regionFiltersDescription) {
                         isPresentingMapRegionPicker = true
+                    } onTapSelectZoomoutMapRegion: {
+                        vm.setMapRegion()
                     } onTapSelectRegionFilters: {
                         isPresentingFiltersPicker = !vm.filterOptions.isEmpty
                     }
@@ -130,6 +132,6 @@ extension UINavigationController {
 
 struct VenuesView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(vm: MainViewModel.init(initialMapRegion: MapRegionItem.initialState, venueLoader: DefaultVenueLoader()))
+        MainView(vm: MainViewModel.init(venueLoader: DefaultVenueLoader()))
     }
 }
