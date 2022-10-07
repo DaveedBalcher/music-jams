@@ -59,8 +59,10 @@ struct VenueBottomView: View {
         .frame(maxWidth: .infinity, maxHeight: 96)
         .background(
             ZStack {
-                RoundedRectangle(cornerRadius: 8).fill(.white)
-                RoundedRectangle(cornerRadius: 8).strokeBorder(Color.accentColor.opacity(0.25))
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(.white)
+                RoundedRectangle(cornerRadius: 8)
+                    .strokeBorder(Color.accentColor.opacity(0.25))
             }
             .shadow(color: Color.accentColor.opacity(0.25), radius: 8)
         )
