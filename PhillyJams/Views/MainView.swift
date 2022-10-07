@@ -17,11 +17,6 @@ struct MainView: View {
     @State private var isPresentingMapRegionPicker = false
     @State private var isPresentingFiltersPicker = false
     
-    var regionFiltersDescription: String {
-        let strings = vm.filtersSelected.compactMap { $0.value }
-        return strings.isEmpty ? "All Events · Vibes · Genres" : strings.joined(separator: " · ")
-    }
-    
     var body: some View {
         NavigationView {
             ZStack(alignment: .top) {
@@ -37,9 +32,12 @@ struct MainView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    MapRegionView(mapRegionTitle: vm.selectedMapRegion.name,
-                                  mapRegionColor: vm.selectedMapRegion.color,
-                                  regionFiltersDescription: regionFiltersDescription) {
+                    MapRegionView(
+                        mapRegionTitle: vm.selectedMapRegion.name,
+                        mapRegionColor: vm.selectedMapRegion.color,
+                        regionFiltersDescription: vm.regionFiltersDescription,
+                        isZoomedOut: vm.isZoomedOut
+                    ) {
                         isPresentingMapRegionPicker = true
                     } onTapSelectZoomoutMapRegion: {
                         vm.setMapRegion()

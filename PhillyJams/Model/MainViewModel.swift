@@ -42,6 +42,15 @@ class MainViewModel: ObservableObject {
         }
     }
     
+    var regionFiltersDescription: String {
+        let strings = filtersSelected.compactMap { $0.value }
+        return strings.isEmpty ? "All Events · Vibes · Genres" : strings.joined(separator: " · ")
+    }
+    
+    var isZoomedOut: Bool {
+        selectedMapRegion == Self.zoomedOutMapRegion
+    }
+    
     let venueLoader: VenueLoader!
     
     init(venueLoader: VenueLoader) {
@@ -64,8 +73,6 @@ class MainViewModel: ObservableObject {
     
     func setMapRegion(name: String? = nil) {
         selectedMapRegion = filteredMapRegions.first(where: { $0.name == name }) ?? Self.zoomedOutMapRegion
-//        setInitialVenue()
-        
         mapRegion = selectedMapRegion.mkRegion
     }
     
