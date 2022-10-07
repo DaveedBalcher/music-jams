@@ -39,7 +39,7 @@ struct VenueBottomView: View {
                     .foregroundColor(neightborhoodTint)
                 
                 VStack(alignment: .leading) {
-                    Text(venue.neighborhood?.name ?? "")
+                    Text("Next Event: \(venue.nextDayOfEvent)")
                         .fontWeight(.light)
                     Text("Genres: \(venue.genresDescription)")
                         .fontWeight(.light)

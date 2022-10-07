@@ -65,6 +65,14 @@ public extension VenueItem {
     var eventTypes: [String] {
         Set(events.compactMap { $0.type }.compactMap { $0 }).sorted()
     }
+    
+    var nextDayOfEvent: String {
+        if let dayOfTheWeek = events.sorted().first?.dayOfTheWeek {
+            return dayOfTheWeek
+        } else {
+            return "Unspecified"
+        }
+    }
 }
 
 public enum FilterType: String {
