@@ -36,14 +36,6 @@ struct MapView: View {
             .animation(.default, value: mapRegion)
             .ignoresSafeArea()
             .edgesIgnoringSafeArea(.all)
-            
-            if let venue = selectedVenue {
-                NavigationLink {
-                    VenueDetailView(venue: venue)
-                } label: {
-                    VenueBottomView(venue: venue)
-                }
-            }
         }
     }
 }

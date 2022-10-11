@@ -56,6 +56,17 @@ struct MainView: View {
                                 .foregroundColor(.white)
                         }
                     }
+                    
+                    Spacer()
+                    
+                    if let venue = vm.selectedVenue {
+                        
+                        NavigationLink {
+                            VenueDetailView(venue: venue)
+                        } label: {
+                            VenueBottomView(venue: venue)
+                        }
+                    }
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
