@@ -23,7 +23,7 @@ struct MapView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Map(coordinateRegion: $mapRegion, annotationItems: venues) { venue in
+            Map(coordinateRegion: $mapRegion, interactionModes: .pan, annotationItems: venues) { venue in
                 MapAnnotation(coordinate: venue.coordinates.mapCoordinates) {
                     Button {
                         selectedVenue = venue
@@ -31,6 +31,9 @@ struct MapView: View {
                         VenueMarker(venue: venue, isSelected: venue == selectedVenue)
                     }
                 }
+            }
+            .onChange(of: mapRegion) { newValue in
+                print("newValue: ", newValue)
             }
             .padding([.top], -8)
             .animation(.default, value: mapRegion)
