@@ -89,17 +89,6 @@ struct MainView: View {
                         }
                     }
                 }
-                
-                ToolbarItem(placement: .primaryAction) {
-                    Link(destination: URL(string: "https://forms.gle/ZdcBWFYL97iuhDZx8")!) {
-                        Label {
-                            Text("Add")
-                        } icon: {
-                            Image(systemName: "plus")
-                                .foregroundColor(.lightBlue)
-                        }
-                    }
-                }
             }
         }
         .popover(isPresented: $isPresentingInfo){
