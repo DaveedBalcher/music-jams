@@ -73,6 +73,14 @@ public extension VenueItem {
             return "Unspecified"
         }
     }
+    
+    var nextDayOfEventIndex: Int {
+        if let index = events.sorted().first?.dayOfTheWeekIndex {
+            return index
+        } else {
+            return 7
+        }
+    }
 }
 
 public enum FilterType: String {
