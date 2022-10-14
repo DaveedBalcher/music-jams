@@ -17,6 +17,14 @@ struct VenueMarker: View {
             let neightborhoodTint = Color(venue.neighborhood?.color, defaultColor: Color.lightBlue)
             let primaryColor = isSelected ? .white : neightborhoodTint
             let secondaryColor = isSelected ? neightborhoodTint : .white
+            
+            if venue.nextDayOfEventIndex == 0 {
+                UrgencyMarker(text: "Today", labelWidth: 52, primaryColor: primaryColor, secondaryColor: secondaryColor)
+
+            } else if venue.nextDayOfEventIndex == 1 {
+                UrgencyMarker(text: "Tomorrow", labelWidth: 72, primaryColor: primaryColor, secondaryColor: secondaryColor)
+            }
+                        
             Circle()
                 .strokeBorder(secondaryColor, lineWidth: 1)
                 .background(Circle().fill(primaryColor))
@@ -32,8 +40,12 @@ struct VenueMarker: View {
     }
 }
 
-//struct VenueMarker_Previews: PreviewProvider {
-//    static var previews: some View {
-//        VenueMarker()
-//    }
-//}
+struct VenueMarker_Previews: PreviewProvider {
+    static var previews: some View {
+        ZStack {
+            Color.secondary
+            
+            VenueMarker(venue: VenueItem(id: UUID(), name: "Any", imageURL: nil, coordinates: Coordinates(latitude: 0, longitude: 0), neighborhood: nil, events: []), isSelected: false)
+        }
+    }
+}

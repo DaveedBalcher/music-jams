@@ -64,7 +64,7 @@ class MainViewModel: ObservableObject {
     func retrieveVenuesData() {
         venueLoader.load { [weak self] venueItems in
             self?.venues = venueItems
-            self?.filteredVenues = venueItems
+            self?.filterVenues()
             self?.mapRegions = venueItems.neighborhoods.maptoMapRegionItems()
             self?.filteredMapRegions = venueItems.neighborhoods.maptoMapRegionItems()
             self?.filterOptions = FilterProcesser.retrieveFilters(for: venueItems)
@@ -81,7 +81,9 @@ class MainViewModel: ObservableObject {
     }
     
     func filterVenues() {
-        filteredVenues = FilterProcesser.filter(venues, with: filtersSelected)
+        let venues = FilterProcesser.filter(venues, with: filtersSelected)
+//        let sortedVenues = venues.sorted { $0.nextDayOfEventIndex > $1.nextDayOfEventIndex }
+        filteredVenues = venues
         filteredMapRegions = filteredVenues.neighborhoods.maptoMapRegionItems()
         
         if !(filteredMapRegions.contains { $0.name == selectedVenue?.neighborhood?.name }) {
