@@ -39,8 +39,14 @@ struct VenueBottomView: View {
                     .foregroundColor(neightborhoodTint)
                 
                 VStack(alignment: .leading) {
-                    Text("Next Event: \(venue.nextDayOfEvent)")
-                        .fontWeight(.light)
+                    HStack {
+                        let isUrgent = venue.nextDayOfEventIndex < 2
+                        Text("Next Event:")
+                            .fontWeight(.light)
+                        Text(venue.nextDayOfEvent)
+                            .foregroundColor(isUrgent ? neightborhoodTint : Color.accentColor)
+                            .fontWeight(isUrgent ? .semibold : .light)
+                    }
                     Text("Genres: \(venue.genresDescription)")
                         .fontWeight(.light)
                     Text("Vibe: \(venue.vibe)")
