@@ -24,7 +24,7 @@ public final class DefaultVenueMapper {
         var weekDays: [String] {
             let weekdays = DateFormatter().weekdaySymbols
             let calendar = Calendar.current
-            let index = calendar.component(.weekday, from: Date())
+            let index = calendar.component(.weekday, from: Date()) - 1
             return weekdays?.shift(withDistance: index) ?? []
         }
         
