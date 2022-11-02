@@ -23,7 +23,7 @@ struct MapView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Map(coordinateRegion: $mapRegion, interactionModes: .pan, annotationItems: venues) { venue in
+            Map(coordinateRegion: $mapRegion, annotationItems: venues) { venue in
                 MapAnnotation(coordinate: venue.coordinates.mapCoordinates) {
                     Button {
                         selectedVenue = venue

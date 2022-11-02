@@ -12,8 +12,8 @@ import MusicVenues
 
 class MainViewModel: ObservableObject {
     
-    static var zoomedOutMapRegion: MapRegionItem {
-        MapRegionItem(
+    static var zoomedOutMapRegion: Subregion {
+        Subregion(
             name: "Philadelphia",
             mkRegion: MKCoordinateRegion(
                 center: CLLocationCoordinate2D(latitude: 39.975, longitude: -75.175),
@@ -31,9 +31,9 @@ class MainViewModel: ObservableObject {
         }
     }
     
-    private var mapRegions: [MapRegionItem] = []
-    @Published var filteredMapRegions: [MapRegionItem] = []
-    @Published var selectedMapRegion: MapRegionItem
+    private var mapRegions: [Subregion] = []
+    @Published var filteredMapRegions: [Subregion] = []
+    @Published var selectedMapRegion: Subregion
     
     @Published var filterOptions: [String: [String]] = [:]
     @Published var filtersSelected: [String: String?] = [:] {
@@ -65,8 +65,8 @@ class MainViewModel: ObservableObject {
         venueLoader.load { [weak self] venueItems in
             self?.venues = venueItems
             self?.filterVenues()
-            self?.mapRegions = venueItems.neighborhoods.maptoMapRegionItems()
-            self?.filteredMapRegions = venueItems.neighborhoods.maptoMapRegionItems()
+            self?.mapRegions = venueItems.neighborhoods.maptoSubregions()
+            self?.filteredMapRegions = venueItems.neighborhoods.maptoSubregions()
             self?.filterOptions = FilterProcesser.retrieveFilters(for: venueItems)
         }
     }
@@ -84,14 +84,14 @@ class MainViewModel: ObservableObject {
         let venues = FilterProcesser.filter(venues, with: filtersSelected)
 //        let sortedVenues = venues.sorted { $0.nextDayOfEventIndex > $1.nextDayOfEventIndex }
         filteredVenues = venues
-        filteredMapRegions = filteredVenues.neighborhoods.maptoMapRegionItems()
+        filteredMapRegions = filteredVenues.neighborhoods.maptoSubregions()
         
         if !(filteredMapRegions.contains { $0.name == selectedVenue?.neighborhood?.name }) {
             setMapRegion()
         }
     }
     
-    func checkVenueAvailable() -> Bool {
+    func hasEvents() -> Bool {
         !venues.isEmpty && filteredVenues.isEmpty
     }
 }

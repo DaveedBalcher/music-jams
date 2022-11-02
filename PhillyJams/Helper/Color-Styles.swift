@@ -13,4 +13,7 @@ extension Color {
         Color("3ba7f6")
     }
     
+    static var extraLightBlue: Color {
+        Color("66DAF4")
+    }
 }

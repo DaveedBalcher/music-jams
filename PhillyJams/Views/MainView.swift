@@ -32,6 +32,13 @@ struct MainView: View {
                     .ignoresSafeArea()
                 
                 VStack {
+                    
+                    if vm.hasEvents() {
+                        SimpleBannerView(message: "No events")
+                    } else {
+                        InfoBannerView(isPresentingInfo: $isPresentingInfo)
+                    }
+                    
                     MapRegionView(
                         mapRegionTitle: vm.selectedMapRegion.name,
                         mapRegionColor: vm.selectedMapRegion.color,
@@ -46,16 +53,6 @@ struct MainView: View {
                     }
                     .padding([.top], 8)
                     .padding([.leading, .trailing], 12)
-                    
-                    if vm.checkVenueAvailable() {
-                        ZStack {
-                            Color.red
-                                .frame(height: 44)
-                            
-                            Text("No venues")
-                                .foregroundColor(.white)
-                        }
-                    }
                     
                     Spacer()
                     
@@ -75,19 +72,6 @@ struct MainView: View {
                     Image("philly_jams_logo_navbar")
                         .padding([.leading], 8)
                         .padding([.trailing], 8)
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        isPresentingInfo = true
-                    } label: {
-                        Label {
-                            Text("About")
-                        } icon: {
-                            Image(systemName: "info.circle")
-                                .foregroundColor(.lightBlue)
-                        }
-                    }
                 }
             }
         }
