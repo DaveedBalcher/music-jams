@@ -14,10 +14,7 @@
                     "start_time": "8:00pm",
                     "end_time": "12:00am",
                     "vibe_index": 1,
-                    "genres": [
-                        "Folk",
-                        "Rock"
-                    ],
+                    "genres": ["Open"],
                     "type": "Open Mic",
                     "hosts": [],
                     "url": "https://philadelphiabrewing.com/"
@@ -182,7 +179,7 @@
                     "start_time": "9:00pm",
                     "end_time": "1:00am",
                     "vibe_index": 1,
-                    "genres": [],
+                    "genres": ["Open"],
                     "type": "Open Mic",
                     "hosts": [
                         "Chris Farrell & The Ritmo Collective"
@@ -205,12 +202,8 @@
                     "start_time": "9:00pm",
                     "end_time": "1:00am",
                     "vibe_index": 1,
-                    "genres": [
-                        "Rock",
-                        "Folk",
-                        "Comedy"
-                    ],
-                    "type": "Open Jam",
+                    "genres": ["Open"],
+                    "type": "Open Mic",
                     "hosts": [
                         "Tom Monari"
                     ],
@@ -224,6 +217,21 @@
             "coordinates": [
                 -75.1611827,
                 39.9496403
+            ],
+            "events": [
+                {
+                    "name": "",
+                    "day_of_the_week": "Monday",
+                    "start_time": "9:30pm",
+                    "end_time": "1:00am",
+                    "vibe_index": 1,
+                    "genres": ["Open"],
+                    "type": "Open Mic",
+                    "hosts": [
+                        "Pete"
+                    ],
+                    "url": "https://www.fergies.com/"
+                }
             ]
         },
         {
@@ -255,7 +263,7 @@
                     "name": "",
                     "day_of_the_week": "Thursday",
                     "vibe_index": 2,
-                    "genres": [],
+                    "genres": ["Open"],
                     "type": "Open Mic",
                     "hosts": [],
                     "url": "https://www.graperoommusic.com/"
@@ -351,7 +359,7 @@
                     "start_time": "8:30pm",
                     "end_time": "12:00am",
                     "vibe_index": 1,
-                    "genres": [],
+                    "genres": ["Open"],
                     "type": "Open Mic",
                     "hosts": [],
                     "url": "https://www.facebook.com/people/The-El-Bar/100064174355397/"
