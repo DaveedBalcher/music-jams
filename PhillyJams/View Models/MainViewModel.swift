@@ -89,6 +89,7 @@ class MainViewModel: ObservableObject {
         if !(filteredMapRegions.contains { $0.name == selectedVenue?.neighborhood?.name }) {
             setMapRegion()
         }
+        setInitialVenue()
     }
     
     func hasEvents() -> Bool {
