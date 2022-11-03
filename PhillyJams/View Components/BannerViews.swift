@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SimpleBannerView: View {
-    let backgroundColor: Color = .white
     let message: String
+    var backgroundColor: Color = .white
     
     var body: some View {
         ZStack {
@@ -24,12 +24,13 @@ struct SimpleBannerView: View {
 }
 
 struct InfoBannerView: View {
-    let backgroundColor: Color = .white
     @Binding var isPresentingInfo: Bool
+    @Binding var isPresenting: Bool
+    let backgroundColor: Color = .white
     
     var body: some View {
         ZStack {
-            Color.white
+            backgroundColor
             
             HStack {
                 
@@ -49,8 +50,21 @@ struct InfoBannerView: View {
                     .foregroundColor(Color.lightBlue)
                 
                 Spacer()
+                
+                Button {
+                    isPresenting = false
+                } label: {
+                    Label {
+                        Text("")
+                    } icon: {
+                        Image(systemName: "x.circle")
+                            .font(.system(size: 24))
+                            .foregroundColor(.black.opacity(0.50))
+                    }
+                }
             }
-            .padding([.leading, .trailing],24)
+            .padding([.leading], 10)
+            .padding([.trailing], 2)
             
         }
         .frame(maxHeight: 44)
