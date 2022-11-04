@@ -46,7 +46,14 @@ struct InfoBannerView: View {
                     }
                 }
                 
-                Link("Add an event", destination: URL(string: "https://forms.gle/ZdcBWFYL97iuhDZx8")!)
+                Text("|")
+                    .font(.system(size: 20))
+                    .foregroundColor(.black.opacity(0.25))
+                    .padding([.trailing], 8)
+                    .padding([.bottom],4)
+                
+                Link("Add an Event", destination: URL(string: "https://forms.gle/ZdcBWFYL97iuhDZx8")!)
+                    .font(.subheadline)
                     .foregroundColor(Color.lightBlue)
                 
                 Spacer()
@@ -57,14 +64,15 @@ struct InfoBannerView: View {
                     Label {
                         Text("")
                     } icon: {
-                        Image(systemName: "x.circle")
-                            .font(.system(size: 24))
+                        Image(systemName: "multiply")
+                            .font(.system(size: 18, weight: .semibold))
                             .foregroundColor(.black.opacity(0.50))
                     }
                 }
+                .padding([.bottom], 4)
             }
-            .padding([.leading], 10)
-            .padding([.trailing], 2)
+            .padding([.leading], 24)
+            .padding([.trailing], 18)
             
         }
         .frame(maxHeight: 44)

@@ -71,8 +71,9 @@ struct MainView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Image("philly_jams_logo_navbar")
-                        .padding([.leading], 8)
-                        .padding([.trailing], 8)
+                        .padding([.leading], 12)
+                        .padding([.trailing], 12)
+                        .padding([.bottom], 4)
                 }
             }
         }

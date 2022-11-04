@@ -23,6 +23,7 @@ struct MapRegionView: View {
                 isZoomedOut ? onTapSelectMapRegion() : onTapSelectZoomoutMapRegion()
             } label: {
                 Image(systemName: isZoomedOut ? "map" : "chevron.left")
+                    .font(.system(size: 18, weight: .medium))
                     .frame(width: 20, height: 17)
                     .padding([.trailing], 4)
                     .padding([.leading], 8)
@@ -58,7 +59,7 @@ struct MapRegionView: View {
                             .strokeBorder(Color.lightBlue, lineWidth: 2)
                     )
             }
-            .padding([.trailing], 4)
+            .padding([.trailing], 8)
 
         }
         .padding([.leading, .trailing], 8)
