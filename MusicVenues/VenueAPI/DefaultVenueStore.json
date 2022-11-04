@@ -46,7 +46,7 @@
                     "genres": [
                         "Jazz"
                     ],
-                    "type": "Open Jam",
+                    "type": "Jam",
                     "hosts": [
                         "Tony Catastrophe",
                         "Darth Kaplowtz"
@@ -81,7 +81,7 @@
                         "Jazz",
                         "Electronic"
                     ],
-                    "type": "Open Jam",
+                    "type": "Jam",
                     "hosts": [
                         "DJ Ha",
                         "Slokey"
@@ -107,7 +107,7 @@
                     "genres": [
                         "Rock"
                     ],
-                    "type": "Open Jam",
+                    "type": "Jam",
                     "hosts": [
                         "Mikey O."
                     ],
@@ -132,7 +132,7 @@
                     "genres": [
                         "Blues"
                     ],
-                    "type": "Open Jam",
+                    "type": "Jam",
                     "hosts": [
                         "Mikey Junior"
                     ],
@@ -167,7 +167,7 @@
                         "Funk",
                         "Fusion"
                     ],
-                    "type": "Open Jam",
+                    "type": "Jam",
                     "hosts": [
                         "Tim Brey Trio"
                     ],
@@ -255,7 +255,7 @@
                     "day_of_the_week": "Wednesday",
                     "vibe_index": 2,
                     "genres": [],
-                    "type": "Open Jam",
+                    "type": "Jam",
                     "hosts": [],
                     "url": "https://www.graperoommusic.com/"
                 },
@@ -295,7 +295,7 @@
                     "genres": [
                         "Jazz"
                     ],
-                    "type": "Open Jam",
+                    "type": "Jam",
                     "hosts": [],
                     "url": "https://www.facebook.com/profile.php?id=100063265538158"
                 },
@@ -308,7 +308,7 @@
                     "genres": [
                         "Jazz"
                     ],
-                    "type": "Open Jam",
+                    "type": "Jam",
                     "hosts": [],
                     "url": "https://www.facebook.com/profile.php?id=100063265538158"
                 }
@@ -349,7 +349,7 @@
                         "Funk",
                         "Fusion"
                     ],
-                    "type": "Open Jam",
+                    "type": "Jam",
                     "hosts": [],
                     "url": "https://www.facebook.com/people/The-El-Bar/100064174355397/"
                 },
