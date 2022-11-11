@@ -1,27 +1,11 @@
 //
-//  BannerViews.swift
+//  InfoBannerView.swift
 //  PhillyJams
 //
-//  Created by Daveed Balcher on 11/2/22.
+//  Created by Daveed Balcher on 11/11/22.
 //
 
 import SwiftUI
-
-struct SimpleBannerView: View {
-    let message: String
-    var backgroundColor: Color = .white
-    
-    var body: some View {
-        ZStack {
-            backgroundColor
-            
-            Text(message)
-                .foregroundColor(.white)
-        }
-        .frame(maxHeight: 44)
-        .padding([.bottom], -16)
-    }
-}
 
 struct InfoBannerView: View {
     @Binding var isPresentingInfo: Bool
@@ -60,8 +44,6 @@ struct InfoBannerView: View {
             
         }
         .frame(maxHeight: 24)
-        .padding([.trailing], -8)
+        .padding([.trailing], -4)
     }
 }
-
-
