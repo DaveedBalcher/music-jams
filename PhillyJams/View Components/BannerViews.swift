@@ -25,14 +25,22 @@ struct SimpleBannerView: View {
 
 struct InfoBannerView: View {
     @Binding var isPresentingInfo: Bool
-    @Binding var isPresenting: Bool
     let backgroundColor: Color = .white
     
     var body: some View {
         ZStack {
-            backgroundColor
-            
+            RoundedRectangle(cornerRadius: 8)
+                .foregroundColor(backgroundColor)
+
             HStack {
+                Link("Add an Event", destination: URL(string: "https://forms.gle/ZdcBWFYL97iuhDZx8")!)
+                    .font(.subheadline)
+                    .foregroundColor(Color.lightBlue)
+                
+                Text("|")
+                    .font(.system(size: 16))
+                    .foregroundColor(.black.opacity(0.25))
+                    .padding([.bottom],4)
                 
                 Button {
                     isPresentingInfo = true
@@ -41,42 +49,18 @@ struct InfoBannerView: View {
                         Text("")
                     } icon: {
                         Image(systemName: "info.circle")
-                            .font(.system(size: 24))
+                            .font(.system(size: 16))
                             .foregroundColor(.lightBlue)
                     }
                 }
-                
-                Text("|")
-                    .font(.system(size: 20))
-                    .foregroundColor(.black.opacity(0.25))
-                    .padding([.trailing], 8)
-                    .padding([.bottom],4)
-                
-                Link("Add an Event", destination: URL(string: "https://forms.gle/ZdcBWFYL97iuhDZx8")!)
-                    .font(.subheadline)
-                    .foregroundColor(Color.lightBlue)
-                
-                Spacer()
-                
-                Button {
-                    isPresenting = false
-                } label: {
-                    Label {
-                        Text("")
-                    } icon: {
-                        Image(systemName: "multiply")
-                            .font(.system(size: 18, weight: .semibold))
-                            .foregroundColor(.black.opacity(0.50))
-                    }
-                }
-                .padding([.bottom], 4)
+                .padding([.leading], -8)
             }
-            .padding([.leading], 24)
-            .padding([.trailing], 18)
+            .padding([.leading], 4)
+            .padding([.trailing], 8)
             
         }
-        .frame(maxHeight: 44)
-        .padding([.bottom], -16)
+        .frame(maxHeight: 24)
+        .padding([.trailing], -8)
     }
 }
 

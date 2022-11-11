@@ -16,7 +16,6 @@ struct MainView: View {
     @State private var isPresentingInfo = false
     @State private var isPresentingMapRegionPicker = false
     @State private var isPresentingFiltersPicker = false
-    @State private var isPresentingInfoBanner = true
     
     var body: some View {
         NavigationView {
@@ -36,8 +35,6 @@ struct MainView: View {
                     
                     if vm.hasEvents() {
                         SimpleBannerView(message: "No events", backgroundColor: .red)
-                    } else if isPresentingInfoBanner {
-                        InfoBannerView(isPresentingInfo: $isPresentingInfo, isPresenting: $isPresentingInfoBanner)
                     }
                     
                     MapRegionView(
@@ -74,6 +71,10 @@ struct MainView: View {
                         .padding([.leading], 12)
                         .padding([.trailing], 12)
                         .padding([.bottom], 4)
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    InfoBannerView(isPresentingInfo: $isPresentingInfo)
                 }
             }
         }
