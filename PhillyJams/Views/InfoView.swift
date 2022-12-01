@@ -26,7 +26,7 @@ struct InfoView: View {
                         
                         """
                     )
-                    Link("Add a venue or event", destination: URL(string: "https://forms.gle/ZdcBWFYL97iuhDZx8")!)
+                    Link("Add a place or event", destination: URL(string: "https://forms.gle/ZdcBWFYL97iuhDZx8")!)
                         .foregroundColor(Color.lightBlue)
                     
                     Text(

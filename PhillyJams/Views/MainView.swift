@@ -13,18 +13,16 @@ struct MainView: View {
     
     @ObservedObject var vm: MainViewModel
     
+    private let regionLevelOnePickerTitle = "Neighborhoods"
+    
     @State private var isPresentingInfo = false
-    @State private var isPresentingMapRegionPicker = false
+    @State private var isPresentingRegionLevelOnePicker = false
     @State private var isPresentingFiltersPicker = false
     
     var body: some View {
         NavigationView {
             ZStack(alignment: .top) {
-                MapView(
-                    venues: vm.filteredVenues,
-                    mapRegion: $vm.mapRegion,
-                    selectedVenue: $vm.selectedVenue
-                )
+                MapView(vm: vm.mapViewModel)
                 
                 Rectangle()
                     .fill(.ultraThinMaterial)
@@ -32,34 +30,27 @@ struct MainView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    
-                    if vm.hasEvents() {
-                        SimpleBannerView(message: "No events", backgroundColor: .red)
+                    if !vm.mapViewModel.places.filter { !$0.events.isEmpty }.isEmpty { // Domain Detail
+                        SimpleBannerView(message: "No events", backgroundColor: .red) // Domain Detail
                     }
                     
-                    MapRegionView(
-                        mapRegionTitle: vm.selectedMapRegion.name,
-                        mapRegionColor: vm.selectedMapRegion.color,
-                        regionFiltersDescription: vm.regionFiltersDescription,
-                        isZoomedOut: vm.isZoomedOut
-                    ) {
-                        isPresentingMapRegionPicker = true
-                    } onTapSelectZoomoutMapRegion: {
-                        vm.setMapRegion()
-                    } onTapSelectRegionFilters: {
-                        isPresentingFiltersPicker = !vm.filterOptions.isEmpty
-                    }
+                    MapNavigatorView(vm: vm.mapViewModel,
+                                     filtersDescription: $vm.filtersDescription,
+                                     isPresentingRegionLevelOnePicker: $isPresentingRegionLevelOnePicker,
+                                     isPresentingFiltersPicker: $isPresentingFiltersPicker
+                    )
                     .padding([.top], 8)
                     .padding([.leading, .trailing], 12)
                     
                     Spacer()
                     
-                    if let venue = vm.selectedVenue {
-                        
+                    if let place = vm.mapViewModel.selectedPlace {
+                        let placeVM = PlaceViewModel(place: place)
                         NavigationLink {
-                            VenueDetailView(venue: venue)
+                            let eventsVMs = place.events.map { EventViewModel($0) }
+                            PlaceDetailView(placeVM: placeVM, eventsVM: eventsVMs)
                         } label: {
-                            VenueBottomView(venue: venue)
+                            PlacePreviewView(placeVM: placeVM)
                         }
                     }
                 }
@@ -81,24 +72,20 @@ struct MainView: View {
         .popover(isPresented: $isPresentingInfo){
             InfoView(isPresenting: $isPresentingInfo)
         }
-        .popover(isPresented: $isPresentingMapRegionPicker) {
-            MapRegionPicker(title: "Neighborhoods",
-                            mapRegions: vm.filteredMapRegions.map { $0.name },
-                            selectedMapRegions: vm.selectedMapRegion.name) {
-                selected in
-                if let selected = selected {
-                    vm.setMapRegion(name: selected)
-                }
-                isPresentingMapRegionPicker = false
-            }
+        .popover(isPresented: $isPresentingRegionLevelOnePicker) {
+//            RegionPicker(title: regionLevelOnePickerTitle,
+//                         regions: $mapViewModel.filteredRegions,
+//                         selectedRegion: $mapViewModel.currentRegion,
+//                         isShowing: $isPresentingRegionLevelOnePicker)
         }
         .popover(isPresented: $isPresentingFiltersPicker) {
-            MultipleSectionPicker(
-                vm: MultipleSectionViewModel(sections: SectionModel.mapFromFilters(filterOptions: vm.filterOptions, filterSelected: vm.filtersSelected)),
-                title: "Filters") { selectedFilters in
-                    vm.filtersSelected = selectedFilters
-                    isPresentingFiltersPicker = false
-                }
+            //TODO: Check If filters are empty
+//            MultipleSectionPicker(
+//                vm: MultipleSectionViewModel(sections: SectionModel.mapFromFilters(filterOptions: vm.filterOptions, filterSelected: vm.filtersSelected)),
+//                title: "Filters") { selectedFilters in
+//                    vm.filtersSelected = selectedFilters
+//                    isPresentingFiltersPicker = false
+//                }
         }
     }
     
@@ -115,8 +102,8 @@ extension UINavigationController {
     }
 }
 
-struct VenuesView_Previews: PreviewProvider {
+struct PlacesView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(vm: MainViewModel.init(venueLoader: DefaultVenueLoader()))
+        MainView(vm: MainViewModel.init(loader: DefaultPlaceLoader()))
     }
 }

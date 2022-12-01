@@ -1,38 +1,39 @@
 //
-//  MapRegionPicker.swift
+//  RegionPicker.swift
 //  PhillyJams
 //
 //  Created by Daveed Balcher on 9/12/22.
 //
 
 import SwiftUI
+import MusicVenues
 
-struct MapRegionPicker: View {
+struct RegionPicker: View {
     let title: String
-    let mapRegions: [String]
-    let selectedMapRegions: String
-    
-    let didComplete: (String?)->Void
+    let regions: [Region]
+    @Binding var selectedRegion: Region
+    @Binding var isShowing: Bool
     
     var body: some View {
         NavigationView {
             VStack {
                 VStack {
-                    ForEach(mapRegions, id: \.self) { option in
+                    ForEach(regions, id: \.self) { region in
                         Button {
-                            didComplete(option)
+                            selectedRegion = region
+//                            didComplete(option)
                         } label: {
                             HStack {
                                 ZStack {
-                                    if option == selectedMapRegions {
+                                    if region == selectedRegion {
                                         Image(systemName: "checkmark")
                                             .foregroundColor(Color.lightBlue)
                                     }
                                 }
                                 .frame(width: 20)
-                                Text(option)                        .fontWeight(.light)
+                                Text(region.title)                        .fontWeight(.light)
                                     .font(.headline)
-                                    .foregroundColor(option == selectedMapRegions ? Color.lightBlue : Color.accentColor)
+                                    .foregroundColor(region == selectedRegion ? region.color : Color.accentColor)
                                 Spacer()
                             }
                             .padding([.leading], 12)
@@ -59,7 +60,7 @@ struct MapRegionPicker: View {
             .toolbar {
                 ToolbarItem {
                     Button {
-                        didComplete(nil)
+                        isShowing = false
                     } label: {
                         Text("Cancel")
                             .foregroundColor(Color.lightBlue)
@@ -70,10 +71,13 @@ struct MapRegionPicker: View {
     }
 }
 
-struct MapRegionPicker_Previews: PreviewProvider {
+struct RegionPicker_Previews: PreviewProvider {
     static var previews: some View {
-        MapRegionPicker(title: "Letters",
-                        mapRegions: ["A", "B", "C", "D"],
-                        selectedMapRegions: "A") { _ in }
+        
+        let region = Region.preview
+        RegionPicker(title: region.title,
+                    regions: [region, region, region],
+                     selectedRegion: .constant(region),
+                     isShowing: .constant(true))
     }
 }

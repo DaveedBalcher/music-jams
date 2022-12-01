@@ -1,5 +1,5 @@
 //
-//  VenueDetailView.swift
+//  PlaceDetailView.swift
 //  PhillyJams
 //
 //  Created by Daveed Balcher on 8/31/22.
@@ -8,8 +8,9 @@
 import SwiftUI
 import MusicVenues
 
-struct VenueDetailView: View {
-    let venue: VenueItem
+struct PlaceDetailView: View {
+    let placeVM: PlaceViewModel
+    let eventsVM: [EventViewModel]
     
     @State private var isPresentingWebView = false
     
@@ -24,28 +25,31 @@ struct VenueDetailView: View {
             ScrollView {
                 VStack {
                     ZStack(alignment: .bottomLeading) {
-                        let neightborhoodTint = Color(venue.neighborhood?.color, defaultColor: .black)
-                        
-                        Image(systemName: "music.note")
+                        placeVM.image?
                             .resizable()
                             .padding(90)
                             .foregroundColor(.white)
                             .scaledToFit()
                             .background(
                                 Rectangle()
-                                    .foregroundColor(neightborhoodTint)
+                                    .foregroundColor(placeVM.color)
                                     .cornerRadius(8)
                                     .shadow(radius: 8)
                             )
                         
                         VStack(alignment: .leading) {
-                            Text(venue.neighborhood?.name ?? "")
+                            Text(placeVM.title)
                                 .font(.title3)
                                 .fontWeight(.light)
-                            Text("Genres: \(venue.genresDescription)")
-                                .fontWeight(.light)
-                            Text("Vibe: \(venue.vibe)")
-                                .fontWeight(.light)
+                            ForEach(placeVM.properties, id: \.self) { property in
+                                HStack {
+                                    Text(property.title.uppercased())
+                                        .fontWeight(.light)
+                                    Text(property.valuesString)
+                                        .foregroundColor(property.isHighlighted ? placeVM.color : Color.accentColor)
+                                        .fontWeight(property.isHighlighted ? .semibold : .light)
+                                }
+                            }
                         }
                         .font(.subheadline)
                         .foregroundColor(.white)
@@ -54,32 +58,32 @@ struct VenueDetailView: View {
                     .padding(12)
                     
                     
-                    // TODO: Add venue description
+                    // TODO: Add place description
                     
                     Text("Events")
                         .font(.headline)
                         .padding()
                     
-                    if venue.events.isEmpty {
+                    if eventsVM.isEmpty {
                         Text("List of jams and open mics coming soon...")
                             .padding()
                             .font(.callout)
                             .foregroundStyle(.gray)
                     } else {
-                        ForEach(venue.events) { event in
+                        ForEach(eventsVM, id: \.self) { eventVM in
                             HStack {
-                                let title = [event.type, event.name].filter { !$0.isEmpty }.joined(separator: ": ")
-                                let date = [event.dayOfTheWeek, event.startTime, event.endTime].filter { !$0.isEmpty }.joined(separator: " - ")
-                                let hosts = event.hosts?.filter { !$0.isEmpty }.joined(separator: " and ")
+//                                let title = [event.description, event.title].filter { !$0.isEmpty }.joined(separator: ": ")
+//                                let date = [event.nextDate, event.startTime, event.endTime].filter { !$0.isEmpty }.joined(separator: " - ")
+//                                let hosts = event.hosts?.filter { !$0.isEmpty }.joined(separator: " and ")
                                 
                                 VStack(alignment: .leading) {
-                                    Text(title)
+                                    Text(eventVM.title)
                                         .fontWeight(.semibold)
-                                    Text("Host(s): \(hosts ?? "unspecified")")
+                                    Text("Host(s): \(eventVM.hosts)")
                                         .fontWeight(.light)
-                                    Text("Every \(date)")
+                                    Text("Every \(eventVM.date)")
                                         .fontWeight(.light)
-                                    if let url = URL(string: event.url ?? "") {
+                                    if let url = eventVM.url {
                                         Button {
                                             isPresentingWebView.toggle()
                                         } label: {
@@ -118,15 +122,24 @@ struct VenueDetailView: View {
                 }
             }
         }
-        .navigationTitle(venue.name)
+        .navigationTitle(placeVM.title)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-struct VenueDetailView_Previews: PreviewProvider {
+struct PlaceDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            VenueDetailView(venue: VenueItem.defaultItem)
+            
+            let place = Place.preview
+            let event = Event.preview
+
+            PlaceDetailView(placeVM: PlaceViewModel(
+                title: place.title,
+                image: place.icon,
+                properties: place.properties),
+                eventsVM: [EventViewModel(event)]
+            )
         }
     }
 }

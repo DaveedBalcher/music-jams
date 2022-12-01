@@ -6,40 +6,48 @@
 //
 
 import SwiftUI
+import MusicVenues
 
-struct MapRegionView: View {
-    let mapRegionTitle: String
-    let mapRegionColor: Color?
-    let regionFiltersDescription: String
-    let isZoomedOut: Bool
+struct MapNavigatorView: View {
+    @ObservedObject var vm: MapViewModel
     
-    let onTapSelectMapRegion: ()->()
-    let onTapSelectZoomoutMapRegion: ()->()
-    let onTapSelectRegionFilters: ()->()
+    @Binding var filtersDescription: String
+    @Binding var isPresentingRegionLevelOnePicker: Bool
+    @Binding var isPresentingFiltersPicker: Bool
     
     var body: some View {
         HStack {
             Button {
-                isZoomedOut ? onTapSelectMapRegion() : onTapSelectZoomoutMapRegion()
+                if vm.isZoomedIn {
+                    // TODO
+//                    vm.zoomOutToLevelTwo()
+                } else {
+                    isPresentingRegionLevelOnePicker = true
+                }
             } label: {
-                Image(systemName: isZoomedOut ? "map" : "chevron.left")
+                Image(systemName: vm.isZoomedIn ? "chevron.left" : "map")
                     .font(.system(size: 18, weight: .medium))
                     .frame(width: 20, height: 17)
                     .padding([.trailing], 4)
                     .padding([.leading], 8)
-                    .foregroundColor(mapRegionColor ?? Color.accentColor)
+                    .foregroundColor(vm.selectedRegion.color)
             }
             
             VStack(alignment: .leading) {
                 Button {
-                    isZoomedOut ? onTapSelectMapRegion() : onTapSelectZoomoutMapRegion()
+                    if vm.isZoomedIn {
+                        // TODO
+    //                    vm.zoomOutToLevelTwo()
+                    } else {
+                        isPresentingRegionLevelOnePicker = true
+                    }
                 } label: {
-                    Text(mapRegionTitle)
-                        .foregroundColor(mapRegionColor ?? Color.accentColor)
+                    Text(vm.selectedRegion.title)
+                        .foregroundColor(vm.selectedRegion.color)
                         .font(.headline)
                         .fontWeight(.semibold)
                 }
-                Text(regionFiltersDescription)
+                Text(filtersDescription)
                     .font(.subheadline)
                     .fontWeight(.light)
             }
@@ -47,7 +55,7 @@ struct MapRegionView: View {
             Spacer()
             
             Button {
-                onTapSelectRegionFilters()
+                isPresentingFiltersPicker = true
             } label: {
                 Image(systemName: "line.3.horizontal.decrease")
                     .resizable()
@@ -76,15 +84,17 @@ struct MapRegionView: View {
     }
 }
 
-struct MapRegionView_Previews: PreviewProvider {
+struct MapNavigatorView_Previews: PreviewProvider {
     static var previews: some View {
+        
+        let place = Place.preview
+        
         HStack(alignment: .top) {
-            MapRegionView(mapRegionTitle: "Philadelphia",
-                          mapRegionColor: nil,
-                          regionFiltersDescription: "Jams · Chill · Jazz",
-                          isZoomedOut: true) {}
-                onTapSelectZoomoutMapRegion: {}
-                onTapSelectRegionFilters: {}
+            MapNavigatorView(vm: MapViewModel(places: [place]),
+                             filtersDescription: .constant("Jams · Chill · Jazz"),
+                             isPresentingRegionLevelOnePicker: .constant(false),
+                             isPresentingFiltersPicker: .constant(false)
+                )
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.blue)

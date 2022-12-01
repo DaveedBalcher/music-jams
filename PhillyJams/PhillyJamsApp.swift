@@ -11,12 +11,12 @@ import MusicVenues
 class MainFlow {
     init(vm: MainViewModel) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            vm.retrieveVenuesData()
+//            vm.retrievePlacesData()
         }
     }
 }
 
-private let mainViewModel = MainViewModel(venueLoader: DefaultVenueLoader())
+private let mainViewModel = MainViewModel(loader: DefaultPlaceLoader())
 
 @main
 struct PhillyJamsApp: App {

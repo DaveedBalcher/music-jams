@@ -9,44 +9,41 @@ import SwiftUI
 import MapKit
 import MusicVenues
 
+
 struct MapView: View {
-    let venues: [VenueItem]
-    
-    @Binding var mapRegion: MKCoordinateRegion
-    @Binding var selectedVenue: VenueItem?
-    
-    init(venues: [VenueItem], mapRegion: Binding<MKCoordinateRegion>, selectedVenue: Binding<VenueItem?>) {
-        self.venues = venues
-        _mapRegion = mapRegion
-        _selectedVenue = selectedVenue
-    }
+    @ObservedObject var vm: MapViewModel
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Map(coordinateRegion: $mapRegion, annotationItems: venues) { venue in
-                MapAnnotation(coordinate: venue.coordinates.mapCoordinates) {
+            Map(coordinateRegion: $vm.selectedMKRegion, annotationItems: vm.places) { place in
+                MapAnnotation(coordinate: place.coordinate) {
                     Button {
-                        selectedVenue = venue
+                        vm.selectedPlace = place
                     } label: {
-                        VenueMarker(venue: venue, isSelected: venue == selectedVenue)
+                        PlaceMarker(vm: PlaceViewModel(place: place), isSelected: place == vm.selectedPlace)
                     }
+                    Rectangle()
                 }
             }
-            .onChange(of: mapRegion) { newValue in
+            .onChange(of: vm.selectedMKRegion) { newValue in
                 print("newValue: ", newValue)
             }
             .padding([.top], -8)
-            .animation(.default, value: mapRegion)
+            .animation(.default, value: vm.selectedMKRegion)
             .ignoresSafeArea()
             .edgesIgnoringSafeArea(.all)
+        }
+        .onAppear {
+            vm.checkIfLocationServicesIsEnabled()
         }
     }
 }
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(venues: [VenueItem.defaultItem],
-                mapRegion: .constant(MainViewModel.zoomedOutMapRegion.mkRegion),
-                selectedVenue: .constant(VenueItem.defaultItem))
+        
+        let place = Place.preview
+        
+        MapView(vm: MapViewModel(places: [place]))
     }
 }

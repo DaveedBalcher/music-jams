@@ -1,6 +1,6 @@
 //
 //  GenreType.swift
-//  MusicVenues
+//  MusicPlaces
 //
 //  Created by Daveed Balcher on 8/22/22.
 //

@@ -10,17 +10,17 @@ import SwiftUI
 struct UrgencyMarker: View {
     let text: String
     let labelWidth: Double
-    let primaryColor: Color
-    let secondaryColor: Color
+    let fillColor: Color
+    let borderColor: Color
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
-                .strokeBorder(secondaryColor, lineWidth: 1)
-                .background(RoundedRectangle(cornerRadius: 8).fill(primaryColor))
+                .strokeBorder(borderColor, lineWidth: 1)
+                .background(RoundedRectangle(cornerRadius: 8).fill(fillColor))
             
             Text(text)
-                .foregroundColor(secondaryColor)
+                .foregroundColor(borderColor)
                 .font(.footnote)
                 .fontWeight(.semibold)
         }
