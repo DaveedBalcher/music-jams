@@ -9,15 +9,14 @@ import SwiftUI
 import WrappingHStack
 
 struct SectionPicker: View {
-    let options: [String]
-    @Binding var selectedOption: String?
+    @ObservedObject var vm: SectionViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
             Button {
-                selectedOption = nil
+                vm.didToggleSelectAll()
             } label: {
-                let isSelected = selectedOption == nil
+                let isSelected = vm.selectAllIsSelected()
                 Text("All")
                     .font(.headline)
                     .fontWeight(.light)
@@ -31,12 +30,12 @@ struct SectionPicker: View {
                     .padding([.bottom], -4)
             }
             
-            WrappingHStack(options, id:\.self) { option in
+            WrappingHStack(vm.options, id:\.self) { option in
                 Button {
-                    selectedOption = option
+                    vm.didToggleOptionSelection(for: option)
                 } label: {
-                    let isSelected = selectedOption == option
-                    Text(option)
+                    let isSelected = vm.optionIsSelected(for: option)
+                    Text(option.capitalized)
                         .font(.headline)
                         .fontWeight(.light)
                         .foregroundColor(isSelected ? Color.lightBlue : Color.accentColor)
@@ -56,6 +55,7 @@ struct SectionPicker: View {
 
 struct SectionPicker_Previews: PreviewProvider {
     static var previews: some View {
-        SectionPicker(options: ["Test A", "Test B", "Test C", "Test D", "Test E", "Test F", "Test G"], selectedOption: .constant("Test A"))
+        let vm = SectionViewModel(type: "Test", options: ["Test A", "Test B", "Test C", "Test D", "Test E", "Test F", "Test G"], selectedOption: (["Test A"]))
+        SectionPicker(vm: vm)
     }
 }

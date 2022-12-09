@@ -17,10 +17,8 @@ struct PlaceMarker: View {
             let fillColor = isSelected ? .white : vm.color
             let borderColor = isSelected ? vm.color : .white
             
-            if let detail = vm.properties.first,
-               let _ = detail.isHighlighted,
-               let detailValue = detail.valuesString {
-                UrgencyMarker(text: detailValue, labelWidth: 52, fillColor: fillColor, borderColor: borderColor)
+            if let detail = vm.urgencyDescription {
+                UrgencyMarker(text: detail, labelWidth: vm.urgencyDescriptionWidth, fillColor: fillColor, borderColor: borderColor)
             }
                         
             Circle()
@@ -28,13 +26,14 @@ struct PlaceMarker: View {
                 .background(Circle().fill(fillColor))
                 .frame(width: 24, height: 24)
             
-            vm.image?
+            vm.image
                 .resizable()
                 .scaledToFit()
                 .frame(width: 12, height: 12)
-                .foregroundColor(vm.color)
+                .foregroundColor(borderColor)
                 .padding()
         }
+//        .contentShape(Circle())
     }
 }
 
@@ -43,14 +42,7 @@ struct PlaceMarker_Previews: PreviewProvider {
         ZStack {
             Color.secondary
             
-            let place = Place.preview
-            
-            PlaceMarker(vm: PlaceViewModel(
-                title: place.title,
-                image: place.icon,
-                properties: place.properties),
-                        isSelected: .random()
-            )
+            PlaceMarker(vm: PlaceViewModel(place: Place.preview), isSelected: false)
         }
     }
 }

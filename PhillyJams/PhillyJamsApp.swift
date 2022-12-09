@@ -11,7 +11,7 @@ import MusicVenues
 class MainFlow {
     init(vm: MainViewModel) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//            vm.retrievePlacesData()
+            vm.fetchPlaces()
         }
     }
 }

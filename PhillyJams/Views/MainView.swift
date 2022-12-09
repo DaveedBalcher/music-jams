@@ -30,12 +30,12 @@ struct MainView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    if !vm.mapViewModel.places.filter { !$0.events.isEmpty }.isEmpty { // Domain Detail
-                        SimpleBannerView(message: "No events", backgroundColor: .red) // Domain Detail
+                    if !vm.mapViewModel.hasEvents {
+                        SimpleBannerView(message: "No events", backgroundColor: .red)
                     }
                     
                     MapNavigatorView(vm: vm.mapViewModel,
-                                     filtersDescription: $vm.filtersDescription,
+                                     filtersDescription: vm.filtersViewModel.discription,
                                      isPresentingRegionLevelOnePicker: $isPresentingRegionLevelOnePicker,
                                      isPresentingFiltersPicker: $isPresentingFiltersPicker
                     )
@@ -73,19 +73,19 @@ struct MainView: View {
             InfoView(isPresenting: $isPresentingInfo)
         }
         .popover(isPresented: $isPresentingRegionLevelOnePicker) {
-//            RegionPicker(title: regionLevelOnePickerTitle,
-//                         regions: $mapViewModel.filteredRegions,
-//                         selectedRegion: $mapViewModel.currentRegion,
-//                         isShowing: $isPresentingRegionLevelOnePicker)
+            RegionPicker(title: regionLevelOnePickerTitle,
+                         regions: vm.mapViewModel.allRegions,
+                         selectedRegion: $vm.mapViewModel.selectedRegion,
+                         isShowing: $isPresentingRegionLevelOnePicker)
         }
         .popover(isPresented: $isPresentingFiltersPicker) {
             //TODO: Check If filters are empty
-//            MultipleSectionPicker(
-//                vm: MultipleSectionViewModel(sections: SectionModel.mapFromFilters(filterOptions: vm.filterOptions, filterSelected: vm.filtersSelected)),
-//                title: "Filters") { selectedFilters in
-//                    vm.filtersSelected = selectedFilters
-//                    isPresentingFiltersPicker = false
-//                }
+            MultipleSectionPicker(
+                vm: MultipleSectionViewModel(sections: SectionViewModel.mapFromFilters(filterOptions: vm.filtersViewModel.properties.dictonary, filterSelected: vm.filtersViewModel.selectedProperties)),
+                title: "Filters") { selectedFilters in
+                    vm.filtersViewModel.selectedProperties = selectedFilters
+                    isPresentingFiltersPicker = false
+                }
         }
     }
     

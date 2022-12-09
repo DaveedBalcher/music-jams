@@ -14,17 +14,46 @@ public struct Place  {
     public let latitude: Double
     public let longitude: Double
     public let regionLevelOne: Region
-    public let events = [Event]()
+    public let events: [Event]
     public var icon: Image?
-    public let properties: [Property]
     
-    public init(title: String, latitude: Double, longitude: Double, regionLevelOne: Region, icon: Image? = nil, properties: [Property]) {
+    public var properties: [Property] {
+        guard !events.isEmpty else { return [] }
+        
+        var dict = [String: [String]]()
+        for event in events {
+            for (key, value) in event.properties.dictonary {
+                dict[key, default: []].append(contentsOf: value)
+            }
+        }
+        
+        if let date = events.first?.dates.first {
+            let midNight: Date = Calendar.current.date(bySettingHour: 00, minute: 0, second: 0, of: Date())!
+            let startOfToday = Calendar.current.date(byAdding: .day, value: 0, to: midNight)!
+            let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: midNight)!
+            let dayAfterTomorrow = Calendar.current.date(byAdding: .day, value: 2, to: midNight)!
+            
+            if date > startOfToday {
+                if date < tomorrow {
+                    dict["urgency"] = ["today"]
+                } else if date < dayAfterTomorrow {
+                    dict["urgency"] = ["tomorrow"]
+                }
+            }
+        }
+        
+        return dict.map {
+            Property(title: $0.key, values: $0.value)
+        }.sorted()
+    }
+    
+    public init(title: String, latitude: Double, longitude: Double, regionLevelOne: Region, events: [Event], icon: Image? = nil) {
         self.title = title
         self.latitude = latitude
         self.longitude = longitude
         self.regionLevelOne = regionLevelOne
+        self.events = events
         self.icon = icon
-        self.properties = properties
     }
 }
 

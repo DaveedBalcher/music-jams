@@ -13,21 +13,21 @@ extension Region {
     var latitudeDelta: Double {
         switch level {
         case .three:
-            return 0.1
+            return 0.5
         case .two:
-            return 0.025
+            return 0.145
         case .one:
-            return 0.005
+            return 0.025
         }
     }
     var longitudeDelta: Double {
         switch level {
         case .three:
-            return 0.09
+            return 0.4
         case .two:
-            return 0.02
+            return 0.125
         case .one:
-            return 0.004
+            return 0.02
         }
     }
     var color: Color {

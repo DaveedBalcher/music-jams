@@ -7,12 +7,8 @@
 
 import Foundation
 
-public enum VibeType: String, CaseIterable, Identifiable {
-    
-    public var id: Int {
-        self.hashValue
-    }
-    
+public enum VibeType: String {
+
     case vibe1 = "Beginner-Friendly",
         vibe2 = "Chill",
         vibe3 = "Moderate",

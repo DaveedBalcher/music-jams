@@ -21,11 +21,11 @@
           ],
           "url": "https://philadelphiabrewing.com/",
           "properties": {
-            "vibe_index": 1,
+            "vibe_index": ["1"],
             "genres": [
-              "Open"
+              "open"
             ],
-            "type": "Open Mic"
+            "types": ["open mic"]
           }
         }
       ]
@@ -60,11 +60,11 @@
           ],
           "url": "https://www.facebook.com/thecitywidesessions/",
           "properties": {
-            "vibe_index": 3,
+            "vibe_index": ["3"],
             "genres": [
-              "Jazz"
+              "jazz"
             ],
-            "type": "Jam"
+            "types": ["jam"]
           }
         }
       ]
@@ -96,8 +96,8 @@
         {
           "name": "",
           "reoccuring": [
-            "first",
-            "third"
+            "firstOf",
+            "thirdOf"
           ],
           "day_of_the_week": "sunday",
           "start_time": "8:00 PM",
@@ -107,11 +107,11 @@
           ],
           "url": "https://www.facebook.com/dobbsonsouth/",
           "properties": {
-            "vibe_index": 1,
+            "vibe_index": ["1"],
             "genres": [
-              "Rock"
+              "rock"
             ],
-            "type": "Jam"
+            "types": ["jam"]
           }
         }
       ]
@@ -137,11 +137,11 @@
           ],
           "url": "http://thetwistedtail.com/event/open-blues-jam/all/",
           "properties": {
-            "vibe_index": 1,
+            "vibe_index": ["1"],
             "genres": [
-              "Blues"
+              "blues"
             ],
-            "type": "Jam"
+            "types": ["jam"]
           }
         }
       ]
@@ -175,13 +175,13 @@
           ],
           "url": "https://www.timerestaurant.net/copy-of-music-events",
           "properties": {
-            "vibe_index": 2,
+            "vibe_index": ["2"],
             "genres": [
-              "Jazz",
-              "Funk",
-              "Fusion"
+              "jazz",
+              "funk",
+              "fusion"
             ],
-            "type": "Jam"
+            "types": ["jam"]
           }
         },
         {
@@ -197,11 +197,11 @@
           ],
           "url": "https://www.timerestaurant.net/copy-of-music-events",
           "properties": {
-            "vibe_index": 1,
+            "vibe_index": ["1"],
             "genres": [
-              "Open"
+              "open"
             ],
-            "type": "Open Mic"
+            "types": ["open mic"]
           }
         }
       ]
@@ -227,11 +227,11 @@
           ],
           "url": "https://www.facebook.com/PhillyLocalIMPACTLive",
           "properties": {
-            "vibe_index": 1,
+            "vibe_index": ["1"],
             "genres": [
-              "Open"
+              "open"
             ],
-            "type": "Open Mic"
+            "types": ["open mic"]
           }
         }
       ]
@@ -257,11 +257,11 @@
           ],
           "url": "https://www.fergies.com/",
           "properties": {
-            "vibe_index": 1,
+            "vibe_index": ["1"],
             "genres": [
-              "Open"
+              "open"
             ],
-            "type": "Open Mic"
+            "types": ["open mic"]
           }
         }
       ]
@@ -288,12 +288,14 @@
             "weekly"
           ],
           "day_of_the_week": "wednesday",
+          "start_time": "9:00 PM",
+          "end_time": "12:00 AM",
           "hosts": [],
           "url": "https://www.graperoommusic.com/",
           "properties": {
-            "vibe_index": 2,
+            "vibe_index": ["2"],
             "genres": [],
-            "type": "Jam"
+            "types": ["jam"]
           }
         },
         {
@@ -302,14 +304,16 @@
             "weekly"
           ],
           "day_of_the_week": "thursday",
+          "start_time": "9:00 PM",
+          "end_time": "12:00 AM",
           "hosts": [],
           "url": "https://www.graperoommusic.com/",
           "properties": {
-            "vibe_index": 2,
+            "vibe_index": ["2"],
             "genres": [
-              "Open"
+              "open"
             ],
-            "type": "Open Mic"
+            "types": ["open mic"]
           }
         }
       ]
@@ -341,11 +345,11 @@
           "hosts": [],
           "url": "https://www.facebook.com/profile.php?id=100063265538158",
           "properties": {
-            "vibe_index": 4,
+            "vibe_index": ["4"],
             "genres": [
-              "Jazz"
+              "jazz"
             ],
-            "type": "Jam"
+            "types": ["jam"]
           }
         },
         {
@@ -359,11 +363,11 @@
           "hosts": [],
           "url": "https://www.facebook.com/profile.php?id=100063265538158",
           "properties": {
-            "vibe_index": 4,
+            "vibe_index": ["4"],
             "genres": [
-              "Jazz"
+              "jazz"
             ],
-            "type": "Jam"
+            "types": ["jam"]
           }
         }
       ]
@@ -403,13 +407,13 @@
           "hosts": [],
           "url": "https://www.facebook.com/people/The-El-Bar/100064174355397/",
           "properties": {
-            "vibe_index": 1,
+            "vibe_index": ["1"],
             "genres": [
-              "Jazz",
-              "Funk",
-              "Fusion"
+              "jazz",
+              "funk",
+              "fusion"
             ],
-            "type": "Jam"
+            "types": ["jam"]
           }
         },
         {
@@ -423,11 +427,11 @@
           "hosts": [],
           "url": "https://www.facebook.com/people/The-El-Bar/100064174355397/",
           "properties": {
-            "vibe_index": 1,
+            "vibe_index": ["1"],
             "genres": [
-              "Open"
+              "open"
             ],
-            "type": "Open Mic"
+            "types": ["open mic"]
           }
         }
       ]

@@ -25,7 +25,7 @@ struct PlaceDetailView: View {
             ScrollView {
                 VStack {
                     ZStack(alignment: .bottomLeading) {
-                        placeVM.image?
+                        placeVM.image
                             .resizable()
                             .padding(90)
                             .foregroundColor(.white)
@@ -38,17 +38,23 @@ struct PlaceDetailView: View {
                             )
                         
                         VStack(alignment: .leading) {
-                            Text(placeVM.title)
-                                .font(.title3)
-                                .fontWeight(.light)
-                            ForEach(placeVM.properties, id: \.self) { property in
-                                HStack {
-                                    Text(property.title.uppercased())
-                                        .fontWeight(.light)
-                                    Text(property.valuesString)
-                                        .foregroundColor(property.isHighlighted ? placeVM.color : Color.accentColor)
-                                        .fontWeight(property.isHighlighted ? .semibold : .light)
+                            HStack(spacing: 0) {
+                                Text("Type: ")
+                                Text(placeVM.type)
+                                if let urgencyString = placeVM.urgencyDescription {
+                                    Text("- ")
+                                    Text(urgencyString)
+                                        .foregroundColor(placeVM.color)
+                                        .fontWeight(.semibold)
                                 }
+                            }
+                            HStack(spacing: 0) {
+                                Text("Genres: ")
+                                Text(placeVM.genres)
+                            }
+                            HStack(spacing: 0) {
+                                Text("Vibe: ")
+                                Text(placeVM.vibes)
                             }
                         }
                         .font(.subheadline)
@@ -79,9 +85,9 @@ struct PlaceDetailView: View {
                                 VStack(alignment: .leading) {
                                     Text(eventVM.title)
                                         .fontWeight(.semibold)
-                                    Text("Host(s): \(eventVM.hosts)")
+                                    Text("\(eventVM.date)")
                                         .fontWeight(.light)
-                                    Text("Every \(eventVM.date)")
+                                    Text("Host(s): \(eventVM.hosts)")
                                         .fontWeight(.light)
                                     if let url = eventVM.url {
                                         Button {
@@ -131,15 +137,10 @@ struct PlaceDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             
-            let place = Place.preview
             let event = Event.preview
+            let place = Place(with: [event])
 
-            PlaceDetailView(placeVM: PlaceViewModel(
-                title: place.title,
-                image: place.icon,
-                properties: place.properties),
-                eventsVM: [EventViewModel(event)]
-            )
+            PlaceDetailView(placeVM: PlaceViewModel(place: place), eventsVM: [EventViewModel(event)])
         }
     }
 }

@@ -21,6 +21,7 @@ struct RegionPicker: View {
                     ForEach(regions, id: \.self) { region in
                         Button {
                             selectedRegion = region
+                            isShowing = false
 //                            didComplete(option)
                         } label: {
                             HStack {
@@ -31,7 +32,8 @@ struct RegionPicker: View {
                                     }
                                 }
                                 .frame(width: 20)
-                                Text(region.title)                        .fontWeight(.light)
+                                Text(region.title)
+                                    .fontWeight(.light)
                                     .font(.headline)
                                     .foregroundColor(region == selectedRegion ? region.color : Color.accentColor)
                                 Spacer()

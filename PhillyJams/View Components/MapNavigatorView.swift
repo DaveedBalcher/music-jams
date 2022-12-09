@@ -11,7 +11,7 @@ import MusicVenues
 struct MapNavigatorView: View {
     @ObservedObject var vm: MapViewModel
     
-    @Binding var filtersDescription: String
+    var filtersDescription: String = ""
     @Binding var isPresentingRegionLevelOnePicker: Bool
     @Binding var isPresentingFiltersPicker: Bool
     
@@ -19,8 +19,7 @@ struct MapNavigatorView: View {
         HStack {
             Button {
                 if vm.isZoomedIn {
-                    // TODO
-//                    vm.zoomOutToLevelTwo()
+                    vm.zoomOutToLevelTwo()
                 } else {
                     isPresentingRegionLevelOnePicker = true
                 }
@@ -36,8 +35,7 @@ struct MapNavigatorView: View {
             VStack(alignment: .leading) {
                 Button {
                     if vm.isZoomedIn {
-                        // TODO
-    //                    vm.zoomOutToLevelTwo()
+                        vm.zoomOutToLevelTwo()
                     } else {
                         isPresentingRegionLevelOnePicker = true
                     }
@@ -91,7 +89,7 @@ struct MapNavigatorView_Previews: PreviewProvider {
         
         HStack(alignment: .top) {
             MapNavigatorView(vm: MapViewModel(places: [place]),
-                             filtersDescription: .constant("Jams · Chill · Jazz"),
+                             filtersDescription: "Jams · Chill · Jazz",
                              isPresentingRegionLevelOnePicker: .constant(false),
                              isPresentingFiltersPicker: .constant(false)
                 )

@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "174D45BE289C5C36001AAC96"
+               BlueprintIdentifier = "172B5370293FB8CE009BFD82"
                BuildableName = "PhillyJamsTests.xctest"
                BlueprintName = "PhillyJamsTests"
                ReferencedContainer = "container:PhillyJams.xcodeproj">

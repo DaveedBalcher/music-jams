@@ -25,6 +25,6 @@ struct UrgencyMarker: View {
                 .fontWeight(.semibold)
         }
         .offset(x: 0, y: -21)
-        .frame(width: labelWidth, height: 20)
+        .frame(width: labelWidth + 12, height: 20)
     }
 }

@@ -7,11 +7,8 @@
 
 import Foundation
 
-public struct GenreType: Identifiable {
+public struct GenreType {
     
-    public var id: Int {
-        name.hashValue
-    }
     public let name: String
 
     public var rawValue: String {

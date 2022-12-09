@@ -14,13 +14,13 @@ struct EventViewModel: Hashable {
     let hosts: String
     let url: URL?
     
-    
     init(_ event: Event) {
-        title = event.title
+        title = !event.title.isEmpty ? event.title : event.properties.dictonary["types"]?.first?.capitalized ?? ""
         
-        let formatter = RelativeDateTimeFormatter()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, MMM d, h:mm a"
         if let nextDate = event.nextDate {
-            date = formatter.localizedString(for: nextDate, relativeTo: Date())
+            date = formatter.string(for: nextDate) ?? "N/A"
         } else {
             date = "N/A"
         }

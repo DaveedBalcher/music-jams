@@ -22,11 +22,7 @@ struct MapView: View {
                     } label: {
                         PlaceMarker(vm: PlaceViewModel(place: place), isSelected: place == vm.selectedPlace)
                     }
-                    Rectangle()
                 }
-            }
-            .onChange(of: vm.selectedMKRegion) { newValue in
-                print("newValue: ", newValue)
             }
             .padding([.top], -8)
             .animation(.default, value: vm.selectedMKRegion)

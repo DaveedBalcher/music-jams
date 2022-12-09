@@ -18,7 +18,7 @@ struct PlacePreviewView: View {
                     .foregroundColor(placeVM.color)
                     .padding([.leading], 12)
                 
-                placeVM.image?
+                placeVM.image
                     .resizable()
                     .foregroundColor(Color.white)
                     .padding()
@@ -36,14 +36,23 @@ struct PlacePreviewView: View {
                     .foregroundColor(placeVM.color)
                 
                 VStack(alignment: .leading) {
-                    ForEach(placeVM.properties, id: \.self) { property in
-                        HStack {
-                            Text(property.title.uppercased())
-                                .fontWeight(.light)
-                            Text(property.valuesString)
-                                .foregroundColor(property.isHighlighted ? placeVM.color : Color.accentColor)
-                                .fontWeight(property.isHighlighted ? .semibold : .light)
+                    HStack(spacing: 0) {
+                        Text("Type: ")
+                        Text(placeVM.type)
+                        if let urgencyString = placeVM.urgencyDescription {
+                            Text("- ")
+                            Text(urgencyString)
+                                .foregroundColor(placeVM.color)
+                                .fontWeight(.semibold)
                         }
+                    }
+                    HStack(spacing: 0) {
+                        Text("Genres: ")
+                        Text(placeVM.genres)
+                    }
+                    HStack(spacing: 0) {
+                        Text("Vibe: ")
+                        Text(placeVM.vibes)
                     }
                 }
                 .font(.subheadline)
@@ -75,12 +84,9 @@ struct PlacePreviewView_Previews: PreviewProvider {
         ZStack(alignment: .bottom) {
             Color.white
             
-            let place = Place.preview
+            let place = Place(with: [Event.preview])
 
-            PlacePreviewView(placeVM: PlaceViewModel(
-                title: place.title,
-                image: place.icon,
-                properties: place.properties)
+            PlacePreviewView(placeVM: PlaceViewModel(place: place)
             )
         }
     }

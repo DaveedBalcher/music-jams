@@ -20,6 +20,14 @@
 		172B5356292D7A37009BFD82 /* Place+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B5355292D7A37009BFD82 /* Place+Helpers.swift */; };
 		172B5362293905CD009BFD82 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B5361293905CD009BFD82 /* MainViewModel.swift */; };
 		172B5364293905DE009BFD82 /* FiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B5363293905DE009BFD82 /* FiltersViewModel.swift */; };
+		172B5366293E9ED0009BFD82 /* DefaultPlaceMapper+Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B5365293E9ED0009BFD82 /* DefaultPlaceMapper+Root.swift */; };
+		172B5368293E9F0A009BFD82 /* DefaultPlaceMapper+DefaultPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B5367293E9F0A009BFD82 /* DefaultPlaceMapper+DefaultPlace.swift */; };
+		172B536A293E9FB2009BFD82 /* DefaultPlaceMapper+DefaultEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B5369293E9FB2009BFD82 /* DefaultPlaceMapper+DefaultEvent.swift */; };
+		172B536C293EA0EB009BFD82 /* DefaultPlaceMapper+DefaultRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B536B293EA0EB009BFD82 /* DefaultPlaceMapper+DefaultRegion.swift */; };
+		172B5374293FB8CE009BFD82 /* PlaceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B5373293FB8CE009BFD82 /* PlaceViewModelTests.swift */; };
+		172B537B29424298009BFD82 /* SectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B537A29424298009BFD82 /* SectionViewModel.swift */; };
+		172B537D294242C3009BFD82 /* MultipleSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B537C294242C3009BFD82 /* MultipleSectionViewModel.swift */; };
+		172B537F29425ACC009BFD82 /* SectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B537E29425ACC009BFD82 /* SectionViewModelTests.swift */; };
 		173852782924427F0012F86C /* PlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173852772924427F0012F86C /* PlaceViewModel.swift */; };
 		1738527A2924428F0012F86C /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173852792924428F0012F86C /* EventViewModel.swift */; };
 		1738527D292537220012F86C /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738527C292537220012F86C /* MapViewModel.swift */; };
@@ -54,6 +62,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		172B5375293FB8CE009BFD82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 174D45A6289C5C35001AAC96 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1755E5DD289DB4E000164552;
+			remoteInfo = PhillyJams;
+		};
 		1755E62828A4419C00164552 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 174D45A6289C5C35001AAC96 /* Project object */;
@@ -101,6 +116,15 @@
 		172B5355292D7A37009BFD82 /* Place+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Place+Helpers.swift"; sourceTree = "<group>"; };
 		172B5361293905CD009BFD82 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		172B5363293905DE009BFD82 /* FiltersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewModel.swift; sourceTree = "<group>"; };
+		172B5365293E9ED0009BFD82 /* DefaultPlaceMapper+Root.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DefaultPlaceMapper+Root.swift"; sourceTree = "<group>"; };
+		172B5367293E9F0A009BFD82 /* DefaultPlaceMapper+DefaultPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DefaultPlaceMapper+DefaultPlace.swift"; sourceTree = "<group>"; };
+		172B5369293E9FB2009BFD82 /* DefaultPlaceMapper+DefaultEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DefaultPlaceMapper+DefaultEvent.swift"; sourceTree = "<group>"; };
+		172B536B293EA0EB009BFD82 /* DefaultPlaceMapper+DefaultRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DefaultPlaceMapper+DefaultRegion.swift"; sourceTree = "<group>"; };
+		172B5371293FB8CE009BFD82 /* PhillyJamsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhillyJamsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		172B5373293FB8CE009BFD82 /* PlaceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModelTests.swift; sourceTree = "<group>"; };
+		172B537A29424298009BFD82 /* SectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionViewModel.swift; sourceTree = "<group>"; };
+		172B537C294242C3009BFD82 /* MultipleSectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleSectionViewModel.swift; sourceTree = "<group>"; };
+		172B537E29425ACC009BFD82 /* SectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewModelTests.swift; sourceTree = "<group>"; };
 		17385275292433310012F86C /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		173852772924427F0012F86C /* PlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModel.swift; sourceTree = "<group>"; };
 		173852792924428F0012F86C /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
@@ -140,6 +164,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		172B536E293FB8CE009BFD82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1755E5DB289DB4E000164552 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -205,6 +236,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		172B5372293FB8CE009BFD82 /* PhillyJamsTests */ = {
+			isa = PBXGroup;
+			children = (
+				172B5373293FB8CE009BFD82 /* PlaceViewModelTests.swift */,
+				172B537E29425ACC009BFD82 /* SectionViewModelTests.swift */,
+			);
+			path = PhillyJamsTests;
+			sourceTree = "<group>";
+		};
 		1738527229242AB60012F86C /* Places */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,7 +259,9 @@
 		1738527329242AE70012F86C /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
+				172B537C294242C3009BFD82 /* MultipleSectionViewModel.swift */,
 				17C91C1E28D0F8640038F788 /* MultipleSectionPicker.swift */,
+				172B537A29424298009BFD82 /* SectionViewModel.swift */,
 				17C91C2328D10BBB0038F788 /* SectionPicker.swift */,
 			);
 			path = Pickers;
@@ -238,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				1755E5CD289DB4A400164552 /* PhillyJams */,
+				172B5372293FB8CE009BFD82 /* PhillyJamsTests */,
 				1755E61E28A4419C00164552 /* MusicVenues */,
 				1755E62C28A4419C00164552 /* MusicVenuesTests */,
 				174D45AF289C5C35001AAC96 /* Products */,
@@ -251,6 +294,7 @@
 				1755E5DE289DB4E000164552 /* PhillyJams.app */,
 				1755E61D28A4419C00164552 /* MusicVenues.framework */,
 				1755E62628A4419C00164552 /* MusicVenuesTests.xctest */,
+				172B5371293FB8CE009BFD82 /* PhillyJamsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -270,6 +314,10 @@
 			children = (
 				174D45E4289C689B001AAC96 /* DefaultPlaceLoader.swift */,
 				174D45F2289D9C2C001AAC96 /* DefaultPlaceMapper.swift */,
+				172B5365293E9ED0009BFD82 /* DefaultPlaceMapper+Root.swift */,
+				172B5367293E9F0A009BFD82 /* DefaultPlaceMapper+DefaultPlace.swift */,
+				172B536B293EA0EB009BFD82 /* DefaultPlaceMapper+DefaultRegion.swift */,
+				172B5369293E9FB2009BFD82 /* DefaultPlaceMapper+DefaultEvent.swift */,
 				174D45E9289C6AE8001AAC96 /* DefaultPlaceStore.json */,
 			);
 			path = VenueAPI;
@@ -290,9 +338,9 @@
 			children = (
 				17604D8828C14902001E3FF2 /* Info.plist */,
 				174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */,
+				1721A82F28F8AD1B00F321FF /* View Models */,
 				17289C1628C29B50000A701B /* Views */,
 				1755E64C28B2CFC500164552 /* View Components */,
-				1721A82F28F8AD1B00F321FF /* View Models */,
 				174D45E6289C68B9001AAC96 /* Helper */,
 				176B01D0291EF6C6004CB3C3 /* PhillyJams */,
 				1755E600289DB7DF00164552 /* Assets.xcassets */,
@@ -376,6 +424,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		172B5370293FB8CE009BFD82 /* PhillyJamsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 172B5377293FB8CE009BFD82 /* Build configuration list for PBXNativeTarget "PhillyJamsTests" */;
+			buildPhases = (
+				172B536D293FB8CE009BFD82 /* Sources */,
+				172B536E293FB8CE009BFD82 /* Frameworks */,
+				172B536F293FB8CE009BFD82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				172B5376293FB8CE009BFD82 /* PBXTargetDependency */,
+			);
+			name = PhillyJamsTests;
+			productName = PhillyJamsTests;
+			productReference = 172B5371293FB8CE009BFD82 /* PhillyJamsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		1755E5DD289DB4E000164552 /* PhillyJams */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1755E5E9289DB4E100164552 /* Build configuration list for PBXNativeTarget "PhillyJams" */;
@@ -442,9 +508,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					172B5370293FB8CE009BFD82 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 1755E5DD289DB4E000164552;
+					};
 					1755E5DD289DB4E000164552 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -476,11 +546,19 @@
 				1755E5DD289DB4E000164552 /* PhillyJams */,
 				1755E61C28A4419C00164552 /* MusicVenues */,
 				1755E62528A4419C00164552 /* MusicVenuesTests */,
+				172B5370293FB8CE009BFD82 /* PhillyJamsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		172B536F293FB8CE009BFD82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1755E5DC289DB4E000164552 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -508,6 +586,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		172B536D293FB8CE009BFD82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				172B537F29425ACC009BFD82 /* SectionViewModelTests.swift in Sources */,
+				172B5374293FB8CE009BFD82 /* PlaceViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1755E5DA289DB4E000164552 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -531,8 +618,10 @@
 				17C91C1D28CFDEEE0038F788 /* RegionPicker.swift in Sources */,
 				172B5350292D7616009BFD82 /* Event+Helpers.swift in Sources */,
 				172B5362293905CD009BFD82 /* MainViewModel.swift in Sources */,
+				172B537B29424298009BFD82 /* SectionViewModel.swift in Sources */,
 				1738527A2924428F0012F86C /* EventViewModel.swift in Sources */,
 				17AA372A28E4DCCA0030F6B7 /* WebView.swift in Sources */,
+				172B537D294242C3009BFD82 /* MultipleSectionViewModel.swift in Sources */,
 				1755E606289DB7F400164552 /* MainView.swift in Sources */,
 				172B534E292D6B3A009BFD82 /* Property+Helpers.swift in Sources */,
 				172B5356292D7A37009BFD82 /* Place+Helpers.swift in Sources */,
@@ -547,12 +636,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				172B536C293EA0EB009BFD82 /* DefaultPlaceMapper+DefaultRegion.swift in Sources */,
+				172B536A293E9FB2009BFD82 /* DefaultPlaceMapper+DefaultEvent.swift in Sources */,
 				1755E64228A5705200164552 /* DefaultPlaceMapper.swift in Sources */,
 				172B5347292D6A06009BFD82 /* Place.swift in Sources */,
 				1755E64428A5705200164552 /* DefaultPlaceLoader.swift in Sources */,
 				172B5348292D6A06009BFD82 /* Property.swift in Sources */,
 				1755E64028A5704E00164552 /* PlaceLoader.swift in Sources */,
 				172B5346292D6A06009BFD82 /* Region.swift in Sources */,
+				172B5368293E9F0A009BFD82 /* DefaultPlaceMapper+DefaultPlace.swift in Sources */,
+				172B5366293E9ED0009BFD82 /* DefaultPlaceMapper+Root.swift in Sources */,
 				172B5349292D6A06009BFD82 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,6 +661,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		172B5376293FB8CE009BFD82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1755E5DD289DB4E000164552 /* PhillyJams */;
+			targetProxy = 172B5375293FB8CE009BFD82 /* PBXContainerItemProxy */;
+		};
 		1755E62928A4419C00164552 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1755E61C28A4419C00164552 /* MusicVenues */;
@@ -586,6 +684,49 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		172B5378293FB8CE009BFD82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W5SMVQ4M6D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DaveedBalcher.PhillyJamsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhillyJams.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PhillyJams";
+			};
+			name = Debug;
+		};
+		172B5379293FB8CE009BFD82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W5SMVQ4M6D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DaveedBalcher.PhillyJamsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhillyJams.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PhillyJams";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		174D45D1289C5C36001AAC96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -898,6 +1039,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		172B5377293FB8CE009BFD82 /* Build configuration list for PBXNativeTarget "PhillyJamsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				172B5378293FB8CE009BFD82 /* Debug */,
+				172B5379293FB8CE009BFD82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		174D45A9289C5C35001AAC96 /* Build configuration list for PBXProject "PhillyJams" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

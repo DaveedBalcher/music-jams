@@ -24,32 +24,40 @@ enum MapDefaults {
 }
 
 final class MapViewModel: NSObject, ObservableObject {
-    var places: [Place] = [] {
+    @Published var places: [Place] = [] {
         didSet {
             allRegions = Set(places.map { $0.regionLevelOne }).sorted()
             
             //TODO: If selectedPlace or selected Region not included in places or regions, set to default
         }
     }
-    @Published var selectedPlace: Place?
-
-    var selectedMKRegion: MKCoordinateRegion {
-        get {
-            selectedRegion.mkRegion
-        }
-        set {
-            selectedRegion = allRegions.filter { $0.mkRegion == newValue }.first ?? MapDefaults.region
+    @Published var selectedPlace: Place? {
+        willSet {
+            didPublish()
         }
     }
     
-    private var allRegions: [Region] = []
-    private(set) var selectedRegion: Region = MapDefaults.region
+    var didPublish: () -> Void = {}
+
+    @Published var selectedMKRegion: MKCoordinateRegion = MapDefaults.region.mkRegion
+    @Published var selectedRegion: Region = MapDefaults.region {
+        didSet {
+            selectedMKRegion = selectedRegion.mkRegion
+        }
+    }
+            
+    private(set) var allRegions: [Region] = []
     
     private var locationManager: CLLocationManager?
     private var userCoordinate: CLLocationCoordinate2D?
+    private var locationServicesEnabled: Bool = false
     
     var isZoomedIn: Bool {
         selectedRegion.level == .one
+    }
+    
+    var hasEvents: Bool {
+        !(places.filter { !$0.events.isEmpty }.isEmpty)
     }
     
     init(places: [Place]) {
@@ -60,6 +68,10 @@ final class MapViewModel: NSObject, ObservableObject {
         guard let place = places.first else { return }
         selectedPlace = place
         selectedRegion = place.regionLevelOne
+    }
+    
+    func zoomOutToLevelTwo() {
+        selectedRegion = MapDefaults.region
     }
 }
 
@@ -89,6 +101,7 @@ extension MapViewModel: CLLocationManagerDelegate {
     }
     
     nonisolated func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        locationServicesEnabled = manager.authorizationStatus == .authorizedAlways || manager.authorizationStatus == .authorizedWhenInUse
         checkLocationAuthorization()
     }
 }

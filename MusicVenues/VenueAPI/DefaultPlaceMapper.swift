@@ -9,58 +9,12 @@ import Foundation
 
 final class DefaultPlaceMapper {
     
-    struct Root: Decodable {
-        let levelOneRegions: [DefaultRegion]
-        let places: [DefaultPlace]
-        
-        var regionItems: [Region] {
-            levelOneRegions.map { $0.item }
-        }
-        
-        var placeItems: [Place] {
-            places.map {
-                $0.getItem { string in
-                    regionItems.first { $0.title == string }!
-                }
-            }
-        }
-        
-        struct DefaultRegion: Decodable {
-            let name: String
-            let coordinates: [Double]
-            let color: String
-            
-            var item: Region {
-                Region(title: name,
-                       colorString: color,
-                       level: .one,
-                       latitude: coordinates[1],
-                       longitude: coordinates[0])
-            }
-        }
-        
-        struct DefaultPlace: Decodable {
-            let name: String
-            let levelOneRegion: String
-            let coordinates: [Double]
-            
-            func getItem(_ mapLevelOneRegion: (String)->(Region)) -> Place {
-                Place(title: name,
-                      latitude: coordinates[1],
-                      longitude: coordinates[0],
-                      regionLevelOne: mapLevelOneRegion(levelOneRegion),
-                      properties: [])
-            }
-        }
-    }
-    
-    static func map(_ data: Data) -> (regions: [Region], places: [Place])  {
+    static func map(_ data: Data) -> [Place]  {
         let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
         
         do {
             let loaded = try decoder.decode(Root.self, from: data)
-            return (regions: loaded.regionItems, places: loaded.placeItems)
+            return loaded.placeItems
             
         } catch let DecodingError.dataCorrupted(context) {
             print(context)
@@ -77,6 +31,6 @@ final class DefaultPlaceMapper {
             
         }
         
-        return (regions: [], places: [])
+        return []
     }
 }

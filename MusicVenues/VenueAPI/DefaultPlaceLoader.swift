@@ -16,27 +16,28 @@ public final class DefaultPlaceLoader: PlaceLoader {
     }
     
     private var places = [Place]()
-    private var regions = [Region]()
     
-    func getPlaces() -> [Place] {
+    private func getPlaces() -> [Place] {
         if places.isEmpty {
             loadDefaultItems()
         }
         return places
     }
     
-    func getRegions() -> [Region] {
-        if regions.isEmpty {
-            loadDefaultItems()
-        }
-        return regions
-    }
+//    private var regions = [Region]()
+//
+//    private func getRegions() -> [Region] {
+//        if regions.isEmpty {
+//            loadDefaultItems()
+//        }
+//        return regions
+//    }
     
     private func loadDefaultItems() {
         if let path = Bundle.main.path(forResource: fileLocation, ofType: nil) {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                (self.regions, self.places) =  DefaultPlaceMapper.map(data)
+                self.places =  DefaultPlaceMapper.map(data)
             } catch {
                 print("Failed to decode \(fileLocation) from bundle. Error: ", error)
             }
@@ -44,17 +45,34 @@ public final class DefaultPlaceLoader: PlaceLoader {
     }
     
     public func load(with filters: [Property], completion: @escaping LoadCompletion) {
-
+        let places = getPlaces()
+//        let regions =  getRegions()
+        if filters.isEmpty {
+            completion(places)
+        } else {
+            completion(filter(places, with: filters))
+        }
     }
+
+    private func filter(_ placeItems: [Place], with filters: [Property]) -> [Place] {
+        return placeItems.filter { placeItem in
+            
+            for prop in filters {
+                if placeItem.properties.contains(where: { $0 == prop }) {
+                    // Should include
+                } else {
+                    return false
+                }
+            }
+            return true
+        }
 //
-//    private func filter(with filters: [String: String?]) -> [Place] {
-//        if filters.isEmpty { return places }
 //
-//        return places.filter { placeItem in
+//        filter { placeItem in
 //
-//            for filter in filters {
+//            for prop in filters {
 //
-//                let type = filter.key
+//                let type = prop.title
 //
 //                if let filterParam = placeItem.filterValues.filter({ $0.key == type }).first,
 //                   (filter.value == nil || filterParam.value.contains(filter.value!)) {
@@ -65,5 +83,5 @@ public final class DefaultPlaceLoader: PlaceLoader {
 //            }
 //            return true
 //        }
-//    }
+    }
 }
