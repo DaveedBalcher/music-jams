@@ -35,9 +35,7 @@ struct MainView: View {
                     }
                     
                     MapNavigatorView(vm: vm.mapViewModel,
-                                     filtersDescription: vm.filtersViewModel.discription,
-                                     isPresentingRegionLevelOnePicker: $isPresentingRegionLevelOnePicker,
-                                     isPresentingFiltersPicker: $isPresentingFiltersPicker
+                                     isPresentingRegionLevelOnePicker: $isPresentingRegionLevelOnePicker
                     )
                     .padding([.top], 8)
                     .padding([.leading, .trailing], 12)
@@ -77,15 +75,6 @@ struct MainView: View {
                          regions: vm.mapViewModel.allRegions,
                          selectedRegion: $vm.mapViewModel.selectedRegion,
                          isShowing: $isPresentingRegionLevelOnePicker)
-        }
-        .popover(isPresented: $isPresentingFiltersPicker) {
-            //TODO: Check If filters are empty
-            MultipleSectionPicker(
-                vm: MultipleSectionViewModel(sections: SectionViewModel.mapFromFilters(filterOptions: vm.filtersViewModel.properties.dictonary, filterSelected: vm.filtersViewModel.selectedProperties)),
-                title: "Filters") { selectedFilters in
-                    vm.filtersViewModel.selectedProperties = selectedFilters
-                    isPresentingFiltersPicker = false
-                }
         }
     }
     

@@ -27,12 +27,4 @@ final class MainViewModel: ObservableObject {
             self?.mapViewModel.places = places
         }
     }
-    
-    func updateAvailableFilters() {
-        
-    }
-    
-    func makeAllFiltersAvailable() {
-        
-    }
 }

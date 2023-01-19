@@ -11,9 +11,7 @@ import MusicVenues
 struct MapNavigatorView: View {
     @ObservedObject var vm: MapViewModel
     
-    var filtersDescription: String = ""
     @Binding var isPresentingRegionLevelOnePicker: Bool
-    @Binding var isPresentingFiltersPicker: Bool
     
     var body: some View {
         HStack {
@@ -45,28 +43,9 @@ struct MapNavigatorView: View {
                         .font(.headline)
                         .fontWeight(.semibold)
                 }
-                Text(filtersDescription)
-                    .font(.subheadline)
-                    .fontWeight(.light)
             }
             
             Spacer()
-            
-            Button {
-                isPresentingFiltersPicker = true
-            } label: {
-                Image(systemName: "line.3.horizontal.decrease")
-                    .resizable()
-                    .frame(width: 18, height: 12)
-                    .padding(8)
-                    .foregroundColor(.lightBlue)
-                    .background(
-                        RoundedRectangle(cornerRadius: 8)
-                            .strokeBorder(Color.lightBlue, lineWidth: 2)
-                    )
-            }
-            .padding([.trailing], 8)
-
         }
         .padding([.leading, .trailing], 8)
         .padding([.top, .bottom], 12)
@@ -89,9 +68,7 @@ struct MapNavigatorView_Previews: PreviewProvider {
         
         HStack(alignment: .top) {
             MapNavigatorView(vm: MapViewModel(places: [place]),
-                             filtersDescription: "Jams · Chill · Jazz",
-                             isPresentingRegionLevelOnePicker: .constant(false),
-                             isPresentingFiltersPicker: .constant(false)
+                             isPresentingRegionLevelOnePicker: .constant(false)
                 )
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
