@@ -11,35 +11,39 @@ import MusicVenues
 
 
 struct MapView: View {
-    @ObservedObject var vm: MapViewModel
+    @State var selectedMKRegion: MKCoordinateRegion = Region.defaultLevelTwo.mkRegion
+    @Binding var places: [Place]
+    var selectedPlace: Place?
+    
+    var didSelectPlace: ((Place) -> Void)?
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Map(coordinateRegion: $vm.selectedMKRegion, annotationItems: vm.places) { place in
+            Map(coordinateRegion: Binding(get: { self.selectedMKRegion},
+                                          set: { _, _ in}),
+                annotationItems: places) { place in
                 MapAnnotation(coordinate: place.coordinate) {
-                    Button {
-                        vm.selectedPlace = place
-                    } label: {
-                        PlaceMarker(vm: PlaceViewModel(place: place), isSelected: place == vm.selectedPlace)
+                    PlaceMarker(vm: PlaceViewModel(place: place), isSelected: place == selectedPlace)
+                    .onTapGesture {
+                        didSelectPlace?(place)
+                        print("Clicked on \(place.title)")
                     }
                 }
             }
             .padding([.top], -8)
-            .animation(.default, value: vm.selectedMKRegion)
+            .animation(.default, value: selectedMKRegion)
             .ignoresSafeArea()
             .edgesIgnoringSafeArea(.all)
-        }
-        .onAppear {
-            vm.checkIfLocationServicesIsEnabled()
         }
     }
 }
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        
+
         let place = Place.preview
-        
-        MapView(vm: MapViewModel(places: [place]))
+
+        MapView(places: .constant([place]),
+                selectedPlace: place) { _ in }
     }
 }

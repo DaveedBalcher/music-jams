@@ -19,7 +19,6 @@
 		172B5354292D78A1009BFD82 /* Region+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B5353292D78A1009BFD82 /* Region+Helpers.swift */; };
 		172B5356292D7A37009BFD82 /* Place+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B5355292D7A37009BFD82 /* Place+Helpers.swift */; };
 		172B5362293905CD009BFD82 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B5361293905CD009BFD82 /* MainViewModel.swift */; };
-		172B5364293905DE009BFD82 /* FiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B5363293905DE009BFD82 /* FiltersViewModel.swift */; };
 		172B5366293E9ED0009BFD82 /* DefaultPlaceMapper+Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B5365293E9ED0009BFD82 /* DefaultPlaceMapper+Root.swift */; };
 		172B5368293E9F0A009BFD82 /* DefaultPlaceMapper+DefaultPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B5367293E9F0A009BFD82 /* DefaultPlaceMapper+DefaultPlace.swift */; };
 		172B536A293E9FB2009BFD82 /* DefaultPlaceMapper+DefaultEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B5369293E9FB2009BFD82 /* DefaultPlaceMapper+DefaultEvent.swift */; };
@@ -30,7 +29,6 @@
 		172B537F29425ACC009BFD82 /* SectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B537E29425ACC009BFD82 /* SectionViewModelTests.swift */; };
 		173852782924427F0012F86C /* PlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173852772924427F0012F86C /* PlaceViewModel.swift */; };
 		1738527A2924428F0012F86C /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173852792924428F0012F86C /* EventViewModel.swift */; };
-		1738527D292537220012F86C /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738527C292537220012F86C /* MapViewModel.swift */; };
 		1755E601289DB7DF00164552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1755E600289DB7DF00164552 /* Assets.xcassets */; };
 		1755E603289DB7F400164552 /* PhillyJamsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */; };
 		1755E604289DB7F400164552 /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E5BF289DAEBD00164552 /* PlaceMarker.swift */; };
@@ -115,7 +113,6 @@
 		172B5353292D78A1009BFD82 /* Region+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Region+Helpers.swift"; sourceTree = "<group>"; };
 		172B5355292D7A37009BFD82 /* Place+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Place+Helpers.swift"; sourceTree = "<group>"; };
 		172B5361293905CD009BFD82 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		172B5363293905DE009BFD82 /* FiltersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewModel.swift; sourceTree = "<group>"; };
 		172B5365293E9ED0009BFD82 /* DefaultPlaceMapper+Root.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DefaultPlaceMapper+Root.swift"; sourceTree = "<group>"; };
 		172B5367293E9F0A009BFD82 /* DefaultPlaceMapper+DefaultPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DefaultPlaceMapper+DefaultPlace.swift"; sourceTree = "<group>"; };
 		172B5369293E9FB2009BFD82 /* DefaultPlaceMapper+DefaultEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DefaultPlaceMapper+DefaultEvent.swift"; sourceTree = "<group>"; };
@@ -128,7 +125,6 @@
 		17385275292433310012F86C /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		173852772924427F0012F86C /* PlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModel.swift; sourceTree = "<group>"; };
 		173852792924428F0012F86C /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
-		1738527C292537220012F86C /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhillyJamsApp.swift; sourceTree = "<group>"; };
 		174D45E0289C5F42001AAC96 /* PlaceLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceLoader.swift; sourceTree = "<group>"; };
 		174D45E4289C689B001AAC96 /* DefaultPlaceLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPlaceLoader.swift; sourceTree = "<group>"; };
@@ -202,8 +198,6 @@
 			isa = PBXGroup;
 			children = (
 				172B5361293905CD009BFD82 /* MainViewModel.swift */,
-				1738527C292537220012F86C /* MapViewModel.swift */,
-				172B5363293905DE009BFD82 /* FiltersViewModel.swift */,
 				173852772924427F0012F86C /* PlaceViewModel.swift */,
 				173852792924428F0012F86C /* EventViewModel.swift */,
 			);
@@ -601,7 +595,6 @@
 			files = (
 				17C91C1F28D0F8640038F788 /* MultipleSectionPicker.swift in Sources */,
 				1755E604289DB7F400164552 /* PlaceMarker.swift in Sources */,
-				172B5364293905DE009BFD82 /* FiltersViewModel.swift in Sources */,
 				17604D8A28C14F78001E3FF2 /* MapView.swift in Sources */,
 				172B5354292D78A1009BFD82 /* Region+Helpers.swift in Sources */,
 				176B01CF291EF3EE004CB3C3 /* InfoBannerView.swift in Sources */,
@@ -609,7 +602,6 @@
 				17604D8728C006AC001E3FF2 /* InfoView.swift in Sources */,
 				17C91C2428D10BBB0038F788 /* SectionPicker.swift in Sources */,
 				1755E605289DB7F400164552 /* PlacePreviewView.swift in Sources */,
-				1738527D292537220012F86C /* MapViewModel.swift in Sources */,
 				17C91C1328CFC8B80038F788 /* MapNavigatorView.swift in Sources */,
 				17289C1528C294E5000A701B /* MK-Extensions.swift in Sources */,
 				1755E603289DB7F400164552 /* PhillyJamsApp.swift in Sources */,

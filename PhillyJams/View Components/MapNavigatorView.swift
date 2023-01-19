@@ -9,37 +9,44 @@ import SwiftUI
 import MusicVenues
 
 struct MapNavigatorView: View {
-    @ObservedObject var vm: MapViewModel
-    
+    @Binding var selectedRegion: Region
     @Binding var isPresentingRegionLevelOnePicker: Bool
+    
+    var isZoomedIn: Bool {
+        selectedRegion.level == .one
+    }
+    
+    func zoomOutToLevelTwo() {
+        selectedRegion = Region.defaultLevelTwo
+    }
     
     var body: some View {
         HStack {
             Button {
-                if vm.isZoomedIn {
-                    vm.zoomOutToLevelTwo()
+                if isZoomedIn {
+                    zoomOutToLevelTwo()
                 } else {
                     isPresentingRegionLevelOnePicker = true
                 }
             } label: {
-                Image(systemName: vm.isZoomedIn ? "chevron.left" : "map")
+                Image(systemName: isZoomedIn ? "chevron.left" : "map")
                     .font(.system(size: 18, weight: .medium))
                     .frame(width: 20, height: 17)
                     .padding([.trailing], 4)
                     .padding([.leading], 8)
-                    .foregroundColor(vm.selectedRegion.color)
+                    .foregroundColor(selectedRegion.color)
             }
             
             VStack(alignment: .leading) {
                 Button {
-                    if vm.isZoomedIn {
-                        vm.zoomOutToLevelTwo()
+                    if isZoomedIn {
+                        zoomOutToLevelTwo()
                     } else {
                         isPresentingRegionLevelOnePicker = true
                     }
                 } label: {
-                    Text(vm.selectedRegion.title)
-                        .foregroundColor(vm.selectedRegion.color)
+                    Text(selectedRegion.title)
+                        .foregroundColor(selectedRegion.color)
                         .font(.headline)
                         .fontWeight(.semibold)
                 }
@@ -64,10 +71,8 @@ struct MapNavigatorView: View {
 struct MapNavigatorView_Previews: PreviewProvider {
     static var previews: some View {
         
-        let place = Place.preview
-        
         HStack(alignment: .top) {
-            MapNavigatorView(vm: MapViewModel(places: [place]),
+            MapNavigatorView(selectedRegion: .constant(Region.defaultLevelTwo),
                              isPresentingRegionLevelOnePicker: .constant(false)
                 )
         }

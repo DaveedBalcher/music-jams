@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  Shared
 //
 //  Created by Daveed Balcher on 7/18/22.
@@ -13,16 +13,34 @@ struct MainView: View {
     
     @ObservedObject var vm: MainViewModel
     
+    private var selectedMKRegion: Binding<MKCoordinateRegion>
+    
     private let regionLevelOnePickerTitle = "Neighborhoods"
     
     @State private var isPresentingInfo = false
     @State private var isPresentingRegionLevelOnePicker = false
     @State private var isPresentingFiltersPicker = false
     
+    init(vm: MainViewModel) {
+        _vm = ObservedObject(wrappedValue: vm)
+        
+        selectedMKRegion = Binding(get: { vm.selectedRegion.mkRegion },
+                                   set: { newMKRegion in
+                if let newValue = (vm.regions.first { $0.mkRegion == newMKRegion }) {
+                    vm.selectedRegion = newValue
+                }
+            })
+    }
+    
     var body: some View {
         NavigationView {
             ZStack(alignment: .top) {
-                MapView(vm: vm.mapViewModel)
+                
+                MapView(selectedMKRegion: vm.selectedRegion.mkRegion,
+                        places: $vm.places,
+                        selectedPlace: vm.selectedPlace) { selectedPlace in
+                    vm.selectedPlace = selectedPlace
+                }
                 
                 Rectangle()
                     .fill(.ultraThinMaterial)
@@ -30,19 +48,18 @@ struct MainView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    if !vm.mapViewModel.hasEvents {
-                        SimpleBannerView(message: "No events", backgroundColor: .red)
-                    }
+//                    if !vm.mapViewModel.hasEvents {
+//                        SimpleBannerView(message: "No events", backgroundColor: .red)
+//                    }
                     
-                    MapNavigatorView(vm: vm.mapViewModel,
-                                     isPresentingRegionLevelOnePicker: $isPresentingRegionLevelOnePicker
-                    )
+                    MapNavigatorView(selectedRegion: $vm.selectedRegion,
+                                     isPresentingRegionLevelOnePicker: $isPresentingRegionLevelOnePicker)
                     .padding([.top], 8)
                     .padding([.leading, .trailing], 12)
                     
                     Spacer()
                     
-                    if let place = vm.mapViewModel.selectedPlace {
+                    if let place = vm.selectedPlace {
                         let placeVM = PlaceViewModel(place: place)
                         NavigationLink {
                             let eventsVMs = place.events.map { EventViewModel($0) }
@@ -72,14 +89,10 @@ struct MainView: View {
         }
         .popover(isPresented: $isPresentingRegionLevelOnePicker) {
             RegionPicker(title: regionLevelOnePickerTitle,
-                         regions: vm.mapViewModel.allRegions,
-                         selectedRegion: $vm.mapViewModel.selectedRegion,
+                         regions: vm.regions,
+                         selectedRegion: $vm.selectedRegion,
                          isShowing: $isPresentingRegionLevelOnePicker)
         }
-    }
-    
-    init(vm: MainViewModel) {
-        _vm = ObservedObject(wrappedValue: vm)
     }
 }
 
