@@ -9,12 +9,14 @@ import Foundation
 
 final class DefaultPlaceMapper {
     
-    static func map(_ data: Data) -> [Place]  {
+    typealias MappedResult = (regions: [Region], places: [Place])
+    
+    static func map(_ data: Data) -> MappedResult {
         let decoder = JSONDecoder()
         
         do {
             let loaded = try decoder.decode(Root.self, from: data)
-            return loaded.placeItems
+            return (loaded.regionItems, loaded.placeItems)
             
         } catch let DecodingError.dataCorrupted(context) {
             print(context)
@@ -31,6 +33,6 @@ final class DefaultPlaceMapper {
             
         }
         
-        return []
+        return ([],[])
     }
 }
