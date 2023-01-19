@@ -11,13 +11,7 @@ import MusicVenues
 // FiltersViewModel - Stores selectedfilters
 final class FiltersViewModel: ObservableObject {
     let properties: [Property]
-    @Published var selectedProperties: [String:[String]] = [:]  {
-        willSet {
-            didPublish()
-        }
-    }
-    
-    var didPublish: () -> Void = {}
+    @Published var selectedProperties: [String:[String]] = [:]
     
     var discription: String {
         let array = [

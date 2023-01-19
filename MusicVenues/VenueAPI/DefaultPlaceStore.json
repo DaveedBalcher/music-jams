@@ -475,6 +475,34 @@
         -75.1341858,
         39.9655724
       ]
+    },
+    {
+      "name": "Shere-E-Punjab Indian Restaurant",
+      "levelOneRegion": "Media",
+      "coordinates": [
+        -75.395148,
+        39.9187154
+      ],
+      "events": [
+        {
+          "name": "",
+          "reoccuring": [
+            "weekly"
+          ],
+          "day_of_the_week": "thursday",
+          "start_time": "7:00 PM",
+          "end_time": "11:00 PM",
+          "hosts": [],
+          "url": "",
+          "properties": {
+            "vibe_index": ["1"],
+            "genres": [
+              "open"
+            ],
+            "types": ["jam"]
+          }
+        }
+      ]
     }
   ],
   "levelOneRegions": [
@@ -563,6 +591,14 @@
       "coordinates": [
         -75.217396,
         40.021419
+      ],
+      "color": "3484c4"
+    },
+    {
+      "name": "Media",
+      "coordinates": [
+        -75.3877,
+        39.9168
       ],
       "color": "3484c4"
     }

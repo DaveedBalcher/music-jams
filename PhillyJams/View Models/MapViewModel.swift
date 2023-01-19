@@ -77,10 +77,10 @@ final class MapViewModel: NSObject, ObservableObject {
 
 extension MapViewModel: CLLocationManagerDelegate {
     func checkIfLocationServicesIsEnabled() {
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager = CLLocationManager()
-            locationManager!.delegate = self
-        }
+//        if CLLocationManager.locationServicesEnabled() {
+//            locationManager = CLLocationManager()
+//            locationManager!.delegate = self
+//        }
     }
     
     private func checkLocationAuthorization() {

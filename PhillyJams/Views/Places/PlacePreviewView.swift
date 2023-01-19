@@ -39,12 +39,6 @@ struct PlacePreviewView: View {
                     HStack(spacing: 0) {
                         Text("Type: ")
                         Text(placeVM.type)
-                        if let urgencyString = placeVM.urgencyDescription {
-                            Text("- ")
-                            Text(urgencyString)
-                                .foregroundColor(placeVM.color)
-                                .fontWeight(.semibold)
-                        }
                     }
                     HStack(spacing: 0) {
                         Text("Genres: ")

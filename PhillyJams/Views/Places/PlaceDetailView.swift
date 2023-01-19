@@ -41,12 +41,6 @@ struct PlaceDetailView: View {
                             HStack(spacing: 0) {
                                 Text("Type: ")
                                 Text(placeVM.type)
-                                if let urgencyString = placeVM.urgencyDescription {
-                                    Text("- ")
-                                    Text(urgencyString)
-                                        .foregroundColor(placeVM.color)
-                                        .fontWeight(.semibold)
-                                }
                             }
                             HStack(spacing: 0) {
                                 Text("Genres: ")
@@ -90,14 +84,12 @@ struct PlaceDetailView: View {
                                     Text("Host(s): \(eventVM.hosts)")
                                         .fontWeight(.light)
                                     if let url = eventVM.url {
-                                        Button {
-                                            isPresentingWebView.toggle()
+                                        NavigationLink {
+                                            WebView(url: url)
+                                                .ignoresSafeArea()
                                         } label: {
                                             Text("Visit Event Page")
                                                 .foregroundColor(Color.lightBlue)
-                                        }
-                                        .sheet(isPresented: $isPresentingWebView) {
-                                            WebView(url: url)
                                         }
                                     }
                                 }
@@ -109,7 +101,6 @@ struct PlaceDetailView: View {
                             .padding([.leading, .trailing], 16)
                         }
                     }
-                    
                 }
             }
             .toolbar {

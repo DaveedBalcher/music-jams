@@ -15,7 +15,9 @@ final class MainViewModel: ObservableObject {
     @Published var mapViewModel: MapViewModel
     @Published var filtersViewModel: FiltersViewModel
     
-    var anyCancellable: [AnyCancellable] = []
+    private var cancellables = [AnyCancellable]()
+    private var sink1: AnyPublisher<Place?, Never>?
+    private var sink2: AnyPublisher<[String : [String]], Never>?
     
     let loader: PlaceLoader!
     
@@ -25,6 +27,25 @@ final class MainViewModel: ObservableObject {
         filtersViewModel = FiltersViewModel(properties: [])
         
         mapViewModel = MapViewModel(places: [])
+        
+        sink1 = mapViewModel.$selectedPlace.eraseToAnyPublisher()
+        sink2 = filtersViewModel.$selectedProperties.eraseToAnyPublisher()
+    }
+    
+    func processSink1() {
+        sink1?
+            .sink(receiveValue: { value in
+                self.objectWillChange.send()
+            })
+            .store(in: &cancellables)
+    }
+
+    func processSink2() {
+        sink2?
+            .sink(receiveValue: { value in
+                self.objectWillChange.send()
+            })
+            .store(in: &cancellables)
     }
     
     func fetchPlaces() {
@@ -32,14 +53,17 @@ final class MainViewModel: ObservableObject {
             self?.mapViewModel.places = places
             self?.filtersViewModel = FiltersViewModel(places: places)
             
+            self?.processSink1()
+            self?.processSink2()
             
-            self?.filtersViewModel.didPublish = { [weak self] in
-                self?.objectWillChange.send()
-            }
-            
-            self?.mapViewModel.didPublish = { [weak self] in
-                self?.objectWillChange.send()
-            }
+//            self?.filtersViewModel.didPublish = { [weak self] in
+//                self?.fetchPlaces()
+////                self?.objectWillChange.send()
+//            }
+//
+//            self?.mapViewModel.didPublish = { [weak self] in
+//                self?.objectWillChange.send()
+//            }
         }
     }
     
