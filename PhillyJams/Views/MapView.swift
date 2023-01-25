@@ -11,7 +11,7 @@ import MusicVenues
 
 
 struct MapView: View {
-    @State var selectedMKRegion: MKCoordinateRegion = Region.defaultLevelTwo.mkRegion
+    @Binding var selectedRegion: Region
     @Binding var places: [Place]
     var selectedPlace: Place?
     
@@ -19,7 +19,7 @@ struct MapView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Map(coordinateRegion: Binding(get: { self.selectedMKRegion},
+            Map(coordinateRegion: Binding(get: { self.selectedRegion.mkRegion},
                                           set: { _, _ in}),
                 annotationItems: places) { place in
                 MapAnnotation(coordinate: place.coordinate) {
@@ -31,7 +31,7 @@ struct MapView: View {
                 }
             }
             .padding([.top], -8)
-            .animation(.default, value: selectedMKRegion)
+            .animation(.default, value: selectedRegion.mkRegion)
             .ignoresSafeArea()
             .edgesIgnoringSafeArea(.all)
         }
@@ -43,7 +43,8 @@ struct MapView_Previews: PreviewProvider {
 
         let place = Place.preview
 
-        MapView(places: .constant([place]),
+        MapView(selectedRegion: .constant(Region.preview),
+                places: .constant([place]),
                 selectedPlace: place) { _ in }
     }
 }

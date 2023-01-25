@@ -56,6 +56,7 @@
 		17C91C1F28D0F8640038F788 /* MultipleSectionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C91C1E28D0F8640038F788 /* MultipleSectionPicker.swift */; };
 		17C91C2228D0FD8E0038F788 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 17C91C2128D0FD8E0038F788 /* WrappingHStack */; };
 		17C91C2428D10BBB0038F788 /* SectionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C91C2328D10BBB0038F788 /* SectionPicker.swift */; };
+		17DC35F629817BCA007720EB /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC35F529817BCA007720EB /* ContainerView.swift */; };
 		17E62F9D2912FAC70088C3CB /* SimpleBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E62F9C2912FAC70088C3CB /* SimpleBannerView.swift */; };
 /* End PBXBuildFile section */
 
@@ -156,6 +157,7 @@
 		17C91C1C28CFDEEE0038F788 /* RegionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionPicker.swift; sourceTree = "<group>"; };
 		17C91C1E28D0F8640038F788 /* MultipleSectionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSectionPicker.swift; sourceTree = "<group>"; };
 		17C91C2328D10BBB0038F788 /* SectionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionPicker.swift; sourceTree = "<group>"; };
+		17DC35F529817BCA007720EB /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		17E62F9C2912FAC70088C3CB /* SimpleBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -207,6 +209,7 @@
 		17289C1628C29B50000A701B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				17DC35F529817BCA007720EB /* ContainerView.swift */,
 				1755E5C1289DAEBD00164552 /* MainView.swift */,
 				17604D8928C14F78001E3FF2 /* MapView.swift */,
 				17604D8628C006AC001E3FF2 /* InfoView.swift */,
@@ -600,6 +603,7 @@
 				176B01CF291EF3EE004CB3C3 /* InfoBannerView.swift in Sources */,
 				17E62F9D2912FAC70088C3CB /* SimpleBannerView.swift in Sources */,
 				17604D8728C006AC001E3FF2 /* InfoView.swift in Sources */,
+				17DC35F629817BCA007720EB /* ContainerView.swift in Sources */,
 				17C91C2428D10BBB0038F788 /* SectionPicker.swift in Sources */,
 				1755E605289DB7F400164552 /* PlacePreviewView.swift in Sources */,
 				17C91C1328CFC8B80038F788 /* MapNavigatorView.swift in Sources */,

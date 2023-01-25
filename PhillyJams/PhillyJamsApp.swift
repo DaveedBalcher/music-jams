@@ -25,7 +25,7 @@ struct PhillyJamsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView(vm: mainViewModel)
+            ContainerView(vm: mainViewModel)
         }
     }
 }
