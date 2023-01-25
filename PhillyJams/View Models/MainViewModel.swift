@@ -20,7 +20,11 @@ final class MainViewModel: ObservableObject {
     }
     @Published var places: [Place]
     @Published var filteredPlaces: [Place]
-    @Published var selectedPlace: Place?
+    @Published var selectedPlace: Place? {
+        didSet {
+            updateSelectedRegion()
+        }
+    }
     
     let loader: PlaceLoader!
     
@@ -46,6 +50,12 @@ final class MainViewModel: ObservableObject {
             filteredPlaces = places
         } else {
             filteredPlaces = places.filter { $0.regionLevelOne == selectedRegion }
+        }
+    }
+    
+    func updateSelectedRegion() {
+        if let place = selectedPlace {
+            selectedRegion = place.regionLevelOne
         }
     }
 }
