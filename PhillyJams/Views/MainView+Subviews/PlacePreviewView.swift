@@ -36,17 +36,10 @@ struct PlacePreviewView: View {
                     .foregroundColor(placeVM.color)
                 
                 VStack(alignment: .leading) {
-                    HStack(spacing: 0) {
-                        Text("Type: ")
-                        Text(placeVM.type)
-                    }
-                    HStack(spacing: 0) {
-                        Text("Genres: ")
-                        Text(placeVM.genres)
-                    }
-                    HStack(spacing: 0) {
-                        Text("Vibe: ")
-                        Text(placeVM.vibes)
+                    ForEach(placeVM.details, id: \.self) { field in
+                        HStack(spacing: 0) {
+                            Text(field)
+                        }
                     }
                 }
                 .font(.subheadline)

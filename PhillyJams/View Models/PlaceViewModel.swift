@@ -13,11 +13,9 @@ struct PlaceViewModel {
     let image: Image
     let color: Color
     
-    let urgencyDescription: String?
-    let type: String
-    let genres: String
-    let vibes: String
+    let details: [String]
     
+    let urgencyDescription: String?
     var urgencyDescriptionWidth: CGFloat {
         urgencyDescription?.size(withAttributes: [.font: UIFont.preferredFont(forTextStyle: .footnote)]).width ?? 0
     }
@@ -28,8 +26,22 @@ struct PlaceViewModel {
         self.color = place.regionLevelOne.color
         
         self.urgencyDescription = place.properties.dictonary["urgency"]?.first?.capitalized
-        self.type = place.properties.dictonary["types"]?.first?.capitalized ?? "No scheduled events"
-        self.genres = (place.properties.dictonary["genres"]?.map { $0.capitalized })?.joined(separator: ", ") ?? "Unspecified"
-        self.vibes = (place.properties.dictonary["vibes"]?.map { $0.capitalized })?.joined(separator: ", ") ?? "Unspecified"
+        
+        var newDetails = [String]()
+        
+        if let type = place.properties.dictonary["types"]?.first?.capitalized {
+            newDetails.append("Type: \(type)")
+        }
+        if let genres = (place.properties.dictonary["genres"]?.map { $0.capitalized })?.joined(separator: ", ")  {
+            newDetails.append("Genres: \(genres)")
+        }
+        if let vibes = (place.properties.dictonary["vibes"]?.map { $0.capitalized })?.joined(separator: ", ") {
+            newDetails.append("Vibe: \(vibes)")
+        }
+        if newDetails.isEmpty {
+            newDetails.append("Event details unspecified")
+        }
+        
+        self.details = newDetails
     }
 }

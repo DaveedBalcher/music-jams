@@ -16,10 +16,6 @@ struct PlaceMarker: View {
         ZStack {
             let fillColor = isSelected ? .white : vm.color
             let borderColor = isSelected ? vm.color : .white
-            
-            if let detail = vm.urgencyDescription {
-                UrgencyMarker(text: detail, labelWidth: vm.urgencyDescriptionWidth, fillColor: fillColor, borderColor: borderColor)
-            }
                         
             Circle()
                 .strokeBorder(borderColor, lineWidth: 1)

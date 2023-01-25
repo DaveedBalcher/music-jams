@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1728919C28FA0944002F383C /* UrgencyMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728919B28FA0944002F383C /* UrgencyMarker.swift */; };
 		17289C1528C294E5000A701B /* MK-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17289C1428C294E5000A701B /* MK-Extensions.swift */; };
 		172B5346292D6A06009BFD82 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B01D42922BBF1004CB3C3 /* Region.swift */; };
 		172B5347292D6A06009BFD82 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B01D22922B712004CB3C3 /* Place.swift */; };
@@ -45,15 +44,14 @@
 		17604D8328BFF9A1001E3FF2 /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17604D8228BFF9A1001E3FF2 /* PlaceDetailView.swift */; };
 		17604D8728C006AC001E3FF2 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17604D8628C006AC001E3FF2 /* InfoView.swift */; };
 		17604D8A28C14F78001E3FF2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17604D8928C14F78001E3FF2 /* MapView.swift */; };
-		176B01CF291EF3EE004CB3C3 /* InfoBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B01CE291EF3EE004CB3C3 /* InfoBannerView.swift */; };
 		17AA372428DB9E3E0030F6B7 /* DefaultPlaceMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AA372328DB9E3E0030F6B7 /* DefaultPlaceMapperTests.swift */; };
 		17AA372628DE449C0030F6B7 /* Color-Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AA372528DE449C0030F6B7 /* Color-Styles.swift */; };
 		17AA372A28E4DCCA0030F6B7 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AA372928E4DCCA0030F6B7 /* WebView.swift */; };
 		17C91C1328CFC8B80038F788 /* MapNavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C91C1228CFC8B80038F788 /* MapNavigatorView.swift */; };
 		17C91C1D28CFDEEE0038F788 /* RegionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C91C1C28CFDEEE0038F788 /* RegionPicker.swift */; };
-		17C91C2228D0FD8E0038F788 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 17C91C2128D0FD8E0038F788 /* WrappingHStack */; };
 		17DC35F629817BCA007720EB /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC35F529817BCA007720EB /* ContainerView.swift */; };
-		17DC35FB298182EB007720EB /* InfoBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC35FA298182EB007720EB /* InfoBannerView.swift */; };
+		17DC360029818A33007720EB /* InfoBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC35FF29818A33007720EB /* InfoBannerView.swift */; };
+		17DC360129818B36007720EB /* UrgencyMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728919B28FA0944002F383C /* UrgencyMarker.swift */; };
 		17E62F9D2912FAC70088C3CB /* SimpleBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E62F9C2912FAC70088C3CB /* SimpleBannerView.swift */; };
 /* End PBXBuildFile section */
 
@@ -141,7 +139,6 @@
 		17604D8628C006AC001E3FF2 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		17604D8828C14902001E3FF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		17604D8928C14F78001E3FF2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		176B01CE291EF3EE004CB3C3 /* InfoBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBannerView.swift; sourceTree = "<group>"; };
 		176B01D22922B712004CB3C3 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		176B01D42922BBF1004CB3C3 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		176B01D62922BC1F004CB3C3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -151,7 +148,7 @@
 		17C91C1228CFC8B80038F788 /* MapNavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavigatorView.swift; sourceTree = "<group>"; };
 		17C91C1C28CFDEEE0038F788 /* RegionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionPicker.swift; sourceTree = "<group>"; };
 		17DC35F529817BCA007720EB /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
-		17DC35FA298182EB007720EB /* InfoBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoBannerView.swift; sourceTree = "<group>"; };
+		17DC35FF29818A33007720EB /* InfoBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoBannerView.swift; sourceTree = "<group>"; };
 		17E62F9C2912FAC70088C3CB /* SimpleBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,7 +164,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17C91C2228D0FD8E0038F788 /* WrappingHStack in Frameworks */,
 				1755E66928B577C800164552 /* MusicVenues.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,7 +304,6 @@
 				1721A82F28F8AD1B00F321FF /* View Models */,
 				17289C1628C29B50000A701B /* Views */,
 				174D45E6289C68B9001AAC96 /* Helper */,
-				176B01D0291EF6C6004CB3C3 /* PhillyJams */,
 				1755E600289DB7DF00164552 /* Assets.xcassets */,
 			);
 			path = PhillyJams;
@@ -340,22 +335,6 @@
 			path = MusicVenuesTests;
 			sourceTree = "<group>";
 		};
-		176B01D0291EF6C6004CB3C3 /* PhillyJams */ = {
-			isa = PBXGroup;
-			children = (
-				176B01D1291EF6EA004CB3C3 /* View Components */,
-			);
-			path = PhillyJams;
-			sourceTree = "<group>";
-		};
-		176B01D1291EF6EA004CB3C3 /* View Components */ = {
-			isa = PBXGroup;
-			children = (
-				176B01CE291EF3EE004CB3C3 /* InfoBannerView.swift */,
-			);
-			path = "View Components";
-			sourceTree = "<group>";
-		};
 		17C91C1428CFCA1B0038F788 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,7 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				17DC35F529817BCA007720EB /* ContainerView.swift */,
-				17DC35FA298182EB007720EB /* InfoBannerView.swift */,
+				17DC35FF29818A33007720EB /* InfoBannerView.swift */,
 				17604D8628C006AC001E3FF2 /* InfoView.swift */,
 				17AA372928E4DCCA0030F6B7 /* WebView.swift */,
 				17E62F9C2912FAC70088C3CB /* SimpleBannerView.swift */,
@@ -438,7 +417,6 @@
 			);
 			name = PhillyJams;
 			packageProductDependencies = (
-				17C91C2128D0FD8E0038F788 /* WrappingHStack */,
 			);
 			productName = PhillyJamsIOS;
 			productReference = 1755E5DE289DB4E000164552 /* PhillyJams.app */;
@@ -517,7 +495,6 @@
 			);
 			mainGroup = 174D45A5289C5C35001AAC96;
 			packageReferences = (
-				17C91C2028D0FD8E0038F788 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 			);
 			productRefGroup = 174D45AF289C5C35001AAC96 /* Products */;
 			projectDirPath = "";
@@ -579,11 +556,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17DC35FB298182EB007720EB /* InfoBannerView.swift in Sources */,
+				17DC360129818B36007720EB /* UrgencyMarker.swift in Sources */,
 				1755E604289DB7F400164552 /* PlaceMarker.swift in Sources */,
 				17604D8A28C14F78001E3FF2 /* MapView.swift in Sources */,
 				172B5354292D78A1009BFD82 /* Region+Helpers.swift in Sources */,
-				176B01CF291EF3EE004CB3C3 /* InfoBannerView.swift in Sources */,
 				17E62F9D2912FAC70088C3CB /* SimpleBannerView.swift in Sources */,
 				17604D8728C006AC001E3FF2 /* InfoView.swift in Sources */,
 				17DC35F629817BCA007720EB /* ContainerView.swift in Sources */,
@@ -593,6 +569,7 @@
 				1755E603289DB7F400164552 /* PhillyJamsApp.swift in Sources */,
 				1755E609289DB8C500164552 /* Color-HexString.swift in Sources */,
 				17AA372628DE449C0030F6B7 /* Color-Styles.swift in Sources */,
+				17DC360029818A33007720EB /* InfoBannerView.swift in Sources */,
 				17C91C1D28CFDEEE0038F788 /* RegionPicker.swift in Sources */,
 				172B5350292D7616009BFD82 /* Event+Helpers.swift in Sources */,
 				172B5362293905CD009BFD82 /* MainViewModel.swift in Sources */,
@@ -601,7 +578,6 @@
 				1755E606289DB7F400164552 /* MainView.swift in Sources */,
 				172B534E292D6B3A009BFD82 /* Property+Helpers.swift in Sources */,
 				172B5356292D7A37009BFD82 /* Place+Helpers.swift in Sources */,
-				1728919C28FA0944002F383C /* UrgencyMarker.swift in Sources */,
 				173852782924427F0012F86C /* PlaceViewModel.swift in Sources */,
 				17604D8328BFF9A1001E3FF2 /* PlaceDetailView.swift in Sources */,
 				172B534B292D6A90009BFD82 /* Preview+Helpers.swift in Sources */,
@@ -1061,25 +1037,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		17C91C2028D0FD8E0038F788 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dkk/WrappingHStack";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		17C91C2128D0FD8E0038F788 /* WrappingHStack */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 17C91C2028D0FD8E0038F788 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
-			productName = WrappingHStack;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 174D45A6289C5C35001AAC96 /* Project object */;
 }
