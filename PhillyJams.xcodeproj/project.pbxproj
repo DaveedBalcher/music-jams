@@ -23,7 +23,6 @@
 		172B536A293E9FB2009BFD82 /* DefaultPlaceMapper+DefaultEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B5369293E9FB2009BFD82 /* DefaultPlaceMapper+DefaultEvent.swift */; };
 		172B536C293EA0EB009BFD82 /* DefaultPlaceMapper+DefaultRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B536B293EA0EB009BFD82 /* DefaultPlaceMapper+DefaultRegion.swift */; };
 		172B5374293FB8CE009BFD82 /* PlaceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B5373293FB8CE009BFD82 /* PlaceViewModelTests.swift */; };
-		172B537F29425ACC009BFD82 /* SectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B537E29425ACC009BFD82 /* SectionViewModelTests.swift */; };
 		173852782924427F0012F86C /* PlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173852772924427F0012F86C /* PlaceViewModel.swift */; };
 		1738527A2924428F0012F86C /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173852792924428F0012F86C /* EventViewModel.swift */; };
 		1755E601289DB7DF00164552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1755E600289DB7DF00164552 /* Assets.xcassets */; };
@@ -52,6 +51,10 @@
 		17DC35F629817BCA007720EB /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC35F529817BCA007720EB /* ContainerView.swift */; };
 		17DC360029818A33007720EB /* InfoBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC35FF29818A33007720EB /* InfoBannerView.swift */; };
 		17DC360129818B36007720EB /* UrgencyMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728919B28FA0944002F383C /* UrgencyMarker.swift */; };
+		17DC360C2982FB17007720EB /* RemotePlaceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC360B2982FB17007720EB /* RemotePlaceLoader.swift */; };
+		17DC363429834160007720EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17DC363329833E57007720EB /* GoogleService-Info.plist */; };
+		17DC36362984182F007720EB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 17DC36352984182F007720EB /* FirebaseAnalytics */; };
+		17DC36382984182F007720EB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 17DC36372984182F007720EB /* FirebaseFirestore */; };
 		17E62F9D2912FAC70088C3CB /* SimpleBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E62F9C2912FAC70088C3CB /* SimpleBannerView.swift */; };
 /* End PBXBuildFile section */
 
@@ -115,7 +118,6 @@
 		172B536B293EA0EB009BFD82 /* DefaultPlaceMapper+DefaultRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DefaultPlaceMapper+DefaultRegion.swift"; sourceTree = "<group>"; };
 		172B5371293FB8CE009BFD82 /* PhillyJamsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhillyJamsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		172B5373293FB8CE009BFD82 /* PlaceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModelTests.swift; sourceTree = "<group>"; };
-		172B537E29425ACC009BFD82 /* SectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewModelTests.swift; sourceTree = "<group>"; };
 		17385275292433310012F86C /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		173852772924427F0012F86C /* PlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModel.swift; sourceTree = "<group>"; };
 		173852792924428F0012F86C /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
@@ -149,6 +151,8 @@
 		17C91C1C28CFDEEE0038F788 /* RegionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionPicker.swift; sourceTree = "<group>"; };
 		17DC35F529817BCA007720EB /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		17DC35FF29818A33007720EB /* InfoBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoBannerView.swift; sourceTree = "<group>"; };
+		17DC360B2982FB17007720EB /* RemotePlaceLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePlaceLoader.swift; sourceTree = "<group>"; };
+		17DC363329833E57007720EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17E62F9C2912FAC70088C3CB /* SimpleBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,6 +176,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17DC36362984182F007720EB /* FirebaseAnalytics in Frameworks */,
+				17DC36382984182F007720EB /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				172B5373293FB8CE009BFD82 /* PlaceViewModelTests.swift */,
-				172B537E29425ACC009BFD82 /* SectionViewModelTests.swift */,
 			);
 			path = PhillyJamsTests;
 			sourceTree = "<group>";
@@ -275,13 +280,8 @@
 		174D45DD289C5CDA001AAC96 /* VenueAPI */ = {
 			isa = PBXGroup;
 			children = (
-				174D45E4289C689B001AAC96 /* DefaultPlaceLoader.swift */,
-				174D45F2289D9C2C001AAC96 /* DefaultPlaceMapper.swift */,
-				172B5365293E9ED0009BFD82 /* DefaultPlaceMapper+Root.swift */,
-				172B5367293E9F0A009BFD82 /* DefaultPlaceMapper+DefaultPlace.swift */,
-				172B536B293EA0EB009BFD82 /* DefaultPlaceMapper+DefaultRegion.swift */,
-				172B5369293E9FB2009BFD82 /* DefaultPlaceMapper+DefaultEvent.swift */,
-				174D45E9289C6AE8001AAC96 /* DefaultPlaceStore.json */,
+				17DC360B2982FB17007720EB /* RemotePlaceLoader.swift */,
+				17DC360A2982FAE0007720EB /* DefaultPlaceLoader */,
 			);
 			path = VenueAPI;
 			sourceTree = "<group>";
@@ -299,6 +299,7 @@
 		1755E5CD289DB4A400164552 /* PhillyJams */ = {
 			isa = PBXGroup;
 			children = (
+				17DC363329833E57007720EB /* GoogleService-Info.plist */,
 				17604D8828C14902001E3FF2 /* Info.plist */,
 				174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */,
 				1721A82F28F8AD1B00F321FF /* View Models */,
@@ -369,6 +370,20 @@
 			path = "ContainerView+Subviews";
 			sourceTree = "<group>";
 		};
+		17DC360A2982FAE0007720EB /* DefaultPlaceLoader */ = {
+			isa = PBXGroup;
+			children = (
+				174D45E4289C689B001AAC96 /* DefaultPlaceLoader.swift */,
+				174D45F2289D9C2C001AAC96 /* DefaultPlaceMapper.swift */,
+				172B5365293E9ED0009BFD82 /* DefaultPlaceMapper+Root.swift */,
+				172B5367293E9F0A009BFD82 /* DefaultPlaceMapper+DefaultPlace.swift */,
+				172B536B293EA0EB009BFD82 /* DefaultPlaceMapper+DefaultRegion.swift */,
+				172B5369293E9FB2009BFD82 /* DefaultPlaceMapper+DefaultEvent.swift */,
+				174D45E9289C6AE8001AAC96 /* DefaultPlaceStore.json */,
+			);
+			path = DefaultPlaceLoader;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -436,6 +451,10 @@
 			dependencies = (
 			);
 			name = MusicVenues;
+			packageProductDependencies = (
+				17DC36352984182F007720EB /* FirebaseAnalytics */,
+				17DC36372984182F007720EB /* FirebaseFirestore */,
+			);
 			productName = MusicVenues;
 			productReference = 1755E61D28A4419C00164552 /* MusicVenues.framework */;
 			productType = "com.apple.product-type.framework";
@@ -495,6 +514,7 @@
 			);
 			mainGroup = 174D45A5289C5C35001AAC96;
 			packageReferences = (
+				17DC3624298303F8007720EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 174D45AF289C5C35001AAC96 /* Products */;
 			projectDirPath = "";
@@ -522,6 +542,7 @@
 			files = (
 				1755E601289DB7DF00164552 /* Assets.xcassets in Resources */,
 				1755E64728A58D9500164552 /* DefaultPlaceStore.json in Resources */,
+				17DC363429834160007720EB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +568,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				172B537F29425ACC009BFD82 /* SectionViewModelTests.swift in Sources */,
 				172B5374293FB8CE009BFD82 /* PlaceViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,6 +618,7 @@
 				172B5346292D6A06009BFD82 /* Region.swift in Sources */,
 				172B5368293E9F0A009BFD82 /* DefaultPlaceMapper+DefaultPlace.swift in Sources */,
 				172B5366293E9ED0009BFD82 /* DefaultPlaceMapper+Root.swift in Sources */,
+				17DC360C2982FB17007720EB /* RemotePlaceLoader.swift in Sources */,
 				172B5349292D6A06009BFD82 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -820,7 +841,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Daveed.PhillyJams;
+				PRODUCT_BUNDLE_IDENTIFIER = DaveedBalcher.MusicJams;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -856,7 +877,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Daveed.PhillyJams;
+				PRODUCT_BUNDLE_IDENTIFIER = DaveedBalcher.MusicJams;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -888,6 +909,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = Xpressive.MusicVenues;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
@@ -922,6 +944,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = Xpressive.MusicVenues;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
@@ -1037,6 +1060,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		17DC3624298303F8007720EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		17DC36352984182F007720EB /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17DC3624298303F8007720EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		17DC36372984182F007720EB /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17DC3624298303F8007720EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 174D45A6289C5C35001AAC96 /* Project object */;
 }

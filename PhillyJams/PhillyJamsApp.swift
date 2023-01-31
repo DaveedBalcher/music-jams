@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MusicVenues
+import Firebase
 
 class MainFlow {
     init(vm: MainViewModel) {
@@ -20,6 +21,9 @@ private let mainViewModel = MainViewModel(loader: DefaultPlaceLoader())
 
 @main
 struct PhillyJamsApp: App {
+//    init() {
+//        FirebaseApp.configure()
+//    }
     
     let mainFlow = MainFlow(vm: mainViewModel)
     

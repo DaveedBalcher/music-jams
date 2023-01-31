@@ -31,7 +31,7 @@ class DefaultPlaceMapperTests: XCTestCase {
             "places": [makePlace1()]
         ])
 
-        let mappedPlaces = DefaultPlaceMapper.map(data)
+        let (_, mappedPlaces) = DefaultPlaceMapper.map(data)
 
         let item = makePlaceItem1()
         XCTAssertEqual(mappedPlaces.count, 1)
@@ -46,7 +46,7 @@ class DefaultPlaceMapperTests: XCTestCase {
             "places": [makePlaceWithOneEvent()]
         ])
 
-        let mappedPlaces = DefaultPlaceMapper.map(data)
+        let (_, mappedPlaces) = DefaultPlaceMapper.map(data)
         let mappedPlace = mappedPlaces[0]
         let mappedEvent = mappedPlace.events.first
         let placeItem = makePlaceItemWithOneEvent()
@@ -67,7 +67,7 @@ class DefaultPlaceMapperTests: XCTestCase {
             "places": [makePlaceWithOneEventTomorrow()]
         ])
 
-        let mappedPlaces = DefaultPlaceMapper.map(data)
+        let (_, mappedPlaces) = DefaultPlaceMapper.map(data)
         
         XCTAssertEqual(mappedPlaces[0].properties.count, 4)
         XCTAssertEqual(mappedPlaces[0].properties.dictonary["urgency"], ["tomorrow"])

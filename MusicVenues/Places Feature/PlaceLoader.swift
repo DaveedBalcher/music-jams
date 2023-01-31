@@ -8,7 +8,7 @@
 import Foundation
 
 public protocol PlaceLoader {
-    typealias LoadCompletion = (_ regions: [Region], _ places: [Place]) -> Void
-
-    func load(completion: @escaping LoadCompletion)
+    typealias Result = ([Region], [Place])
+    
+    func load(completion: @escaping (Result) -> Void)
 }

@@ -9,7 +9,7 @@ import Foundation
 
 final class DefaultPlaceMapper {
     
-    typealias MappedResult = (regions: [Region], places: [Place])
+    typealias MappedResult = PlaceLoader.Result
     
     static func map(_ data: Data) -> MappedResult {
         let decoder = JSONDecoder()

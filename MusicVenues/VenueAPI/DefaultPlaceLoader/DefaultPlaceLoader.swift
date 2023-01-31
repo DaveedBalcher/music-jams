@@ -29,8 +29,8 @@ public final class DefaultPlaceLoader: PlaceLoader {
         }
     }
     
-    public func load(completion: @escaping LoadCompletion) {
+    public func load(completion: @escaping (PlaceLoader.Result) -> Void) {
         loadDefaultItems()
-        completion(regions, places)
+        completion((regions,places))
     }
 }
