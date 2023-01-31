@@ -17,7 +17,7 @@ class MainFlow {
     }
 }
 
-private let mainViewModel = MainViewModel(loader: DefaultPlaceLoader())
+private let mainViewModel = MainViewModel(loader: RemotePlaceLoader())
 
 @main
 struct PhillyJamsApp: App {

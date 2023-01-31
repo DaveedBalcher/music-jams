@@ -39,7 +39,7 @@ struct PlaceViewModel {
             newDetails.append("Vibe: \(vibes)")
         }
         if newDetails.isEmpty {
-            newDetails.append("Event details unspecified")
+            newDetails.append("Regular music events")
         }
         
         self.details = newDetails

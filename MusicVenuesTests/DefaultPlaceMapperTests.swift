@@ -116,7 +116,7 @@ class DefaultPlaceMapperTests: XCTestCase {
         Place(title: "any place",
               latitude: 39.9698626,
               longitude: -75.1435606,
-              regionLevelOne: makeRegionItem1(),
+              levelOneRegion: makeRegionItem1(),
               events: [])
         
     }
@@ -176,7 +176,7 @@ class DefaultPlaceMapperTests: XCTestCase {
         return Place(title: "any place",
                           latitude: 39.9698626,
                           longitude: -75.1435606,
-                          regionLevelOne: makeRegionItem1(),
+                          levelOneRegion: makeRegionItem1(),
                           events: [event]
         )
     }

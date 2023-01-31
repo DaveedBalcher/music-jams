@@ -47,11 +47,11 @@ public struct Place  {
         }.sorted()
     }
     
-    public init(title: String, latitude: Double, longitude: Double, regionLevelOne: Region, events: [Event], icon: Image? = nil) {
+    public init(title: String, latitude: Double, longitude: Double, levelOneRegion: Region, events: [Event], icon: Image? = nil) {
         self.title = title
         self.latitude = latitude
         self.longitude = longitude
-        self.regionLevelOne = regionLevelOne
+        self.regionLevelOne = levelOneRegion
         self.events = events
         self.icon = icon
     }

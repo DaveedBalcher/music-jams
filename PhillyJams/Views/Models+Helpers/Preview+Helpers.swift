@@ -25,7 +25,7 @@ extension Place {
         Place(title: "Bar",
               latitude: 39.9509,
               longitude: -75.1575,
-              regionLevelOne: Region.preview,
+              levelOneRegion: Region.preview,
               events: [])
     }
     
@@ -33,7 +33,7 @@ extension Place {
         self.init(title: "Bar",
               latitude: 39.9509,
               longitude: -75.1575,
-              regionLevelOne: Region.preview,
+              levelOneRegion: Region.preview,
               events: events)
     }
 }

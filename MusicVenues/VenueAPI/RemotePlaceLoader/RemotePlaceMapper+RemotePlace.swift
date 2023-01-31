@@ -1,5 +1,5 @@
 //
-//  DefaultPlaceMapper.swift
+//  RemotePlaceMapper.swift
 //  PhillyJams
 //
 //  Created by Daveed Balcher on 8/5/22.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-extension DefaultPlaceMapper.Root {
+extension RemotePlaceMapper {
     
-    struct DefaultPlace: Decodable {
+    struct RemotePlace: Decodable {
         let name: String
         let levelOneRegion: String
         let coordinates: [Double]
-        let events: [DefaultEvent]?
+        let events: [RemoteEvent]?
         
         var eventItems: [Event] {
             let items = events?.map { $0.item } ?? []

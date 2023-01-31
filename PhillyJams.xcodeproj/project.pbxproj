@@ -25,6 +25,11 @@
 		172B5374293FB8CE009BFD82 /* PlaceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B5373293FB8CE009BFD82 /* PlaceViewModelTests.swift */; };
 		173852782924427F0012F86C /* PlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173852772924427F0012F86C /* PlaceViewModel.swift */; };
 		1738527A2924428F0012F86C /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173852792924428F0012F86C /* EventViewModel.swift */; };
+		174080322989970200495430 /* RemotePlaceMapper+RemotePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1740802E2989970200495430 /* RemotePlaceMapper+RemotePlace.swift */; };
+		174080332989970200495430 /* RemotePlaceMapper+RemoteRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174080312989970200495430 /* RemotePlaceMapper+RemoteRegion.swift */; };
+		174080342989970200495430 /* RemotePlaceMapper+RemoteEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174080302989970200495430 /* RemotePlaceMapper+RemoteEvent.swift */; };
+		174080352989970200495430 /* RemotePlaceMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1740802D2989970200495430 /* RemotePlaceMapper.swift */; };
+		1740803A2989C12300495430 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 174080392989C12300495430 /* FirebaseFirestoreSwift */; };
 		1755E601289DB7DF00164552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1755E600289DB7DF00164552 /* Assets.xcassets */; };
 		1755E603289DB7F400164552 /* PhillyJamsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */; };
 		1755E604289DB7F400164552 /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E5BF289DAEBD00164552 /* PlaceMarker.swift */; };
@@ -121,6 +126,10 @@
 		17385275292433310012F86C /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		173852772924427F0012F86C /* PlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModel.swift; sourceTree = "<group>"; };
 		173852792924428F0012F86C /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
+		1740802D2989970200495430 /* RemotePlaceMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePlaceMapper.swift; sourceTree = "<group>"; };
+		1740802E2989970200495430 /* RemotePlaceMapper+RemotePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemotePlaceMapper+RemotePlace.swift"; sourceTree = "<group>"; };
+		174080302989970200495430 /* RemotePlaceMapper+RemoteEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemotePlaceMapper+RemoteEvent.swift"; sourceTree = "<group>"; };
+		174080312989970200495430 /* RemotePlaceMapper+RemoteRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemotePlaceMapper+RemoteRegion.swift"; sourceTree = "<group>"; };
 		174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhillyJamsApp.swift; sourceTree = "<group>"; };
 		174D45E0289C5F42001AAC96 /* PlaceLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceLoader.swift; sourceTree = "<group>"; };
 		174D45E4289C689B001AAC96 /* DefaultPlaceLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPlaceLoader.swift; sourceTree = "<group>"; };
@@ -178,6 +187,7 @@
 			files = (
 				17DC36362984182F007720EB /* FirebaseAnalytics in Frameworks */,
 				17DC36382984182F007720EB /* FirebaseFirestore in Frameworks */,
+				1740803A2989C12300495430 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +254,18 @@
 			path = "MapView+Subviews";
 			sourceTree = "<group>";
 		};
+		1740802C298996EF00495430 /* RemotePlaceLoader */ = {
+			isa = PBXGroup;
+			children = (
+				17DC360B2982FB17007720EB /* RemotePlaceLoader.swift */,
+				1740802D2989970200495430 /* RemotePlaceMapper.swift */,
+				1740802E2989970200495430 /* RemotePlaceMapper+RemotePlace.swift */,
+				174080312989970200495430 /* RemotePlaceMapper+RemoteRegion.swift */,
+				174080302989970200495430 /* RemotePlaceMapper+RemoteEvent.swift */,
+			);
+			path = RemotePlaceLoader;
+			sourceTree = "<group>";
+		};
 		174D45A5289C5C35001AAC96 = {
 			isa = PBXGroup;
 			children = (
@@ -280,7 +302,7 @@
 		174D45DD289C5CDA001AAC96 /* VenueAPI */ = {
 			isa = PBXGroup;
 			children = (
-				17DC360B2982FB17007720EB /* RemotePlaceLoader.swift */,
+				1740802C298996EF00495430 /* RemotePlaceLoader */,
 				17DC360A2982FAE0007720EB /* DefaultPlaceLoader */,
 			);
 			path = VenueAPI;
@@ -454,6 +476,7 @@
 			packageProductDependencies = (
 				17DC36352984182F007720EB /* FirebaseAnalytics */,
 				17DC36372984182F007720EB /* FirebaseFirestore */,
+				174080392989C12300495430 /* FirebaseFirestoreSwift */,
 			);
 			productName = MusicVenues;
 			productReference = 1755E61D28A4419C00164552 /* MusicVenues.framework */;
@@ -608,17 +631,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				174080332989970200495430 /* RemotePlaceMapper+RemoteRegion.swift in Sources */,
 				172B536C293EA0EB009BFD82 /* DefaultPlaceMapper+DefaultRegion.swift in Sources */,
+				174080352989970200495430 /* RemotePlaceMapper.swift in Sources */,
 				172B536A293E9FB2009BFD82 /* DefaultPlaceMapper+DefaultEvent.swift in Sources */,
 				1755E64228A5705200164552 /* DefaultPlaceMapper.swift in Sources */,
 				172B5347292D6A06009BFD82 /* Place.swift in Sources */,
 				1755E64428A5705200164552 /* DefaultPlaceLoader.swift in Sources */,
 				172B5348292D6A06009BFD82 /* Property.swift in Sources */,
 				1755E64028A5704E00164552 /* PlaceLoader.swift in Sources */,
+				174080322989970200495430 /* RemotePlaceMapper+RemotePlace.swift in Sources */,
 				172B5346292D6A06009BFD82 /* Region.swift in Sources */,
 				172B5368293E9F0A009BFD82 /* DefaultPlaceMapper+DefaultPlace.swift in Sources */,
 				172B5366293E9ED0009BFD82 /* DefaultPlaceMapper+Root.swift in Sources */,
 				17DC360C2982FB17007720EB /* RemotePlaceLoader.swift in Sources */,
+				174080342989970200495430 /* RemotePlaceMapper+RemoteEvent.swift in Sources */,
 				172B5349292D6A06009BFD82 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1073,6 +1100,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		174080392989C12300495430 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17DC3624298303F8007720EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
 		17DC36352984182F007720EB /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 17DC3624298303F8007720EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
