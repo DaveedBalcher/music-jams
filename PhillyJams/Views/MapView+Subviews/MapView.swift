@@ -26,12 +26,11 @@ struct MapView: View {
                     PlaceMarker(vm: PlaceViewModel(place: place), isSelected: place == selectedPlace)
                     .onTapGesture {
                         didSelectPlace?(place)
-                        print("Clicked on \(place.title)")
                     }
                 }
             }
             .padding([.top], -8)
-            .animation(.default, value: selectedRegion.mkRegion)
+            .animation(.default, value: selectedRegion)
             .ignoresSafeArea()
             .edgesIgnoringSafeArea(.all)
         }

@@ -29,19 +29,61 @@ struct PlaceViewModel {
         
         var newDetails = [String]()
         
-        if let type = place.properties.dictonary["types"]?.first?.capitalized {
-            newDetails.append("Type: \(type)")
+        if let urgencyDescription = urgencyDescription {
+            newDetails.append("Next event: \(urgencyDescription)")
         }
-        if let genres = (place.properties.dictonary["genres"]?.map { $0.capitalized })?.joined(separator: ", ")  {
-            newDetails.append("Genres: \(genres)")
+        
+        var newDescription = [String]()
+        
+        if let vibes = (place.properties.dictonary["vibes"]?.map { $0 })?.joined(separator: ", ").lowercased() {
+            newDescription.append(vibes)
         }
-        if let vibes = (place.properties.dictonary["vibes"]?.map { $0.capitalized })?.joined(separator: ", ") {
-            newDetails.append("Vibe: \(vibes)")
+        if let genres = (place.properties.dictonary["genres"]?.map { $0 })?.joined(separator: ", ").lowercased()  {
+            newDescription.append(genres.replacingOccurrences(of: "open", with: ""))
         }
-        if newDetails.isEmpty {
+        if let types = place.properties.dictonary["types"],
+           let type = types.count == 1 ? types.first : "jams and open mics" {
+            newDescription.append(type.lowercased())
+        }
+        
+        if newDescription.isEmpty {
             newDetails.append("Regular music events")
+        } else {
+            let descriptionString = newDescription.joined(separator:" ").removeDuplicateWords().capitalizingFirstLetter()
+            newDetails.append(descriptionString)
         }
         
         self.details = newDetails
+    }
+}
+
+private extension String {
+    func removeDuplicateWords() -> String {
+        let words = self.split(separator: " ")
+        var set = Set<String>()
+        var result = [String]()
+        for word in words {
+            var stringWord = String(word)
+            if stringWord.hasSuffix(",") {
+                stringWord.removeLast()
+            }
+            if !set.contains(stringWord) {
+                set.insert(stringWord)
+                if word.hasSuffix(",") {
+                    result.append(stringWord + ",")
+                } else {
+                    result.append(stringWord)
+                }
+            }
+        }
+        return result.joined(separator: " ")
+    }
+    
+    func capitalizingFirstLetter() -> String {
+      return prefix(1).uppercased() + self.lowercased().dropFirst()
+    }
+
+    mutating func capitalizeFirstLetter() {
+      self = self.capitalizingFirstLetter()
     }
 }

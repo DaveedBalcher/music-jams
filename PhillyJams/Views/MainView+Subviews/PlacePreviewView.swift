@@ -39,11 +39,12 @@ struct PlacePreviewView: View {
                     ForEach(placeVM.details, id: \.self) { field in
                         HStack(spacing: 0) {
                             Text(field)
+                                .multilineTextAlignment(.leading)
                         }
                     }
                 }
                 .font(.subheadline)
-                .foregroundColor(Color.accentColor)
+                .foregroundColor(Color.accentColor.opacity(0.5))
                 
                 Spacer()
             }
@@ -73,8 +74,7 @@ struct PlacePreviewView_Previews: PreviewProvider {
             
             let place = Place(with: [Event.preview])
 
-            PlacePreviewView(placeVM: PlaceViewModel(place: place)
-            )
+            PlacePreviewView(placeVM: PlaceViewModel(place: place))
         }
     }
 }

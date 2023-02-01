@@ -29,7 +29,6 @@
 		174080332989970200495430 /* RemotePlaceMapper+RemoteRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174080312989970200495430 /* RemotePlaceMapper+RemoteRegion.swift */; };
 		174080342989970200495430 /* RemotePlaceMapper+RemoteEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174080302989970200495430 /* RemotePlaceMapper+RemoteEvent.swift */; };
 		174080352989970200495430 /* RemotePlaceMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1740802D2989970200495430 /* RemotePlaceMapper.swift */; };
-		1740803A2989C12300495430 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 174080392989C12300495430 /* FirebaseFirestoreSwift */; };
 		1755E601289DB7DF00164552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1755E600289DB7DF00164552 /* Assets.xcassets */; };
 		1755E603289DB7F400164552 /* PhillyJamsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */; };
 		1755E604289DB7F400164552 /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E5BF289DAEBD00164552 /* PlaceMarker.swift */; };
@@ -187,7 +186,6 @@
 			files = (
 				17DC36362984182F007720EB /* FirebaseAnalytics in Frameworks */,
 				17DC36382984182F007720EB /* FirebaseFirestore in Frameworks */,
-				1740803A2989C12300495430 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,7 +474,6 @@
 			packageProductDependencies = (
 				17DC36352984182F007720EB /* FirebaseAnalytics */,
 				17DC36372984182F007720EB /* FirebaseFirestore */,
-				174080392989C12300495430 /* FirebaseFirestoreSwift */,
 			);
 			productName = MusicVenues;
 			productReference = 1755E61D28A4419C00164552 /* MusicVenues.framework */;
@@ -855,6 +852,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhillyJams/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Philly Jams";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs location to show you events close to you";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -872,9 +871,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -891,6 +893,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhillyJams/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Philly Jams";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs location to show you events close to you";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -908,9 +912,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -941,10 +948,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -976,10 +985,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1100,11 +1111,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		174080392989C12300495430 /* FirebaseFirestoreSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 17DC3624298303F8007720EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestoreSwift;
-		};
 		17DC36352984182F007720EB /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 17DC3624298303F8007720EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
