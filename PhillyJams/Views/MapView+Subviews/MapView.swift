@@ -25,7 +25,9 @@ struct MapView: View {
                 MapAnnotation(coordinate: place.coordinate) {
                     PlaceMarker(vm: PlaceViewModel(place: place), isSelected: place == selectedPlace)
                     .onTapGesture {
-                        didSelectPlace?(place)
+                        withAnimation {
+                            didSelectPlace?(place)
+                        }
                     }
                 }
             }

@@ -52,3 +52,15 @@ extension Region: Hashable {
         hasher.combine(title)
     }
 }
+
+extension Region {
+    static var defaultLevelTwo: Region {
+        Region(
+            title: "Philadelphia",
+            colorString: "006BB6",
+            level: .two,
+            latitude: 39.975,
+            longitude: -75.175
+        )
+    }
+}

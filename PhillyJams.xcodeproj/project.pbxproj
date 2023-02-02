@@ -29,6 +29,8 @@
 		174080332989970200495430 /* RemotePlaceMapper+RemoteRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174080312989970200495430 /* RemotePlaceMapper+RemoteRegion.swift */; };
 		174080342989970200495430 /* RemotePlaceMapper+RemoteEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174080302989970200495430 /* RemotePlaceMapper+RemoteEvent.swift */; };
 		174080352989970200495430 /* RemotePlaceMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1740802D2989970200495430 /* RemotePlaceMapper.swift */; };
+		1740803C298AA7DB00495430 /* PlaceDetailsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1740803B298AA7DB00495430 /* PlaceDetailsFactory.swift */; };
+		1740803E298C593D00495430 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1740803D298C593D00495430 /* Launch Screen.storyboard */; };
 		1755E601289DB7DF00164552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1755E600289DB7DF00164552 /* Assets.xcassets */; };
 		1755E603289DB7F400164552 /* PhillyJamsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */; };
 		1755E604289DB7F400164552 /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1755E5BF289DAEBD00164552 /* PlaceMarker.swift */; };
@@ -129,6 +131,8 @@
 		1740802E2989970200495430 /* RemotePlaceMapper+RemotePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemotePlaceMapper+RemotePlace.swift"; sourceTree = "<group>"; };
 		174080302989970200495430 /* RemotePlaceMapper+RemoteEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemotePlaceMapper+RemoteEvent.swift"; sourceTree = "<group>"; };
 		174080312989970200495430 /* RemotePlaceMapper+RemoteRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemotePlaceMapper+RemoteRegion.swift"; sourceTree = "<group>"; };
+		1740803B298AA7DB00495430 /* PlaceDetailsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsFactory.swift; sourceTree = "<group>"; };
+		1740803D298C593D00495430 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhillyJamsApp.swift; sourceTree = "<group>"; };
 		174D45E0289C5F42001AAC96 /* PlaceLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceLoader.swift; sourceTree = "<group>"; };
 		174D45E4289C689B001AAC96 /* DefaultPlaceLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPlaceLoader.swift; sourceTree = "<group>"; };
@@ -312,6 +316,7 @@
 				1755E608289DB8C500164552 /* Color-HexString.swift */,
 				17AA372528DE449C0030F6B7 /* Color-Styles.swift */,
 				17289C1428C294E5000A701B /* MK-Extensions.swift */,
+				1740803B298AA7DB00495430 /* PlaceDetailsFactory.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 				17DC363329833E57007720EB /* GoogleService-Info.plist */,
 				17604D8828C14902001E3FF2 /* Info.plist */,
 				174D45B1289C5C35001AAC96 /* PhillyJamsApp.swift */,
+				1740803D298C593D00495430 /* Launch Screen.storyboard */,
 				1721A82F28F8AD1B00F321FF /* View Models */,
 				17289C1628C29B50000A701B /* Views */,
 				174D45E6289C68B9001AAC96 /* Helper */,
@@ -562,6 +568,7 @@
 			files = (
 				1755E601289DB7DF00164552 /* Assets.xcassets in Resources */,
 				1755E64728A58D9500164552 /* DefaultPlaceStore.json in Resources */,
+				1740803E298C593D00495430 /* Launch Screen.storyboard in Resources */,
 				17DC363429834160007720EB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -609,6 +616,7 @@
 				1755E603289DB7F400164552 /* PhillyJamsApp.swift in Sources */,
 				1755E609289DB8C500164552 /* Color-HexString.swift in Sources */,
 				17AA372628DE449C0030F6B7 /* Color-Styles.swift in Sources */,
+				1740803C298AA7DB00495430 /* PlaceDetailsFactory.swift in Sources */,
 				17DC360029818A33007720EB /* InfoBannerView.swift in Sources */,
 				17C91C1D28CFDEEE0038F788 /* RegionPicker.swift in Sources */,
 				172B5350292D7616009BFD82 /* Event+Helpers.swift in Sources */,
@@ -846,7 +854,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = W5SMVQ4M6D;
 				ENABLE_PREVIEWS = YES;
@@ -858,6 +866,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
@@ -867,7 +876,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = DaveedBalcher.MusicJams;
+				PRODUCT_BUNDLE_IDENTIFIER = Daveed.PhillyJams;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -887,7 +896,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = W5SMVQ4M6D;
 				ENABLE_PREVIEWS = YES;
@@ -899,6 +908,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
@@ -908,7 +918,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = DaveedBalcher.MusicJams;
+				PRODUCT_BUNDLE_IDENTIFIER = Daveed.PhillyJams;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
